@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" style="-fx-background-color: black;" styleClass="ContentSplitPane" xmlns="http://javafx.com/javafx/8" fx:controller="adtekfuji.andon.agenda.component.AgendaHorizonCompoController">
+    <AnchorPane fx:id="scalePane" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0">
+        <!-- チャート描画領域 -->
+        <AnchorPane fx:id="contentPane" prefHeight="880.0" prefWidth="1780.0" style="-fx-background-color: black;" styleClass="ContentPane" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="50.0" AnchorPane.bottomAnchor="0" />
+        <!-- 現在時ライン -->
+        <Label fx:id="timeLine" minWidth="-Infinity" prefHeight="9999" prefWidth="2.0" style="-fx-background-color: red;" AnchorPane.topAnchor="0.0" />
+        <!-- 縦軸 -->
+        <AnchorPane fx:id="verticalPane" minHeight="0.0" minWidth="0.0" prefHeight="880.0" prefWidth="300.0" style="-fx-background-color: black;" styleClass="SideNaviPane" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="50.0" />
+        <!-- 横軸 -->
+        <AnchorPane fx:id="horizonPane" prefHeight="50.0" prefWidth="1780.0" style="-fx-background-color: black;" styleClass="SideNaviPane" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="0.0" />
+        <!-- 目隠し -->
+        <AnchorPane fx:id="blindPane" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: black;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+        <!-- 底辺ライン -->
+        <!-- <Label minHeight="-Infinity" prefHeight="2.0" style="-fx-background-color: lightgray;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.bottomAnchor="0.0" /> -->
+    </AnchorPane>
+
+    <!-- 縦スクロールバー -->
+    <ScrollBar fx:id="scrollBarHeight" orientation="VERTICAL" prefWidth="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+    <!-- 横スクロールバー -->
+    <ScrollBar fx:id="scrollBarWidth" orientation="HORIZONTAL" prefHeight="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="20.0" />
+    <!-- ズームスライダ -->
+    <Slider fx:id="sliderZoom" orientation="VERTICAL" prefHeight="500.0" prefWidth="30.0" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+    <!-- ズームボタン -->
+    <Button fx:id="labelZoom" prefHeight="20.0" prefWidth="20.0" style="-fx-background-image: url('image/btnZoomOFF.PNG'); -fx-background-repeat: no-repeat; -fx-background-position: center center; -fx-border-width: 0;-fx-border-color: black; -fx-padding: 0; -fx-spacing: 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0"/>
+</AnchorPane>

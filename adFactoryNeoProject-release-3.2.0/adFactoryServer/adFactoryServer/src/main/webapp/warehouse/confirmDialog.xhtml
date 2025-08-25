@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>#{msg[param['title']]}</title>
+        <h:outputStylesheet library="styles" name="styles.css"/>
+        <f:loadBundle basename="jp.adtekfuji.adfactoryserver.locale.locale" var="msg"/>
+        <style>
+            body {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                padding: 10px;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:outputText id="messageLabel" styleClass="font-normal" value="#{msg[param['id']]}" escape="true" />
+            <h:outputText id="detailLabel" styleClass="font-normal pre-formatted" value="#{param['detail']}" escape="true" />
+            <p:panelGrid columns="2" styleClass="dialogGrid">
+                <p:commandButton id="yesButton" styleClass="font-normal" style="width:120px;"
+                                 value="#{msg['key.Yes']}" actionListener="#{acceptData.closeDialog}" >
+                    <f:param name="id" value="#{param['id']}" />
+                    <f:param name="action" value="YES" />
+                </p:commandButton>
+                <p:commandButton id="noButton" styleClass="font-normal" style="width:120px;" 
+                                 value="#{msg['key.No']}" actionListener="#{acceptData.closeDialog}">
+                    <f:param name="id" value="#{param['id']}" />
+                    <f:param name="action" value="NO" />
+                </p:commandButton>
+            </p:panelGrid>
+        </h:form>
+    </h:body>
+</html>

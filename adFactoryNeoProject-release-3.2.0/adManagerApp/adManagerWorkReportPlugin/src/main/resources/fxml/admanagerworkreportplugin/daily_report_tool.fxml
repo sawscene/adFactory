@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="contentPane" prefHeight="160.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.workreportplugin.component.DailyReportToolController">
+    <children>
+        <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <GridPane vgap="16.0" >
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                        <RowConstraints vgrow="SOMETIMES" minHeight="-Infinity" />
+                    </rowConstraints>
+                    <children>
+                        <!-- メッセージ -->
+                        <Label text="%key.WorkReport.Tool.Description" alignment="CENTER_LEFT" />
+                        <GridPane hgap="16.0" vgap="8.0" GridPane.rowIndex="1" >
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                <ColumnConstraints hgrow="SOMETIMES" prefWidth="100.0" maxWidth="-Infinity" minWidth="-Infinity" />
+                                <ColumnConstraints hgrow="SOMETIMES" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                                <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                                <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                            </rowConstraints>
+                            <children>
+                                <!-- 基準時間 -->
+                                <Label text="%key.ReferenceTime" alignment="CENTER_LEFT" />
+                                <TextField fx:id="referenceTimeField" alignment="CENTER_RIGHT" GridPane.columnIndex="1" />
+                                <!-- 作業時間 -->
+                                <Label text="%key.WorkTime" alignment="CENTER_LEFT" GridPane.rowIndex="1" />
+                                <Pane fx:id="workTimeBgPane" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <Label fx:id="workTimeLabel" GridPane.halignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <padding>
+                                        <Insets bottom="3.0" left="4.0" right="4.0" top="3.0" />
+                                    </padding>
+                                </Label>
+                                <Label fx:id="workMinLabel" alignment="CENTER_LEFT" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                <!-- 差異 -->
+                                <Label text="%key.Difference" alignment="CENTER_LEFT" GridPane.rowIndex="2" />
+                                <Label fx:id="differenceTimeLabel" GridPane.halignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                    <padding>
+                                        <Insets bottom="3.0" left="4.0" right="4.0" top="3.0" />
+                                    </padding>
+                                </Label>
+                                <Label fx:id="differenceMinLabel" alignment="CENTER_LEFT" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                            </children>
+                            <padding>
+                                <Insets bottom="0.0" left="16.0" right="0.0" top="0.0" />
+                            </padding>
+                        </GridPane>
+                    </children>
+                    <padding>
+                        <Insets bottom="0.0" left="8.0" right="8.0" top="8.0" />
+                    </padding>
+                </GridPane>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

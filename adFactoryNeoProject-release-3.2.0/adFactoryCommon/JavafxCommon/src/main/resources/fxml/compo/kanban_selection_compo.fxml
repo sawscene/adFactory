@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import org.controlsfx.control.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jp.adtekfuji.javafxcommon.selectcompo.KanbanSelectionCompoFxController">
+    <children>
+        <StackPane fx:id="stackPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <GridPane>
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" />
+                        <ColumnConstraints hgrow="ALWAYS" />
+                        <ColumnConstraints hgrow="SOMETIMES" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <HBox fx:id="conditionPane" managed="false" GridPane.rowIndex="0" spacing="20" alignment="TOP_LEFT">
+                            <padding>
+                                <Insets bottom="10" left="10" top="0" right="10" />
+                            </padding>
+                            <children>
+                                <!-- 対象日 -->
+                                <VBox spacing="8.0" >
+                                    <children>
+                                        <Label text="%key.TargetDay" />
+                                        <HBox spacing="8.0" alignment="BASELINE_CENTER" >
+                                            <DatePicker fx:id="fromDatePicker" prefWidth="130.0" />
+                                            <Label text="%key.FromSymbol" />
+                                            <DatePicker fx:id="toDatePicker" prefWidth="130.0" />
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                                <!-- ステータス -->
+                                <VBox fx:id="statusPane" spacing="8.0" >
+                                    <children>
+                                        <Label text="%key.Status" />
+                                        <CheckListView fx:id="statusList" prefHeight="94.0" />
+                                    </children>
+                                </VBox>
+                                <!-- 更新 -->
+                                <VBox alignment="BOTTOM_LEFT">
+                                    <Button text="%key.Update" onAction="#onUpdate" styleClass="ContentButton" />
+                                </VBox>
+                            </children>
+                        </HBox>
+                        <!-- カンバン選択エリア -->
+                        <SplitPane dividerPositions="0.14, 0.70" prefWidth="1400.0" styleClass="ContentSplitPane" GridPane.rowIndex="1" GridPane.columnIndex="0">
+                            <items>
+                                <!-- カンバン階層 -->
+                                <VBox>
+                                    <children>
+                                        <TreeView fx:id="hierarchyTree" minWidth="100.0" onKeyPressed="#onKeyPressed" />
+                                    </children>
+                                </VBox>                   
+                                <!-- カンバン一覧 -->               
+                                <ScrollPane fitToHeight="true" fitToWidth="true" minWidth="100.0" >
+                                    <content>
+                                        <TableView fx:id="kanbanList">
+                                            <columns>
+                                                <TableColumn fx:id="kanbanNameColumn" prefWidth="220.0" text="%key.KanbanName" />
+                                                <TableColumn fx:id="workflowNameColumn" prefWidth="180.0" text="%key.WorkflowName" />
+                                                <TableColumn fx:id="statusColumn" prefWidth="65.0" text="%key.Status" />
+                                                <TableColumn fx:id="startTimeColumn" prefWidth="140.0" text="%key.WorkStartTime" />
+                                                <TableColumn fx:id="endTimeColumn" prefWidth="140.0" text="%key.WorkEndTime" />
+                                            </columns>
+                                        </TableView>
+                                    </content>
+                                </ScrollPane>
+                                <AnchorPane prefHeight="200.0" minWidth="220.0">
+                                    <children>
+                                        <!-- 追加・削除ボタン -->
+                                        <VBox alignment="CENTER" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="0.0" >
+                                            <children>
+                                                <Button mnemonicParsing="false" onAction="#OnAdd" styleClass="ContentButton" text="%key.Add" />
+                                                <Button mnemonicParsing="false" onAction="#OnRemove" styleClass="ContentButton" text="%key.Remove" />
+                                            </children>
+                                        </VBox>
+                                        <!-- 選択されたカンバン一覧 -->
+                                        <ListView fx:id="itemList" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="116.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    </children>
+                                </AnchorPane>
+                            </items>
+                        </SplitPane>
+                    </children>
+                </GridPane>
+                <Pane fx:id="Progress" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+                    <children>
+                        <ProgressIndicator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" />
+                    </children>
+                </Pane>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

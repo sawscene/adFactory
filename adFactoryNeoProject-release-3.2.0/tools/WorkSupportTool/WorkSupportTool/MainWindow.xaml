@@ -1,0 +1,15 @@
+﻿<Window x:Class="WorkSupportTool.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="工数連権サポートツール"
+        Height="200" Width="525"
+        Icon="app.ico">
+    <Grid>
+        <Label Content="ファイルを選択して、[アップロード]ボタンを押してください。" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="14,14,0,0" FontSize="14" />
+        <TextBox x:Name="textBoxFileName" Height="23"  HorizontalAlignment="Left" Margin="14,55,0,0" VerticalAlignment="Top" Width="380" FontSize="14" IsEnabled="False"/>
+        <Button x:Name="buttonChoice" Content="ファイル選択" HorizontalAlignment="Left" Margin="399,53,0,0" VerticalAlignment="Top" Width="100" Click="buttonChoice_Click" FontSize="14"/>
+        <Button x:Name="buttonClose" Content="閉じる" HorizontalAlignment="Right" Margin="0,0,14,14" VerticalAlignment="Bottom" Width="100" Click="buttonClose_Click" FontSize="14"/>
+        <Button x:Name="buttonUpload" Content="アップロード" HorizontalAlignment="Right" Margin="0,0,130,14" VerticalAlignment="Bottom" Width="100" Click="buttonUpload_Click" FontSize="14"/>
+
+    </Grid>
+</Window>

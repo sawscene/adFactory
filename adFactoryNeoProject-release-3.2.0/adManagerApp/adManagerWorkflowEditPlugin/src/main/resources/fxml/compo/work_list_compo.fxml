@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import jp.adtekfuji.javafxcommon.controls.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.workfloweditplugin.component.WorkEditCompoFxController">
+    <children>
+        <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <SplitPane fx:id="workPane" dividerPositions="0.35" styleClass="ContentSplitPane">
+                    <items>
+                        <!-- 左ペイン -->
+                        <!-- 工程階層 -->
+                        <GridPane SplitPane.resizableWithParent="false">
+                            <children>
+                                <TreeView fx:id="hierarchyTree" onKeyPressed="#onKeyPressed">
+                           <GridPane.margin>
+                              <Insets bottom="8.0" />
+                           </GridPane.margin></TreeView>
+                                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                                    <children>
+                                        <ToolBar fx:id="hierarchyBtnArea" nodeOrientation="LEFT_TO_RIGHT" styleClass="TransparentToolbar" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <items>
+                                                <Button fx:id="createTreeButton" mnemonicParsing="false" onAction="#onTreeCreate" styleClass="NarrowWidthButton" text="%key.NewCreate" />
+                                                <Button fx:id="editTreeButton" mnemonicParsing="false" onAction="#onTreeEdit" styleClass="NarrowWidthButton" text="%key.Edit" />
+                                                <Button fx:id="moveTreeButton" mnemonicParsing="false" onAction="#onTreeMove" styleClass="NarrowWidthButton" text="%key.Move" />
+                                                <Button fx:id="delTreeButton" mnemonicParsing="false" onAction="#onTreeDelete" styleClass="NarrowWidthButton" text="%key.Delete" />
+                                                <Button fx:id="authButton" mnemonicParsing="false" onAction="#onAuth" styleClass="ContentButton" text="%key.EditedAuth" />
+                                            </items>
+                                        </ToolBar>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                        </GridPane>
+                        <!-- 右ペイン -->
+                        <!-- 工程一覧 -->
+                        <GridPane minHeight="0.0" minWidth="0.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints vgrow="SOMETIMES" minHeight="-Infinity" maxHeight="-Infinity" />
+                                <RowConstraints vgrow="SOMETIMES" />
+                                <RowConstraints vgrow="SOMETIMES" minHeight="-Infinity" maxHeight="-Infinity" prefHeight="50.0" />
+                            </rowConstraints>
+                            <children>
+                                <!-- 右上部ペイン -->
+                                <GridPane hgap="8.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints vgrow="SOMETIMES" minHeight="-Infinity" />
+                                    </rowConstraints>
+                                    <children>
+                                        <HBox alignment="BASELINE_LEFT" spacing="8.0" >
+                                            <children>
+                                                <!-- 検索フィールド -->
+                                                <ResettableTextField fx:id="searchField" prefWidth="300.0" />
+                                                <!-- 検索ボタン -->
+                                                <Button text="%key.Search" onAction="#onSearch" /> 
+                                                <!-- 最新のみ表示チェックボックス -->
+                                                <CheckBox fx:id="latestCheckBox" mnemonicParsing="false" text="%key.displayLatestOnly" />
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                            </padding>
+                                        </HBox>
+                                        <HBox fx:id="approvePane" alignment="CENTER_LEFT" spacing="8.0" GridPane.columnIndex="1">
+                                            <children>
+                                                <!-- 承認/申請状況ボタン -->
+                                                <Button fx:id="approveButton" mnemonicParsing="false" onAction="#onApproveButton" styleClass="NarrowWidthButton" text="%key.Approve" />
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                            </padding>
+                                        </HBox>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="0.0" left="8.0" right="8.0" top="8.0" />
+                                    </padding>
+                                </GridPane>
+                                <!-- 右中央部ペイン -->
+                                <AnchorPane GridPane.rowIndex="1">
+                                    <children>
+                                        <PropertySaveTableView fx:id="workList" minHeight="0.0" minWidth="0.0" styleClass="ContentList" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" onKeyPressed="#onKeyPressed">
+                                            <columns>
+                                                <TableColumn fx:id="workColumn" prefWidth="180.0" text="%key.ProcessName" />
+                                                <TableColumn fx:id="updateByColumn" prefWidth="100.0" text="%key.UpdatedBy" />
+                                                <TableColumn fx:id="updateDateColumn" prefWidth="150.0" text="%key.UpdatedDate" />
+                                                <TableColumn fx:id="approvalStateColumn" prefWidth="100.0" text="%key.Approve" />
+                                                <TableColumn fx:id="approvalDatetimeColumn" prefWidth="150.0" text="%key.ApprovalDatetime" />
+                                            </columns>
+                                        </PropertySaveTableView>
+                                    </children>
+                                    <GridPane.margin>
+                                        <Insets bottom="8.0" />
+                                    </GridPane.margin>
+                                </AnchorPane>
+                                <!-- 右下部ペイン -->
+                                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+                                    <children>
+                                        <HBox alignment="BASELINE_RIGHT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <children>
+                                                <ToolBar nodeOrientation="LEFT_TO_RIGHT" styleClass="TransparentToolbar">
+                                                    <items>
+                                                        <Button fx:id="createListButton" mnemonicParsing="false" onAction="#onListCreate" styleClass="NarrowWidthButton" text="%key.createNew" />
+                                                        <Button fx:id="editListButton" mnemonicParsing="false" onAction="#onListEdit" styleClass="NarrowWidthButton" text="%key.Edit" />
+                                                        <Button fx:id="copyListButton" mnemonicParsing="false" onAction="#onListCopy" styleClass="NarrowWidthButton" text="%key.Copy" />
+                                                        <Button fx:id="moveListButton" mnemonicParsing="false" onAction="#onListMove" styleClass="NarrowWidthButton" text="%key.Move" />
+                                                        <Button fx:id="delListButton" mnemonicParsing="false" styleClass="NarrowWidthButton" text="%key.Delete" />
+                                                    </items>
+                                                </ToolBar>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </GridPane>
+                    </items>
+                </SplitPane>
+                <Pane fx:id="workProgress" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" StackPane.alignment="CENTER">
+                    <children>
+                        <ProgressIndicator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" />
+                    </children>
+                </Pane>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

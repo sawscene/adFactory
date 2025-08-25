@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+        <title>Applroval</title>
+        <h:outputStylesheet name ="style.css"/>
+        <h:outputStylesheet library="styles" name="ScreenDesignStyles.css"/>
+        <h:outputStylesheet library="styles" name="ScreenFontStyles.css"/>
+        <f:loadBundle basename="jp.adtekfuji.adfactoryserver.locale.locale" var="msg"/>
+    </h:head>
+    <h:body>
+        <h:form styleClass="approvalTable">
+            <div class="borderLine"/>
+            <!--工程順基本情報-->
+            <div style="margin-left: 10px; margin-right: 50px;" align="center">
+                <h:dataTable var="additionData" value="#{approvalData.workflowInfo}" styleClass="tableComparison font-15pt" 
+                             columnClasses="cellTitle, cellValue borderVertical, bleakCell, cellValue borderVertical">
+                    <h:column>
+                        <h:outputLabel value="#{additionData.approvalTitle} :"/>
+                    </h:column>
+                    <h:column  headerClass="borderBeside borderTop" footerClass="borderBeside borderBottom">
+                        <h:outputText value="#{additionData.approvalOld}" styleClass="whiteSpace"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputLabel value="▶" rendered="#{approvalData.workflowInfo.get(0) == additionData}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{additionData.approvalNew}" styleClass="whiteSpace" style="#{additionData.approvalColor})"/>
+                    </h:column>
+                </h:dataTable>
+            </div>
+        </h:form>
+
+        <h:form styleClass="approvalTable">
+            <div class="borderLine"/>
+            <!--工程-->
+            <div style="margin-left: 50px;" align="left">
+                <h:outputLabel value="#{msg['key.Process']}" styleClass="font-15pt"/>
+            </div>
+            <div style="margin-left: 10px; margin-right: 50px;" align="center">
+                <h:dataTable var="additionList" value="#{approvalData.processFlow}" styleClass="treaveTable">
+                    <h:column>
+                        <h:dataTable var="additionData" value="#{additionList}" styleClass="tableComparison font-15pt"
+                                     columnClasses="cellTitle, cellValue borderVertical, bleakCell, cellValue borderVertical">
+                            <h:column>
+                                <h:outputLabel value="#{additionData.approvalTitle} :"/>
+                            </h:column>
+                            <h:column>
+                                <h:outputText value="#{additionData.approvalOld}" styleClass="whiteSpace"/>
+                            </h:column>
+                            <h:column>
+                                <h:outputLabel value=" "/>
+                            </h:column>
+                            <h:column>
+                                <h:outputText value="#{additionData.approvalNew}" styleClass="whiteSpace" id="newWrokflowInfo" style="#{additionData.approvalColor})"/>
+                            </h:column>
+                        </h:dataTable>  
+                    </h:column>
+                </h:dataTable>
+            </div>
+        </h:form>
+
+        <h:form styleClass="approvalTable">
+            <div class="borderLine"/>
+            <!--追加工程-->
+            <div style="margin-left: 50px;" align="left">
+                <h:outputLabel value="#{msg['key.separateWork']}" styleClass="font-15pt" />
+            </div>
+            <div style="margin-left: 10px; margin-right: 50px;" align="center">
+                <h:dataTable var="additionList" value="#{approvalData.separateWork}" styleClass="treaveTable">
+                    <h:column>
+                        <h:dataTable var="additionData" value="#{additionList}" styleClass="tableComparison font-15pt"
+                                     columnClasses="cellTitle, cellValue borderVertical, bleakCell, cellValue borderVertical">
+                            <h:column>
+                                <h:outputLabel value="#{additionData.approvalTitle} :"/>
+                            </h:column>
+                            <h:column>
+                                <h:outputText value="#{additionData.approvalOld}" styleClass="whiteSpace"/>
+                            </h:column>
+                            <h:column>
+                                <h:outputLabel value=" "/>
+                            </h:column>
+                            <h:column>
+                                <h:outputText value="#{additionData.approvalNew}" styleClass="whiteSpace" id="newWrokflowInfo" style="#{additionData.approvalColor})"/>
+                            </h:column>
+                        </h:dataTable>  
+                    </h:column>
+                </h:dataTable>
+            </div>
+        </h:form>
+    </h:body>
+</html>

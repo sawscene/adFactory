@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import jp.adtekfuji.javafxcommon.controls.*?>
+
+<StackPane fx:id="pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" 
+           fx:controller="adtekfuji.admanagerapp.dsitemeditplugin.controller.BomEditController">
+    <children>
+        <VBox spacing="8.0" >
+           <children>
+                <!-- タイトル -->
+                <Label styleClass="ContentTitleLabel" text="構成部品編集" />
+
+                <HBox alignment="CENTER_LEFT" spacing="8.0">
+                    <children>
+                        <Label styleClass="ContentTitleLabel" text="Assy 品番" />
+                        <Label fx:id="productNoLabel" styleClass="ContentTextBox" HBox.hgrow="ALWAYS" />
+                    </children>
+                </HBox>
+
+                <!-- リスト -->
+                <PropertySaveTableView fx:id="dsPartsTable" styleClass="ContentList" tableMenuButtonVisible="false" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS">
+                    <columns>
+                        <!-- 品番 -->
+                        <TableColumn fx:id="productNoColumn" prefWidth="200.0" text="品番" />
+                        <!-- 品名 -->
+                        <TableColumn fx:id="productNameColumn" prefWidth="200.0" text="品名" />
+                        <!-- 数量 -->
+                        <TableColumn fx:id="quantityColumn" prefWidth="100.0" text="数量" style="-fx-alignment: center" />
+                        <!-- 前区 -->
+                        <TableColumn fx:id="preProcessColumn" prefWidth="150.0" text="前区" style="-fx-alignment: center" />
+                    </columns>
+                </PropertySaveTableView>
+                <HBox>
+                    <children>
+                        <HBox alignment="CENTER_LEFT" spacing="8.0" minHeight="50.0">
+                            <children>
+                                <!-- 取込 -->
+                                <Button fx:id="importButton" mnemonicParsing="false" onAction="#onImport" styleClass="ContentButton" text="取込" />
+                                <!-- 削除 -->
+                                <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#onDelete" styleClass="ContentButton" text="%key.Delete" />
+                            </children>
+                        </HBox>
+                        <HBox HBox.hgrow="ALWAYS">
+                            
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" spacing="8.0" minHeight="50.0">
+                            <children>
+                                <!-- 登録 -->
+                                <Button fx:id="registButton" mnemonicParsing="false" onAction="#onRegist" styleClass="ContentButton" text="%key.Regist" />
+                                <!-- キャンセル -->
+                                <Button mnemonicParsing="false" onAction="#onCancel" styleClass="ContentButton" text="%key.Cancel" />
+                            </children>
+                        </HBox>
+                   </children>
+               </HBox>
+           </children>
+           <padding>
+               <Insets bottom="0.0" left="8.0" right="8.0" top="8.0" />
+           </padding>
+        </VBox>
+        <Pane fx:id="progressPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" >
+            <children>
+                <ProgressIndicator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" />
+            </children>
+        </Pane>
+    </children>
+</StackPane>

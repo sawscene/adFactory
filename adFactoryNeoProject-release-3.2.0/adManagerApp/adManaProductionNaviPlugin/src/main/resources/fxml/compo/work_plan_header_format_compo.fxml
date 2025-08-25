@@ -1,0 +1,727 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.productionnaviplugin.component.WorkPlanHeaderFormatChangeCompoCpntroller">
+    <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <GridPane fx:id="operationPane" vgap="4.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <!-- タイトル -->
+            <Label styleClass="ContentTitleLabel" text="%key.import.format.change" />
+            <!-- 入力エリア -->
+            <AnchorPane GridPane.rowIndex="1">
+                <TabPane fx:id="tabImportMode" prefHeight="100" prefWidth="100" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <!-- 工程情報タブ -->
+                    <Tab id="tabProcessMode" fx:id="tabProcessMode" text="%key.import.production.work">
+                        <content>
+                            <ScrollPane styleClass=".ContentScrollPane">
+                                <content>
+                                    <GridPane hgap="24.0" vgap="12.0">
+                                        <columnConstraints>
+                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="50.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="200.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                                            <ColumnConstraints />
+                                        </columnConstraints>
+                                        <rowConstraints>
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="NEVER" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="NEVER" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                        </rowConstraints>
+                                        <children>
+                                            <!--タイトル-->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.header.csv" GridPane.columnIndex="2" />
+                                            <!-- ファイルのエンコード -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.read.encode" GridPane.rowIndex="1" />
+                                            <ComboBox fx:id="inputTab1HeaderCsvEncode" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                            <!-- ファイル名 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.FileName" GridPane.rowIndex="2" />
+                                            <TextField fx:id="inputTab1HeaderCsvFileName" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                            <!-- ヘッダー行 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.HeaderRow" GridPane.rowIndex="3" />
+                                            <TextField fx:id="inputTab1HeaderCsvHeaderRow" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                            <!-- 読み込み開始行 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.read.line.start" GridPane.rowIndex="4" />
+                                            <TextField fx:id="inputTab1HeaderCsvLineStart" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                            <!-- 工程階層 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.ProcessHierarch" GridPane.rowIndex="5" />
+                                            <VBox fx:id="inputTab1HeaderCsvHierarchyPain" GridPane.columnIndex="2" GridPane.rowIndex="5" GridPane.rowSpan="3" />
+                                            <!-- 工程階層(区切り文字) -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.delimiter" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                            <TextField fx:id="inputTab1HeaderCsvDelimiter1" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                                            <!-- 工程名 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.ProcessName" GridPane.rowIndex="9" />
+                                            <VBox fx:id="inputTab1HeaderCsvProcessNamePain" GridPane.columnIndex="2" GridPane.rowIndex="9" GridPane.rowSpan="3" />
+                                            <!-- 工程名(区切り文字) -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.delimiter" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                                            <TextField fx:id="inputTab1HeaderCsvDelimiter2" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="12" />
+                                            <!-- タクトタイム -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.TactTime" GridPane.rowIndex="13" />
+                                            <TextField fx:id="inputTab1HeaderCsvTactTime" GridPane.columnIndex="2" GridPane.rowIndex="13" />
+                                            <!-- タクトタイム（単位） -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.unit" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+                                            <ComboBox fx:id="inputTab1HeaderCsvTactTimeUnit" GridPane.columnIndex="2" GridPane.rowIndex="14" />
+                                            <!-- 作業内容 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.WorkContent" GridPane.rowIndex="15" />
+                                            <TextField fx:id="inputTab1HeaderCsvWorkContent1" GridPane.columnIndex="2" GridPane.rowIndex="15" />
+                                            <TextField fx:id="inputTab1HeaderCsvWorkContent2" GridPane.columnIndex="2" GridPane.rowIndex="16" />
+                                            <TextField fx:id="inputTab1HeaderCsvWorkContent3" GridPane.columnIndex="2" GridPane.rowIndex="17" />
+                                        </children>
+                                        <padding>
+                                            <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
+                                        </padding>
+                                    </GridPane>
+                                </content>
+                            </ScrollPane>
+                        </content>
+                    </Tab>
+                    <!-- 工程プロパティ情報タブ -->
+                    <Tab id="tabWorkPropertyMode" fx:id="tabWorkPropertyMode" text="%key.import.production.work.property">
+                        <content>
+                            <ScrollPane styleClass=".ContentScrollPane">
+                                <content>
+                                    <GridPane hgap="24.0" vgap="12.0">
+                                        <columnConstraints>
+                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="50.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="200.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                                            <ColumnConstraints />
+                                        </columnConstraints>
+                                        <rowConstraints>
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="NEVER" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="NEVER" />
+                                            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                        <RowConstraints />
+                                        </rowConstraints>
+                                        <children>
+                                            <!--タイトル-->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.header.csv" GridPane.columnIndex="2" />
+                                            <!-- ファイルのエンコード -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.read.encode" GridPane.rowIndex="1" />
+                                            <ComboBox fx:id="inputTab2HeaderCsvEncode" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                            <!-- ファイル名 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.FileName" GridPane.rowIndex="2" />
+                                            <TextField fx:id="inputTab2HeaderCsvFileName" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                            <!-- ヘッダー行 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.HeaderRow" GridPane.rowIndex="3" />
+                                            <TextField fx:id="inputTab2HeaderCsvHeaderRow" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                            <!-- 読み込み開始行 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.read.line.start" GridPane.rowIndex="4" />
+                                            <TextField fx:id="inputTab2HeaderCsvLineStart" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                            <!-- 工程名 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.ProcessName" GridPane.rowIndex="5" />
+                                            <VBox fx:id="inputTab2HeaderCsvProcessNamePain" GridPane.columnIndex="2" GridPane.rowIndex="5" GridPane.rowSpan="3" />
+                                            <!-- 工程名(区切り文字) -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.delimiter" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                            <TextField fx:id="inputTab2HeaderCsvDelimiter1" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                                            <!-- プロパティ -->
+                                            <Label fx:id="tab2PropertyLabel" styleClass="ContentTitleLabel" text="%key.Property" GridPane.rowIndex="9" />
+                                            <VBox fx:id="inputTab2HeaderCsvPropertyPane" GridPane.columnIndex="2" GridPane.rowIndex="9" GridPane.rowSpan="3" />
+                                        </children>
+                                        <padding>
+                                            <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
+                                        </padding>
+                                    </GridPane>
+                                </content>
+                            </ScrollPane>
+                        </content>
+                    </Tab>
+                    <!-- 工程順情報タブ -->
+                    <Tab id="tabWorkflowMode" fx:id="tabWorkflowMode" text="%key.import.production.workflow">
+                        <content>
+                            <ScrollPane styleClass=".ContentScrollPane">
+                                <content>
+                                    <GridPane hgap="24.0" vgap="12.0">
+                                        <columnConstraints>
+                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="50.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="200.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                                            <ColumnConstraints />
+                                        </columnConstraints>
+                                        <rowConstraints>
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="NEVER" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="NEVER" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="NEVER" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="NEVER" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                        </rowConstraints>
+                                        <children>
+                                            <!--タイトル-->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.header.csv" GridPane.columnIndex="2" />
+                                            <!-- ファイルのエンコード -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.read.encode" GridPane.rowIndex="1" />
+                                            <ComboBox fx:id="inputTab3HeaderCsvEncode" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                            <!-- ファイル名 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.FileName" GridPane.rowIndex="2" />
+                                            <TextField fx:id="inputTab3HeaderCsvFileName" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                            <!-- ヘッダー行 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.HeaderRow" GridPane.rowIndex="3" />
+                                            <TextField fx:id="inputTab3HeaderCsvHeaderRow" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                            <!-- 読み込み開始行 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.read.line.start" GridPane.rowIndex="4" />
+                                            <TextField fx:id="inputTab3HeaderCsvLineStart" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                            <!-- 工程順階層 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.OrderProcessesHierarch" GridPane.rowIndex="5" />
+                                            <VBox fx:id="inputTab3HeaderCsvWorkflowHierarchyPain" GridPane.columnIndex="2" GridPane.rowIndex="5" GridPane.rowSpan="3" />
+                                            <!-- 工程順階層(区切り文字) -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.delimiter" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                            <TextField fx:id="inputTab3HeaderCsvDelimiter1" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                                            <!-- 工程順名 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.OrderProcessesName" GridPane.rowIndex="9" />
+                                            <VBox fx:id="inputTab3HeaderCsvWorkflowNamePain" GridPane.columnIndex="2" GridPane.rowIndex="9" GridPane.rowSpan="3" />
+                                            <!-- 工程順名(区切り文字) -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.delimiter" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                                            <TextField fx:id="inputTab3HeaderCsvDelimiter2" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="12" />
+                                            <!-- モデル名 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.ModelName" GridPane.rowIndex="13" />
+                                            <VBox fx:id="inputTab3HeaderCsvModelNamePain" GridPane.columnIndex="2" GridPane.rowIndex="13" GridPane.rowSpan="3" />
+                                            <!-- モデル名(区切り文字) -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.delimiter" GridPane.columnIndex="1" GridPane.rowIndex="16" />
+                                            <TextField fx:id="inputTab3HeaderCsvDelimiter3" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="16" />
+                                            <!-- 工程名 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.ProcessName" GridPane.rowIndex="17" />
+                                            <VBox fx:id="inputTab3HeaderCsvProcessNamePain" GridPane.columnIndex="2" GridPane.rowIndex="17" GridPane.rowSpan="3" />
+                                            <!-- 工程名(区切り文字) -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.delimiter" GridPane.columnIndex="1" GridPane.rowIndex="20" />
+                                            <TextField fx:id="inputTab3HeaderCsvDelimiter4" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="20" />
+                                            <!-- 組織 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.Organization" GridPane.rowIndex="21" />
+                                            <TextField fx:id="inputTab3HeaderCsvOrganization" GridPane.columnIndex="2" GridPane.rowIndex="21" />
+                                            <!-- 設備 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.Equipment" GridPane.rowIndex="22" />
+                                            <TextField fx:id="inputTab3HeaderCsvEquipment" GridPane.columnIndex="2" GridPane.rowIndex="22" />
+                                            <!-- 工程の並び順 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.proc.order" GridPane.rowIndex="23" />
+                                            <TextField fx:id="inputTab3HeaderCsvProcOrder" GridPane.columnIndex="2" GridPane.rowIndex="23" />
+                                            <!-- 工程接続 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.proc.connect" GridPane.rowIndex="24" />
+                                            <ComboBox fx:id="inputTab3HeaderCsvProcCon" GridPane.columnIndex="2" GridPane.rowIndex="24" />
+                                            <!-- 完了工程を含めてリスケジュールするか? -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.kanban.reschedule" GridPane.rowIndex="25" />
+                                            <ComboBox fx:id="inputTab3IsRescheduleValue" GridPane.columnIndex="2" GridPane.rowIndex="25" />
+                                        </children>
+                                        <padding>
+                                            <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
+                                        </padding>
+                                    </GridPane>
+                                </content>
+                            </ScrollPane>
+                        </content>
+                    </Tab>
+                    <!-- 工程順プロパティ情報タブ -->
+                    <Tab id="tabWorkflowPropertyMode" fx:id="tabWorkflowPropertyMode" text="%key.import.production.workflow.property">
+                        <content>
+                            <ScrollPane styleClass=".ContentScrollPane">
+                                <content>
+                                    <GridPane hgap="24.0" vgap="12.0">
+                                        <columnConstraints>
+                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="50.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="200.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                                            <ColumnConstraints />
+                                        </columnConstraints>
+                                        <rowConstraints>
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="NEVER" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="NEVER" />
+                                            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                        </rowConstraints>
+                                        <children>
+                                            <!--タイトル-->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.header.csv" GridPane.columnIndex="2" />
+                                            <!-- ファイルのエンコード -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.read.encode" GridPane.rowIndex="1" />
+                                            <ComboBox fx:id="inputTab4HeaderCsvEncode" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                            <!-- ファイル名 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.FileName" GridPane.rowIndex="2" />
+                                            <TextField fx:id="inputTab4HeaderCsvFileName" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                            <!-- ヘッダー行 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.HeaderRow" GridPane.rowIndex="3" />
+                                            <TextField fx:id="inputTab4HeaderCsvHeaderRow" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                            <!-- 読み込み開始行 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.read.line.start" GridPane.rowIndex="4" />
+                                            <TextField fx:id="inputTab4HeaderCsvLineStart" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                            <!-- 工程順名 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.OrderProcessesName" GridPane.rowIndex="5" />
+                                            <VBox fx:id="inputTab4HeaderCsvWorkflowNamePain" GridPane.columnIndex="2" GridPane.rowIndex="5" GridPane.rowSpan="3" />
+                                            <!-- 工程順名(区切り文字) -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.delimiter" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                            <TextField fx:id="inputTab4HeaderCsvDelimiter1" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                                            <!-- プロパティ -->
+                                            <Label fx:id="tab4PropertyLabel" styleClass="ContentTitleLabel" text="%key.Property" GridPane.rowIndex="9" />
+                                            <VBox fx:id="inputTab4HeaderCsvPropertyPane" GridPane.columnIndex="2" GridPane.rowIndex="9" GridPane.rowSpan="3" />
+                                        </children>
+                                        <padding>
+                                            <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
+                                        </padding>
+                                    </GridPane>
+                                </content>
+                            </ScrollPane>
+                        </content>
+                    </Tab>
+                    <!-- 工程カンバン情報タブ -->
+                    <Tab id="tabWorkKanbanMode" fx:id="tabWorkKanbanMode" text="%key.import.production.work.kanba">
+                        <content>
+                            <ScrollPane styleClass=".ContentScrollPane">
+                                <content>
+                                    <GridPane hgap="24.0" vgap="12.0">
+                                        <columnConstraints>
+                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="50.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="200.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                                            <ColumnConstraints />
+                                        </columnConstraints>
+                                        <rowConstraints>
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="NEVER" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="NEVER" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="NEVER" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                        </rowConstraints>
+                                        <children>
+                                            <!--タイトル-->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.header.csv" GridPane.columnIndex="2" />
+                                            <!-- ファイルのエンコード -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.read.encode" GridPane.rowIndex="1" />
+                                            <ComboBox fx:id="inputTab5HeaderCsvEncode" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                            <!-- ファイル名 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.FileName" GridPane.rowIndex="2" />
+                                            <TextField fx:id="inputTab5HeaderCsvFileName" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                            <!-- ヘッダー行 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.HeaderRow" GridPane.rowIndex="3" />
+                                            <TextField fx:id="inputTab5HeaderCsvHeaderRow" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                            <!-- 読み込み開始行 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.read.line.start" GridPane.rowIndex="4" />
+                                            <TextField fx:id="inputTab5HeaderCsvLineStart" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                            <!-- カンバン名 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.KanbanName" GridPane.rowIndex="5" />
+                                            <VBox fx:id="inputTab5HeaderCsvKanbanNamePain" GridPane.columnIndex="2" GridPane.rowIndex="5" GridPane.rowSpan="3" />
+                                            <!-- カンバン名(区切り文字) -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.delimiter" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                            <TextField fx:id="inputTab5HeaderCsvDelimiter1" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                                            <!-- 工程順名 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.WorkflowName" GridPane.rowIndex="9" />
+                                            <VBox fx:id="inputTab5HeaderCsvWorkflowNamePain" GridPane.columnIndex="2" GridPane.rowIndex="9" GridPane.rowSpan="3" />
+                                            <!-- 工程順名(区切り文字) -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.delimiter" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                                            <TextField fx:id="inputTab5HeaderCsvDelimiter2" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="12" />
+                                            <!-- 工程順リビジョン -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.workflow.revision" GridPane.rowIndex="13" />
+                                            <TextField fx:id="inputTab5HeaderCsvWorkflowRev" GridPane.columnIndex="2" GridPane.rowIndex="13" />
+                                            <!-- 工程名 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.ProcessName" GridPane.rowIndex="14" />
+                                            <VBox fx:id="inputTab5HeaderCsvWorkNamePain" GridPane.columnIndex="2" GridPane.rowIndex="14" GridPane.rowSpan="3" />
+                                            <!-- 工程名(区切り文字) -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.delimiter" GridPane.columnIndex="1" GridPane.rowIndex="17" />
+                                            <TextField fx:id="inputTab5HeaderCsvDelimiter3" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="17" />
+                                            <!-- タクトタイム -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.TactTime" GridPane.rowIndex="18" />
+                                            <TextField fx:id="inputTab5HeaderCsvTactTime" GridPane.columnIndex="2" GridPane.rowIndex="18" />
+                                            <!-- タクトタイム（単位） -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.unit" GridPane.columnIndex="1" GridPane.rowIndex="19" />
+                                            <ComboBox fx:id="inputTab5HeaderCsvTactTimeUnit" GridPane.columnIndex="2" GridPane.rowIndex="19" />
+                                            <!-- 開始予定日時 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.StartScheduledDateAndTime" GridPane.rowIndex="20" />
+                                            <TextField fx:id="inputTab5HeaderCsvStartDate" GridPane.columnIndex="2" GridPane.rowIndex="20" />
+                                            <!-- 完了予定日時 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.ScheduledCompletionDatetime" GridPane.rowIndex="21" />
+                                            <TextField fx:id="inputTab5HeaderCsvEndDate" GridPane.columnIndex="2" GridPane.rowIndex="21" />
+                                            <!-- 組織 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.Organization" GridPane.rowIndex="22" />
+                                            <TextField fx:id="inputTab5HeaderCsvOrganization" GridPane.columnIndex="2" GridPane.rowIndex="22" />
+                                            <!-- 設備 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.Equipment" GridPane.rowIndex="23" />
+                                            <TextField fx:id="inputTab5HeaderCsvEquipment" GridPane.columnIndex="2" GridPane.rowIndex="23" />
+                                        </children>
+                                        <padding>
+                                            <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
+                                        </padding>
+                                    </GridPane>
+                                </content>
+                            </ScrollPane>
+                        </content>
+                    </Tab>
+                    <!-- 工程カンバンプロパティ情報タブ -->
+                    <Tab id="tabWorkKanbanPropertyMode" fx:id="tabWorkKanbanPropertyMode" text="%key.import.production.work.kanba.property">
+                        <content>
+                            <ScrollPane styleClass=".ContentScrollPane">
+                                <content>
+                                    <GridPane hgap="24.0" vgap="12.0">
+                                        <columnConstraints>
+                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="50.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="200.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                                            <ColumnConstraints />
+                                        </columnConstraints>
+                                        <rowConstraints>
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="NEVER" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="NEVER" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="NEVER" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="NEVER" />
+                                            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                        </rowConstraints>
+                                        <children>
+                                            <!--タイトル-->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.header.csv" GridPane.columnIndex="2" />
+                                            <!-- ファイルのエンコード -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.read.encode" GridPane.rowIndex="1" />
+                                            <ComboBox fx:id="inputTab6HeaderCsvEncode" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                            <!-- ファイル名 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.FileName" GridPane.rowIndex="2" />
+                                            <TextField fx:id="inputTab6HeaderCsvFileName" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                            <!-- ヘッダー行 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.HeaderRow" GridPane.rowIndex="3" />
+                                            <TextField fx:id="inputTab6HeaderCsvHeaderRow" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                            <!-- 読み込み開始行 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.read.line.start" GridPane.rowIndex="4" />
+                                            <TextField fx:id="inputTab6HeaderCsvLineStart" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                            <!-- カンバン名 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.KanbanName" GridPane.rowIndex="5" />
+                                            <VBox fx:id="inputTab6HeaderCsvKanbanNamePain" GridPane.columnIndex="2" GridPane.rowIndex="5" GridPane.rowSpan="3" />
+                                            <!-- カンバン名(区切り文字) -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.delimiter" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                            <TextField fx:id="inputTab6HeaderCsvDelimiter1" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                                            <!-- 工程順名 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.WorkflowName" GridPane.rowIndex="9" />
+                                            <VBox fx:id="inputTab6HeaderCsvWorkflowNamePain" GridPane.columnIndex="2" GridPane.rowIndex="9" GridPane.rowSpan="3" />
+                                            <!-- 工程順名(区切り文字) -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.delimiter" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                                            <TextField fx:id="inputTab6HeaderCsvDelimiter2" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="12" />
+                                            <!-- 工程順リビジョン -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.workflow.revision" GridPane.rowIndex="13" />
+                                            <TextField fx:id="inputTab6HeaderCsvWorkflowRev" GridPane.columnIndex="2" GridPane.rowIndex="13" />
+                                            <!-- 工程名 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.ProcessName" GridPane.rowIndex="14" />
+                                            <VBox fx:id="inputTab6HeaderCsvWorkNamePain" GridPane.columnIndex="2" GridPane.rowIndex="14" GridPane.rowSpan="3" />
+                                            <!-- 工程名(区切り文字) -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.delimiter" GridPane.columnIndex="1" GridPane.rowIndex="17" />
+                                            <TextField fx:id="inputTab6HeaderCsvDelimiter3" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="17" />
+                                            <!-- プロパティ -->
+                                            <Label fx:id="tab6PropertyLabel" styleClass="ContentTitleLabel" text="%key.Property" GridPane.rowIndex="18" />
+                                            <VBox fx:id="inputTab6HeaderCsvPropertyPane" GridPane.columnIndex="2" GridPane.rowIndex="18" GridPane.rowSpan="3" />
+                                        </children>
+                                        <padding>
+                                            <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
+                                        </padding>
+                                    </GridPane>
+                                </content>
+                            </ScrollPane>
+                        </content>
+                    </Tab>
+                    <!-- カンバン情報タブ -->
+                    <Tab id="tabKanbanMode" fx:id="tabKanbanMode" text="%key.import.production.kanba">
+                        <content>
+                            <ScrollPane styleClass=".ContentScrollPane">
+                                <content>
+                                    <GridPane hgap="24.0" vgap="12.0">
+                                        <columnConstraints>
+                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="50.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="200.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                                            <ColumnConstraints />
+                                        </columnConstraints>
+                                        <rowConstraints>
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="NEVER" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="NEVER" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="NEVER" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="NEVER" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="NEVER" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                        </rowConstraints>
+                                        <children>
+                                            <!--タイトル-->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.header.csv" GridPane.columnIndex="2" />
+                                            <!-- ファイルのエンコード -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.read.encode" GridPane.rowIndex="1" />
+                                            <ComboBox fx:id="inputTab7HeaderCsvEncode" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                            <!-- ファイル名 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.FileName" GridPane.rowIndex="2" />
+                                            <TextField fx:id="inputTab7HeaderCsvFileName" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                            <!-- ヘッダー行 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.HeaderRow" GridPane.rowIndex="3" />
+                                            <TextField fx:id="inputTab7HeaderCsvHeaderRow" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                            <!-- 読み込み開始行 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.read.line.start" GridPane.rowIndex="4" />
+                                            <TextField fx:id="inputTab7HeaderCsvLineStart" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                            <!-- カンバン階層 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.KanbanHierarch" GridPane.rowIndex="5" />
+                                            <VBox fx:id="inputTab7HeaderCsvKanbanHierarchyPain" GridPane.columnIndex="2" GridPane.rowIndex="5" GridPane.rowSpan="3" />
+                                            <!-- カンバン階層(区切り文字) -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.delimiter" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                            <TextField fx:id="inputTab7HeaderCsvDelimiter1" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                                            <!-- カンバン名 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.KanbanName" GridPane.rowIndex="9" />
+                                            <VBox fx:id="inputTab7HeaderCsvKanbanNamePain" GridPane.columnIndex="2" GridPane.rowIndex="9" GridPane.rowSpan="3" />
+                                            <!-- カンバン名(区切り文字) -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.delimiter" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                                            <TextField fx:id="inputTab7HeaderCsvDelimiter2" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="12" />
+                                            <!-- 工程順名 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.WorkflowName" GridPane.rowIndex="13" />
+                                            <VBox fx:id="inputTab7HeaderCsvWorkflowNamePain" GridPane.columnIndex="2" GridPane.rowIndex="13" GridPane.rowSpan="3" />
+                                            <!-- 工程順名(区切り文字) -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.delimiter" GridPane.columnIndex="1" GridPane.rowIndex="16" />
+                                            <TextField fx:id="inputTab7HeaderCsvDelimiter3" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="16" />
+                                            <!-- 工程順リビジョン -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.workflow.revision" GridPane.rowIndex="17" />
+                                            <TextField fx:id="inputTab7HeaderCsvWorkflowRev" GridPane.columnIndex="2" GridPane.rowIndex="17" />
+                                            <!-- モデル名 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.ModelName" GridPane.rowIndex="18" />
+                                            <VBox fx:id="inputTab7HeaderCsvModelNamePain" GridPane.columnIndex="2" GridPane.rowIndex="18" GridPane.rowSpan="3" />
+                                            <!-- モデル名(区切り文字) -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.delimiter" GridPane.columnIndex="1" GridPane.rowIndex="21" />
+                                            <TextField fx:id="inputTab7HeaderCsvDelimiter4" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="21" />
+                                            <!-- 製造番号 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.ProductionNumber" GridPane.rowIndex="22" />
+                                            <VBox fx:id="inputTab7HeaderCsvProductNumPain" GridPane.columnIndex="2" GridPane.rowIndex="22" GridPane.rowSpan="3" />
+                                            <!-- 製造番号(区切り文字) -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.delimiter" GridPane.columnIndex="1" GridPane.rowIndex="25" />
+                                            <TextField fx:id="inputTab7HeaderCsvDelimiter5" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="25" />
+                                            <!-- 開始予定日時 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.StartScheduledDateAndTime" GridPane.rowIndex="26" />
+                                            <TextField fx:id="inputTab7HeaderCsvStartDate" GridPane.columnIndex="2" GridPane.rowIndex="26" />
+                                            <!-- 生産タイプ -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.ProductionType" GridPane.rowIndex="27" />
+                                            <TextField fx:id="inputTab7ProductionTypeValue" GridPane.columnIndex="2" GridPane.rowIndex="27" />
+                                            <!-- ロット数量 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.LotQuantity" GridPane.rowIndex="28" />
+                                            <TextField fx:id="inputTab7LotNumValue" GridPane.columnIndex="2" GridPane.rowIndex="28" />
+                                            <!-- カンバンステータス初期値 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.kanban.status.def" GridPane.rowIndex="29" />
+                                            <ComboBox fx:id="inputTab7KanbanInitStatusValue" GridPane.columnIndex="2" GridPane.rowIndex="29" />
+                                        </children>
+                                        <padding>
+                                            <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
+                                        </padding>
+                                    </GridPane>
+                                </content>
+                            </ScrollPane>
+                        </content>
+                    </Tab>
+                    <!-- カンバンプロパティ情報タブ -->
+                    <Tab id="tabKanbanPropertyMode" fx:id="tabKanbanPropertyMode" text="%key.import.production.kanba.property">
+                        <content>
+                            <ScrollPane styleClass=".ContentScrollPane">
+                                <content>
+                                    <GridPane hgap="24.0" vgap="12.0">
+                                        <columnConstraints>
+                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="50.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="200.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                                            <ColumnConstraints />
+                                        </columnConstraints>
+                                        <rowConstraints>
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="NEVER" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="NEVER" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="NEVER" />
+                                            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                        </rowConstraints>
+                                        <children>
+                                            <!--タイトル-->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.header.csv" GridPane.columnIndex="2" />
+                                            <!-- ファイルのエンコード -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.read.encode" GridPane.rowIndex="1" />
+                                            <ComboBox fx:id="inputTab8HeaderCsvEncode" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                            <!-- ファイル名 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.FileName" GridPane.rowIndex="2" />
+                                            <TextField fx:id="inputTab8HeaderCsvFileName" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                            <!-- ヘッダー行 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.HeaderRow" GridPane.rowIndex="3" />
+                                            <TextField fx:id="inputTab8HeaderCsvHeaderRow" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                            <!-- 読み込み開始行 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.read.line.start" GridPane.rowIndex="4" />
+                                            <TextField fx:id="inputTab8HeaderCsvLineStart" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                            <!-- カンバン名 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.KanbanName" GridPane.rowIndex="5" />
+                                            <VBox fx:id="inputTab8HeaderCsvKanbanNamePane" GridPane.columnIndex="2" GridPane.rowIndex="5" GridPane.rowSpan="3" />
+                                            <!-- カンバン名(区切り文字) -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.delimiter" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                            <TextField fx:id="inputTab8HeaderCsvDelimiter1" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                                            <!-- 工程順名 -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.WorkflowName" GridPane.rowIndex="9" />
+                                            <VBox fx:id="inputTab8HeaderCsvWorkflowNamePane" GridPane.columnIndex="2" GridPane.rowIndex="9" GridPane.rowSpan="3" />
+                                            <!-- 工程順名(区切り文字) -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.delimiter" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                                            <TextField fx:id="inputTab8HeaderCsvDelimiter2" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="12" />
+                                            <!-- 工程順リビジョン -->
+                                            <Label styleClass="ContentTitleLabel" text="%key.import.workflow.revision" GridPane.rowIndex="13" />
+                                            <TextField fx:id="inputTab8HeaderCsvWorkflowRev" GridPane.columnIndex="2" GridPane.rowIndex="13" />
+                                            <!-- プロパティ -->
+                                            <Label fx:id="tab8PropertyLabel" styleClass="ContentTitleLabel" text="%key.Property" GridPane.rowIndex="14" />
+                                            <VBox fx:id="inputTab8HeaderCsvPropertyPane" GridPane.columnIndex="2" GridPane.rowIndex="14" GridPane.rowSpan="3" />
+                                        </children>
+                                        <padding>
+                                            <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
+                                        </padding>
+                                    </GridPane>
+                                </content>
+                            </ScrollPane>
+                        </content>
+                    </Tab>
+                </TabPane>
+            </AnchorPane>
+            <!-- ボタン -->
+            <ToolBar maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                <!-- キャンセルボタン -->
+                <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#onCancelAction" styleClass="NarrowWidthButton" text="%key.Cancel" />
+                <!-- OKボタン -->
+                <Button fx:id="okButton" mnemonicParsing="false" onAction="#onEntryAction" styleClass="NarrowWidthButton" text="%key.Regist" />
+            </ToolBar>
+        </GridPane>
+        <!-- 処理中表示 -->
+        <Pane fx:id="progressPane" maxHeight="-Infinity" maxWidth="-Infinity" StackPane.alignment="CENTER">
+            <ProgressIndicator fx:id="progressIndicator" prefHeight="80.0" prefWidth="80.0" />
+        </Pane>
+    </StackPane>
+</AnchorPane>

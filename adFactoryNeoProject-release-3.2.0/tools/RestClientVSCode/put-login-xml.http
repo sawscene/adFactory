@@ -1,0 +1,8 @@
+PUT http://localhost:8080/adFactoryServer/rest/organization/login?withAuth=true HTTP/1.1
+Content-type: application/xml;
+
+<organizationLoginRequest>
+  <loginType>BARCODE</loginType>
+  <loginId></loginId>
+  <authData>10192</authData>
+</organizationLoginRequest>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="270.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.warehouseplugin.dialog.FailurePrintDialog">
+    <children>
+        <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <VBox>
+                    <children>
+                        <GridPane>
+                            <children>
+                                <GridPane prefHeight="200.0" prefWidth="440.0" GridPane.rowIndex="1">
+                                    <children>
+                                        <Label text="以下のラベルを印刷できませんでした。" GridPane.rowIndex="1">
+                                            <padding>
+                                                <Insets bottom="5.0" /> 
+                                            </padding>
+                                        </Label>
+                                        <ListView fx:id="failurePrintList" prefHeight="170.0" prefWidth="400.0" GridPane.rowIndex="2" />
+                                    </children>
+                                    <padding>
+                                        <Insets left="20.0" /> 
+                                    </padding>
+                                </GridPane>
+                                <HBox alignment="BOTTOM_RIGHT" prefHeight="55.0" prefWidth="440.0" GridPane.rowIndex="2">
+                                    <children>
+                                        <Button onAction="#onOKButton"  styleClass="NarrowWidthButton" text="%key.Ok" />
+                                    </children>
+                                    <padding>
+                                        <Insets right="20.0" /> 
+                                    </padding>
+                                </HBox>
+                            </children>
+                            <padding>
+                                <Insets top="20.0" /> 
+                            </padding>
+                        </GridPane>
+                    </children>
+                </VBox>
+            </children>
+        </StackPane>
+    </children>
+    <padding>
+        <Insets bottom="-6.0" /> 
+    </padding>
+</AnchorPane>

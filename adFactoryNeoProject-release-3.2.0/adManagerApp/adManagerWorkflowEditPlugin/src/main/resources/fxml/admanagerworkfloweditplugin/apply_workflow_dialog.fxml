@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import jp.adtekfuji.javafxcommon.controls.*?>
+
+<StackPane id="stackPane" prefWidth="800.0" prefHeight="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.workfloweditplugin.component.ApplyWorkflowDialogController">
+    <children>
+        <VBox spacing="8.0" >
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="8.0">
+                    <Label fx:id="descLabel" wrapText="true" />
+                </HBox>
+                <!-- リスト -->
+                <PropertySaveTableView fx:id="workflowList" styleClass="ContentList" editable="true" tableMenuButtonVisible="false" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="selectedColumn" editable="true" prefWidth="40.0" />
+                        <!-- 工程順 -->
+                        <TableColumn fx:id="nameColumn" editable="false" prefWidth="250.0" text="%key.workflow" />
+                        <!-- 対象工程の版数 -->
+                        <TableColumn fx:id="revColumn" editable="false" prefWidth="100.0" text="%workRev" style="-fx-alignment: CENTER;" />
+                        <!-- カンバン -->
+                        <TableColumn fx:id="kanbanColumn" editable="false" prefWidth="80.0" text="%key.Kanban" style="-fx-alignment: CENTER;" />
+                        <!-- 適用後の工程順の版数 -->
+                        <TableColumn fx:id="afterColumn" editable="false" prefWidth="200.0" text="%afterRev" style="-fx-alignment: CENTER;" />
+                    </columns>
+                </PropertySaveTableView>
+                <HBox alignment="CENTER_RIGHT" spacing="8.0" minHeight="50.0">
+                    <children>
+                        <!-- 適用 -->
+                        <Button mnemonicParsing="false" onAction="#onApply" styleClass="ContentButton" text="%key.Apply" />
+                        <!-- 閉じる -->
+                        <Button mnemonicParsing="false" onAction="#onClose" styleClass="ContentButton" text="%key.Close" />
+                    </children>
+                </HBox>
+            </children>
+            <padding>
+               <Insets bottom="0.0" left="8.0" right="8.0" top="8.0" />
+            </padding>
+        </VBox>
+        <Pane fx:id="progress" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" >
+            <children>
+                <ProgressIndicator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" />
+            </children>
+        </Pane>
+    </children>
+</StackPane>

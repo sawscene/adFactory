@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<warehouseCommonSettingInfo>
+    <format>EXCEL</format>
+    <filename>mst_bom.xlsx</filename>
+    <startline>2</startline>
+    <parameter>
+        <key>prodNo</key>
+        <column>1</column>
+    </parameter>
+    <parameter>
+        <key>partsNo</key>
+        <column>2</column>
+    </parameter>
+    <parameter>
+        <key>reqNum</key>
+        <column>3</column>
+    </parameter>
+</warehouseCommonSettingInfo>

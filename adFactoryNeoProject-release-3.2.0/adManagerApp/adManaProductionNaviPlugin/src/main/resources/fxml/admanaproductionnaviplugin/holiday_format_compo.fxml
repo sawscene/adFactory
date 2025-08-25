@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.productionnaviplugin.component.HolidayFormatChangeCompoController">
+    <children>
+        <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <GridPane fx:id="operationPane" vgap="4.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints vgrow="SOMETIMES" minHeight="-Infinity" maxHeight="-Infinity" />
+                        <RowConstraints vgrow="SOMETIMES" minHeight="0.0" />
+                        <RowConstraints vgrow="SOMETIMES" minHeight="-Infinity" maxHeight="-Infinity" />
+                    </rowConstraints>
+                    <children>
+                        <!-- タイトル -->
+                        <Label styleClass="ContentTitleLabel" text="%key.import.format.change" />
+                        <!-- 入力エリア -->
+                        <ScrollPane fitToHeight="true" fitToWidth="true" styleClass=".ContentScrollPane" GridPane.rowIndex="1">
+                            <content>
+                                <GridPane hgap="24.0" vgap="12.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" maxWidth="-Infinity" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" maxWidth="-Infinity" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" maxWidth="-Infinity" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints vgrow="SOMETIMES" minHeight="-Infinity" maxHeight="-Infinity" />
+                                        <RowConstraints vgrow="SOMETIMES" minHeight="-Infinity" maxHeight="-Infinity" />
+                                        <RowConstraints vgrow="SOMETIMES" minHeight="-Infinity" maxHeight="-Infinity" />
+                                        <RowConstraints vgrow="SOMETIMES" minHeight="-Infinity" maxHeight="-Infinity" />
+                                        <RowConstraints vgrow="SOMETIMES" minHeight="-Infinity" maxHeight="-Infinity" />
+                                        <RowConstraints vgrow="SOMETIMES" minHeight="-Infinity" maxHeight="-Infinity" />
+                                        <RowConstraints vgrow="SOMETIMES" minHeight="-Infinity" />
+                                    </rowConstraints>
+                                    <children>
+                                        <!-- 形式 --> 
+                                        <Label styleClass="ContentTitleLabel" text="%key.import.csv" GridPane.columnIndex="1" />
+                                        <Label styleClass="ContentTitleLabel" text="%key.import.excel" GridPane.columnIndex="2" />
+                                        <!-- エンコード -->
+                                        <Label styleClass="ContentTitleLabel" text="%key.import.read.encode" GridPane.rowIndex="1" />
+                                        <ComboBox fx:id="csvEncodeCombo" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <!-- シート名 -->
+                                        <Label styleClass="ContentTitleLabel" text="%key.import.read.excel.sheet.name" GridPane.rowIndex="2" />
+                                        <TextField fx:id="xlsSheetNameField" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                        <!-- 読み込み開始行 -->
+                                        <Label styleClass="ContentTitleLabel" text="%key.import.read.line.start" GridPane.rowIndex="3" />
+                                        <TextField fx:id="csvLineStartField" maxWidth="40.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                        <TextField fx:id="xlsLineStartField" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                        <!-- 休日 -->
+                                        <Label styleClass="ContentTitleLabel" text="%key.HolidayDate" GridPane.rowIndex="4" />
+                                        <TextField fx:id="csvHolidayDateField" maxWidth="40.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                        <TextField fx:id="xlsHolidayDateField" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                        <!-- 休日名 -->
+                                        <Label styleClass="ContentTitleLabel" text="%key.HolidayName" GridPane.rowIndex="5" />
+                                        <TextField fx:id="csvHolidayNameField" maxWidth="40.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                        <TextField fx:id="xlsHolidayNameField" maxWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
+                                    </padding>
+                                </GridPane>
+                            </content>
+                        </ScrollPane>
+                        <!-- ボタン --> 
+                        <ToolBar maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                            <items>
+                                <!-- キャンセルボタン --> 
+                                <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#onCancelAction" styleClass="ContentButton" text="%key.Cancel" />
+                                <!-- OKボタン --> 
+                                <Button fx:id="okButton" mnemonicParsing="false" onAction="#onEntryAction" styleClass="ContentButton" text="%key.Regist" />
+                            </items>
+                        </ToolBar>
+                    </children>
+                </GridPane>
+                <!-- 処理中表示 -->
+                <Pane fx:id="progressPane" maxHeight="-Infinity" maxWidth="-Infinity" StackPane.alignment="CENTER">
+                    <children>
+                        <ProgressIndicator fx:id="progressIndicator" prefHeight="80.0" prefWidth="80.0" />
+                    </children>
+                </Pane>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

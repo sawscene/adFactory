@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pf="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Label Print</title>
+        <h:outputStylesheet library="styles" name="ScreenDesignStyles.css"/>
+        <h:outputStylesheet library="styles" name="ScreenFontStyles.css"/>
+        <h:outputScript library="scripts" name="PrintDialogScripts.js"/>
+        <h:outputStylesheet library="styles" name="confirmDialog.js"/>
+        <f:loadBundle basename="jp.adtekfuji.adfactoryserver.locale.locale" var="msg"/>
+        <style>
+            input:focus {
+                background: #fffccc;
+                border-color: #00cc00;
+            }
+        </style>
+    </h:head>
+
+    <h:body onload="onPageLoad();#{menuData.onChangeLocale(null)}">
+        <audio id="sound" preload="auto">
+            <source src ="#{resource['media/beep.wav']}" type="audio/wav" />
+        </audio>
+        <div>
+            <!--印刷部数-->
+            <h:panelGrid columns="2" styleClass="table emptyTable" style="margin-top: 20px;" columnClasses="labelCell font-42ptBld,inputCell">
+                <h:outputLabel id="printValLabel" value="#{msg['warehouse.copies']}"/>
+                <input id="printNumInput" type="text" class="font-48pt" style="width: 350px" value="1" maxlength='5'
+                       onkeydown="return numOnly()" onfocus="focusPrintNum()" 
+                       onkeypress='if (event.key === "Enter") { focusPrintButton(); }'
+                       inputmode="numeric" autocomplete="false" />
+            </h:panelGrid>
+
+            <!--ボタン-->
+            <h:form id="buttonForm" styleClass="fixedForm">
+                <h:outputText id="printMsg" value="" styleClass="viewMessage font-30pt" escape="false"/>
+                <h:panelGrid columns="2" styleClass="table" columnClasses="leftCell,rightCell">
+                    <pf:commandButton id="printReq" type="submit" styleClass="submitButton font-42pt" style="width:260px;"
+                                      value="#{msg['warehouse.print']}" actionListener="#{inspectionBean.printLabel}" />                 
+                    <pf:commandButton id="printCancel" type="submit" styleClass="submitButton font-42pt" style="width:400px;"
+                                      value="#{msg['warehouse.cancel']}" actionListener="#{inspectionBean.closePrintDialog}"/>
+                </h:panelGrid>                
+            </h:form>
+
+            <h:form id="hiddenForm">
+                <h:inputHidden id="printLog" value="#{inspectionBean.printLog}"/>
+                <h:inputHidden id="printReqResult" value="#{inspectionBean.printReqResult}"/>
+                <h:inputHidden id="hiddenDialog" value="#{inspectionBean.hiddenDialog}"/>
+            </h:form>
+        </div>
+    </h:body>
+</html>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane style="-fx-background-color: black;" styleClass="ContentSplitPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.andon.agenda.component.AgendaPayoutStatusCompoController">
+    <children>
+        <ScrollPane fx:id="contentScrollPane" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" style="-fx-background: black; -fx-border-color: black;" styleClass="edge-to-edge" >
+            <content>
+                <VBox fx:id="contentPane" style="-fx-font-size: 28; -fx-font-weight: bold; -fx-border-width: 0.0;" styleClass="ContentPane" >
+                    <!-- 払出完了の払出指示 -->
+                    <Label fx:id="payoutCompleteLabel" text="%key.PayoutEnd" textFill="white" visible="false" />
+                    <TilePane fx:id="payoutCompletePane" />
+                    <!-- 払出待ちの払出指示 -->
+                    <Label fx:id="payoutWaitingLabel" text="%waitingDelivery" textFill="white" visible="false" />
+                    <TilePane fx:id="payoutWaitingPane" />
+                    <!-- ピッキング中の払出指示 -->
+                    <Label fx:id="pickingLabel" text="%key.WhilePicking" textFill="white" visible="false" />
+                    <TilePane fx:id="pickingPane" />
+                    <!-- 受付の払出指示 -->
+                    <Label fx:id="receptionLabel" text="%key.Reception" textFill="white" visible="false" />
+                    <TilePane fx:id="receptionPane" />
+                </VBox >
+            </content>
+        </ScrollPane>
+             
+    </children>
+</AnchorPane>

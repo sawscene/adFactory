@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import jp.adtekfuji.javafxcommon.controls.*?>
+
+<StackPane fx:id="pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.kanbaneditplugin.dialog.TraceabilityChangeDialog">
+    <children>
+        <VBox spacing="8.0" >
+           <children>
+               <HBox alignment="CENTER_LEFT" spacing="8.0">
+                   <Label fx:id="kanbanNameLabel" />
+               </HBox>
+               <HBox alignment="CENTER_LEFT" spacing="8.0">
+                   <Label text="%key.Process" />
+                   <ComboBox fx:id="workComboBox" visible="false" minWidth="150.0"  />
+               </HBox>
+               <HBox alignment="CENTER_LEFT" spacing="8.0">
+                   <Label text="%key.Search" />
+                   <RestrictedTextField fx:id="searchTextField" HBox.hgrow="ALWAYS" maxLength="256" />
+               </HBox>
+               <!-- リスト -->
+               <PropertySaveTableView fx:id="tracebilityList" styleClass="ContentList" tableMenuButtonVisible="false" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS">
+                   <columns>
+                       <!-- 項目 -->
+                       <TableColumn fx:id="nameColumn" prefWidth="250.0" text="%key.PropertyItem" />
+                       <!-- タグ -->
+                       <TableColumn fx:id="tagColumn" prefWidth="150.0" text="%key.Tag" />
+                       <!-- 現在値 -->
+                       <TableColumn fx:id="currentValueColumn" prefWidth="150.0" text="%key.PropertyContent" />
+                       <!-- 修正値 -->
+                       <TableColumn fx:id="fixValueColumn" prefWidth="250.0" text="%key.FixValue" />
+                   </columns>
+               </PropertySaveTableView>
+               <Label text="%key.TraceNote" />
+               <HBox alignment="CENTER_RIGHT" spacing="8.0" minHeight="50.0">
+                   <children>
+                       <!-- ダウンロード -->
+                       <Button fx:id="downloadButton" mnemonicParsing="false" onAction="#onDownloadButton" styleClass="ContentButton" text="%key.Download" disable="true"  />
+                       <!-- 保存 -->
+                       <Button mnemonicParsing="false" onAction="#onSaveButton" styleClass="ContentButton" text="%key.Save" />
+                       <!-- キャンセル -->
+                       <Button mnemonicParsing="false" onAction="#onCancelButton" styleClass="ContentButton" text="%key.Cancel" />
+                   </children>
+               </HBox>
+           </children>
+           <padding>
+               <Insets bottom="0.0" left="8.0" right="8.0" top="8.0" />
+           </padding>
+        </VBox>
+        <Pane fx:id="progress" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" >
+           <children>
+               <ProgressIndicator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" />
+           </children>
+        </Pane>
+    </children>
+</StackPane>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jp.adtekfuji.addatabaseapp.component.DatabaseMaintenanceFxController">
+    <children>
+        <StackPane minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <GridPane fx:id="operationPane" minHeight="-Infinity" minWidth="-Infinity" vgap="20.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                        <RowConstraints />
+                    </rowConstraints>
+                    <children>
+                        <!-- データベース情報 -->
+                        <GridPane vgap="4.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label styleClass="text-normal" text="%key.DatabeseInformation" />
+                                <ListView fx:id="databaseInfoList" editable="false" focusTraversable="false" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" GridPane.rowIndex="1" />
+                            </children>
+                            <padding>
+                                <Insets bottom="0.0" left="4.0" right="140.0" top="0.0" />
+                            </padding>
+                        </GridPane>
+                        <!-- メンテナンス機能 -->
+                        <GridPane hgap="20.0" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" vgap="12.0" GridPane.rowIndex="1">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" />
+                            </rowConstraints>
+                            <children>
+                                <!-- バックアップ -->
+                                <Label styleClass="text-normal" text="%key.Maintenance.BackupData" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Button fx:id="backupButton" minWidth="100.0" mnemonicParsing="false" onAction="#onBackupButton" prefHeight="35.0" styleClass="SimpleButton" text="%key.Backup" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <!-- リストア -->
+                                <Label styleClass="text-normal" text="%key.Maintenance.RestoreData" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                <Button fx:id="restoreButton" minWidth="100.0" mnemonicParsing="false" onAction="#onRestoreButton" prefHeight="35.0" styleClass="SimpleButton" text="%key.Restore" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <!-- 実績出力・削除 -->
+                                <Label styleClass="text-normal" text="%key.Maintenance.DeleteActual" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                <Button fx:id="deleteActualButton" minWidth="100.0" mnemonicParsing="false" onAction="#onDeleteActualButton" prefHeight="35.0" styleClass="SimpleButton" text="%key.DeleteActual" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                <!-- メンテナンス -->
+                                <Label styleClass="text-normal" text="%key.Maintenance.Maintenance" GridPane.rowIndex="3" />
+                                <Button fx:id="maintenanceButton" minWidth="100.0" mnemonicParsing="false" onAction="#onMaintenanceButton" prefHeight="35.0" styleClass="SimpleButton" text="%key.Maintenance" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                <!-- メンテナンス定期実行 -->
+                                <GridPane vgap="2.0" GridPane.rowIndex="4">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints valignment="CENTER" vgrow="SOMETIMES" />
+                                        <RowConstraints valignment="CENTER" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label styleClass="text-normal" text="%key.Schedule.PlanMaintenance" />
+                                        <HBox alignment="CENTER_RIGHT" GridPane.rowIndex="1">
+                                            <children>
+                                                <Label text="%key.Schedule.LastRunDateLabel" />
+                                                <Label text=" : " />
+                                                <Label fx:id="lastMainteDateLabel" />
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </GridPane>
+                                <Button fx:id="scheduleButton" minWidth="100.0" mnemonicParsing="false" onAction="#onScheduleButton" prefHeight="35.0" styleClass="SimpleButton" text="%key.Schedule" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                <GridPane vgap="2.0" GridPane.rowIndex="5">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints valignment="CENTER" vgrow="SOMETIMES" />
+                                        <RowConstraints valignment="CENTER" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label styleClass="text-normal" text="%key.Schedule.PlanBackup" />
+                                        <HBox alignment="CENTER_RIGHT" GridPane.rowIndex="1">
+                                            <children>
+                                                <Label text="%key.Schedule.LastRunDateLabel" />
+                                                <Label text=" : " />
+                                                <Label fx:id="lastBackupDateLabel" />
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </GridPane>
+                                <Button fx:id="backupScheduleButton" minWidth="100.0" mnemonicParsing="false" onAction="#onBackupScheduleButton" prefHeight="35.0" styleClass="SimpleButton" text="%key.Schedule" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                            </children>
+                            <padding>
+                                <Insets bottom="0.0" left="4.0" right="4.0" top="0.0" />
+                            </padding>
+                        </GridPane>
+                        <!-- 既定のバックアップ先 -->
+                        <Region prefHeight="1.0" style="-fx-border-color: darkgray; -fx-border-insets: 1 0 0 0; -fx-border-width: 1;" GridPane.rowIndex="3">
+                            <GridPane.margin>
+                                <Insets bottom="0.0" left="4.0" right="4.0" top="0.0" />
+                            </GridPane.margin>
+                        </Region>
+                        <GridPane hgap="20.0" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" vgap="4.0" GridPane.rowIndex="3">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label styleClass="text-normal" text="%key.BackupDestination" />
+                                <TextField fx:id="backupDirField" editable="false" styleClass="text-normal" GridPane.rowIndex="1" />
+                                <Button fx:id="backupDirButton" minWidth="80.0" mnemonicParsing="false" onAction="#onBackupDirButton" prefHeight="35.0" styleClass="SimpleButton" text="%key.Change" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                            </children>
+                            <padding>
+                                <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                            </padding>
+                        </GridPane>
+                        <!-- 終了ボタン -->
+                        <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" GridPane.rowIndex="4">
+                            <children>
+                                <Button fx:id="closeButton" minWidth="100.0" mnemonicParsing="false" onAction="#onCloseButton" prefHeight="35.0" styleClass="SimpleButton" text="%key.End">
+                                    <HBox.margin>
+                                        <Insets top="20.0" />
+                                    </HBox.margin>
+                                </Button>
+                            </children>
+                            <padding>
+                                <Insets bottom="0.0" left="4.0" right="4.0" top="0.0" />
+                            </padding>
+                        </HBox>
+                    </children>
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                    </padding>
+                </GridPane>
+                <Pane fx:id="progressPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+                    <children>
+                        <ProgressIndicator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" />
+                    </children>
+                </Pane>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import jp.adtekfuji.javafxcommon.controls.*?>
+<?import org.controlsfx.control.*?>
+
+<AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.kanbaneditplugin.component.ReportOutputChoiceFxController">
+    <children>
+        <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <GridPane hgap="16.0" vgap="16.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="150.0" />
+                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                        <RowConstraints vgrow="SOMETIMES" minHeight="-Infinity" />
+                    </rowConstraints>
+                    <children>
+                        <!-- 説明 -->
+                        <Label text="%key.OutputReportFile" />
+                        <!-- 出力先 -->
+                        <HBox spacing="8.0" GridPane.rowIndex="1" >
+                            <Label text="%key.OutputDestination" />
+                            <TextField fx:id="outputFolderText" prefWidth="300.0" />
+                            <Button onAction="#onChoiceFolder" text="%key.Choice" />
+                        </HBox>
+                    </children>
+                    <children>
+                        <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" GridPane.rowIndex="2" >
+                            <children>
+                                <!-- 出力対象帳票テンプレートリスト -->
+                                <!-- 説明(出力対象の帳票テンプレート) -->
+                                <Label text="%key.ReportTemplateFile" />
+                            </children>
+                            <children>
+                                <CheckListView fx:id="reportListView" GridPane.rowIndex="3" />
+                            </children>
+                        </VBox>
+                    </children>
+                    <padding>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="0.0" />
+                    </padding>
+                    <!--</AnchorPane>-->
+                    <children>
+                    <!-- 置換されなかったタグを残す -->
+                        <CheckBox fx:id="leaveTagsCheck" text="%key.LeaveUnreplacedTags" GridPane.rowIndex="4" />
+                        <CheckBox fx:id="exportAsPdf" text="%outputPdf" GridPane.rowIndex="5"/>
+                    </children>
+                    <padding>
+                        <Insets bottom="32.0" left="16.0" right="16.0" top="8.0" />
+                    </padding>
+                </GridPane>
+                <HBox alignment="CENTER_RIGHT" spacing="8.0">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#onOkButton" styleClass="ContentButton" text="%key.Ok" />
+                        <Button defaultButton="true" mnemonicParsing="false" onAction="#onCancelButton" styleClass="ContentButton" text="%key.Cancel" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+    <padding>
+        <Insets bottom="-6.0" left="12.0" right="12.0" top="12.0" />
+    </padding>
+</AnchorPane>

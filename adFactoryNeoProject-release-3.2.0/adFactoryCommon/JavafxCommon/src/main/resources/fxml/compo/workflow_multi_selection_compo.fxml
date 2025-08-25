@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jp.adtekfuji.javafxcommon.selectcompo.WorkflowMultiSelectionCompoFxController">
+    <children>
+        <StackPane fx:id="stackPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <GridPane>
+                    <children>
+                        <GridPane GridPane.rowIndex="1">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="70.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <TreeView fx:id="hierarchyTree" />
+                                <ListView fx:id="itemList" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
+                                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="12.0" GridPane.columnIndex="2">
+                                   <children>
+                                      <Button mnemonicParsing="false" onAction="#OnAdd" styleClass="ContentButton" text="%key.Add" />
+                                      <Button mnemonicParsing="false" onAction="#OnRemove" styleClass="ContentButton" text="%key.Remove" />
+                                   </children>
+                                   <GridPane.margin>
+                                      <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                                   </GridPane.margin>
+                                </VBox>
+                                <ListView fx:id="selectedItemList" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" />
+                            </children>
+                        </GridPane>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                           <children>
+                              <RadioButton fx:id="showLatestOnlyRButton" mnemonicParsing="false" selected="true" text="%key.displayLatestOnly">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="showingToggleGroup" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton mnemonicParsing="false" text="%key.displayAll" toggleGroup="$showingToggleGroup" />
+                           </children>
+                           <GridPane.margin>
+                              <Insets bottom="10.0" left="190.0" right="10.0" top="10.0" />
+                           </GridPane.margin>
+                        </HBox>
+                    </children>
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                    </rowConstraints>
+                </GridPane>
+                <Pane fx:id="progressPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+                    <children>
+                        <ProgressIndicator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" />
+                    </children>
+                </Pane>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

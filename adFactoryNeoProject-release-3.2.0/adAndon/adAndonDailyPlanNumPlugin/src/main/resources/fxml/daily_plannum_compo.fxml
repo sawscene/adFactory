@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jp.adtekfuji.adandondailyplannumplugin.MonitorDailyPlunNumCompoFxController">
+    <children>
+        <GridPane hgap="5.0" vgap="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" />
+                <ColumnConstraints hgrow="SOMETIMES" />
+                <ColumnConstraints hgrow="SOMETIMES" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints percentHeight="50" vgrow="SOMETIMES" />
+                <RowConstraints percentHeight="50" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label fx:id="planLabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="%key.MonitorDailyPlanNum" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                    <font>
+                        <Font name="Meiryo UI Bold Italic" size="12.0" />
+                    </font>
+                </Label>
+                <Label fx:id="actualLabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="%key.MonitorDailyActualNum" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                    <font>
+                        <Font name="Meiryo UI Bold Italic" size="12.0" />
+                    </font>
+                </Label>
+                <Label fx:id="planNumLabel" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="planNum" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                    <font>
+                        <Font name="Meiryo UI Bold Italic" size="12.0" />
+                    </font>
+                </Label>
+                <Label fx:id="actualNumLabel" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="actualNum" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <font>
+                        <Font name="Meiryo UI Bold Italic" size="12.0" />
+                    </font>
+                </Label>
+                <Label fx:id="planUnitLabel" alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="planUnit" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                    <font>
+                        <Font name="Meiryo UI Bold Italic" size="12.0" />
+                    </font>
+                </Label>
+                <Label fx:id="actualUnitLabel" alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="actualUnit" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                    <font>
+                        <Font name="Meiryo UI Bold Italic" size="12.0" />
+                    </font>
+                </Label>
+            </children>
+        </GridPane>
+    </children>
+    <padding>
+       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+    </padding>
+</AnchorPane>

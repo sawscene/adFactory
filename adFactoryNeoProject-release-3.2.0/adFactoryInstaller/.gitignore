@@ -1,0 +1,21 @@
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+hs_err_pid*
+/3rd/*.exe
+/3rd/*.zip
+/CmdSatellite/
+/bin/*.exe
+/bin/Dockingcontrollayout.dll
+!/bin/nssm.exe
+!/liblary/*
+/Output/
+/logs/
+version.ini

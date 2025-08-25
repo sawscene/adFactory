@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import jp.adtekfuji.javafxcommon.controls.*?>
+<?import adtekfuji.admanagerapp.kanbaneditplugin.controls.*?>
+
+<AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.kanbaneditplugin.component.InspectionSearchFxController">
+    <children>
+        <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <SplitPane orientation="HORIZONTAL" dividerPositions="0.2" StackPane.alignment="TOP_LEFT">
+                    <items>
+                        <!-- 左ペイン -->
+                        <GridPane minHeight="0.0" styleClass="ContentPane">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints vgrow="SOMETIMES" minHeight="0.0" />
+                                <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                            </rowConstraints>
+                            <children>
+                                <!-- 検索条件 -->
+                                <ScrollPane minHeight="0.0" minWidth="0.0" fitToWidth="true" hbarPolicy="NEVER" styleClass="ContentScrollPane">
+                                    <GridPane>
+                                        <columnConstraints>
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                                        </columnConstraints>
+                                        <rowConstraints>
+                                            <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                                            <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                                            <RowConstraints vgrow="SOMETIMES" minHeight="-Infinity" />
+                                        </rowConstraints>
+                                        <children>
+                                            <!-- カンバン名 -->
+                                            <CheckTextField fx:id="kanbanNameField" label="%key.KanbanName" />
+                                            <!-- モデル名 -->
+                                            <CheckTextField fx:id="modelNameField" label="%key.ModelName" GridPane.rowIndex="1" />
+                                        </children>
+                                    </GridPane>
+                                </ScrollPane>
+                                <!-- ツールバー -->
+                                <AnchorPane GridPane.rowIndex="1" >
+                                    <children>
+                                        <ToolBar AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" >
+                                            <items>
+                                                <!-- 検索ボタン -->
+                                                <Button fx:id="searchButton" mnemonicParsing="false" onAction="#onSearch" styleClass="ContentButton" text="%key.Search" />
+                                            </items>
+                                        </ToolBar>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </GridPane>
+                        <!-- 右ペイン -->
+                        <GridPane minHeight="0.0" styleClass="ContentPane">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints vgrow="SOMETIMES" minHeight="0.0" />
+                                <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                            </rowConstraints>
+                            <children>
+                                <!-- カンバンリスト -->
+                                <AnchorPane minHeight="0.0" minWidth="0.0">
+                                    <children>
+                                        <TableView fx:id="kanbanList" editable="true" minHeight="0.0" minWidth="0.0" styleClass="ContentList" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columns>
+                                                <TableColumn fx:id="kanbanNameColumn" prefWidth="150.0" text="%key.KanbanName" />
+                                                <TableColumn fx:id="modelNameColumn" prefWidth="150.0" text="%key.ModelName" />
+                                                <TableColumn fx:id="workflowNameColumn" prefWidth="150.0" text="%key.WorkflowName" />
+                                            </columns>
+                                        </TableView>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                    </padding>
+                                </AnchorPane>
+                                <!-- ツールバー -->
+                                <AnchorPane GridPane.rowIndex="1" >
+                                    <children>
+                                        <ToolBar AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" >
+                                            <items>
+                                                <!-- 検査データボタン -->
+                                                <Button fx:id="inspectionDataButton" mnemonicParsing="false" onAction="#onInspectionData" styleClass="ContentButton" text="%key.InspectionData" />
+                                            </items>
+                                        </ToolBar>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </GridPane>
+                    </items>
+                </SplitPane>
+                <!-- 処理中表示 -->
+                <Pane fx:id="progressPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" StackPane.alignment="CENTER">
+                    <children>
+                        <ProgressIndicator />
+                    </children>
+                </Pane>
+            </children>
+        </StackPane>
+    </children>
+    <padding>
+        <Insets bottom="-20.0" left="0.0" right="0.0" top="0.0" />
+    </padding>
+</AnchorPane>

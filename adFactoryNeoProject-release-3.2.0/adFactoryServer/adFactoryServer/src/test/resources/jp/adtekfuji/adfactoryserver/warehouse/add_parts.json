@@ -1,0 +1,8 @@
+[
+    { "prodNo":"prodNo-1", "prodName":"prodName-1", "vendor":"vendor-1", "spec":"spec-1", "figNo":"fig-1" },
+    { "prodNo":"prodNo-2", "prodName":"prodName-2", "vendor":"vendor-2", "spec":"spec-2" },
+    { "prodNo":"prodNo-3", "prodName":"prodName-3", "vendor":"vendor-3", "spec":"spec-3", "figNo":"fig-3" },
+    { "prodNo":"prodNo-4", "vendor":"vendor-4", "spec":"spec-4" },
+    { "prodNo":"prodNo-5", "prodName":"prodName-5" },
+    { "prodNo":"prodNo-3", "prodName":"prodName-3", "vendor":"vendor-3", "spec":"spec-3" }
+]

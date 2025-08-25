@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+
+	<!-- 作図支援 -->
+	<drawingSupport>
+		<copyRetryCount count="3"/>
+		<pasteRetryCount count="3"/>
+	</drawingSupport>
+
+	<!-- 作業手順 -->
+	<workflow sheet="作業手順">
+		<workflowName cell="B3"/>
+		<rev cell="Y3"/>
+		<workNo cell="AB3"/>
+		<workOrder cell="AK3"/>
+		<approverId1 cell="AO3"/>
+		<approverId2 cell="AV3"/>
+		<updatePersonId cell="BC3"/>
+		<workflowHierarchy cell="BJ3"/>
+
+		<!-- 品番 -->
+		<workParameter cell="B7" next="1" direction="row" termination="">
+			<itemNumber row="0" column="0"/>
+			<workNo row="0" column="8"/>
+			<taktTime row="0" column="9"/>
+			<workProcedureNo row="0" column="13"/>
+			<fileName row="0" column="14"/>
+			<checkItemNo row="0" column="21"/>
+			<key row="0" column="22"/>
+			<minValue row="0" column="51"/>
+			<maxValue row="0" column="55"/>
+			<value row="0" column="59"/>
+			<visibility row="0" column="64"/>
+		</workParameter>
+	</workflow>
+
+	<template sheet="テンプレート"/>
+
+	<!-- 工程 -->
+	<work sheet="工程\d+">
+		<workName cell="B6"/>
+		<rev cell="BM6"/>
+		<workNo cell="BQ6"/>
+		<taktTime cell="BW6"/>
+		<option cell="B7"/>
+		<backgroundColor cell="B6"/>
+		<fontColor cell="B6"/>
+		<workEnd cell="CD7"/>
+		
+		<!-- 作業手順 -->
+		<workProcedure cell="B9" next="12" direction="row" termination="">
+			<workProcedureNo row="0" column="0"/>
+			<workProcedureName row="0" column="2"/>
+			<image row="1" column="2"/>
+			<workPoint row="11" column="64"/>
+			<workProcedureEnd row="12" column="100"/>
+			
+			<!-- チェック項目 -->
+			<checkItems row="1" column="63" next="1" direction="row" termination="" count="12">
+				<checkItemNo row="0" column="0"/>
+				<checkItemName row="0" column="2"/>
+				<minValue row="0" column="19"/>
+				<maxValue row="0" column="23"/>
+				<currentValue row="0" column="27"/>
+				<tag row="0" column="33"/>
+				<checkItemsEnd row="0" column="38"/>
+			</checkItems>
+		</workProcedure>
+	</work>
+</root>

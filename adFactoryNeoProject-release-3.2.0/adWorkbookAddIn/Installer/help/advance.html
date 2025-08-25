@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <style>
+            .para {
+                margin-left: 1em;
+            }
+            .graf {
+                margin-left: -8%;
+                margin-bottom: 5px;
+            }
+            .mokuji {
+                margin-left: -0.5em;
+                font-size: 20px;
+                font-weight: bold;
+                line-height: 26px;
+            }
+            .fon {
+                margin-left: -1em;
+                font-size: 16px;
+            }
+            .ue {
+                margin-left: 1em;
+                margin-top: 6px;
+            }
+            .kome {
+                text-indent: -1em;
+                margin-left: 1em;
+            }
+            table td:nth-of-type(2) {
+                font-size: 13px;
+            }
+            table {
+                border-collapse: collapse;
+            }
+            table th, table td {
+                border: solid 1px black;
+                /*実線 1px 黒*/
+            }
+            .ban {
+                counter-reset: body-contents;
+            }
+            .num::before {
+                content: counter(body-contents) ". ";
+                counter-increment: body-contents;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>高度な使い方</h1>
+        <p>
+            <ol class="mokuji">
+                <li><a href="#a">作業者端末で文字列を入力する</a></li>
+                <li><a href="#aa">誤った文字列が入力されないようにする</a></li>
+                <li><a href="#ab">作業者端末でリスト入力する</a></li>
+                <li><a href="#b">作業者端末で数値を入力する</a></li>
+                <li><a href="#ba">作業者端末で計算する</a></li>
+                <li><a href="#c">測定機器を使用する</a></li>
+                <li><a href="#d">類似機種の作業手順を展開する</a></li>
+                <li><a href="#e">作図支援のラベルをカスタマイズする</a></li>
+            </ol>
+            <br>
+        </p>
+        <div class="ban">
+            <h2 class="num"><a name="a">作業者端末で文字列を入力する</a></h2>
+            <p>チェック項目ウィンドウの[種別]を「カスタム」に設定することで、文字列を入力することができます。詳しくは、<a href="C:\adFactory\adWorkbook\help\check.html#custom">カスタム</a>をご参照ください。</p>
+
+            <h2 class="num"><a name="aa">誤った文字列が入力されないようにする</a></h2>
+            <p>チェック項目ウィンドウの[入力規則]を設定することで、ルールに当てはまる文字列だけを入力することができます。[入力規則]は、正規表現で設定します。</p>
+            <ul>
+                <li>数字だけを許可する場合は、<code>^\d+$</code> と設定します。</li>
+                <li>アルファベットだけを許可する場合は、<code>^[a-zA-Z]+$</code> と設定します。</li>
+                <li>「SN-#####」の形式だけを許可する場合は、<code>^SN-\d{5}$</code> と設定します。</li>
+            </ul>
+
+            <h2 class="num"><a name="ab">作業者端末でリスト入力する</a></h2>
+            <p>入力値をあらかじめリストとして設定して、作業者がそのリストから選択することができます。リストを設定するには、リストの[変更]をクリックして、[色付き入力値リスト]に入力値を登録してください。</p>
+
+            <h2 class="num"><a name="b">作業者端末で数値を入力する</a></h2>
+            <p>チェック項目ウィンドウの[種別]を「測定」に設定することで、数値を入力することができます。詳しくは、<a href="C:\adFactory\adWorkbook\help\check.html#measure">測定</a>をご参照ください。</p>
+            
+            <h2 class="num"><a name="ba">作業者端末で計算する</a></h2>
+            <p>入力された数値を基に計算した結果を、自動で入力することができます。</p>
+            <div class="para">
+                <h3>手順</h3>
+                <ol>
+                    <li>チェック項目ウィンドウの[種別]を「測定」に設定します。</li>
+                    <li>[入力種]を「計算結果」に設定します。</li>
+                    <li>[計算式]を設定します。</li>
+                </ol>
+                <h3>計算式の設定</h3>
+                <p>計算式を設定する際は、各タグをシングルクォーテーション（'）で囲みます。計算式では、以下の算術操作を使用できます。</p>
+                <ul>
+                    <li>足し算 <code>'TAG_1' + 'TAG_2'</code></li>
+                    <li>引き算 <code>'TAG_1' - 'TAG_2'</code></li>
+                    <li>掛け算 <code>'TAG_1' * 'TAG_2'</code></li>
+                    <li>割り算 <code>'TAG_1' / 'TAG_2'</code></li>
+                    <li>累乗 <code>'TAG_1' ^ 2</code></li>
+                    <li>累乗根 <code>'TAG_1' ^ (1/2)</code></li>
+                    <li>絶対値 <code>abs('TAG_1')</code></li>
+                    <li>平方根 <code>sqrt('TAG_1')</code></li>
+                    <li>立方根 <code>cbrt('TAG_1')</code></li>
+                    <li>最小値 <code>min('TAG_1', 'TAG_2')</code></li>
+                    <li>最大値 <code>max('TAG_1', 'TAG_2')</code></li>
+                    <li>平均値 <code>avg('TAG_1', 'TAG_2', 'TAG_3')</code></li>
+                    <li>自然対数 <code>log('TAG_1')</code></li>
+                    <li>常用対数 (底が10) <code>log10('TAG_1')</code></li>
+                    <li>底が2の対数 <code>log2('TAG_1')</code></li>
+                    <li>指数関数 <code>exp('TAG_1')</code></li>
+                    <li>サイン <code>sin('TAG_1')</code></li>
+                    <li>コサイン <code>cos('TAG_1')</code></li>
+                    <li>タンジェント <code>tan('TAG_1')</code></li>
+                    <li>アークサイン <code>asin('TAG_1')</code></li>
+                    <li>アークコサイン <code>acos('TAG_1')</code></li>
+                    <li>アークタンジェント <code>atan('TAG_1')</code></li>
+                    <li>ハイパボリックサイン <code>sinh('TAG_1')</code></li>
+                    <li>ハイパボリックコサイン <code>cosh('TAG_1')</code></li>
+                    <li>ハイパボリックタンジェント <code>tanh('TAG_1')</code></li>
+                    <li>符号関数 (値の正負を判定) <code>signum('TAG_1')</code></li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 class="num"><a name="c">測定機器を使用する</a></h2>
+        <p>測定機器で取得した数値をそのまま入力することができます。測定機器は、adManagerの[設備編集]にあらかじめ登録されている必要があります。</p>
+        <div class="para">
+            <h3>手順</h3>
+            <ol>
+                <li>チェック項目ウィンドウの[種別]を「測定」に設定します。</li>
+                <li>設備の[変更]をクリックして、測定機器を登録します。</li>
+                <li>工程シートの[初期値]のセルに、使用する測定機器の設備管理名を設定します。</li>
+            </ol>
+        </div>
+
+        <h2 class="num"><a name="d">類似機種の作業手順を展開する</a></h2>
+        <p>型番やモデルの違いに応じて、図解やチェック項目を差し替えることができます。詳細は、<a href="C:\adFactory\adWorkbook\help\production.html">こちら</a>をご参照ください。</p>
+
+        <h2 class="num"><a name="e">作図支援のラベルをカスタマイズする</a></h2>
+        <p>作図支援のラベルを、自由にカスタマイズすることができます。<br>
+        <div class="para">
+            <h3>手順</h3>
+            <ol>
+                <li><a href="C:\adFactory\adWorkbook\conf\作図支援.xlsx">設定ファイル</a>を開きます。</li>
+                <li>[materials]シートに、図を貼り付ます。</li>
+                <li>図に名前を付けます。Excelの左上、数式バーのすぐ左側に「名前ボックス」という入力欄があります。図を選択した状態で、この名前ボックスに任意の名前を入力します。</li>
+                <li>[list]シートに、ラベルを設定します。
+                    <table>
+                        <tr>
+                            <td>group</td><td>作図支援ウィンドウに表示するグループ名</td>
+                        </tr>
+                        <tr>
+                            <td>caption</td><td>作図支援ウィンドウに表示するラベル</td>
+                        </tr>
+                        <tr>
+                            <td>shape_name</td><td>[materials]シートに貼り付けた図の名前</td>
+                        </tr>
+                    </table>
+                </li>
+                <li><a href="C:\adFactory\adWorkbook\conf\作図支援.xlsx">設定ファイル</a>を保存して、Excelを再起動します。</li>
+            </ol>
+        </div>
+    </body>
+</html>

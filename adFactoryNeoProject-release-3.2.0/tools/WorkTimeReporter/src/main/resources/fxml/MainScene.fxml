@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane id="AnchorPane" prefHeight="341.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jp.adtekfuji.worktimereporter.MainSceneFXMLController">
+    <StackPane AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0">
+        <VBox spacing="5.0">
+            <GridPane hgap="5.0" prefHeight="23.0" prefWidth="570.0" vgap="5.0">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+                </columnConstraints>
+                <Label text="実績情報入力設定" GridPane.columnSpan="2147483647">
+                    <font>
+                        <Font name="System Bold" size="16.0"/>
+                    </font>
+                </Label>
+                <Label text="adFactoryサーバーアドレス" GridPane.valignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                <Label text="データ取り込み間隔" GridPane.valignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                <TextField fx:id="adfactoryAddressField" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                <HBox alignment="CENTER_LEFT" spacing="5.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                    <RadioButton fx:id="selectIntervalTime" mnemonicParsing="false" selected="true" text="実行時から過去">
+                        <toggleGroup>
+                            <ToggleGroup fx:id="data_uptake_group"/>
+                        </toggleGroup>
+                    </RadioButton>
+                    <TextField fx:id="uptakeIntervalField" alignment="CENTER_RIGHT" prefHeight="23.0" prefWidth="48.0"/>
+                    <Label text="時間"/>
+                </HBox>
+                <VBox spacing="5.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                    <HBox alignment="CENTER_LEFT" spacing="5.0">
+                        <GridPane.margin>
+                            <Insets/>
+                        </GridPane.margin>
+                        <RadioButton fx:id="selectFromToSearch" mnemonicParsing="false" text="日時範囲で指定"  toggleGroup="$data_uptake_group"/>
+                        <TextField fx:id="fromSearchField" prefWidth="160.0" promptText="yyyy/MM/dd HH:mm:ss"/>
+                        <Label text="～"/>
+                        <TextField fx:id="toSearchField" prefHeight="23.0" prefWidth="160.0" promptText="yyyy/MM/dd HH:mm:ss"/>
+                    </HBox>
+                    <Label text="※日時範囲指定は、手動で実行する場合のみ利用できます。自動実行では利用できません。"/>
+                </VBox>
+
+
+                <Label text="実績情報出力設定" GridPane.columnSpan="2147483647" GridPane.rowIndex="4">
+                    <font>
+                        <Font name="System Bold" size="16.0"/>
+                    </font>
+                </Label>
+                <Label text="フォルダアドレス" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+                <Label text="ユーザー名" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                <Label text="パスワード" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                <TextField fx:id="folderAddressField"  GridPane.columnIndex="2" GridPane.rowIndex="5"/>
+                <TextField fx:id="userField" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                <PasswordField fx:id="passwordField" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+
+                <Label text="エラーメール設定" GridPane.columnSpan="2147483647" GridPane.rowIndex="8">
+                    <font>
+                        <Font name="System Bold" size="16.0"/>
+                    </font>
+                </Label>
+                <Label text="メールサーバ-" GridPane.columnIndex="1" GridPane.rowIndex="9"/>
+                <Label text="ポート番号" GridPane.columnIndex="1" GridPane.rowIndex="10"/>
+                <Label text="メール送信先" GridPane.columnIndex="1" GridPane.rowIndex="11"/>
+                <TextField fx:id="errorMailServerField"  GridPane.columnIndex="2" GridPane.rowIndex="9"/>
+                <TextField fx:id="errorMailPortField"  GridPane.columnIndex="2" GridPane.rowIndex="10"/>
+                <TextField fx:id="errorMailRecipientField"  GridPane.columnIndex="2" GridPane.rowIndex="11"/>
+
+            </GridPane>
+            <HBox spacing="5.0">
+                <VBox.margin>
+                    <Insets/>
+                </VBox.margin>
+                <padding>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                </padding>
+                <Button layoutX="160.0" layoutY="151.0" maxHeight="1.7976931348623157E308"
+                        onAction="#onCloseAction" text="設定を保存して閉じる"/>
+                <Button onAction="#onActualOutAction">
+                    <graphic>
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+                            <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="いますぐ実績ファイルを出力"/>
+                            <Label maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="※設定も保存します"/>
+                        </VBox>
+                    </graphic>
+                </Button>
+            </HBox>
+        </VBox>
+        <Pane fx:id="progressPane" visible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" StackPane.alignment="CENTER">
+            <ProgressIndicator layoutX="14.693527221679688" layoutY="14.97369384765625" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="100.0"/>
+        </Pane>
+    </StackPane>
+</AnchorPane>

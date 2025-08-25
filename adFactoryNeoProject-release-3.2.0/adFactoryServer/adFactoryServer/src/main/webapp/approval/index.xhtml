@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+        <title><h:outputText value="#{approvalData.typeLabelApproval}"/></title>
+        <h:outputStylesheet library="styles" name="styles.css"/>
+        <h:outputStylesheet library="styles" name="ScreenDesignStyles.css"/>
+        <h:outputStylesheet library="styles" name="ScreenFontStyles.css"/>
+        <h:outputScript library="scripts" name="ApprovalScripts.js"/>
+    </h:head>
+    <h:body onload='buttonControl()'>
+        <f:metadata>
+            <f:viewParam name="id" value="#{approvalData.applovalId}"/>
+            <f:viewParam name="organization" value="#{approvalData.orgIdent}"/>
+            <f:viewParam name="open" value="#{approvalData.openKey}"/>
+            <f:viewAction action="#{approvalData.authUser}"/>
+            <f:event type="preRenderView" listener="#{approvalData.preRenderView}"/>
+        </f:metadata>
+        <!-- ヘッダーコンテンツ -->
+        <ui:include src="../header.xhtml"/>
+        <div style="margin-left: 30px;">
+            <!--タイトル-->                
+            <h:panelGrid columns="2" styleClass="approvalTable" columnClasses="approvalTitleCell, approvalInfo">
+                <h:outputLabel value="#{approvalData.typeLabelApproval}" styleClass="font-30ptBld"/>
+                <h:panelGrid columns="1" columnClasses="approvalInfoCell">
+                    <h:outputLabel value="#{approvalData.typeLabelApprovalId} : #{approvalData.applovalId}"/>
+                    <h:outputLabel value="#{approvalData.orgIdent} : #{approvalData.orgName}"/>
+                </h:panelGrid>
+            </h:panelGrid>
+            <h:form styleClass="approvalTable">
+                <!--申請情報-->
+                <h:dataTable var="info" value="#{approvalData}" styleClass="approvalInfoTable"
+                             columnClasses="approvalLabelCell font-15pt,approvalDataCell font-15pt">
+                    <h:column>
+                        <h:outputLabel value="#{info.typeLabelRequestId} :"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputLabel id="userNameOutput" value="#{info.requesetName}"/>
+                    </h:column>
+                </h:dataTable>
+                <h:dataTable var="info" value="#{approvalData}" styleClass="approvalInfoTable" 
+                             columnClasses="approvalLabelCell font-15pt,approvalDataCell font-15pt">
+                    <h:column>
+                        <h:outputLabel value="#{info.typeLabelDataType} :"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputLabel value="#{info.workName}"/>
+                    </h:column>
+                </h:dataTable>
+                <h:dataTable var="info" value="#{approvalData}" styleClass="approvalInfoTable" 
+                             columnClasses="approvalLabelCell font-15pt,approvalDataCell font-15pt">
+                    <h:column>
+                        <h:outputLabel value="#{info.typeLabelRevision} :"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputLabel value="#{info.revision}"/>
+                    </h:column>
+                </h:dataTable>
+                <h:dataTable var="info" value="#{approvalData}" styleClass="approvalInfoTable" 
+                             columnClasses="approvalLabelCell font-15pt,approvalDataCell font-15pt">
+                    <h:column>
+                        <h:outputLabel value="#{info.typeLabelComment} :"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{info.approvalComment}" styleClass="whiteSpace"/>
+                    </h:column>
+                </h:dataTable>
+                <h:dataTable var="info" value="#{approvalData}" styleClass="approvalInfoTable"
+                             columnClasses="approvalLabelCell font-15pt,approvalDataCell font-15pt" style="margin-top: 30px;">
+                    <h:column>
+                        <h:outputLabel value="#{info.typeLabelApprovalRoute} :"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputLabel value="#{info.approvalRoute}"/>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+            <h:form styleClass="approvalTable" id="routeForm">
+                <!--承認ルート情報-->
+                <h:dataTable var="additionData" value="#{approvalData.additionHistory}"
+                             styleClass="tableRoute font-15pt" columnClasses="historyOrder, historyName, historyState, historyComment">
+                    <h:column>
+                        <h:outputLabel value="#{additionData.approvalOrder} :" styleClass="tableRouteTypeLabelColumn"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputLabel value="#{additionData.approvalName}" styleClass="tableRouteTypeLabelColumn"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputLabel value="#{additionData.approvalState}" styleClass="tableRouteTypeLabelColumn"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{additionData.approvalComment}" styleClass="whiteSpace"/>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+
+            <!--メッセージダイアログ-->
+            <!--confirmDialog.xhtmlを表示した後はmessageDialog.xhtmlが表示されないため、messageDialogを表示してください。-->
+            <p:dialog id="messageDialog" widgetVar="messageDialog" modal="true" resizable="false" draggable="false" header="#{approvalData.headerInfo}">
+                <p:outputPanel id="messageDialogPanel">
+                    <h:form style="padding: 10px">
+                        <h:outputText id="messageLabel" styleClass="font-normal" style="color: black;" value="#{approvalData.messageInfo}" escape="true" />
+                        <br/><br/><br/>
+                        <div style="text-align: center;">
+                            <p:commandButton id="yesButton" styleClass="font-normal" style="width:120px;"
+                                             value="#{msg['key.Ok']}" oncomplete="PF('messageDialog').hide(); buttonControl();" update=":routeForm :buttonForm :hiddenForm" />
+                        </div>
+                    </h:form>
+                </p:outputPanel>
+            </p:dialog>
+            <h:form styleClass="approvalTable" id="buttonForm">
+                <div align="center">
+                    <!--コメント記入欄-->
+                    <p:inputTextarea styleClass="commentTextArea" value="#{approvalData.commentColumn}" id="commentTextArea"
+                                     placeholder="#{approvalData.typeLabelCommentPlaceholder}"/>
+                    <!--ボタン一覧-->
+                    <h:panelGrid columns="4" styleClass="buttonForm" columnClasses="applicationCancelButtonCell, approvalButtonCell, cancelButtonCell, approvalCancelButtonCell">
+                        <h:panelGrid columns="1" >
+                            <!--申請取消-->
+                            <p:commandButton id="applyCancelBtn" value="#{approvalData.typeLabelRequestCancelButton}" styleClass="approvalButton"
+                                             actionListener="#{approvalData.openCancelApplyDialog}" >
+                                <p:ajax event="dialogReturn" listener="#{approvalData.postApplicationCancelRequest}"/>
+                            </p:commandButton>
+                        </h:panelGrid>
+                        <!--承認-->
+                        <p:commandButton id="approvalBtn" value="#{approvalData.typeLabelApprovalButton}" styleClass="approvalButton"
+                                         actionListener='#{approvalData.openApprovalDialog}'>
+                            <p:ajax event="dialogReturn" listener="#{approvalData.postApprovalRequest}"/>
+                        </p:commandButton>
+                        <!--却下-->
+                        <p:commandButton id="cancelBtn" value="#{approvalData.typeLabelApprovalRemandButton}" styleClass="approvalButton"
+                                         actionListener="#{approvalData.openRejectDialog}">
+                            <p:ajax event="dialogReturn" listener="#{approvalData.postCancelRequest}"/>
+                        </p:commandButton>
+                        <!--承認取消-->
+                        <p:commandButton id="approvalCancelBtn" value="#{approvalData.typeLabelApprovalCancelButton}" styleClass="approvalButton" 
+                                         actionListener="#{approvalData.openCancelApprovalDialog}">
+                            <p:ajax event="dialogReturn" listener="#{approvalData.postApprovalCancelRequest}"/>
+                        </p:commandButton>
+                    </h:panelGrid>
+                </div>
+            </h:form>
+            <h:form id="hiddenForm">
+                <h:inputHidden id="buttonConJson" value="#{approvalData.buttonControlJson}"/>
+            </h:form>
+        </div>
+        <ui:fragment rendered="#{approvalData.workFlg}">
+            <ui:include src="ApprovalWork.xhtml" />
+        </ui:fragment>
+        <ui:fragment rendered="#{approvalData.workFlowFlg}">
+            <ui:include src="ApprovalWorkFlow.xhtml" />
+        </ui:fragment>
+    </h:body>
+</html>
+

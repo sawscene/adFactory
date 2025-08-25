@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.adcustommonitorapp.controller.CellProductionGraphMonitorCompoFxController">
+   <children>
+      <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <GridPane layoutX="270.0" layoutY="181.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <AnchorPane GridPane.columnIndex="1">
+                     <children>
+                        <ToolBar layoutX="100.0" layoutY="91.0" styleClass="ContentToolbar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <items>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <DatePicker fx:id="startDatePicker" />
+                                    <Label alignment="CENTER" contentDisplay="CENTER" text="-" />
+                                    <DatePicker fx:id="endDatePicker" disable="true" />
+                                 </children>
+                              </HBox>
+                          </items>
+                        </ToolBar>
+                     </children>
+                  </AnchorPane>
+                  <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <content>
+                        <VBox fx:id="tileAnchor" prefWidth="600.0">
+                           <children>
+                              <TilePane fx:id="graphBasePane" />
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+                  <AnchorPane>
+                     <children>
+                        <ToolBar layoutX="-8.0" layoutY="-1.0" styleClass="ContentToolbar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane GridPane.rowIndex="1">
+                     <children>
+                        <ToolBar nodeOrientation="RIGHT_TO_LEFT" orientation="VERTICAL" styleClass="ContentToolbar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <items>
+                              <Slider fx:id="yRangeSlider" max="1800.0" min="300.0" orientation="VERTICAL" value="600.0" />
+                           </items>
+                        </ToolBar>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+            <Pane fx:id="progressPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+               <children>
+                  <ProgressIndicator />
+               </children>
+            </Pane>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

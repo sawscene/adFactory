@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" onKeyPressed="#onKeyPressed" prefHeight="577.0" prefWidth="468.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jp.adtekfuji.guitesttool.OrganizationListCompoFXController">
+   <children>
+      <StackPane prefHeight="800.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane>
+               <children>
+                  <TableView fx:id="organizationList" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onKeyPressed="#onKeyPressed" prefHeight="800.0" prefWidth="848.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                        <TableColumn fx:id="organizationIdColumn" text="組織ID" />
+                        <TableColumn fx:id="organizationParentColumn" text="親ID" visible="false" />
+                      <TableColumn fx:id="organizationNameColumn" prefWidth="150.0" text="組織名" />
+                      <TableColumn fx:id="organizationIdentColumn" prefWidth="150.0" text="組織識別名" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+            <Pane fx:id="progressPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+               <children>
+                  <ProgressIndicator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="150.0" />
+               </children></Pane>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

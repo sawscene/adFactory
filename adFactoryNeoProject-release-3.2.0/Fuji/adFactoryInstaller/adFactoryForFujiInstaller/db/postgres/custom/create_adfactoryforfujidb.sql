@@ -1,0 +1,4 @@
+
+--CREATE USER adfactory WITH PASSWORD 'adfactory' CREATEDB;
+CREATE DATABASE "adFactoryForFujiDB" WITH OWNER adfactory TEMPLATE="template0" ENCODING 'UTF8' LC_COLLATE 'C' LC_CTYPE 'C';
+COMMENT ON DATABASE "adFactoryForFujiDB" IS 'ver2.0.0';

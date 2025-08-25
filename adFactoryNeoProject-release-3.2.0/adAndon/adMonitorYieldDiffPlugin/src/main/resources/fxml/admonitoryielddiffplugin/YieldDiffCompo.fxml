@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane style="-fx-background-color: Transparent;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="jp.adtekfuji.admonitoryielddiffplugin.YieldDiffCompoController">
+    <children>
+        <HBox fx:id="contentPane" alignment="CENTER_LEFT" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+            <children>
+                <Label fx:id="titleLabel" alignment="CENTER_LEFT" style="-fx-text-fill: White; -fx-background-color: Transparent;" text="差異" />
+                <Label fx:id="valueLabel" alignment="CENTER" style="-fx-text-fill: White; -fx-background-color: Transparent;" text="--" />
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>

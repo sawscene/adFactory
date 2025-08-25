@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<warehouseCommonSettingInfo>
+    <doublequotation>true</doublequotation>
+    <encode>UTF-8</encode>
+    <startline>2</startline>
+    <parameter>
+        <key>deliveryNo</key>
+        <column>1</column>
+    </parameter>
+    <parameter>
+        <key>no</key>
+        <column>2</column>
+    </parameter>
+    <parameter>
+        <key>orderNo</key>
+        <column>3</column>
+    </parameter>
+    <parameter>
+        <key>type</key>
+        <column>4</column>
+    </parameter>
+    <parameter>
+        <key>prodNo</key>
+        <column>5</column>
+    </parameter>
+    <parameter>
+        <key>prodName</key>
+        <column>6</column>
+    </parameter>
+    <parameter>
+        <key>reqNum</key>
+        <column>7</column>
+    </parameter>
+    <parameter>
+        <key>due</key>
+        <column>8</column>
+    </parameter>
+    <parameter>
+        <key>mod</key>
+        <column>9</column>
+    </parameter>
+    <parameter>
+        <key>del</key>
+        <column>10</column>
+    </parameter>
+</warehouseCommonSettingInfo>

@@ -1,0 +1,1 @@
+GET https://localhost/adFactoryServer/rest/kanban/parent/445?status=PLANNING&status=PLANNED&status=WORKING&status=SUSPEND&status=INTERRUPT&status=COMPLETION&status=OTHER&status=DEFECT

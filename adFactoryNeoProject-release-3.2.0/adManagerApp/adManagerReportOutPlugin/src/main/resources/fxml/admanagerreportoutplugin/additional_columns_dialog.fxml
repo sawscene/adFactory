@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="contentPane" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.reportoutplugin.component.AdditionalColumnsDialogFxController">
+    <children>
+        <GridPane fx:id="operationPane" minHeight="-Infinity" minWidth="-Infinity" vgap="16.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <!-- 検索条件 -->
+                <GridPane hgap="10.0" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" vgap="12.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="%key.AdditionalColumns" />
+                        <TextField fx:id="propertyNameField" GridPane.columnIndex="1" />
+                        <Button mnemonicParsing="false" onAction="#onSearchButton" styleClass="ContentButton" minWidth="50.0" prefHeight="35.0" text="%key.Search" GridPane.columnIndex="2" />
+                    </children>
+                </GridPane>
+                <!-- 追加項目リスト -->
+                <TableView fx:id="itemList" editable="true" prefHeight="200.0"  styleClass="ContentList" GridPane.rowIndex="1">
+                    <columns>
+                        <TableColumn fx:id="checkColumn" prefWidth="40.0" text="" />
+                        <TableColumn fx:id="propertyNameColumn" prefWidth="300.0" text="%key.AdditionalColumns" />
+                    </columns>
+                </TableView>
+                <!-- 下部ペイン -->
+                <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0" GridPane.rowIndex="2">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#onOkButton" styleClass="ContentButton" text="%key.Ok" />
+                        <Button mnemonicParsing="false" onAction="#onCancelButton" styleClass="ContentButton" text="%key.Cancel" />
+                    </children>
+                </HBox>
+            </children>
+        </GridPane>
+    </children>
+    <padding>
+        <Insets bottom="-6.0" left="12.0" right="12.0" top="12.0" />
+    </padding>
+</AnchorPane>

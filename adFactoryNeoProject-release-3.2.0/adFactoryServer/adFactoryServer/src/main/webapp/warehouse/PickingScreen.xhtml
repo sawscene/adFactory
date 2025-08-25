@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pf="http://primefaces.org/ui" 
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>adFactory Warehouse</title>
+        <h:outputStylesheet library="styles" name="ScreenDesignStyles.css"/>
+        <h:outputStylesheet library="styles" name="ScreenFontStyles.css"/>
+        <h:outputStylesheet library="styles" name="jquery-confirm.css"/>
+        <h:outputScript library="scripts" name="jquery-confirm.min.js"/>
+        <h:outputScript library="scripts" name="confirmDialog.js"/>
+        <h:outputScript library="scripts" name="warehouse-common.js"/>
+        <h:outputScript library="scripts" name="PickingScripts.js"/>
+        <f:loadBundle basename="jp.adtekfuji.adfactoryserver.locale.locale" var="msg"/>
+    </h:head>    
+    <h:body id="body" onload="onPageLoad('#{pickingData.mode}')">
+        <audio id="sound" preload="auto">
+            <source src="#{resource['media/beep.wav']}" type="audio/wav" />
+        </audio>
+        <div id="container" align="center">
+            <h:form id="titleForm" styleClass="headerForm">
+                <h:panelGrid styleClass="headerTable" columns="3" columnClasses="backButtonCell,titleCell,timeCell">
+                    <h:commandButton  type="submit" immediate="true" image="#{resource['back.png']}"
+                                      onclick="#{menuData.init()}; pickingWarning('#{msg['warehouse.warnMsgW003']}', '#{pickingData.language}'); return false;" />
+                    <h:outputLabel value="#{pickingData.title}" styleClass="font-42ptBld" 
+                                   onclick="#{menuData.init()}; pickingWarning('#{msg['warehouse.warnMsgW003']}', '#{pickingData.language}'); return false;" />
+                    <h:outputLabel id="timeLabel" value = "" styleClass="font-42ptBld" />
+                </h:panelGrid>
+                <h:panelGrid styleClass="headerTable" columns="1" columnClasses="areaCell">                
+                    <h:outputLabel id="areaLabel" value="#{pickingData.areaName}" styleClass="font-30ptBld" />
+                    <h:inputText p:type="date" value="#{pickingData.pickingDate}" styleClass="font-42pt" rendered="#{pickingData.eventId == 31}">  
+                       <f:convertDateTime type="date" pattern="yyyy-MM-dd"/>
+                       <f:ajax event="change" execute="@this" render ="@this" onerror="ajaxError" />
+                    </h:inputText>
+                </h:panelGrid>
+            </h:form>
+
+            <!--社員情報フォーム-->
+            <h:form id="userInfoForm" styleClass="formCommon form-nomal" style="margin-top:170px" onclick="focusUserInfoForm()" onsubmit="return false">
+                <!--社員番号-->
+                <h:panelGrid columns="2" styleClass="tableCommon" columnClasses="labelCell font-42ptBld,inputCell" rendered="#{pickingData.renderedUserId}">
+                    <h:outputLabel value="#{msg['warehouse.userId']}" />
+                    <h:inputText id="userIdInput" styleClass="inputText noto font-48pt" value="#{pickingData.userId}"
+                                 onfocus="focusUserIdInput()" onblur="blurUserInfoForm()" autocomplete="off">
+                        <f:ajax event="change" execute="@this" render="@form :buttonForm" onerror="ajaxError"/>
+                    </h:inputText>
+                </h:panelGrid>
+                <!--社員名-->
+                <h:panelGrid columns="2" styleClass="tableCommon" columnClasses="labelCell font-42ptBld,dataCell noto font-42pt">
+                    <h:outputLabel value="#{msg['warehouse.userName']}"/>
+                    <h:outputLabel id="userNameOutput" value="#{pickingData.userName}"/>
+                </h:panelGrid>
+                <!--該当する情報が存在しません-->
+                <h:panelGrid columns="1">
+                    <h:outputLabel styleClass="viewMessage font-42ptBld" value="#{msg['warehouse.errMsgE003']}"
+                                   rendered="#{pickingData.renderedUserErrMsg}"/>
+                </h:panelGrid>
+            </h:form>
+
+            <h:form id="pickingIdForm" styleClass="formCommon form-nomal" onclick="focusPickingIdInfoForm()" onsubmit="return false">
+                <!--出庫指示番号-->
+                <h:panelGrid columns="2" columnClasses="labelCell font-42ptBld,inputCell">
+                    <h:outputLabel value="#{msg['warehouse.pickingId']}"/>
+                    <h:inputText id="pickingIdInput" styleClass="inputText noto font-48pt" value="#{pickingData.pickingId}"
+                                 onfocus="focusPickingIdInput()" onblur="blurPickingIdInfoForm()" disabled="#{pickingData.mode == 'ISSUE'}" autocomplete="off">
+                        <f:ajax event="change"  execute="@this" render ="@form :userInfoForm :buttonForm :itemInfoForm :stockOutForm :InfMsgForm" onerror="ajaxError"/>
+                    </h:inputText>
+                </h:panelGrid>
+                <!--ピッキング数-->
+                <h:panelGrid columns="1" styleClass="tableCommon" columnClasses="labelCell font-42ptBld,dataCell noto font-42pt">
+                    <div align="right">
+                        <h:outputLabel value="#{pickingData.remaining}"/>
+                    </div>
+                </h:panelGrid>
+            </h:form>
+
+            <h:form id="itemInfoForm" styleClass="#{pickingData.styleItemInfo}" onclick="focusBarcodeForm()" onsubmit="return false">
+                <!--バーコード-->
+                <h:panelGrid columns="2" styleClass="tableCommon" columnClasses="labelCell font-42ptBld,inputCell" rendered="#{pickingData.renderedBarcode}">
+                    <h:outputLabel value="#{msg['warehouse.barcode']}"/>
+                    <h:inputText id="barcodeInput" styleClass="inputText noto font-48pt" value="#{pickingData.barcode}"
+                                 onfocus="focusBarcodeInput()" onblur="blurBarcodeForm()" disabled="#{pickingData.barcodeDisable}" autocomplete="off">
+                        <f:ajax event="change"  execute="@this" render ="@form :buttonForm :stockOutForm :InfMsgForm :pickingIdForm" onerror="ajaxError"/>
+                    </h:inputText>
+                </h:panelGrid>
+                <!--出庫品目-->
+                <div class="#{pickingData.itemInfoAreaStyle}">
+                    <h:dataTable var="additionData" value="#{pickingData.additionData}"
+                                 styleClass="tableCommon" columnClasses="labelCell font-42ptBld,dataCell noto font-42pt">
+                        <h:column>
+                            <h:outputLabel value="#{additionData.name}"/>
+                        </h:column>
+                        <h:column>
+                            <h:outputLabel value="#{additionData.value}"/>
+                        </h:column>
+                    </h:dataTable>
+                    <!--棚番-->
+                    <h:panelGrid columns="2" styleClass="tableCommon" columnClasses="labelCell font-42ptBld,dataCell noto font-42pt">
+                        <h:outputLabel value="#{msg['warehouse.locationNo']}"/>
+                        <h:outputLabel value="#{pickingData.shelfId}"/>
+                    </h:panelGrid>
+                    <!--重要度-->
+                    <h:outputLabel styleClass="viewMessage attentionMsg font-42ptBld" value="#{pickingData.attentionMsg}"
+                                   rendered="#{pickingData.attentionMsg.length() != 0}"/>
+                </div>
+            </h:form>
+
+            <!--出庫情報フォーム-->
+            <h:form id="stockOutForm" styleClass="#{pickingData.styleStockOutForm}" onsubmit="return false">
+                <!--要求数-->
+                <h:panelGrid columns="2" styleClass="tableCommon" columnClasses="labelCell font-42ptBld,dataCell noto font-42pt">
+                    <h:outputLabel value="#{msg['warehouse.reqPickingNum']}" rendered="#{pickingData.renderedStockVal}"/>
+                    <h:outputLabel id="stockVal" value="#{pickingData.stockVal}" rendered="#{pickingData.renderedStockVal}"/>
+                </h:panelGrid>
+                <!--出庫数-->
+                <h:panelGrid columns="2" styleClass="tableCommon" columnClasses="labelCell font-45ptBld,inputCell noto font-48pt" >
+                    <h:outputLabel value="#{msg['warehouse.pickingNum']}"/>
+                    <pf:inputText id="stockOutValInput" styleClass="inputText noto font-48pt" style="#{pickingData.stockOutValStyle}" value="#{pickingData.stockOutVal}" 
+                                 onkeydown="return numOnly();" disabled="#{pickingData.stockOutValDisable}" autocomplete="off" 
+                                 onfocus="focusStockOutValInput()" onblur="blurStockOutValInput()" p:type="text" p:inputmode="numeric"
+                                 placeholder="#{pickingData.stockVal}" >
+                        <f:ajax event="change"  execute="@this" render ="@form :buttonForm " onerror="ajaxError"/>
+                    </pf:inputText>
+                    <!--<pf:watermark value="#{pickingData.stockVal}" for=":stockOutForm:stockOutValInput"/>-->
+                </h:panelGrid>
+            </h:form>
+            
+            <h:form id="InfMsgForm" style="margin-bottom:150px">
+                <h:panelGrid columns="1">
+                    <!--読取情報エラーメッセージ-->
+                    <h:outputLabel styleClass="viewMessage font-42ptBld" value="#{pickingData.readInfoMsg}" escape="false"/>
+                </h:panelGrid>
+            </h:form>
+
+            <h:form id="buttonForm" styleClass="footer">
+                <!--画面終了時にJavaScriptから呼び出される-->
+                <pf:remoteCommand name="exitPickingScreen" action="#{pickingData.exitPickingScreen}" update=":itemInfoForm" />
+
+                <!--ラベル印刷チェックボックス-->
+                <div class="chkbox">
+                    <h:selectBooleanCheckbox id="checkBox" value="#{pickingData.print}" rendered="#{pickingData.eventId == 30}">
+                        <f:ajax event="click" execute="@this" render ="@this" onerror="ajaxError"/>
+                    </h:selectBooleanCheckbox>
+                    <h:outputLabel for="checkBox" value="#{msg['warehouse.printLabel']}" rendered="#{pickingData.eventId == 30}"/>
+                </div>
+                <h:panelGrid columns="2" styleClass="tableCommon" cellspacing="1">
+                    <pf:commandButton id="submitButton" type="submit" styleClass="submitButton font-42pt" action="#{pickingData.onRegist}"
+                                      value="#{msg['warehouse.regist']}" onclick='writeUserIdCookie("#{pickingData.userId}");writePrintFlgCookie();' 
+                                      disabled="#{pickingData.stockOutDisable}"
+                                      update="@form :buttonForm :InfMsgForm :stockOutForm :itemInfoForm :pickingIdForm :userInfoForm"/>
+                    <pf:commandButton id="nextButton" type="submit" styleClass="submitButton font-42pt" action="#{pickingData.postNextRequest}"
+                                      value="#{msg['warehouse.next']}" disabled="#{pickingData.buttonNextDisable}" ajax="false"/>
+                </h:panelGrid>
+            </h:form>
+        </div>
+        <!--ポップアップメッセージ-->
+        <div id="popupBox">
+            <div id="popupContainer">
+                <h:outputLabel id="popupText" escape="false" value="OK"/>
+            </div>
+        </div>
+    </h:body>
+</html>

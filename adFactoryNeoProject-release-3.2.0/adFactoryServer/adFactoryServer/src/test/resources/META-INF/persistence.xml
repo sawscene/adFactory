@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_3_1.xsd">
+  <persistence-unit name="Test_adFactoryServerPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>jp.adtekfuji.adfactoryserver.utility.PgJsonbConverter</class>
+    <class>jp.adtekfuji.adfactoryserver.utility.JsonMapConverter</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.warehouse.JsonLocationConverter</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.master.BreaktimeEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.master.DisplayedStatusEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.master.ReasonMasterEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.master.RoleAuthorityEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.master.HierarchyEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.master.ConHierarchyEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.equipment.EquipmentEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.equipment.EquipmentHierarchyEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.equipment.EquipmentPropertyEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.equipment.EquipmentSettingEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.equipment.EquipmentTypeEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.holiday.HolidayEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.object.ObjectEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.object.ObjectTypeEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.organization.AuthenticationInfoEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.organization.ConOrganizationBreaktimeEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.organization.ConOrganizationRoleEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.organization.ConOrganizationWorkCategoryEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.organization.OrganizationEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.organization.OrganizationHierarchyEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.organization.OrganizationPropertyEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.schedule.ScheduleEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.work.WorkEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.work.WorkHierarchyEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.work.WorkPropertyEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.workflow.ConSeparateworkEquipmentEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.workflow.ConSeparateworkOrganizationEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.workflow.ConWorkEquipmentEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.workflow.ConWorkOrganizationEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.workflow.ConWorkflowSeparateworkEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.workflow.ConWorkflowWorkEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.workflow.KanbanPropertyTemplateEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.workflow.WorkflowEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.workflow.WorkflowHierarchyEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.kanban.ConKanbanHierarchyEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.kanban.ConWorkkanbanEquipmentEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.kanban.ConWorkkanbanOrganizationEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.kanban.KanbanHierarchyEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.kanban.KanbanPropertyEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.kanban.TreeKanbanHierarchyEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.kanban.WorkKanbanEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.kanban.WorkKanbanPropertyEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.kanban.WorkKanbanWorkingEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.actual.ActualResultEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.actual.ActualPropertyEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.actual.WarehouseInventoryActualEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.work.WorkSectionEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.indirectwork.IndirectActualEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.indirectwork.IndirectWorkEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.indirectwork.WorkCategoryEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.directwork.DirectActualEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.kanban.ProductEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.actual.ProdResultEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.access.AccessHierarchyEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.kanban.PartsEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.warehouse.LogStock</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.warehouse.MstBom</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.warehouse.MstLocation</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.warehouse.MstProduct</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.warehouse.MstStock</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.warehouse.TrnDelivery</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.warehouse.TrnDeliveryItem</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.warehouse.TrnMaterial</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.kanban.KanbanReportEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.warehouse.TrnLotTrace</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.master.LabelEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.kanban.KanbanEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.master.ReasonCategoryEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.approval.ApprovalRouteEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.approval.ApprovalOrderEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.approval.ApprovalEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.approval.ApprovalFlowEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.assemblyparts.AssemblyPartsEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.organization.ConOrganizationReasonEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.operation.OperationEntity</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.warehouse.TrnReserveMaterial</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.dsKanban.MstDsItem</class>
+    <class>jp.adtekfuji.adfactoryserver.entity.workflow.WorkParametersEntity</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <properties>
+      <property name="jakarta.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
+      <property name="jakarta.persistence.jdbc.url" value="jdbc:derby:memory:adFactoryDB2;create=true"/>
+      <property name="jakarta.persistence.jdbc.user" value=""/>
+      <property name="jakarta.persistence.jdbc.password" value=""/>
+      <property name="jakarta.persistence.schema-generation.database.action" value="create-tables"/>
+      <property name="eclipselink.target-database" value="Derby"/>
+      <property name="eclipselink.ddl-generation" value="create-tables"/>
+      <property name="eclipselink.ddl-generation.output-mode" value="database"/>
+      <property name="eclipselink.ddl.table-creation-suffix" value="JPA_STORED_PROC"/>
+      <property name="eclipselink.logging.level" value="FINE"/>
+    </properties>
+  </persistence-unit>
+</persistence>

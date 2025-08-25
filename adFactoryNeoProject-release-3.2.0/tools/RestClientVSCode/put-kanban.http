@@ -1,0 +1,3 @@
+PUT http://localhost/adFactoryServer/rest/kanban/field/40?field=productNumber&val=ab123456&authId=2 HTTP/1.1
+Accept: application/json;
+Content-type: application/json;

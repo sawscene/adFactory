@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+<?import jp.adtekfuji.javafxcommon.controls.*?>
+
+<fx:root type="javafx.scene.layout.VBox"  xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <!-- 表示条件 -->
+        <VBox styleClass="ContentTitleLabel">
+            <padding>
+                <Insets bottom="0" left="0" top="10" right="0" />
+            </padding>
+            <Label text="%key.MonitorSettings"  />
+        </VBox>
+        <GridPane fx:id="conditionPane" hgap="2" vgap="2" styleClass="ContentTitleLabel">
+            <columnConstraints>
+                <ColumnConstraints minWidth="240.0" />
+                <ColumnConstraints maxWidth="200.0" hgrow="ALWAYS" />
+                <ColumnConstraints />
+            </columnConstraints>
+
+            <!-- 対象日 -->
+            <Label text="%key.TargetDay" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+            <DatePicker fx:id="targetDate"  GridPane.rowIndex="0" GridPane.columnIndex="1" />
+            <!-- 開始時間(hh:mm) -->
+            <Label fx:id="startTimeLabel" text="%key.StartWorkTime"  GridPane.rowIndex="1" GridPane.columnIndex="0" />
+            <TimeHMTextField fx:id="startTime" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+            <!-- 終了時間(hh:mm) -->
+            <Label fx:id="endTimeLabel" text="%key.EndWorkTime" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+            <TimeHMTextField fx:id="endTime" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+            <!-- 表示対象 -->
+            <Label text="%key.MonitorTarget"   GridPane.rowIndex="3" GridPane.columnIndex="0" />
+            <ComboBox fx:id="targetLine"  prefWidth="200.0" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+            <Button fx:id="selectTarget" text="%key.AndonLineSettingSelectLine" minWidth="120.0" maxWidth="140.0" GridPane.rowIndex="3" GridPane.columnIndex="2" onAction="#onSelectLine" />
+            <!-- 更新間隔(分) -->
+            <Label text="%key.updateIntervalMinutes"  GridPane.rowIndex="4" GridPane.columnIndex="0" />
+            <RestrictedTextField fx:id="updateInterval" minLimit="1" maxLimit="60" verifier="NUMBER_ONLY" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+            <!-- モデル名 -->
+            <Label fx:id="modelNameLabel" text="%key.ModelName"  GridPane.rowIndex="5" GridPane.columnIndex="0" />
+            <TextField fx:id="modelNameField" GridPane.rowIndex="5" GridPane.columnIndex="1" />
+            <!-- 表示期間-->
+            <Label fx:id="displayPeriodLabel" text="%key.DisplayPeriod"  GridPane.rowIndex="6" GridPane.columnIndex="0" />
+            <RestrictedTextField fx:id="displayPeriodField" minLimit="0" maxLimit="31" verifier="NUMBER_ONLY" GridPane.rowIndex="6" GridPane.columnIndex="1" />
+            <!-- 表示順 -->
+            <Label fx:id="displayOrderLabel" text="%key.DisplayOrder" GridPane.rowIndex="7" GridPane.columnIndex="0" />
+            <ComboBox fx:id="displayOrder" prefWidth="200.0" GridPane.rowIndex="7" GridPane.columnIndex="1" />
+        </GridPane>
+        <VBox />
+        <!-- 休憩時間 -->
+        <VBox fx:id="breaktimeSetting">
+        </VBox>
+        <VBox styleClass="ContentTitleLabel">
+            <padding>
+                <Insets bottom="0" left="0" top="10" right="0" />
+            </padding>
+            <Label text="%key.DisplaySettings" />
+        </VBox>
+        <Pane> 
+            <!-- 画面設定(縦軸) -->
+            <GridPane fx:id="varticalScreenSetting" hgap="2" vgap="2" styleClass="ContentTitleLabel">
+                <columnConstraints>
+                    <ColumnConstraints minWidth="240.0" />
+                    <ColumnConstraints maxWidth="200.0" hgrow="ALWAYS" />
+                </columnConstraints>
+
+                <!-- ディスプレイ番号 -->
+                <Label text="%key.DisplayNumber" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                <ComboBox fx:id="displayNumber" prefWidth="200.0" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                <!-- フルスクリーン表示 -->
+                <Label text="%key.FullScreen" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                <SwitchButton fx:id="fullScrren"  GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                <!-- 時間軸 -->
+                <Label fx:id="timeAxisLabel" text="%key.TimeAxis" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                <ComboBox fx:id="timeAxis" prefWidth="200.0" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                <!-- カラム数 -->
+                <Label text="%key.ColumnCount" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                <RestrictedTextField fx:id="columnCount" minLimit="1" maxLimit="20" verifier="NUMBER_ONLY" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+                <!-- 表示順 -->
+                <Label fx:id="showOrderLabel" text="%key.ShowOrder" GridPane.rowIndex="4" GridPane.columnIndex="0" />
+                <ComboBox fx:id="showOrder" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+                <!-- 予定のみ表示 -->
+                <Label text="%key.onlyPlaned" GridPane.rowIndex="5" GridPane.columnIndex="0" />
+                <SwitchButton fx:id="planOnly"  GridPane.rowIndex="5" GridPane.columnIndex="1" />
+                <!-- 進捗時間表示 -->
+                <Label fx:id="showActualTimeLabel" text="%key.ShowActualTime" GridPane.rowIndex="6" GridPane.columnIndex="0" />
+                <SwitchButton fx:id="showActualTime"  GridPane.rowIndex="6" GridPane.columnIndex="1" />
+                <!-- 応援者の実績を表示 -->
+                <Label fx:id="displaySupportResultsLabel" text="%key.DisplaySupportResults" GridPane.rowIndex="7" GridPane.columnIndex="0" />
+                <SwitchButton fx:id="displaySupportResults" GridPane.rowIndex="7" GridPane.columnIndex="1" />
+                <!-- 詳細表示 -->
+                <Label text="%key.MonitorDetail" GridPane.rowIndex="8" GridPane.columnIndex="0" />
+                <ComboBox fx:id="contentType"  prefWidth="200.0" GridPane.rowIndex="8" GridPane.columnIndex="1" />
+                <!-- 時間軸の表示単位(分) -->
+                <Label text="%key.timeUnit" GridPane.rowIndex="9" GridPane.columnIndex="0" />
+                <RestrictedTextField fx:id="timeUnit" minLimit="1" maxLimit="120" verifier="NUMBER_ONLY" GridPane.rowIndex="9" GridPane.columnIndex="1" />
+                <!-- ページ切り替え -->
+                <Label text="%key.TogglePages" GridPane.rowIndex="10" GridPane.columnIndex="0" />
+                <SwitchButton fx:id="togglePages"  GridPane.rowIndex="10" GridPane.columnIndex="1" />
+                <!-- ページ切り替え間隔(秒) -->
+                <Label text="%key.PageToggleTime" GridPane.rowIndex="11" GridPane.columnIndex="0" />
+                <RestrictedTextField fx:id="togglePageTime" minLimit="3" maxLimit="60" verifier="NUMBER_ONLY" GridPane.rowIndex="11" GridPane.columnIndex="1" />
+                <!-- 自動スクロール -->
+                <Label text="%key.autoScroll" GridPane.rowIndex="12" GridPane.columnIndex="0" />
+                <SwitchButton fx:id="autoScroll"  GridPane.rowIndex="12" GridPane.columnIndex="1" />
+                <!-- 自動スクロール範囲[HH:mm] -->
+                <Label text="%key.autoScrollTime" GridPane.rowIndex="13" GridPane.columnIndex="0" />
+                <TimeHMTextField fx:id="autoScrollUnit"  GridPane.rowIndex="13" GridPane.columnIndex="1" />
+                <!-- 予実の表示パターン -->
+                <Label fx:id="agendaDisplayPatternLabel" text="%key.AgendaDisplayPattern" GridPane.rowIndex="14" GridPane.columnIndex="0" />
+                <ComboBox fx:id="agendaDisplayPattern" GridPane.rowIndex="14" GridPane.columnIndex="1" />
+            </GridPane>
+
+            <!-- 画面設定(横軸) -->
+            <GridPane fx:id="horizonScreenSetting" hgap="2" vgap="2" styleClass="ContentTitleLabel">
+                <columnConstraints>
+                    <ColumnConstraints minWidth="240.0" />
+                    <ColumnConstraints maxWidth="200.0" hgrow="ALWAYS" />
+                </columnConstraints>
+
+                <!-- ディスプレイ番号 -->
+                <Label text="%key.DisplayNumber" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                <ComboBox fx:id="horizonDisplayNumber" prefWidth="200.0" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                <!-- フルスクリーン表示 -->
+                <Label text="%key.FullScreen" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                <SwitchButton fx:id="horizonFullScrren"  GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                <!-- 時間軸 -->
+                <Label fx:id="horizonTimeAxisLabel" text="%key.TimeAxis" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                <ComboBox fx:id="horizonTimeAxis" prefWidth="200.0" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                <!-- 時間軸スケール -->
+                <Label text="%key.TimeScale" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                <ComboBox fx:id="horizonTimeScale"  prefWidth="200.0" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+                <!-- 時間軸の表示単位(分) -->
+                <Label fx:id="horizonTimeUnitLabel" text="%key.timeUnit" GridPane.rowIndex="4" GridPane.columnIndex="0" />
+                <RestrictedTextField fx:id="horizonTimeUnit" minLimit="1" maxLimit="120" verifier="NUMBER_ONLY" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+                <!-- 表示開始日 -->
+                <Label fx:id="horizonBeforeDaysLabel" text="表示開始日" GridPane.rowIndex="5" GridPane.columnIndex="0" />
+                <ComboBox fx:id="horizonBeforeDays" prefWidth="200.0" GridPane.rowIndex="5" GridPane.columnIndex="1" />
+                <!-- 表示日数 -->
+                <Label fx:id="horizonShowDaysLabel" text="%key.ShowDays" GridPane.rowIndex="6" GridPane.columnIndex="0" />
+                <RestrictedTextField fx:id="horizonShowDays" minLimit="1" maxLimit="31" verifier="NUMBER_ONLY" GridPane.rowIndex="6" GridPane.columnIndex="1" />
+                <!-- 表示月数 -->
+                <Label fx:id="horizonShowMonthsLabel" text="%key.ShowMonths" GridPane.rowIndex="7" GridPane.columnIndex="0" />
+                <RestrictedTextField fx:id="horizonShowMonths" minLimit="1" maxLimit="6" verifier="NUMBER_ONLY" GridPane.rowIndex="7" GridPane.columnIndex="1" />
+                <!-- 休日表示 -->
+                <Label fx:id="horizonShowHolidayLabel"  text="%key.ShowHoliday" GridPane.rowIndex="8" GridPane.columnIndex="0" />
+                <SwitchButton fx:id="horizonShowHoliday"  GridPane.rowIndex="8" GridPane.columnIndex="1" />
+                <!-- カラム数 -->
+                <Label fx:id="horizonColumnCountLabel" text="%key.ColumnCount" GridPane.rowIndex="9" GridPane.columnIndex="0" />
+                <RestrictedTextField fx:id="horizonColumnCount" minLimit="1" maxLimit="31" verifier="NUMBER_ONLY" GridPane.rowIndex="9" GridPane.columnIndex="1" />
+                <!-- 表示順 -->
+                <Label fx:id="horizonShowOrderLabel" text="%key.ShowOrder" GridPane.rowIndex="10" GridPane.columnIndex="0" />
+                <ComboBox fx:id="horizonShowOrder" GridPane.rowIndex="10" GridPane.columnIndex="1" />
+                <!-- 行の高さ(ピクセル) -->
+                <Label text="%key.horizonRowHight" GridPane.rowIndex="11" GridPane.columnIndex="0" />
+                <RestrictedTextField fx:id="horizonRowHight" minLimit="1" maxLimit="2160" verifier="NUMBER_ONLY" GridPane.rowIndex="11" GridPane.columnIndex="1" />
+                <!-- ページ切り替え -->
+                <Label text="%key.TogglePages" GridPane.rowIndex="12" GridPane.columnIndex="0" />
+                <SwitchButton fx:id="horizonTogglePages"  GridPane.rowIndex="12" GridPane.columnIndex="1" />
+                <!-- ページ切り替え間隔(秒) -->
+                <Label text="%key.PageToggleTime" GridPane.rowIndex="13" GridPane.columnIndex="0" />
+                <RestrictedTextField fx:id="horizonTogglePageTime" minLimit="3" maxLimit="60" verifier="NUMBER_ONLY" GridPane.rowIndex="13" GridPane.columnIndex="1" />
+                <!-- 自動スクロール -->
+                <Label fx:id="horizonAutoScrollLabel" text="%key.autoScroll" GridPane.rowIndex="14" GridPane.columnIndex="0" />
+                <SwitchButton fx:id="horizonAutoScroll"  GridPane.rowIndex="14" GridPane.columnIndex="1" />
+                <!-- 自動スクロール範囲 -->
+                <Label fx:id="horizonAutoScrollUnitLabel" text="%key.autoScrollTime" GridPane.rowIndex="15" GridPane.columnIndex="0" />
+                <TimeHMTextField fx:id="horizonAutoScrollUnit"  GridPane.rowIndex="15" GridPane.columnIndex="1" />
+                <!-- 予実の表示パターン -->
+                <Label fx:id="horizonAgendaDisplayPatternLabel"  text="%key.AgendaDisplayPattern" GridPane.rowIndex="16" GridPane.columnIndex="0" />
+                <ComboBox fx:id="horizonAgendaDisplayPattern" prefWidth="200.0" GridPane.rowIndex="16" GridPane.columnIndex="1" />
+                <!-- 予実表示 -->
+                <Label fx:id="horizonPlanActualShowTypeLabel" text="%key.PlanActualShowType" GridPane.rowIndex="17" GridPane.columnIndex="0" />
+                <ComboBox fx:id="horizonPlanActualShowType" prefWidth="200.0" GridPane.rowIndex="17" GridPane.columnIndex="1" />
+                <!-- 進捗時間表示 -->
+                <Label fx:id="horizonShowActualTimeLabel" text="%key.ShowActualTime" GridPane.rowIndex="18" GridPane.columnIndex="0" />
+                <SwitchButton fx:id="horizonShowActualTime"  GridPane.rowIndex="18" GridPane.columnIndex="1" />
+                <!-- 応援者の実績を表示 -->
+                <Label fx:id="horizonDisplaySupportResultsLabel" text="%key.DisplaySupportResults" GridPane.rowIndex="19" GridPane.columnIndex="0" />
+                <SwitchButton fx:id="horizonDisplaySupportResults" GridPane.rowIndex="19" GridPane.columnIndex="1" />
+                <!-- 詳細表示 -->
+                <Label fx:id="horizonContentTypeLabel" text="%key.MonitorDetail" GridPane.rowIndex="20" GridPane.columnIndex="0" />
+                <ComboBox fx:id="horizonContentType"  prefWidth="200.0" GridPane.rowIndex="20" GridPane.columnIndex="1" />
+            </GridPane>
+
+            <!-- 画面設定(払出状況) -->
+            <GridPane fx:id="payoutStatusScreenSetting" hgap="2" vgap="2" styleClass="ContentTitleLabel">
+                <columnConstraints>
+                    <ColumnConstraints minWidth="240.0" />
+                    <ColumnConstraints maxWidth="200.0" hgrow="ALWAYS" />
+                </columnConstraints>
+
+                <!-- ディスプレイ番号 -->
+                <Label text="%key.DisplayNumber" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                <ComboBox fx:id="payoutdisplayNumber" prefWidth="200.0" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                <!-- フルスクリーン表示 -->
+                <Label text="%key.FullScreen" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                <SwitchButton fx:id="payoutFullScreen"  GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                <!-- 払出完了の行数 -->
+                <Label fx:id="payoutCompleteLineCountLabel" text="%key.PayoutEndRowNum" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                <RestrictedTextField fx:id="payoutCompleteLineCount" minLimit="0" maxLimit="20" verifier="NUMBER_ONLY" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                <!-- 払出待ちの行数 -->
+                <Label fx:id="payoutWaitingLineCountLabel" text="%key.WaitingDeliveryRowNum" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                <RestrictedTextField fx:id="payoutWaitingLineCount" minLimit="0" maxLimit="20" verifier="NUMBER_ONLY" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+                <!-- ピッキング中の行数 -->
+                <Label fx:id="pickingLineCountLabel" text="%key.PickingRowNum" GridPane.rowIndex="4" GridPane.columnIndex="0" />
+                <RestrictedTextField fx:id="pickingLineCount" minLimit="0" maxLimit="20" verifier="NUMBER_ONLY" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+                <!-- 受付の行数 -->
+                <Label fx:id="receptionLineCountLabel" text="%key.ReceptionRowNum" GridPane.rowIndex="5" GridPane.columnIndex="0" />
+                <RestrictedTextField fx:id="receptionLineCount" minLimit="0" maxLimit="20" verifier="NUMBER_ONLY" GridPane.rowIndex="5" GridPane.columnIndex="1" />
+                <!-- 払出完了の表示日数 -->
+                <Label fx:id="payoutCompleteDisplayDaysLabel" text="%key.PayoutEndShowDays" GridPane.rowIndex="6" GridPane.columnIndex="0" />
+                <RestrictedTextField fx:id="payoutCompleteDisplayDays" minLimit="1" maxLimit="7" verifier="NUMBER_ONLY" GridPane.rowIndex="6" GridPane.columnIndex="1" />
+                <!-- ページ切り替え間隔(秒) -->
+                <Label fx:id="pagingIntervalSecondsLabel" text="%key.PageToggleTime" GridPane.rowIndex="7" GridPane.columnIndex="0" />
+                <RestrictedTextField fx:id="pagingIntervalSeconds" minLimit="3" maxLimit="10" verifier="NUMBER_ONLY" GridPane.rowIndex="7" GridPane.columnIndex="1" />
+                <!-- フォントサイズ -->
+                <Label fx:id="fontSizePsLabel" text="%key.FontSize" GridPane.rowIndex="8" GridPane.columnIndex="0" />
+                <RestrictedTextField fx:id="fontSizePs" minLimit="10.0" maxLimit="32.0" format="\%.1f" verifier="DECIMAL_NUMBER_ONLY" GridPane.rowIndex="8" GridPane.columnIndex="1" />
+            </GridPane>
+        </Pane> 
+        <!-- フォントサイズ -->
+        <VBox fx:id="fontSettingLabel" styleClass="ContentTitleLabel">
+            <padding>
+                <Insets bottom="0" left="0" top="10" right="0" />
+            </padding>
+            <Label text="%key.FontSize" />
+        </VBox>
+        <GridPane fx:id="fontSetting" hgap="2" vgap="2" styleClass="ContentTitleLabel">
+            <columnConstraints>
+                <ColumnConstraints minWidth="240.0" />
+                <ColumnConstraints maxWidth="200.0" hgrow="ALWAYS" />
+            </columnConstraints>
+
+            <!-- タイトルのフォントサイズ -->
+            <Label text="%key.titleFontSize" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+            <RestrictedTextField fx:id="titleText" minLimit="8.0" maxLimit="40.0" format="\%.1f" verifier="DECIMAL_NUMBER_ONLY" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+            <!-- ヘッダーのフォントサイズ -->
+            <Label text="%key.headerFontSize"  GridPane.rowIndex="1" GridPane.columnIndex="0" />
+            <RestrictedTextField fx:id="headerText" minLimit="8.0" maxLimit="40.0" format="\%.1f" verifier="DECIMAL_NUMBER_ONLY" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+            <!-- カラムのフォントサイズ -->
+            <Label fx:id="columnLabel" text="%key.columnFontSize" GridPane.rowIndex="2" GridPane.columnIndex="0"  />
+            <RestrictedTextField fx:id="columnText" minLimit="8.0" maxLimit="40.0" format="\%.1f" verifier="DECIMAL_NUMBER_ONLY" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+            <!-- アイテムのフォントサイズ -->
+            <Label text="%key.itemFontSize"  GridPane.rowIndex="3" GridPane.columnIndex="0" />
+            <RestrictedTextField fx:id="itemText" minLimit="8.0" maxLimit="40.0" format="\%.1f" verifier="DECIMAL_NUMBER_ONLY" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+            <!-- 拡大スライドバーのフォントサイズ -->
+            <Label text="%key.zoomFontSize"  GridPane.rowIndex="4" GridPane.columnIndex="0" />
+            <RestrictedTextField fx:id="zoomBarText" minLimit="8.0" maxLimit="40.0" format="\%.1f" verifier="DECIMAL_NUMBER_ONLY" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+        </GridPane>
+    </children>
+</fx:root>

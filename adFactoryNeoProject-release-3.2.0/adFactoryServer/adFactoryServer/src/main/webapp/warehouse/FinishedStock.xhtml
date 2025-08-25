@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pf="http://primefaces.org/ui"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>adFactory Warehouse</title>
+        <h:outputStylesheet library="styles" name="ScreenDesignStyles.css"/>
+        <h:outputStylesheet library="styles" name="ScreenFontStyles.css"/>
+        <h:outputStylesheet library="styles" name="jquery-confirm.css"/>
+        <h:outputScript library="scripts" name="jquery-confirm.min.js"/>
+        <h:outputScript library="scripts" name="confirmDialog.js"/>
+        <h:outputScript library="scripts" name="warehouse-common.js"/>
+        <h:outputScript library="scripts" name="AcceptScripts.js"/>
+        <f:loadBundle basename="jp.adtekfuji.adfactoryserver.locale.locale" var="msg"/>
+    </h:head>
+    <h:body id="body" onload="onLoadFinisedStock()">
+        <audio id="sound" preload="auto">
+            <source src="#{resource['media/beep.wav']}" type="audio/wav" />
+        </audio>
+
+        <div align="center">
+            <!--タイトル-->          
+            <h:form id="titleForm" styleClass="headerForm" onsubmit="warning('#{msg['warehouse.warnMsgW003']}')">
+                <h:panelGrid styleClass="headerTable" columns="3" columnClasses="backButtonCell,titleCell,timeCell">
+                    <h:commandButton  type="submit" immediate="true" image="#{resource['back.png']}"
+                                      onclick="#{menuData.init()}; warning('#{msg['warehouse.warnMsgW003']}', '#{finishedStockBean.language}'); return false;" />
+                    <h:outputLabel value="#{msg['warehouse.menu.finishedStock']}" styleClass="font-42ptBld" 
+                                   onclick="#{menuData.init()}; warning('#{msg['warehouse.warnMsgW003']}', '#{finishedStockBean.language}'); return false;"/>
+                    <h:outputLabel id="timeLabel" value="" styleClass="font-42ptBld" />
+                </h:panelGrid>
+                <h:panelGrid styleClass="headerTable" columns="1" columnClasses="areaCell">                
+                    <h:outputLabel id="areaLabel" value="#{finishedStockBean.areaName}" styleClass="font-30ptBld" />
+                </h:panelGrid>
+            </h:form>
+
+            <!--社員情報フォーム-->
+            <h:form id="userInfoForm" styleClass="formCommon form-nomal" style="margin-top:170px" onclick="focusUserInfoForm()" onsubmit="return false;" >    
+                <!--社員番号-->
+                <h:panelGrid columns="2" styleClass="tableCommon" columnClasses="labelCell font-42ptBld,inputCell" rendered="#{finishedStockBean.product == null}">
+                    <h:outputLabel id="userIdLabel" value="#{msg['warehouse.userId']}"/>
+                    <h:inputText id="userIdInput" styleClass="inputText noto font-48pt" value="#{finishedStockBean.userId}"
+                                 onfocus="focusUserIdInput()" onblur="blurUserInfoForm()" autocomplete="off" >
+                        <f:ajax event="change"  execute="@this" render ="@form :buttonForm" onerror="ajaxError" />
+                    </h:inputText>
+                </h:panelGrid>
+                <!--社員名-->
+                <h:panelGrid columns="2" styleClass="tableCommon" columnClasses="labelCell font-42ptBld,dataCell noto font-42pt">
+                    <h:outputLabel value="#{msg['warehouse.userName']} "/>
+                    <h:outputLabel id="userNameOutput" value="#{finishedStockBean.userName}"/>
+                </h:panelGrid>
+                <!--該当する情報が存在しません-->
+                <h:panelGrid columns="1">
+                    <h:outputLabel styleClass="viewMessage font-42ptBld" value="#{msg['warehouse.errMsgE003']}"
+                                   rendered="#{finishedStockBean.showUserError}"/>
+                </h:panelGrid>
+            </h:form>
+
+            <!--品目入力フォーム-->
+            <h:form id="productNoForm" styleClass="formCommon form-nomal" onclick="focusTextFiled('productNoForm:productNoInput')"
+                    rendered="#{finishedStockBean.userName != null}"  onsubmit="return false">
+                <h:panelGrid columns="2" columnClasses="labelCell font-42ptBld,inputCell">
+                    <h:outputLabel value="#{msg['key.ProductNo']}"/>
+                    <h:inputText id="productNoInput" styleClass="inputText noto font-48pt" value="#{finishedStockBean.productNo}"
+                                 onfocus="focusTextFiled('productNoForm:productNoInput')" onblur="blurForm('productNoForm')" autocomplete="off">
+                        <f:ajax event="change"  execute="@this" render ="@form :userInfoForm :itemInfoForm :registForm :buttonForm" onerror="ajaxError"/>
+                    </h:inputText>
+                </h:panelGrid>
+                <!--製品情報-->
+                <div class="#{itemInfoForm.itemInfoStyle}">
+                    <h:dataTable var="productInfo" value="#{finishedStockBean.productInfo}"
+                                 styleClass="tableCommon" columnClasses="labelCell font-42ptBld, dataCell noto font-42pt" 
+                                 rendered="#{finishedStockBean.product != null}">
+                        <h:column>
+                            <h:outputLabel value="#{productInfo.name}"/>
+                        </h:column>
+                        <h:column>
+                            <h:outputLabel value="#{productInfo.value}"/>
+                        </h:column>
+                    </h:dataTable>
+                </div>
+                <!--指定棚-->
+                <h:panelGrid columns="2" styleClass="tableCommon" columnClasses="labelCell font-42ptBld,dataCell noto font-42pt"
+                             rendered="#{finishedStockBean.product != null}">
+                    <h:outputLabel value="#{msg['warehouse.reqLocationNo']} "/>
+                    <h:outputLabel value="#{finishedStockBean.reqLocationNo}"/> 
+                </h:panelGrid>
+                <!--メッセージ-->
+                <h:panelGrid columns="1">
+                    <h:outputLabel styleClass="viewMessage font-42ptBld" value="#{finishedStockBean.itemInfoMessage}"
+                                   rendered="#{finishedStockBean.itemInfoMessage.length() != 0}" />
+                </h:panelGrid>
+            </h:form>
+
+            <!--完成入力フォーム-->
+            <h:form id="itemInfoForm" styleClass="formCommon form-nomal" onclick="focusItemInfoForm()" onsubmit="return false;"> 
+                <!--シリアル番号-->
+                <h:panelGrid columns="2" styleClass="tableCommon" columnClasses="labelCell font-42ptBld,inputCell" rendered="#{finishedStockBean.product != null}">
+                    <h:outputLabel value="#{msg['key.SerialNumber']}"/>
+                    <h:inputText id="barcodeInput" styleClass="inputText noto font-48pt" value="#{finishedStockBean.serial}"
+                                 onfocus="focusBarcodeInput()" onblur="blurForm('itemInfoForm')" autocomplete="off" > 
+                        <f:ajax event="change" execute="@this" render ="@form :userInfoForm :registForm :buttonForm" onerror="ajaxError"/>
+                    </h:inputText>
+                </h:panelGrid>
+            </h:form>
+
+            <!--登録フォーム-->
+            <h:form id="registForm" style="margin-bottom:120px" onsubmit="return false;">
+                <!--入庫数-->
+                <h:panelGrid columns="2" styleClass="tableCommon" columnClasses="labelCell font-42ptBld,inputCell noto font-42pt" 
+                             rendered="false">
+                    <h:outputLabel value="#{msg['warehouse.receivedNum']} "/>
+                    <h:inputText id="stockNumInput" styleClass="inputText noto font-48pt"
+                                 value="#{finishedStockBean.stockNum}" onkeydown="return numOnly()" autocomplete="off" 
+                                 onfocus="focusTextFiled('registForm:stockNumInput')"
+                                 p:type="text" p:inputmode="numeric" 
+                                 onkeypress='if (event.key === "Enter") { focusSubmitButton(); }' disabled="true" >
+                        <f:ajax event="change" execute="@this" render=":buttonForm @form" onerror="ajaxError"/>
+                    </h:inputText>
+                </h:panelGrid>
+                <!--棚番-->
+                <h:panelGrid columns="2" styleClass="tableCommon" columnClasses="labelCell font-42ptBld,inputCell"
+                             rendered="#{finishedStockBean.product != null}">
+                    <h:outputLabel value="#{msg['warehouse.locationNo']} "/>
+                    <pf:inputText id="locationNoInput" styleClass="inputText noto font-48pt" value="#{finishedStockBean.locationNo}" autocomplete="off"
+                                  placeholder="#{finishedStockBean.reqLocationNo}">
+                        <f:ajax event="change" execute="@this" render =":buttonForm @form" onerror="ajaxError"/>
+                    </pf:inputText>
+                    <!--<pf:watermark value="#{finishedStockBean.reqLocationNo}" for=":registForm:locationNoInput" />-->
+                </h:panelGrid>
+                <!--棚番(確認用)-->
+                <h:panelGrid columns="2" styleClass="tableCommon" columnClasses="labelCell font-42ptBld,inputCell"
+                             rendered="#{finishedStockBean.product != null}">
+                    <h:outputLabel value="#{msg['warehouse.confirmLocationNo']} "/>
+                    <h:inputText id="confirmLocationNoInput" styleClass="inputText noto font-48pt" value="#{finishedStockBean.confirmLocationNo}" autocomplete="off">
+                        <f:ajax event="change" execute="@this" render =":buttonForm @form" onerror="ajaxError"/>
+                    </h:inputText>
+                </h:panelGrid>
+                <!--メッセージ-->
+                <h:panelGrid columns="1">
+                    <h:outputLabel styleClass="viewMessage font-42ptBld" value="#{finishedStockBean.registMessage}"
+                                   rendered="#{finishedStockBean.registMessage != null and finishedStockBean.registMessage.length() != 0}"/>
+                </h:panelGrid>
+            </h:form>
+
+            <!--ボタンフォーム-->
+            <h:form id ="buttonForm" styleClass="footer">
+                <!--ラベル印刷チェックボックス-->
+                <div class="chkbox">
+                    <h:selectBooleanCheckbox id="checkBox" value="#{finishedStockBean.print}" rendered="#{finishedStockBean.product != null}">
+                        <f:ajax event="click" execute="@this" />
+                    </h:selectBooleanCheckbox>
+                    <h:outputLabel for="checkBox" value="#{msg['warehouse.labelPrint']}" rendered="#{finishedStockBean.product != null}"/>
+                </div>
+                <h:panelGrid columns="1" styleClass="tableCommon" rowClasses="centering" cellspacing="1">
+                    <pf:commandButton id="submitButton" type="submit" styleClass="submitButton font-42pt" value="#{msg['warehouse.regist']}" 
+                                     actionListener="#{finishedStockBean.update()}" disabled="#{finishedStockBean.registDisabled}" 
+                                     onclick='writeUserIdCookie("#{finishedStockBean.userId}");writePrintFlgCookie("printFlg");' 
+                                     update="@form :buttonForm :registForm :itemInfoForm :userInfoForm"
+                                     rendered="#{finishedStockBean.product != null}" />
+                </h:panelGrid>
+            </h:form>
+        </div>
+    </h:body>
+</html>

@@ -1,0 +1,4 @@
+@Expiration=2016/12/31
+adtekfuji37=1
+Server2=10
+@Scheduling=true

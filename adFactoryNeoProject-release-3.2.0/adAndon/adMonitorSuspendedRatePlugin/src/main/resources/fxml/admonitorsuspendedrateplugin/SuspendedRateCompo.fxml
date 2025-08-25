@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.*?>
+
+<AnchorPane fx:id="rootPane" style="-fx-background-color:black;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jp.adtekfuji.admonitorsuspendedrateplugin.SuspendedRateCompoController">
+    <children>
+        <VBox fx:id="contentPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label fx:id="titleLabel" alignment="CENTER">
+                    <VBox.margin>
+                        <Insets left="1.0" />
+                    </VBox.margin>
+                </Label>
+                <TableView fx:id="tableView">
+                    <columns>
+                        <!-- 工程名 -->
+                        <TableColumn fx:id="nameColumn" sortable="false">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="name" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <!-- 中断数 -->
+                        <TableColumn fx:id="suspendedNumColumn" sortable="false">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="suspendedNum" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <!-- 中断率 -->
+                        <TableColumn fx:id="suspendedRateColumn" sortable="false">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="suspendedRate" />
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+            </children>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+        </VBox>
+    </children>
+</AnchorPane>

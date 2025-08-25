@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import jp.adtekfuji.javafxcommon.controls.*?>
+
+<AnchorPane fx:id="dsItemEditPane" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="adtekfuji.admanagerapp.dsitemeditplugin.controller.DsItemEditController">
+    <children>
+        <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <children>
+                <GridPane fx:id="contentsPane" hgap="10.0" vgap="5.0" >
+                    <columnConstraints>
+                        <ColumnConstraints halignment="LEFT" prefWidth="200.0" />
+                        <ColumnConstraints prefWidth="330.0" />
+                        <ColumnConstraints halignment="LEFT" prefWidth="200.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="30.0" />
+                        <RowConstraints minHeight="20.0" />
+                        <RowConstraints minHeight="20.0" />
+                        <RowConstraints minHeight="20.0" />
+                        <RowConstraints minHeight="20.0" />
+                        <RowConstraints fx:id="location1Row" minHeight="20.0" />
+                        <RowConstraints fx:id="location2Row" minHeight="20.0" />
+                        <RowConstraints fx:id="emptyRow" minHeight="20.0" />
+                        <RowConstraints fx:id="bomRow" minHeight="20.0" />
+                        <RowConstraints fx:id="workflow1Row" minHeight="20.0" />
+                        <RowConstraints minHeight="20.0" />
+                        <RowConstraints minHeight="20.0" />
+                        <RowConstraints minHeight="20.0" />
+                    </rowConstraints>
+                    <children>
+                        <!-- タイトル -->
+                        <Label styleClass="ContentTitleLabel" text="品番編集" GridPane.columnSpan="3" />
+                     
+                        <!--品番-->
+                        <Label alignment="CENTER_LEFT" styleClass="ContentTitleLabel" text="Assy 品番*" GridPane.rowIndex="1" />
+                        <RestrictedTextField fx:id="productNoField" verifier="CHARACTER_ONLY" maxLength="256" TextFormat="^[a-zA-Z0-9]{6}-[a-zA-Z0-9]{4}$"
+                                             alignment="CENTER_LEFT" styleClass="ContentTextBox" style="-fx-border-color: #d3d3d3;-fx-padding: 4;" 
+                                             GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                        
+                        <!--品名-->
+                        <Label alignment="CENTER_LEFT" styleClass="ContentTitleLabel" text="品名*" GridPane.rowIndex="2" />
+                        <RestrictedTextField fx:id="productNameField" maxLength="256"
+                                   alignment="CENTER_LEFT" styleClass="ContentTextBox" style="-fx-border-color: #d3d3d3;-fx-padding: 4;" 
+                                   GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                        
+                        <!--車種・タイプ-->
+                        <Label alignment="CENTER_LEFT" styleClass="ContentTitleLabel" text="車種・タイプ*" prefHeight="30.0" GridPane.rowIndex="3" />
+                        <RestrictedTextField fx:id="specField" maxLength="256"
+                                   alignment="CENTER_LEFT" styleClass="ContentTextBox" style="-fx-border-color: #d3d3d3;-fx-padding: 4;" 
+                                   GridPane.rowIndex="3" GridPane.columnIndex="1" />
+                        
+                        <!--組付治具台車No-->
+                        <Label fx:id="location1Label" alignment="CENTER_LEFT" styleClass="ContentTitleLabel" text="組付治具台車" prefHeight="30.0" GridPane.rowIndex="5" />
+                        <RestrictedTextField fx:id="location1Field" verifier="CHARACTER_ONLY" maxLength="32"
+                                   alignment="CENTER_LEFT" styleClass="ContentTextBox" style="-fx-border-color: #d3d3d3;-fx-padding: 4;"
+                                   GridPane.rowIndex="5" GridPane.columnIndex="1" />
+
+                        <!--組付治具台車No-->
+                        <Label fx:id="location2Label" alignment="CENTER_LEFT" styleClass="ContentTitleLabel" text="検査治具台車" prefHeight="30.0" GridPane.rowIndex="6" />
+                        <RestrictedTextField fx:id="location2Field" verifier="CHARACTER_ONLY" maxLength="32"
+                                   alignment="CENTER_LEFT" styleClass="ContentTextBox" style="-fx-border-color: #d3d3d3;-fx-padding: 4;"
+                                   GridPane.rowIndex="6" GridPane.columnIndex="1" />
+
+                        <!--構成部品-->
+                        <Label fx:id="bomLabel" alignment="CENTER_LEFT" styleClass="ContentTitleLabel" text="構成部品" prefHeight="30.0" GridPane.rowIndex="8" />
+                        <Label fx:id="bomField" text="未登録" prefWidth="330.0" alignment="CENTER" styleClass="ContentTextBox" 
+                               GridPane.rowIndex="8" GridPane.columnIndex="1" />
+                        <HBox spacing="10.0" alignment="CENTER_LEFT" GridPane.rowIndex="8" GridPane.columnIndex="2">
+                            <Button fx:id="registBomButton" onAction="#onEditBom" text="%key.Regist" prefWidth="96.0" prefHeight="34.0" />
+                            <!--<Button fx:id="editBomButton" onAction="#onEditBom" text="%key.Edit" prefWidth="96.0" prefHeight="34.0" />-->
+                        </HBox>
+
+                        <!--組付工程-->
+                        <Label fx:id="workflow1Label" alignment="CENTER_LEFT" styleClass="ContentTitleLabel" text="組付工程" prefHeight="30.0" GridPane.rowIndex="9" />
+                        <Label fx:id="workflow1Field" text="未登録" prefWidth="330.0" alignment="CENTER" styleClass="ContentTextBox" 
+                               GridPane.rowIndex="9" GridPane.columnIndex="1"/>
+                        <HBox spacing="10.0" alignment="CENTER_LEFT" GridPane.rowIndex="9" GridPane.columnIndex="2">
+                            <Button fx:id="registWorkflow1Button" onAction="#onRegistWorkflow1" text="%key.Regist" prefWidth="96.0" prefHeight="34.0" />
+                            <Button fx:id="editWorkflow1Button" onAction="#onEditWorkflow1" text="%key.Edit" prefWidth="96.0" prefHeight="34.0" />
+                        </HBox>
+
+                        <!--検査工程-->
+                        <Label alignment="CENTER_LEFT" styleClass="ContentTitleLabel" text="検査工程" prefHeight="30.0" GridPane.rowIndex="10" />
+                        <Label fx:id="workflow2Field" text="未登録" prefWidth="330.0" alignment="CENTER" styleClass="ContentTextBox" 
+                               GridPane.rowIndex="10" GridPane.columnIndex="1" />
+                        <HBox spacing="10.0" alignment="CENTER_LEFT" GridPane.rowIndex="10" GridPane.columnIndex="2">
+                            <Button fx:id="registWorkflow2Button" onAction="#onRegistWorkflow2" text="%key.Regist" prefWidth="96.0" prefHeight="34.0" />
+                            <Button fx:id="editWorkflow2Button" onAction="#onEditWorkflow2" text="%key.Edit" prefWidth="96.0" prefHeight="34.0" />
+                        </HBox>
+
+                        <!--ボタン-->
+                        <HBox spacing="10.0" alignment="BOTTOM_RIGHT" GridPane.rowIndex="12" GridPane.columnIndex="1" GridPane.columnSpan="2" >
+                            <Button fx:id="registButton" onAction="#onRegist" styleClass="ContentButton" text="%key.Regist" />
+                            <Button onAction="#onCancel" styleClass="ContentButton" text="%key.Cancel" />
+                        </HBox>
+                    </children>
+                </GridPane>
+                
+                <Pane fx:id="progressPane" visible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" StackPane.alignment="CENTER">
+                    <children>
+                        <ProgressIndicator layoutX="0.0" layoutY="0.0" prefHeight="100.0" prefWidth="100.0" />
+                    </children>
+                </Pane>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

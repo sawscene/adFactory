@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import jp.adtekfuji.javafxcommon.controls.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.ledgermanagerplugin.component.LedgerManagerCompoFxController">
+    <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <SplitPane fx:id="ledgerManagerPane" dividerPositions="0.45" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <GridPane SplitPane.resizableWithParent="false">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" vgrow="SOMETIMES" />
+                </rowConstraints>
+                <TreeView fx:id="hierarchyTree">
+                    <GridPane.margin>
+                        <Insets bottom="8.0" />
+                    </GridPane.margin>
+                </TreeView>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                    <ToolBar fx:id="hierarchyBtnArea" nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="200.0" styleClass="TransparentToolbar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <Button fx:id="createTreeButton" mnemonicParsing="false" onAction="#onTreeCreate" styleClass="NarrowWidthButton" text="%key.NewCreate" />
+                        <Button fx:id="editTreeButton" disable="true" mnemonicParsing="false" onAction="#onTreeEdit" styleClass="NarrowWidthButton" text="%key.Edit" />
+                        <Button fx:id="moveTreeButton" disable="true" mnemonicParsing="false" onAction="#onTreeMove" styleClass="NarrowWidthButton" text="%key.Move" />
+                        <Button fx:id="delTreeButton" disable="true" mnemonicParsing="false" onAction="#onTreeDelete" styleClass="NarrowWidthButton" text="%key.Delete" />
+                    </ToolBar>
+                </AnchorPane>
+            </GridPane>
+            <SplitPane fx:id="reportOutListPane" dividerPositions="0.5" orientation="VERTICAL" StackPane.alignment="TOP_LEFT">
+                <GridPane>
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0"
+                                        vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <!-- 右中央部ペイン -->
+                    <AnchorPane minHeight="0.0" minWidth="0.0" GridPane.rowIndex="0">
+                        <GridPane.margin>
+                            <Insets bottom="8.0"/>
+                        </GridPane.margin>
+                        <PropertySaveTableView fx:id="ledgerList" minHeight="0.0" minWidth="0.0" styleClass="ContentList" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <columns>
+                                <TableColumn fx:id="ledgerNameColumn" prefWidth="180.0" text="%key.LedgerName"/>
+                                <TableColumn fx:id="ledgerTypeColumn" prefWidth="100.0" text="%key.LedgerType"/>
+                                <TableColumn fx:id="updateDateColumn" prefWidth="150.0" text="%key.UpdatedDate"/>
+                                <TableColumn fx:id="lastDatetimeColumn" prefWidth="150.0" text="%key.LastDateTime"/>
+                                <TableColumn fx:id="nextDatetimeColumn" prefWidth="150.0" text="%key.NextDateTime"/>
+                            </columns>
+                        </PropertySaveTableView>
+                    </AnchorPane>
+                    <!-- 右下部ペイン -->
+                    <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                        <HBox alignment="BASELINE_RIGHT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <ToolBar nodeOrientation="LEFT_TO_RIGHT" styleClass="TransparentToolbar">
+                                <Button fx:id="createListButton" mnemonicParsing="false" onAction="#onListCreate" styleClass="NarrowWidthButton" text="%key.createNew"/>
+                                <Button fx:id="editListButton" disable="true" mnemonicParsing="false" onAction="#onListEdit" styleClass="NarrowWidthButton" text="%key.Edit"/>
+                                <Button fx:id="moveListButton" disable="true" mnemonicParsing="false" onAction="#onListMove" styleClass="NarrowWidthButton" text="%key.Move"/>
+                                <Button fx:id="delListButton" disable="true" mnemonicParsing="false" onAction="#onListDelete" styleClass="NarrowWidthButton" text="%key.Delete"/>
+                                <Button fx:id="reportOutButton" disable="true" mnemonicParsing="false" onAction="#onReportOut" styleClass="NarrowWidthButton" text="%key.OutLedgerTitle"/>
+                            </ToolBar>
+                        </HBox>
+                    </AnchorPane>
+                </GridPane>
+                <VBox>
+                    <HBox alignment="CENTER_LEFT" spacing="8.0">
+                        <Label text="%key.DisplayLimit"/>
+                        <ComboBox fx:id="displayLimitCombo" prefHeight="25.0" maxWidth="300"/>
+                        <HBox fx:id="specificPeriod" visible="false" alignment="CENTER_LEFT" spacing="8.0">
+                            <DatePicker fx:id="fromDatePicker" prefWidth="130."/>
+                            <Label text="%key.FromSymbol"/>
+                            <DatePicker fx:id="toDatePicker" prefWidth="130.">
+                                <HBox.margin>
+                                    <Insets right="8.0"/>
+                                </HBox.margin>
+                            </DatePicker>
+                        </HBox>
+                        <HBox fx:id="keyArea" alignment="CENTER_LEFT" spacing="8.0"/>
+                        <Button fx:id="updateFileList" text="%key.Update" onAction="#onUpdateFileList" styleClass="NarrowWidthButton"/>
+                    </HBox>
+                    <GridPane>
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints vgrow="SOMETIMES"/>
+                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" vgrow="SOMETIMES"/>
+                        </rowConstraints>
+                        <!-- 右中央部ペイン -->
+                        <AnchorPane minHeight="0.0" minWidth="0.0" GridPane.rowIndex="0">
+                            <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <GridPane.margin>
+                                    <Insets bottom="8.0"/>
+                                </GridPane.margin>
+                                <PropertySaveTableView fx:id="ledgerFileList" minHeight="0.0" minWidth="0.0" styleClass="ContentList" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <columns>
+                                        <TableColumn fx:id="ledgerFileCreateDateColumn" prefWidth="100.0" text="%key.CreateDate"/>
+                                        <TableColumn fx:id="workerNameColumn" prefWidth="180.0" text="%key.authorityWoker"/>
+                                        <TableColumn fx:id="equipmentNameColumn" prefWidth="100.0" text="%key.Equipment"/>
+                                        <TableColumn fx:id="ledgerFileCreatorNameColumn" prefWidth="180.0" text="%key.Creator"/>
+                                        <TableColumn fx:id="workStartNameColumn" prefWidth="180.0" text="%key.WorkStartDay"/>
+                                        <TableColumn fx:id="workCompNameColumn" prefWidth="180.0" text="%key.WorkEndDay"/>
+                                    </columns>
+                                </PropertySaveTableView>
+                                <Pane fx:id="Progress2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" visible="false">
+                                    <ProgressIndicator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"/>
+                                </Pane>
+                            </StackPane>
+                        </AnchorPane>
+                        <!-- 右下部ペイン -->
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                            <HBox alignment="BASELINE_RIGHT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                  AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <ToolBar nodeOrientation="LEFT_TO_RIGHT" styleClass="TransparentToolbar">
+                                    <Button mnemonicParsing="false" onAction="#onDeleteFile" styleClass="NarrowWidthButton" text="%key.Delete"/>
+                                    <Button fx:id="downloadButton" disable="true" mnemonicParsing="false" onAction="#onDownload" styleClass="NarrowWidthButton" text="%key.Download"/>
+                                </ToolBar>
+                            </HBox>
+                        </AnchorPane>
+                    </GridPane>
+                </VBox>
+            </SplitPane>
+        </SplitPane>
+        <Pane fx:id="Progress" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+            <ProgressIndicator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" />
+        </Pane>
+    </StackPane>
+</AnchorPane>

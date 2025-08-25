@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="rootPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="adtekfuji.admanagerapp.systemsettingplugin.component.ReasonEditController">
+    <children>
+        <Label fx:id="titleLabel" styleClass="ContentTitleLabel" AnchorPane.topAnchor="0.0" />
+        <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+            <children>
+                <SplitPane fx:id="splitPane" dividerPositions="0.3" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                        <GridPane SplitPane.resizableWithParent="false">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <TreeView fx:id="treeView" onKeyPressed="#onKeyPressed" GridPane.rowIndex="0" />
+                                <ToolBar nodeOrientation="LEFT_TO_RIGHT" styleClass="TransparentToolbar" prefHeight="40.0" GridPane.rowIndex="1">
+                                    <items>
+                                        <Button fx:id="addReasonCategoryButton" mnemonicParsing="false" onAction="#onAddReasonCategory" styleClass="NarrowWidthButton" text="%key.NewCreate" />
+                                        <Button fx:id="editReasonCategoryButton" mnemonicParsing="false" onAction="#onEditReasonCategory" styleClass="NarrowWidthButton" text="%key.Edit" />
+                                        <Button fx:id="deleteReasonCategoryButton" mnemonicParsing="false" onAction="#onDeleteReasonCategory" styleClass="NarrowWidthButton" text="%key.Delete" />
+                                    </items>
+                                </ToolBar>
+                            </children>
+                        </GridPane>
+
+                        <GridPane>
+                            <children>
+                                <ToolBar nodeOrientation="RIGHT_TO_LEFT" GridPane.rowIndex="1">
+                                    <items>
+                                        <Button fx:id="registButton" mnemonicParsing="false" onAction="#onRegist" styleClass="NarrowWidthButton" text="%key.Regist" />
+                                    </items>
+                                </ToolBar>
+                                <ScrollPane prefViewportHeight="370.0" prefViewportWidth="600.0">
+                                    <content>
+                                        <VBox fx:id="propertyPane">
+                                            <padding>
+                                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                            </padding>
+                                        </VBox>
+                                    </content>
+                                </ScrollPane>
+                            </children>
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                        </GridPane>
+                    </items>
+                </SplitPane>
+                <Pane fx:id="progress" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+                    <children>
+                        <ProgressIndicator />
+                    </children>
+                </Pane>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

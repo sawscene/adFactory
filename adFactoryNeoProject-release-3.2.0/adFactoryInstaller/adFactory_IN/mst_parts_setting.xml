@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<warehouseCommonSettingInfo>
+    <format>CSV</format>
+    <filename>部品マスタ.csv</filename>
+    <doublequotation>true</doublequotation>
+    <encode>UTF-16</encode>
+    <separator>,</separator>
+    <startline>2</startline>
+    <parameter>
+        <key>prodNo</key>
+        <column>2</column>
+    </parameter>
+    <parameter>
+        <key>prodName</key>
+        <column>7</column>
+    </parameter>
+    <parameter>
+        <key>vendor</key>
+        <column>15</column>
+    </parameter>
+    <parameter>
+        <key>spec</key>
+        <column>8</column>
+    </parameter>
+</warehouseCommonSettingInfo>

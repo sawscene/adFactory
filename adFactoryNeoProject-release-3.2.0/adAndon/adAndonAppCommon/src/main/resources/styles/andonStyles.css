@@ -1,0 +1,164 @@
+.root {
+    -fx-font-family: "Meiryo UI","Arial","sans-serif";
+}
+
+.background {
+    -fx-background-color: black;
+}
+
+.pane {
+    -fx-background-color: black;
+}
+
+.button {
+    -fx-font-weight: bold;
+}
+
+.separator {
+    -fx-background-color:white;
+}
+
+/*******************************************************************************
+ * TableView                                                                   *
+ ******************************************************************************/
+.table-view {
+    -fx-background-color: black;
+}
+
+.table-view .column-header {
+    -fx-background-color: lightgray;
+    -fx-border-color: -fx-table-cell-border-color;
+    -fx-background-insets: 0, 0 0 1 0;
+}
+
+.table-view .filler,
+.table-view .column-header-background,
+.table-view .column-header-background .filler {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header .label {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-font-size: 32px;
+    -fx-text-fill: black;
+    -fx-alignment: center;
+}
+
+.table-view .table-cell {
+    -fx-border-color: -fx-table-cell-border-color;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: transparent;
+}
+
+.table-view:focused .table-row-cell:filled:focused:selected {
+    -fx-background-color: transparent;
+}
+
+.table-view > .virtual-flow > .scroll-bar:vertical,
+.table-view > .virtual-flow > .scroll-bar:vertical > .track,
+.table-view > .virtual-flow > .scroll-bar:vertical > .track-background,
+.table-view > .virtual-flow > .scroll-bar:horizontal,
+.table-view > .virtual-flow > .scroll-bar:horizontal > .track,
+.table-view > .virtual-flow > .scroll-bar:horizontal > .track-background {
+    -fx-background-color: transparent;
+}
+
+.table-view > .virtual-flow > .scroll-bar > .increment-button,
+.table-view > .virtual-flow > .scroll-bar > .decrement-button {
+    -fx-opacity: 0;
+}
+
+.table-row-cell:empty {
+    -fx-background-color: transparent;
+}
+
+.table-row-cell:empty .table-cell {
+    -fx-border-width: 0;
+}
+
+.footer_label {
+    -fx-font : 36px "Meiryo UI Bold Italic";
+    -fx-text-fill : #78a0f2;
+}
+
+.progress_label {
+    -fx-font : 80px "Meiryo UI";
+    -fx-text-fill: white;
+    -fx-font-weight : bold;
+}
+
+.process_label {
+    -fx-font : 78px "Meiryo UI";
+    -fx-text-fill: white;
+    -fx-font-weight : bold;
+    -fx-background-color: #003399;
+    -fx-border-color: #3399ff;
+    -fx-border-width: 2px;
+    -fx-pref-width: 250px;
+    -fx-pref-height:250px;
+}
+
+.process_label_warning {
+    -fx-font : 78px "Meiryo UI";
+    -fx-text-fill: white;
+    -fx-font-weight : bold;
+    -fx-background-color: #ff6666;
+    -fx-border-color: #ff9999;
+    -fx-border-width: 2px;
+    -fx-pref-width: 250px;
+    -fx-pref-height:250px;
+}
+
+.process_value_label {
+    -fx-font : 50px "Meiryo UI";
+    -fx-text-fill: white;
+    -fx-font-weight : bold;
+}
+
+.message_label {
+    -fx-font : 54px "Meiryo UI";
+    -fx-text-fill: white;
+    -fx-font-weight : bold;
+}
+
+.process_mini_label {
+    -fx-font : 82px "Meiryo UI";
+    -fx-text-fill: white;
+    -fx-font-weight : bold;
+    -fx-background-color: #003399;
+    -fx-border-color: #3399ff;
+    -fx-border-width: 2px;
+    -fx-pref-width: 300px;
+    -fx-pref-height:100px;
+}
+
+.process_mini_label_warning {
+    -fx-font : 82px "Meiryo UI";
+    -fx-text-fill: white;
+    -fx-font-weight : bold;
+    -fx-background-color: #ff6666;
+    -fx-border-color: #ff9999;
+    -fx-border-width: 2px;
+    -fx-pref-width: 300px;
+    -fx-pref-height:100px;
+}
+
+.process_mini_label_text > .text{
+    -fx-stroke: black;
+    -fx-stroke-width: 1;
+}
+
+.warn_message {
+    -fx-font : 20px "Meiryo UI";
+    -fx-text-fill: red;
+    -fx-font-weight : bold;
+}
+
+.contentPane {
+    -fx-background-color: #303030;
+}

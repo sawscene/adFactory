@@ -1,0 +1,109 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+
+/* A-OTF じゅん Pro 34 */
+@font-face {
+    font-family: 'A-OTF Jun Pro 34';
+    src: local('A-OTF Jun Pro 34'),
+        url('file:../fonts/A-OTF-Jun34Pro-Medium.otf');
+}
+
+/* 小塚ゴシック Pro B */
+@font-face {
+    font-family: 'Kozuka Gothic Pro B';
+    src: local('Kozuka Gothic Pro B'),
+        url('file:../fonts/KozGoPro-Bold.otf');
+}
+
+/* 項目名ラベル(白) */
+.CycleTakt-label-white {
+    -fx-font-family: 'A-OTF Jun Pro 34';
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 44px;
+}
+
+/* 項目名ラベル(グレー) */
+.CycleTakt-label-gray {
+    -fx-font-family: 'A-OTF Jun Pro 34';
+    -fx-text-fill: #727171;
+    -fx-font-size: 44px;
+}
+
+/* 生産台数カウントラベル */
+.CycleTakt-label-production-count {
+    -fx-font-family: 'Kozuka Gothic Pro B';
+    -fx-text-fill: #2EA7E0;
+    -fx-font-size: 400px;
+}
+
+/* 残り時間カウントラベル(黒) */
+.CycleTakt-label-countdown-black {
+    -fx-font-family: 'Kozuka Gothic Pro B';
+    -fx-text-fill: #000000;
+    -fx-font-size: 380px;
+}
+
+/* 残り時間カウントラベル(緑) */
+.CycleTakt-label-countdown-green {
+    -fx-font-family: 'Kozuka Gothic Pro B';
+    -fx-text-fill: #22AC38;
+    -fx-font-size: 380px;
+}
+
+/* 数字ラベル(グレー) */
+.CycleTakt-label-number-gray {
+    -fx-font-family: 'Kozuka Gothic Pro B';
+    -fx-text-fill: #727171;
+    -fx-font-size: 220;
+}
+
+/* 数字ラベル(赤) */
+.CycleTakt-label-number-red {
+    -fx-font-family: 'Kozuka Gothic Pro B';
+    -fx-text-fill: #E60012;
+    -fx-font-size: 220;
+}
+
+/* タクトタイムの秒の数字ラベル */
+.CycleTakt-label-number-gray-small {
+    -fx-font-family: 'Kozuka Gothic Pro B';
+    -fx-text-fill: #727171;
+    -fx-font-size: 120;
+}
+
+/* 単位ラベル (台, 分, 秒) */
+.CycleTakt-label-unit {
+    -fx-font-family: 'Kozuka Gothic Pro B';
+    -fx-text-fill: #727171;
+    -fx-font-size: 100;
+}
+
+/* 休憩時間のラベル */
+.CycleTakt-label-breaktime {
+    -fx-font-family: 'Kozuka Gothic Pro B';
+    -fx-text-fill: #22AC38;
+    -fx-font-size: 120;
+}
+
+/* 背景色(濃いグレー) */
+.CycleTakt-background-darkGray {
+    -fx-background-color: #727171;
+}
+
+/* 背景色(薄いグレー) */
+.CycleTakt-background-lightGray {
+    -fx-background-color: #EFEFEF;
+}
+
+/* 背景色(リフレッシュタイム) */
+.CycleTakt-background-refreshTime {
+    -fx-background-color: #A2D2E9;
+}
+
+/* 背景色(昼休憩) */
+.CycleTakt-background-lunchTime {
+    -fx-background-color: #FDF899;
+}

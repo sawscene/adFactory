@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" prefWidth="320"  xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.chartplugin.controller.WorkflowPane">
+    <children>
+        <Label layoutX="8.0" prefHeight="23.0" text="%key.TargetWorkflow" />
+        <Label fx:id="workflowLabel" prefHeight="23.0" style="-fx-background-color: lightgray;" text="" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="8.0">
+            <padding>
+                <Insets left="4.0" />
+            </padding>
+        </Label>
+        <TreeView fx:id="workflowView" layoutY="25.0" prefHeight="260.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" />
+    </children>
+</AnchorPane>
+
+

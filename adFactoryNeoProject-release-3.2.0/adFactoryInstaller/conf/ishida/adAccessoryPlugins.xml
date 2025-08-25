@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<adaccessoryplugins>
+    <date>2016-11-25 08:15:00</date>
+    <plugins>
+        <name>Simple</name>
+        <name>Delvo</name>
+        <name>Glue</name>
+        <name>HiTESTER</name>
+        <name>Measure</name>
+        <name>Torque Driver</name>
+    </plugins>
+</adaccessoryplugins>

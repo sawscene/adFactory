@@ -1,0 +1,10 @@
+[
+    { "prodNo":"prodNo-3", "partsNo":"prodNo-11", "reqNum":"1" },
+    { "prodNo":"prodNo-3", "partsNo":"prodNo-12", "reqNum":"2" },
+    { "prodNo":"prodNo-3", "partsNo":"prodNo-13", "reqNum":"3" },
+    { "prodNo":"prodNo-3", "partsNo":"prodNo-14" },
+    { "prodNo":"prodNo-3", "partsNo":"prodNo-15" },
+    { "prodNo":"prodNo-3", "partsNo":"prodNo-14", "reqNum":"4" },
+    { "prodNo":"prodNo-4" },
+    { "prodNo":"prodNo-4", "partsNo":"prodNo-3", "reqNum":"2" }
+]

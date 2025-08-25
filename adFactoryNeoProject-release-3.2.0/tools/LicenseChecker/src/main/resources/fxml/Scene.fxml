@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="700" prefWidth="500" xmlns:fx="http://javafx.com/fxml" fx:controller="jp.adtekfuji.licensechecker.FXMLController">
+    <children>
+        <Button text="ライセンスファイルを選択してください" onAction="#onChoice" fx:id="choiceButton" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" />
+        <TextArea fx:id="label" onDragDropped="#handleDragDropped" onDragOver="#handleDragOver" style="-fx-font-size: 18" AnchorPane.topAnchor="55" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.bottomAnchor="10" />
+    </children>
+</AnchorPane>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import jp.adtekfuji.javafxcommon.controls.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="adtekfuji.admanagerapp.workfloweditplugin.component.TabbedWorkCompoController">
+    <StackPane fx:id="stackPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+               AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                  AnchorPane.topAnchor="0.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0"
+                                vgrow="SOMETIMES"/>
+                <RowConstraints vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0"
+                                vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <SplitPane fx:id="reportOutListPane" dividerPositions="0.5" orientation="VERTICAL"
+                       StackPane.alignment="TOP_LEFT" GridPane.rowIndex="1">
+                <ScrollPane minHeight="58.0" >
+                    <GridPane.margin>
+                        <Insets bottom="8.0"/>
+                    </GridPane.margin>
+                    <VBox>
+                        <padding>
+                            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0"/>
+                        </padding>
+                        <!-- 設定項目 -->
+                        <VBox fx:id="topSidePane" spacing="4.0"/>
+                        <!-- 使用部品 -->
+                        <HBox fx:id="usePartsPane" spacing="4.0" alignment="CENTER_LEFT">
+                            <Label prefWidth="179.0" styleClass="ContentTitleLabel"
+                                   text="%key.UseParts"/>
+                            <TextArea fx:id="usePartsTextArea" editable="false" prefRowCount="1"
+                                      prefWidth="800.0" style="-fx-font-size: 12pt;"
+                                      styleClass="non-editable-text-area" wrapText="true"/>
+                            <Pane>
+                                <Button onAction="#onChoice" styleClass="ContentTextBox"
+                                        text="%key.Choice"/>
+                            </Pane>
+                        </HBox>
+                        <!-- 追加情報 -->
+                        <VBox fx:id="propertyPane" spacing="4.0">
+                        </VBox>
+                    </VBox>
+                </ScrollPane>
+                <!-- トレーサビリティ情報のタブ -->
+                <!-- ※．幅を固定しないと、タブの増加に合わせてペインの幅が大きくなっていくので、トレーサビリティ行の内容を変更したら、それに合わせて調整すること -->
+                <RichTabPane fx:id="tabPane" tabClosingPolicy="SELECTED_TAB" prefWidth="1600.0" />
+            </SplitPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+                <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                          AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <ToolBar nodeOrientation="LEFT_TO_RIGHT" AnchorPane.bottomAnchor="0.0"
+                             AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                             AnchorPane.topAnchor="0.0">
+                        <items>
+                            <Button fx:id="applyWorkflowButton" mnemonicParsing="false"
+                                    onAction="#onApplyWorkflow" styleClass="ContentButton"
+                                    text="%applyWorkflow" visible="false" prefWidth="140.0"  />
+                            <Button fx:id="requestButton" mnemonicParsing="false"
+                                    onAction="#onRequest" styleClass="NarrowWidthButton"
+                                    text="%key.Approval" visible="false" />
+                            <Button fx:id="requestCancelButton" mnemonicParsing="false"
+                                    onAction="#onRequestCancel" styleClass="NarrowWidthButton"
+                                    text="%key.ApprovalCancel" visible="false" />
+                        </items>
+                    </ToolBar>
+                    <HBox alignment="BASELINE_RIGHT" GridPane.columnIndex="1">
+                        <ToolBar nodeOrientation="RIGHT_TO_LEFT" AnchorPane.bottomAnchor="0.0"
+                                 AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                 AnchorPane.topAnchor="0.0">
+                            <items>
+                                <Button fx:id="applyButton" mnemonicParsing="false"
+                                        onAction="#onApply" styleClass="NarrowWidthButton"
+                                        text="%key.Apply"/>
+                                <Button fx:id="cancelButton" mnemonicParsing="false"
+                                        onAction="#onCancel" styleClass="NarrowWidthButton"
+                                        text="%key.Cancel"/>
+                                <Button fx:id="registButton" mnemonicParsing="false"
+                                        onAction="#onRegist" styleClass="NarrowWidthButton"
+                                        text="%key.Regist"/>
+                            </items>
+                        </ToolBar>
+                    </HBox>
+                </GridPane>
+            </AnchorPane>
+            <HBox alignment="CENTER_LEFT">
+                <Label fx:id="parentNameLabel" styleClass="ContentTitleLabel"/>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT">
+                <Label fx:id="requestingLabel" styleClass="ContentTitleLabel"
+                       text="%key.StateRequesting">
+                    <HBox.margin>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0"/>
+                    </HBox.margin>
+                </Label>
+                <Label fx:id="requestorNameLabel" styleClass="ContentTitleLabel">
+                    <HBox.margin>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0"/>
+                    </HBox.margin>
+                </Label>
+            </HBox>
+        </GridPane>
+        <Pane fx:id="progressPane" visible="false" maxHeight="-Infinity" maxWidth="-Infinity"
+              minHeight="-Infinity" minWidth="-Infinity">
+            <ProgressIndicator fx:id="progressIndicator" prefHeight="160.0" prefWidth="160.0"/>
+        </Pane>
+    </StackPane>
+</AnchorPane>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import jp.adtekfuji.javafxcommon.controls.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.workfloweditplugin.component.WorkflowAssociationSettingCompoFxController">
+    <children>
+        <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <ScrollPane fitToWidth="true">
+                    <content>
+                        <VBox>
+                            <children>
+                                <GridPane hgap="4.0" vgap="4.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints prefWidth="140.0" />
+                                        <ColumnConstraints hgrow="ALWAYS" />
+                                        <ColumnConstraints prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints vgrow="ALWAYS" />
+                                        <RowConstraints vgrow="ALWAYS" />
+                                        <RowConstraints vgrow="ALWAYS" />
+                                        <RowConstraints prefHeight="140.0" vgrow="ALWAYS" valignment="TOP" />
+                                        <RowConstraints prefHeight="140.0" vgrow="ALWAYS" valignment="TOP" />
+                                    </rowConstraints>
+                                    <children>
+                                        <!-- 標準作業日 -->
+                                        <Label text="%key.StandardDay" GridPane.rowIndex="0" />
+                                        <HBox spacing="2.0" alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.hgrow="NEVER">
+                                            <RestrictedTextField fx:id="standardDayField" maxWidth="90.0" minLimit="1" maxLimit="99" verifier="NUMBER_ONLY" alignment="CENTER_RIGHT" />
+                                            <Label text="%key.CountDay" />
+                                        </HBox>
+
+                                        <!-- 標準作業時間 -->
+                                        <Label text="%key.StandardTime" GridPane.rowIndex="1" />
+                                        <HBox maxWidth="220.0" alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.hgrow="NEVER">
+                                            <children>
+                                                <TimeTextField fx:id="fromPeriodsField" prefWidth="90.0" alignment="CENTER" />
+                                                <Label text="-" alignment="CENTER" textAlignment="CENTER" maxWidth="Infinity" HBox.hgrow="ALWAYS" />
+                                                <TimeTextField fx:id="toPeriodsField" prefWidth="90.0" alignment="CENTER" />
+                                            </children>
+                                        </HBox>
+
+                                        <!-- オフセット時間 -->
+                                        <!-- <Label text="%key.OffsetTimeTitle" GridPane.rowIndex="2" visible="false" />
+                                        <TimeHMTextField fx:id="offsetTimeField" maxWidth="90.0" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.hgrow="NEVER" visible="false" /> -->
+
+                                        <!-- スキップ -->
+                                        <Label text="%key.Skip" GridPane.rowIndex="2" />
+                                        <CheckBox fx:id="skipCheck" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                                        <!-- 設備 -->
+                                        <Label text="%key.Equipment" alignment="TOP_LEFT" GridPane.rowIndex="3" GridPane.vgrow="NEVER" />
+                                        <ListView fx:id="equipmentsList" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                        <Button mnemonicParsing="false" prefWidth="80.0" onAction="#onEditEquipment" text="%key.Choice" GridPane.columnIndex="2" GridPane.rowIndex="3" GridPane.vgrow="NEVER" />
+
+                                        <!-- 組織 -->
+                                        <Label text="%key.Organization" alignment="TOP_LEFT" GridPane.rowIndex="4" GridPane.vgrow="NEVER" />
+                                        <ListView fx:id="organizationList" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                        <Button mnemonicParsing="false" prefWidth="80.0" onAction="#onEditOrganization" text="%key.Choice" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.vgrow="NEVER" />
+                                        <!-- 出力期間 -->
+                                        <Label fx:id="schedulePanLabel" text="%key.TargetDay" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+                                        <VBox fx:id="schedulePain" maxWidth="350.0" GridPane.columnIndex="1" GridPane.rowIndex="7"
+                                              GridPane.rowSpan="2"/>
+                                    </children>
+                                </GridPane>
+                            </children>
+                        </VBox>
+                    </content>
+                    <padding>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                    </padding>
+                </ScrollPane>
+                <Pane fx:id="progressPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" visible="false" >
+                    <children>
+                        <ProgressIndicator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" />
+                    </children>
+                </Pane>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

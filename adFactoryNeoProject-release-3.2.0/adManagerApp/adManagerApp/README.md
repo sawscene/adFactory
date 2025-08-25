@@ -1,0 +1,4 @@
+## adManagerApp
+
+adManager アプリケーション
+

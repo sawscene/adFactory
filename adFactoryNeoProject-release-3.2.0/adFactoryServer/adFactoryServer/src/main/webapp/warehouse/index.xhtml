@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>adFactory Warehouse</title>
+        <h:outputStylesheet library="styles" name="ScreenDesignStyles.css"/>
+        <h:outputStylesheet library="styles" name="ScreenFontStyles.css"/>
+        <h:outputScript library="scripts" name="MenuScripts.js"/>
+        <h:outputScript library="styles" name="styles.css"/>
+        <f:loadBundle basename="jp.adtekfuji.adfactoryserver.locale.locale" var="msg"/>
+    </h:head>
+
+    <h:body id="body" onload="onPageLoad('#{menuData.errMsg}');#{menuData.onChangeLocale(null)}" > 
+        <f:metadata>
+            <!-- 画面表示時にライセンスを確認 --> 
+            <f:viewAction action="#{menuData.verifyLicense()}"/>
+        </f:metadata>
+        <audio id="sound" preload="auto">
+            <source src ="#{resource['media/beep.wav']}" type="audio/wav" />
+        </audio>
+       
+        <div align="center">
+                <!-- タイトル -->
+                <h:panelGrid id="title" styleClass="manuTitleTable" columns="1" columnClasses="centering">
+                    <h:outputLabel value="#{msg['warehouse.title']}" style="font-size:48pt;font-weight:700;font-style:italic;color:white;" escape="false"/>
+                </h:panelGrid>
+
+                <!-- バージョン、言語 -->
+                <h:panelGrid styleClass="tableCommon" columns="1" style="text-align:right;">
+                    <h:outputLabel value="#{serverInfo.outernalVersion}" styleClass="font-27pt"/>
+                    <h:selectOneMenu id="locale" value="#{menuData.language}" styleClass="font-27pt select" style="width:250px;" onchange="writeCookie()" 
+                                     rendered="#{menuData.isLanguageOption()}">
+                        <f:selectItems value="#{menuData.localeList}" var="locale" itemValue="#{locale.locale.language}" itemLabel="#{locale.language}" /> 
+                        <f:ajax event="valueChange" execute="@this" render =":title :area :buttonForm @form @page" listener="#{menuData.onChangeLocale}" />
+                    </h:selectOneMenu>
+                </h:panelGrid>
+
+                <!-- 区画 -->
+                <h:panelGrid columns="2" styleClass="tableCommon" columnClasses="labelCell font-42pt,dataCell noto font-42pt">
+                    <h:outputLabel value="#{msg['warehouse.area']}" styleClass="font-39pt" />
+                    <h:selectOneMenu id="areaName" value="#{menuData.areaName}" styleClass="font-42pt select" style="width:560px;" disabled="#{menuData.disabled}" onchange="writeCookie()" >
+                        <f:selectItems value="#{menuData.areaList}"/> 
+                        <f:ajax event="valueChange" execute="@this" render =":buttonForm" listener="#{menuData.onChangeArea}" />
+                    </h:selectOneMenu>
+                    <!-- <h:outputLabel styleClass="viewMessage font-42ptBld" value="#{menuData.errMsg}"/> -->           
+                </h:panelGrid>
+
+                <h:form id="buttonForm" style="margin-top:10px;">
+                <h:panelGrid columns="1" columnClasses="centering">
+                    <!--受入-->
+                    <h:commandButton type="submit" styleClass="menuButton" style="font-size:52pt;" value="#{msg['warehouse.menu.accept']}" 
+                                     actionListener="#{acceptData.init}" action="AcceptScreen.xhtml?faces-redirect=true"
+                                     disabled="#{menuData.disabled}" onclick="writeCookie()"/>
+                    <!--受入検査-->
+                    <h:commandButton type="submit" styleClass="menuButton" style="font-size:52pt;" value="#{msg['warehouse.menu.inspection']}" 
+                                     actionListener="#{inspectionBean.initialize()}" action="InspectionScreen.xhtml?faces-redirect=true"
+                                     disabled="#{menuData.disabled}" onclick="writeCookie()"
+                                     rendered="#{menuData.warehouseMode == 'JCM' || menuData.warehouseMode == 'standard'}"/>
+                    <!--入庫-->
+                    <h:commandButton type="submit" styleClass="menuButton" style="font-size:52pt;" value="#{msg['warehouse.menu.enter']}" 
+                                     actionListener="#{acceptData.initEntry}" action="EntryScreen.xhtml?faces-redirect=true"
+                                     disabled="#{menuData.disabledInOut}" onclick="writeCookie()"/>
+                    <!--完成入庫-->
+                    <h:commandButton type="submit" styleClass="menuButton" style="font-size:52pt;" value="#{msg['warehouse.menu.finishedStock']}" 
+                                     actionListener="#{finishedStockBean.initialize()}" action="FinishedStock.xhtml?faces-redirect=true"
+                                     disabled="#{menuData.disabledInOut}" onclick="writeCookie()"
+                                     rendered="#{menuData.warehouseMode == 'JCM'}"/>
+
+
+                    <!--払出-->
+                    <h:commandButton type="submit" styleClass="menuButton" style="font-size:52pt;" value="#{msg['warehouse.menu.withdrawal']}" 
+                                     actionListener="#{pickingData.init('NORMAL', 30)}" action="PickingScreen.xhtml?faces-redirect=true"
+                                     disabled="#{menuData.disabledInOut}" onclick="writeCookie()"
+                                     rendered="#{menuData.warehouseMode == 'NEXAS'}"/>
+
+                    <!--ピッキング(標準品)-->
+                    <h:commandButton type="submit" styleClass="menuButton" style="font-size:52pt;" value="#{msg['warehouse.menu.picking1']}" 
+                                     actionListener="#{pickingData.init('ISSUE', 30)}" action="PickKanbanScreen.xhtml?faces-redirect=true"
+                                     disabled="#{menuData.disabledInOut}" onclick="writeCookie()"
+                                     rendered="#{menuData.warehouseMode == 'HAMAI'}"/>
+
+                    <!--ピッキング(受注品)-->
+                    <h:commandButton type="submit" styleClass="menuButton" style="font-size:52pt;" value="#{msg['warehouse.menu.picking2']}" 
+                                     actionListener="#{pickingData.init('NORMAL', 30)}" action="PickingScreen.xhtml?faces-redirect=true"
+                                     disabled="#{menuData.disabledInOut}" onclick="writeCookie()"
+                                     rendered="#{menuData.warehouseMode == 'HAMAI'}"/>
+
+                    <!--配達-->
+                    <h:commandButton type="submit" styleClass="menuButton" style="font-size:52pt;" value="#{msg['warehouse.menu.delivery']}" 
+                                     actionListener="#{pickingData.init('ISSUE', 32)}" action="PickKanbanScreen.xhtml?faces-redirect=true"
+                                     disabled="#{menuData.disabledInOut}" onclick="writeCookie()"
+                                     rendered="#{menuData.warehouseMode == 'HAMAI'}"/>
+
+                    <!--ピッキング-->
+                    <h:commandButton type="submit" styleClass="menuButton" style="font-size:52pt;" value="#{msg['warehouse.menu.picking']}" 
+                                     actionListener="#{pickingData.init('ISSUE', 30)}" action="PickKanbanScreen.xhtml?faces-redirect=true"
+                                     disabled="#{menuData.disabledInOut}" onclick="writeCookie()"
+                                     rendered="#{menuData.warehouseMode == 'JCM' || menuData.warehouseMode == 'standard'}"/>
+
+                    <!--出荷払出-->
+                    <h:commandButton type="submit" styleClass="menuButton" style="font-size:52pt;" value="#{msg['warehouse.menu.shipping']}" 
+                                     actionListener="#{pickingData.init('NORMAL', 31)}" action="PickingScreen.xhtml?faces-redirect=true"
+                                     disabled="#{menuData.disabledInOut}" onclick="writeCookie()"
+                                     rendered="#{menuData.warehouseMode == 'JCM' || menuData.warehouseMode == 'NEXAS'}"/>
+
+                    <!--棚卸-->
+                    <h:commandButton type="submit" styleClass="menuButton" style="font-size:52pt;" value="#{msg['warehouse.menu.inventory']}" 
+                                     actionListener="#{acceptData.initInventory}" action="InventoryScreen.xhtml?faces-redirect=true" 
+                                     disabled="#{menuData.disabledInventory}" onclick="writeCookie()"/>
+                    <!--資材移動-->
+                    <h:commandButton type="submit" styleClass="menuButton" style="font-size:52pt;" value="#{msg['warehouse.menu.move']}" 
+                                     actionListener="#{acceptData.initShelf}" action="ShelfMoveScreen.xhtml?faces-redirect=true"
+                                     disabled="#{menuData.disabled}" onclick="writeCookie()"/>
+                    <!--ラベル発行-->
+                    <h:commandButton type="submit" styleClass="menuButton" style="font-size:52pt;" value="#{msg['warehouse.menu.labelPrint']}" 
+                                     actionListener="#{acceptData.initReprint}" action="ReprintScreen.xhtml?faces-redirect=true"
+                                     disabled="#{menuData.disabled}" onclick="writeCookie()"/>
+                </h:panelGrid>
+            </h:form>
+        </div>
+
+    </h:body>
+</html>

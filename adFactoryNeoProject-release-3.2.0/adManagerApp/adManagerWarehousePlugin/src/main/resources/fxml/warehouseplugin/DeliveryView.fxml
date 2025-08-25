@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import jp.adtekfuji.javafxcommon.controls.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.warehouseplugin.component.DeliveryViewController">
+    <children>
+        <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <GridPane vgap="4.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="ALWAYS" halignment="LEFT" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="ALWAYS" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <!-- タイトル -->
+                        <Label styleClass="ContentTitleLabel" text="%key.PayoutManagement" />
+                     
+                        <AnchorPane GridPane.rowIndex="1" SplitPane.resizableWithParent="false">
+                            <children>
+                                <GridPane hgap="5.0" vgap="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <!-- 払出指示番号 -->
+                                        <CheckBox fx:id="deliveryNoCheck" text="%deliveryNo" minWidth="-Infinity" GridPane.columnIndex="0" />
+                                        <TextField fx:id="deliveryNoField" GridPane.rowIndex="1" />
+                                        <!-- モデル名 -->
+                                        <CheckBox fx:id="modelNameCheck" text="%key.ModelName" minWidth="-Infinity" GridPane.columnIndex="1" />
+                                        <TextField fx:id="modelNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <!-- ユニットNo -->
+                                        <CheckBox fx:id="unitNoCheck" text="%key.unitNo" minWidth="-Infinity" GridPane.columnIndex="2" />
+                                        <TextField fx:id="unitNoField" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                        <!-- 払出予定日 -->
+                                        <CheckBox fx:id="deliveryPlanDateCheck" text="%key.PayoutPlanDate" minWidth="-Infinity" GridPane.columnIndex="3" />
+                                        <DatePicker fx:id="fromDatePicker" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                        <Label text="%key.FromSymbol" GridPane.columnIndex="4" GridPane.rowIndex="1"  />
+                                        <DatePicker fx:id="toDatePicker" prefWidth="120.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                                        <!-- 払出状況 -->
+                                        <CheckBox fx:id="deliveryStatusCheck" text="%key.PayoutStatus" minWidth="-Infinity" GridPane.columnIndex="6" />
+                                        <ChoiceBox fx:id="deliveryStatusChoice" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                                        <!-- 検索 -->
+                                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#onSearch" styleClass="ContentButton" text="%key.Search" 
+                                                GridPane.columnIndex="7" GridPane.halignment="RIGHT" GridPane.rowSpan="2">
+                                            <GridPane.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                            </GridPane.margin>
+                                        </Button>
+                                    </children>
+                                </GridPane>
+                            </children>
+                            <padding>
+                                <Insets bottom="4.0" left="0.0" right="0.0" top="4.0" />
+                            </padding>
+                        </AnchorPane>
+
+                        <!-- 払出指示 -->
+                        <AnchorPane GridPane.rowIndex="2">
+                            <children>
+                                <PropertySaveTableView fx:id="deliveryList" editable="true" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" styleClass="ContentList" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <columns>
+                                        <TableColumn fx:id="printedChekcColumn" prefWidth="40.0" text="" />
+                                        <TableColumn fx:id="deliveryNoColumn" prefWidth="110.0" text="%deliveryNo" />
+                                        <TableColumn fx:id="modelNameColumn" prefWidth="130.0" text="%key.ModelName" />
+                                        <TableColumn fx:id="unitNoColumn" prefWidth="80.0" text="%key.unitNo" />
+                                        <TableColumn fx:id="deliveryStatusColumn" prefWidth="110.0" text="%key.PayoutStatus" />
+                                        <TableColumn fx:id="missingColumn" prefWidth="70.0" text="%key.MissingGoods" style="-fx-alignment: center-right" />
+                                        <TableColumn fx:id="lotQtyColumn" prefWidth="70.0" text="%key.LotQuantity" />
+                                        <TableColumn fx:id="startNumberColumn" prefWidth="80.0" text="%key.StartNumber" />
+                                        <TableColumn fx:id="compNumberColumn" prefWidth="80.0" text="%key.CompNumber" />
+                                        <TableColumn fx:id="planDateColumn" prefWidth="110.0" text="%key.PayoutPlanDate" />
+                                        <TableColumn fx:id="deliveryDateColumn" prefWidth="110.0" text="%deliveryDate" />
+                                        <TableColumn fx:id="destNameColumn" prefWidth="110.0" text="%key.PayoutDestination" />
+                                    </columns>
+                                </PropertySaveTableView>
+                            </children>
+                        </AnchorPane>
+
+                        <!-- 下部ペイン -->
+                        <AnchorPane GridPane.rowIndex="3">
+                            <children>
+                                <ToolBar nodeOrientation="LEFT_TO_RIGHT" styleClass="TransparentToolbar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <items>
+                                        <!-- ピッキングリスト取込 -->
+                                        <Button fx:id="pickingListImportButton" alignment="CENTER" mnemonicParsing="false" onAction="#onImportPickingList" 
+                                                styleClass="ContentButton" text="%importPickingList" />
+                                        <!-- 作業計画取込 -->
+                                        <Button fx:id="scheduleImportButton" alignment="CENTER" mnemonicParsing="false" onAction="#onImportSchedule" 
+                                                styleClass="ContentButton" text="%importSchedule" disable="true" />
+                                        <!-- 払出票印刷 -->
+                                        <Button fx:id="printButton" alignment="CENTER" mnemonicParsing="false" onAction="#onPrint" 
+                                                styleClass="ContentButton" text="%key.PayoutPrinting" disable="true" />
+                                        <!-- 支給品リスト出力 -->
+                                        <Button fx:id="outputSuppliedListButton" alignment="CENTER" mnemonicParsing="false" onAction="#onExportSuppliedList" 
+                                                styleClass="ContentButton" text="%key.OutputSuppliedPartsList" visible="false" />
+                                    </items>
+                                </ToolBar>
+                                <ToolBar nodeOrientation="LEFT_TO_RIGHT" styleClass="TransparentToolbar" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <items>
+                                        <!-- 計画変更 -->
+                                        <Button fx:id="changePlansButton" mnemonicParsing="false" onAction="#onChangePlans" 
+                                                styleClass="ContentButton" text="%key.ChangePlans" disable="true" />
+                                        <!-- 詳細 -->
+                                        <Button fx:id="detailButton" alignment="CENTER" mnemonicParsing="false" onAction="#onDetail" 
+                                                styleClass="ContentButton" text="%details" disable="true" />
+                                        <!-- 削除 -->
+                                        <Button fx:id="deleteButton" alignment="CENTER" mnemonicParsing="false" onAction="#onDelete" 
+                                                styleClass="ContentButton" text="%key.Delete" disable="true" />
+                                    </items>
+                                </ToolBar>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </GridPane>
+
+                <!-- 処理中表示 -->
+                <Pane fx:id="progressPane" visible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" StackPane.alignment="CENTER">
+                    <children>
+                        <ProgressIndicator layoutX="0.0" layoutY="0.0" prefHeight="100.0" prefWidth="100.0" />
+                    </children>
+                </Pane>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

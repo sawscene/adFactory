@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import jp.adtekfuji.javafxcommon.controls.*?>
+
+<StackPane fx:id="pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.kanbaneditplugin.dialog.PartsIDSearchDialog">
+    <children>
+        <VBox spacing="8.0" >
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="8.0">
+                    <!-- 登録済みのパーツIDを検索します -->
+                    <Label fx:id="partsIDSearchLabel" text="%key.PartsIDSearchDescription" />
+                </HBox>
+                <HBox alignment="CENTER_LEFT" spacing="8.0">
+                    <TextField fx:id="partsIDTextField" prefWidth="200.0" />
+                    <!-- 検索 -->
+                    <Button fx:id="searchButton" mnemonicParsing="false" onAction="#onSearch" styleClass="SimpleButton" maxWidth="100.0" minWidth="100.0" text="%key.Search" />
+                </HBox>
+                <Region prefHeight="0.0" />
+                <TableView fx:id="partsTableView" styleClass="ContentList" prefWidth="450.0" prefHeight="266.0" tableMenuButtonVisible="false" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS">
+                    <columns>
+                        <!-- チェック -->
+                        <TableColumn fx:id="checkColumn" prefWidth="60.0" />
+                        <!-- パーツID -->
+                        <TableColumn fx:id="partsIDColumn" text="%key.PartsID" />
+                        <!-- 登録日 -->
+                        <TableColumn fx:id="timeColumn" prefWidth="150.0" text="%key.RegistrationDate" />
+                    </columns>
+                </TableView>
+                <Region prefHeight="0.0" />
+                <AnchorPane>
+                    <HBox alignment="CENTER_LEFT" AnchorPane.leftAnchor="0.0" >
+                        <!-- 削除 -->
+                        <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#onDelete" styleClass="ContentButton" text="%key.Delete" />
+                    </HBox>
+                    <HBox alignment="CENTER_RIGHT" AnchorPane.rightAnchor="0.0" >
+                        <!-- 閉じる -->
+                        <Button fx:id="closeButton" mnemonicParsing="false" onAction="#onClose" styleClass="ContentButton" text="%key.Close" />
+                    </HBox>
+                </AnchorPane>
+            </children>
+            <padding>
+                <Insets bottom="-16.0" left="4.0" right="4.0" top="4.0" />
+            </padding>
+        </VBox>
+        <Pane fx:id="progressPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" visible="false">
+            <children>
+                <ProgressIndicator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" />
+            </children>
+        </Pane>
+    </children>
+</StackPane>

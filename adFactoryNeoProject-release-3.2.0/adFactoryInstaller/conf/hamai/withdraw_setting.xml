@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<warehouseCommonSettingInfo>
+    <format>EXCEL</format>
+    <startline>5</startline>
+    <parameter>
+        <key>unitNo</key>
+        <column>13</column>
+    </parameter>
+    <parameter>
+        <key>prodNo</key>
+        <column>3</column>
+    </parameter>
+    <parameter>
+        <key>suppyNo</key>
+        <column>4</column>
+    </parameter>
+    <parameter>
+        <key>prodName</key>
+        <column>5</column>
+    </parameter>
+    <parameter>
+        <key>spec</key>
+        <column>6</column>
+    </parameter>
+    <parameter>
+        <key>material</key>
+        <column>7</column>
+    </parameter>
+    <parameter>
+        <key>vendor</key>
+        <column>8</column>
+    </parameter>
+    <parameter>
+        <key>reqNum</key>
+        <column>9</column>
+    </parameter>
+    <parameter>
+        <key>unit</key>
+        <column>10</column>
+    </parameter>
+    <parameter>
+        <key>note</key>
+        <column>15</column>
+    </parameter>
+</warehouseCommonSettingInfo>

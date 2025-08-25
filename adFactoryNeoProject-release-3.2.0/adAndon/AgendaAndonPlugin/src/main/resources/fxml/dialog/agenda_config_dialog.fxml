@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.andon.agenda.component.UpdateConfigDialog">
+    <children>
+        <VBox AnchorPane.bottomAnchor="38.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <ScrollPane fx:id="scrollPane" >
+                    <content>
+                    </content>
+                </ScrollPane>
+            </children>
+        </VBox>
+        <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#onButtonCancel" text="Cancel" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="60.0" />
+        <Button fx:id="btnApply" mnemonicParsing="false" onAction="#onButtonApply" text="Apply" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="8.0" />
+    </children>
+</AnchorPane>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="200.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.warehouseplugin.dialog.PrintDialog">
+    <children>
+        <StackPane fx:id="printPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <GridPane>
+                    <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="ALWAYS" />
+                        <ColumnConstraints halignment="CENTER" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                    </rowConstraints>
+                    <children>
+                        <HBox spacing="10.0" prefHeight="150.0" alignment="CENTER" GridPane.columnSpan="3" >
+                            <children>
+                                <Label styleClass="ContentTitleLabel" text="%key.printNum" />
+                                <ComboBox fx:id="printNum" styleClass="ContentComboBox" prefWidth="200.0" />
+                            </children>
+                        </HBox>
+                        <Button fx:id="printButton" onAction="#onPrintButton" styleClass="ContentButton" text="%key.Printed" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <Button fx:id="cancelButton" onAction="#onCancelButton" styleClass="ContentButton" text="%key.Cancel" GridPane.rowIndex="1" GridPane.columnIndex="2" />
+                    </children>
+                </GridPane>
+                <Pane fx:id="progressPane" visible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" StackPane.alignment="CENTER">
+                    <children>
+                        <ProgressIndicator layoutX="0.0" layoutY="0.0" prefHeight="100.0" prefWidth="100.0" />
+                    </children>
+                </Pane>
+            </children>
+        </StackPane>
+        <GridPane fx:id="waitPane" alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" visible="false" >
+            <children>
+                <Label fx:id="waitLabel" alignment="CENTER" styleClass="ContentTitleLabel" text="%printing" prefHeight="100.0" prefWidth="200.0" visible="false" />
+            </children>
+        </GridPane>
+    </children>
+</AnchorPane>

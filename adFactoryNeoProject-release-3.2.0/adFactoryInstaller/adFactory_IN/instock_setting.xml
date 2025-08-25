@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<warehouseCommonSettingInfo>
+    <format>CSV</format>
+    <filename>在庫状況一覧情報.csv</filename>
+    <doublequotation>true</doublequotation>
+    <encode>UTF-16</encode>
+    <separator>,</separator>
+    <startline>2</startline>
+     <parameter>
+        <key>prodNo</key>
+        <column>1</column>
+    </parameter>
+    <parameter>
+        <key>areaNo</key>
+        <column>16</column>
+    </parameter>
+    <parameter>
+        <key>inStockNum</key>
+        <column>25</column>
+    </parameter>
+</warehouseCommonSettingInfo>

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import org.controlsfx.control.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import jp.adtekfuji.javafxcommon.controls.*?>
+<?import adtekfuji.admanagerapp.kanbaneditplugin.controls.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.kanbaneditplugin.component.KanbanListCompoFxController">
+    <children>
+        <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <SplitPane fx:id="kanbanPane" dividerPositions="0.25" styleClass="ContentSplitPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                        <!-- 左ペイン -->
+                        <!-- カンバン階層と検索設定 -->
+                        <SplitPane fx:id="leftPane" minHeight="0.0" minWidth="0.0" orientation="VERTICAL" dividerPositions="0.6" styleClass="DividerSplitPane" SplitPane.resizableWithParent="false">
+                            <items>
+                                <GridPane SplitPane.resizableWithParent="false">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <!-- カンバン階層ツリー -->
+                                        <TreeView fx:id="hierarchyTree" onKeyPressed="#onKeyPressed">
+                                            <GridPane.margin>
+                                                <Insets bottom="8.0" />
+                                            </GridPane.margin>
+                                        </TreeView>
+                                        <AnchorPane GridPane.rowIndex="1">
+                                            <children>
+                                                <ToolBar fx:id="hierarchyBtnArea" nodeOrientation="LEFT_TO_RIGHT" styleClass="TransparentToolbar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                    <items>
+                                                        <!-- 新規作成ボタン -->
+                                                        <Button fx:id="createTreeButton" mnemonicParsing="false" onAction="#onTreeCreate" styleClass="NarrowWidthButton" text="%key.NewCreate" />
+                                                        <!-- 編集ボタン -->
+                                                        <Button fx:id="editTreeButton" mnemonicParsing="false" onAction="#onTreeEdit" styleClass="NarrowWidthButton" text="%key.Edit" />
+                                                        <!-- 移動ボタン -->
+                                                        <Button fx:id="moveTreeButton" mnemonicParsing="false" onAction="#onTreeMove" styleClass="NarrowWidthButton" text="%key.Move" />
+                                                        <!-- 削除ボタン -->
+                                                        <Button fx:id="delTreeButton" mnemonicParsing="false" onAction="#onTreeDelete" styleClass="NarrowWidthButton" text="%key.Delete" />
+                                                        <!-- アクセス権編集ボタン -->
+                                                        <Button fx:id="authButton" mnemonicParsing="false" onAction="#onAuth" styleClass="ContentButton" text="%key.EditedAuth" />
+                                                    </items>
+                                                </ToolBar>
+                                            </children>
+                                        </AnchorPane>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="8.0" left="0.0" right="0.0" top="0.0" />
+                                    </padding>
+                                </GridPane>
+                                <ScrollPane fx:id="scrollPane">
+                                    <VBox fx:id="searchPane" minHeight="0.0" styleClass="pane" >
+                                        <!-- カンバン名 -->
+                                        <CheckTextField fx:id="kanbanNameField" label="%key.KanbanName" />
+                                        <!-- モデル名 -->
+                                        <CheckTextField fx:id="modelNameField" label="%key.ModelName" />
+                                        <!-- 製造番号 -->
+                                        <CheckTextField fx:id="productNoField" label="%key.ProductionNumber" />
+                                        <!-- 工程順名 -->
+                                        <CheckTextField fx:id="workflowNameField" label="%key.WorkflowName" />
+                                        <!-- 工程名 -->
+                                        <CheckTextField fx:id="workNameField" label="%key.ProcessName" />
+                                        <!-- ステータス -->
+                                        <CheckStatusList fx:id="statusList" />
+                                    </VBox>
+                                </ScrollPane>
+                            </items>
+                        </SplitPane>
+                        <!-- 右ペイン -->
+                        <GridPane minHeight="0.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                <RowConstraints vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <!-- 右上部ペイン -->
+                                <GridPane hgap="8.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints vgrow="SOMETIMES" minHeight="-Infinity" />
+                                    </rowConstraints>
+                                    <children>
+                                        <HBox alignment="CENTER_LEFT" spacing="8.0" >
+                                            <children>
+                                                <!-- 開始予定日 -->
+                                                <DatePicker fx:id="startDatePicker" prefWidth="130.0" />
+                                                <Label text="%key.FromSymbol" />
+                                                <!-- 終了予定日 -->
+                                                <DatePicker fx:id="endDatePicker" prefWidth="130.0" />
+                                                <!-- 検索ボタン -->
+                                                <Button mnemonicParsing="false" onAction="#onUpdateFilter" styleClass="NarrowWidthButton" text="%key.Update" />
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                            </padding>
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT" spacing="8.0" GridPane.columnIndex="1">
+                                            <children>
+                                                <!-- 未承認チェック -->
+                                                <HBox fx:id="approveFilterPane" alignment="CENTER_LEFT" spacing="8.0"/>
+                                                <!-- 承認ボタン -->
+                                                <Button fx:id="approveButton" mnemonicParsing="false" onAction="#onApproveButton" styleClass="NarrowWidthButton" text="%key.Approve" />
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                            </padding>
+                                        </HBox>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="0.0" left="8.0" right="8.0" top="8.0" />
+                                    </padding>
+                                </GridPane>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" GridPane.rowIndex="1">
+                                    <children>
+                                        <!-- カンバン一覧 -->
+                                        <PropertySaveTableView fx:id="kanbanList" minHeight="0.0" minWidth="0.0" styleClass="ContentList" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    </children>
+                                    <GridPane.margin>
+                                        <Insets bottom="8.0" />
+                                    </GridPane.margin>
+                                </AnchorPane>
+                                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+                                    <children>
+                                        <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                                <ColumnConstraints hgrow="SOMETIMES" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <!-- 検査ツールバー -->
+                                                <AnchorPane>
+                                                    <children>
+                                                        <ToolBar fx:id="inspectionToolBar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" >
+                                                            <items>
+                                                                <!-- 検査結果の検索ボタン -->
+                                                                <Button fx:id="inspectionSearchButton" mnemonicParsing="false" onAction="#onInspectionSearch" styleClass="NarrowWidthButton" text="%key.InspectionSearch" />
+                                                            </items>
+                                                        </ToolBar>
+                                                    </children>
+                                                </AnchorPane>
+                                                <!-- 編集ツールバー -->
+                                                <AnchorPane GridPane.columnIndex="1" >
+                                                    <children>
+                                                        <HBox alignment="BASELINE_RIGHT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                            <children>
+                                                                <ToolBar nodeOrientation="LEFT_TO_RIGHT" styleClass="TransparentToolbar">
+                                                                    <items>
+                                                                        <!-- 検査データ出力ボタン -->
+                                                                        <Button fx:id="checkDataOutButton" mnemonicParsing="false" onAction="#onCheckDataOutButton" styleClass="NarrowWidthButton" text="%key.KbList.CheckDataOutName" />
+                                                                        <!-- 検査データ出力ボタン (リペア用)-->
+                                                                        <Button fx:id="repairButton" mnemonicParsing="false" onAction="#onRepairButton" styleClass="SpecialButton" text="リペア作業後の検査データ出力" />
+                                                                    </items>
+                                                                </ToolBar>
+                                                                <ToolBar nodeOrientation="LEFT_TO_RIGHT" styleClass="TransparentToolbar">
+                                                                    <items>
+                                                                        <!-- 帳票出力ボタン -->
+                                                                        <Button fx:id="ledgerOutButton" mnemonicParsing="false" onAction="#onCreateLedger" styleClass="NarrowWidthButton" text="%key.OutLedgerTitle" />
+                                                                        <!-- まとめて帳票出力ボタン -->
+                                                                        <Button fx:id="collectivelyOutputButton" mnemonicParsing="false" onAction="#onCollectivelyOutput" styleClass="NarrowWidthButton" text="%key.CollectivelyOutputButton" />
+                                                                        <!-- 帳票一覧ボタン -->
+                                                                        <Button fx:id="reportListButton" mnemonicParsing="false" onAction="#onReportListButton" styleClass="NarrowWidthButton" text="%key.ReportList" />
+                                                                    </items>
+                                                                </ToolBar>
+                                                                <ToolBar nodeOrientation="LEFT_TO_RIGHT" styleClass="TransparentToolbar">
+                                                                    <items>
+                                                                        <!-- 計画変更ボタン -->
+                                                                        <Button fx:id="changePlansButton" mnemonicParsing="false" onAction="#onChangePlans" styleClass="NarrowWidthButton" text="%key.ChangePlans" />
+                                                                        <!-- ステータスボタン -->
+                                                                        <Button fx:id="changeStatusButton" mnemonicParsing="false" onAction="#onChangeStatus" styleClass="NarrowWidthButton" text="%key.CarriageStatus" />
+                                                                        <!-- 品質データボタン -->
+                                                                        <Button fx:id="changeTracebilityButton" mnemonicParsing="false" onAction="#onChangeTracebilityButton" styleClass="NarrowWidthButton" text="%key.QualityData" />
+                                                                    </items>
+                                                                </ToolBar>
+                                                                <ToolBar nodeOrientation="LEFT_TO_RIGHT" styleClass="TransparentToolbar">
+                                                                    <items>
+                                                                        <!-- パーツID検索ボタン -->
+                                                                        <Button fx:id="searchPartsIDButton" mnemonicParsing="false" onAction="#onPartsIDSearch" styleClass="NarrowWidthButton" text="%key.PartsIDSearch" />
+                                                                        <!-- 新規作成ボタン -->
+                                                                        <Button fx:id="createKanbanButton" mnemonicParsing="false" onAction="#onCreateKanban" styleClass="NarrowWidthButton" text="%key.createNew" />
+                                                                        <!-- 編集ボタン -->
+                                                                        <Button fx:id="editKanbanButton" mnemonicParsing="false" onAction="#onEditKanban" styleClass="NarrowWidthButton" text="%key.Edit" />
+                                                                        <!-- 移動ボタン -->
+                                                                        <Button fx:id="moveKanbanButton" mnemonicParsing="false" onAction="#onMoveKanban" styleClass="NarrowWidthButton" text="%key.Move" />
+                                                                        <!-- 削除ボタン -->
+                                                                        <Button fx:id="deleteKanbanButton" mnemonicParsing="false" styleClass="NarrowWidthButton" text="%key.Delete" />
+                                                                    </items>
+                                                                </ToolBar>
+                                                            </children>
+                                                        </HBox>
+                                                    </children>
+                                                </AnchorPane>
+                                            </children>
+                                        </GridPane>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </GridPane>
+                    </items>
+                </SplitPane>
+                <Pane fx:id="Progress" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+                    <children>
+                        <ProgressIndicator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" />
+                    </children>
+                </Pane>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

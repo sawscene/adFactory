@@ -1,0 +1,16 @@
+.chart-legend{
+     -fx-translate-x: 35;
+}
+
+.default-color0.chart-series-line {
+    -fx-stroke: blue; 
+}
+
+.default-color0.chart-line-symbol {
+    -fx-background-color: blue, white; 
+}
+
+/* 折れ線グラフの背景色を透過させる */
+.chart-plot-background {
+    -fx-background-color: transparent;
+}

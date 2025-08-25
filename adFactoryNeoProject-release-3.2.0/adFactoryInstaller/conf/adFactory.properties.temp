@@ -1,0 +1,8 @@
+serverAddress=https://localhost
+LiteHierarchyTop=adFactoryLite
+LiteWorkNameFormat=%s@%s
+PickLiteWorkNameRegex=(?<=@)(.*)
+workReportType=kanban
+workReportTimeFormat=hh:mm
+workReportTimeUnit=min
+enableDailyReport=true

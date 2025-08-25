@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="110.0"  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-border-color: #707070; -fx-border-width: 1;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.workfloweditplugin.component.WorkImagePasteDialog">
+    <children>
+        <VBox fx:id="menuPane" prefWidth="250.0" spacing="16.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Button fx:id="pasteToCurrentSheetButton" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onPasteToCurrentSheetAction" styleClass="" text="%pasteToCurrentSheet">
+                </Button>
+                <Button fx:id="pasteToAllSheetsButton" alignment="CENTER"  maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onPasteToAllSheetsAction" styleClass="" text="%pasteToAllSheets">
+                </Button>
+                <Button fx:id="cancelButton" alignment="CENTER"  maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onCancelAction" styleClass="" text="%key.Cancel">
+                </Button>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

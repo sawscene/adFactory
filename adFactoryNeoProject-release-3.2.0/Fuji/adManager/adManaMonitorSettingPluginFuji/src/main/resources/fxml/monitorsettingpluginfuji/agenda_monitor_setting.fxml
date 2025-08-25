@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+<?import jp.adtekfuji.javafxcommon.controls.*?>
+
+<fx:root type="javafx.scene.layout.VBox"  xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <!-- 表示条件 -->
+        <VBox styleClass="ContentTitleLabel">
+            <padding>
+                <Insets bottom="0" left="0" top="10" right="0" />
+            </padding>
+            <Label text="%key.MonitorSettings"  />
+        </VBox>
+        <GridPane fx:id="conditionPane" hgap="2" vgap="2" styleClass="ContentTitleLabel">
+            <columnConstraints>
+              <ColumnConstraints minWidth="240.0" />
+              <ColumnConstraints maxWidth="200.0" hgrow="ALWAYS" />
+              <ColumnConstraints />
+            </columnConstraints>
+
+            <Label text="%key.TargetDay" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+            <DatePicker fx:id="targetDate"  GridPane.rowIndex="0" GridPane.columnIndex="1" />
+            <Label text="%key.StartWorkTime"  GridPane.rowIndex="1" GridPane.columnIndex="0" />
+            <TimeHMTextField fx:id="startTime" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+            <Label text="%key.EndWorkTime" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+            <TimeHMTextField fx:id="endTime"  GridPane.rowIndex="2" GridPane.columnIndex="1" />
+            <Label text="%key.MonitorTarget"   GridPane.rowIndex="3" GridPane.columnIndex="0" />
+            <ComboBox fx:id="targetLine"  prefWidth="200.0" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+            <Button fx:id="selectTarget" text="%key.AndonLineSettingSelectLine" GridPane.rowIndex="3" GridPane.columnIndex="2" onAction="#onSelectLine" />
+            <Label text="%key.updateIntervalMinutes"  GridPane.rowIndex="4" GridPane.columnIndex="0" />
+            <RestrictedTextField fx:id="updateInterval" minLimit="1" maxLimit="60" verifier="NUMBER_ONLY" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+            <Label fx:id="modenNameLabel" text="%key.ModelName"  GridPane.rowIndex="5" GridPane.columnIndex="0" />
+            <TextField fx:id="modelNameField" GridPane.rowIndex="5" GridPane.columnIndex="1" />
+        </GridPane>
+        <VBox />
+        <!-- 休憩時間 -->
+        <VBox fx:id="breaktimeSetting">
+        </VBox>
+        <VBox styleClass="ContentTitleLabel">
+            <padding>
+                <Insets bottom="0" left="0" top="10" right="0" />
+            </padding>
+            <Label text="%key.DisplaySettings" />
+        </VBox>
+        <!-- 画面設定 -->
+        <GridPane hgap="2" vgap="2" styleClass="ContentTitleLabel">
+            <columnConstraints>
+              <ColumnConstraints minWidth="240.0" />
+              <ColumnConstraints maxWidth="200.0" hgrow="ALWAYS" />
+            </columnConstraints>
+
+            <Label text="%key.DisplayNumber" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+            <ComboBox fx:id="displayNumber" prefWidth="200.0" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+            <Label text="%key.FullScreen" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+            <SwitchButton fx:id="fullScrren"  GridPane.rowIndex="1" GridPane.columnIndex="1" />
+            <Label text="%key.ColumnCount" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+            <RestrictedTextField fx:id="columnCount" minLimit="1" maxLimit="20" verifier="NUMBER_ONLY" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+            <Label text="%key.onlyPlaned" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+            <SwitchButton fx:id="planOnly"  GridPane.rowIndex="3" GridPane.columnIndex="1" />
+            <Label text="%key.MonitorDetail" GridPane.rowIndex="4" GridPane.columnIndex="0" />
+            <ComboBox fx:id="contentType"  prefWidth="200.0" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+            <Label text="%key.timeUnit" GridPane.rowIndex="5" GridPane.columnIndex="0" />
+            <RestrictedTextField fx:id="timeUnit" minLimit="1" maxLimit="120" verifier="NUMBER_ONLY" GridPane.rowIndex="5" GridPane.columnIndex="1" />
+            <Label text="%key.TogglePages" GridPane.rowIndex="6" GridPane.columnIndex="0" />
+            <SwitchButton fx:id="togglePages"  GridPane.rowIndex="6" GridPane.columnIndex="1" />
+            <Label text="%key.PageToggleTime" GridPane.rowIndex="7" GridPane.columnIndex="0" />
+            <RestrictedTextField fx:id="togglePageTime" minLimit="3" maxLimit="60" verifier="NUMBER_ONLY" GridPane.rowIndex="7" GridPane.columnIndex="1" />
+            <Label text="%key.autoScroll" GridPane.rowIndex="8" GridPane.columnIndex="0" />
+            <SwitchButton fx:id="autoScroll"  GridPane.rowIndex="8" GridPane.columnIndex="1" />
+            <Label text="%key.autoScrollTime" GridPane.rowIndex="9" GridPane.columnIndex="0" />
+            <TimeHMTextField fx:id="autoScrollUnit"  GridPane.rowIndex="9" GridPane.columnIndex="1" />
+        </GridPane>
+        <!-- フォントサイズ -->
+        <VBox styleClass="ContentTitleLabel">
+            <padding>
+                <Insets bottom="0" left="0" top="10" right="0" />
+            </padding>
+            <Label text="%key.FontSize" />
+        </VBox>
+        <GridPane fx:id="fontSetting" hgap="2" vgap="2" styleClass="ContentTitleLabel">
+            <columnConstraints>
+              <ColumnConstraints minWidth="240.0" />
+              <ColumnConstraints maxWidth="200.0" hgrow="ALWAYS" />
+            </columnConstraints>
+
+            <Label text="%key.titleFontSize" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+            <RestrictedTextField fx:id="titleText" minLimit="8.0" maxLimit="40.0" format="\%.1f" verifier="DECIMAL_NUMBER_ONLY" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+            <Label text="%key.headerFontSize"  GridPane.rowIndex="1" GridPane.columnIndex="0" />
+            <RestrictedTextField fx:id="headerText" minLimit="8.0" maxLimit="40.0" format="\%.1f" verifier="DECIMAL_NUMBER_ONLY" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+            <Label text="%key.columnFontSize" GridPane.rowIndex="2" GridPane.columnIndex="0"  />
+            <RestrictedTextField fx:id="columnText" minLimit="8.0" maxLimit="40.0" format="\%.1f" verifier="DECIMAL_NUMBER_ONLY" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+            <Label text="%key.itemFontSize"  GridPane.rowIndex="3" GridPane.columnIndex="0" />
+            <RestrictedTextField fx:id="itemText" minLimit="8.0" maxLimit="40.0" format="\%.1f" verifier="DECIMAL_NUMBER_ONLY" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+            <Label text="%key.zoomFontSize"  GridPane.rowIndex="4" GridPane.columnIndex="0" />
+            <RestrictedTextField fx:id="zoomBarText" minLimit="8.0" maxLimit="40.0" format="\%.1f" verifier="DECIMAL_NUMBER_ONLY" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+        </GridPane>
+    </children>
+</fx:root>

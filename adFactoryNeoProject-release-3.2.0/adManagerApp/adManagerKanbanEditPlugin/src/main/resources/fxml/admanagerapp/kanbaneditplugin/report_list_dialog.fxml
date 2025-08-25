@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import jp.adtekfuji.javafxcommon.controls.*?>
+
+<StackPane fx:id="anchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.kanbaneditplugin.dialog.ReportListDialog">
+    <children>
+        <VBox spacing="8.0">
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="8.0" minWidth="-Infinity" >
+                    <Label fx:id="existLabel" />
+                </HBox>
+                <GridPane minHeight="0.0" styleClass="ContentPane">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                        <RowConstraints vgrow="SOMETIMES" minHeight="0.0" />
+                    </rowConstraints>
+                    <children>
+                        <!-- リスト -->
+                        <AnchorPane minHeight="0.0" minWidth="0.0" GridPane.rowIndex="1">
+                            <children>
+                                <TableView fx:id="reportListTableView" styleClass="ContentList" tableMenuButtonVisible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <columns>
+                                        <!-- チェック -->
+                                        <TableColumn fx:id="checkColumn" prefWidth="60.0" />
+                                        <!-- ファイル名 -->
+                                        <TableColumn fx:id="nameColumn" prefWidth="300.0" text="%key.FileName" />
+                                        <!-- カンバン名 -->
+                                        <TableColumn fx:id="kanbanNameColumn" prefWidth="180.0" text="%key.KanbanName" />
+                                        <!-- 保存日時 -->
+                                        <TableColumn fx:id="timeColumn" prefWidth="150.0" text="%key.SaveDate" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                            <padding>
+                                <Insets bottom="8.0" left="8.0" right="8.0" top="0.0" />
+                            </padding>
+                        </AnchorPane>
+                    </children>
+                </GridPane>
+                    <AnchorPane>
+                        <HBox alignment="CENTER_LEFT" spacing="8.0" AnchorPane.leftAnchor="0.0" >
+                            <children>
+                                <!-- 削除 -->
+                                <Button fx:id="deleteButton" mnemonicParsing="false" disable="true" onAction="#onDeleteButton" styleClass="ContentButton" text="%key.Remove" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" spacing="8.0" AnchorPane.rightAnchor="0.0" >
+                            <children>
+                                <!-- 開く -->
+                                <Button fx:id="openButton" mnemonicParsing="false" disable="true" onAction="#onOpenButton" styleClass="ContentButton" text="%key.Open" />
+                                <!-- エクスポート -->
+                                <Button fx:id="exportButton" mnemonicParsing="false" disable="true" onAction="#onExportButton" styleClass="ContentButton" text="%key.Export" />
+                                <!-- キャンセル -->
+                                <Button mnemonicParsing="false" onAction="#onCancelButton" styleClass="ContentButton" text="%key.Cancel" />
+                            </children>
+                        </HBox>
+                </AnchorPane>
+            </children>
+        </VBox>
+        <Pane fx:id="Progress" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" >
+            <children>
+                <ProgressIndicator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" />
+            </children>
+        </Pane>
+    </children>
+    <padding>
+        <Insets bottom="-6.0" left="12.0" right="12.0" top="12.0" />
+    </padding>
+</StackPane>

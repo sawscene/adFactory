@@ -1,0 +1,1488 @@
+<SOAP-ENV:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+<SOAP-ENV:Body>
+<a1:UltraDockManager id="ref-1" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<ControlPanes href="#ref-3"/>
+<DefaultPaneSettings href="#ref-4"/>
+<DragWindowStyle>1</DragWindowStyle>
+<DockAreas href="#ref-5"/>
+<ShowPinButton>false</ShowPinButton>
+<UseDefaultContextMenus>false</UseDefaultContextMenus>
+<WindowStyle>2</WindowStyle>
+<CaptionStyle>5</CaptionStyle>
+<UnpinnedTabHoverAction>2</UnpinnedTabHoverAction>
+<LayoutStyle>1</LayoutStyle>
+<UnpinnedTabInfoLeft href="#ref-6"/>
+<UnpinnedTabInfoTop href="#ref-7"/>
+<UnpinnedTabInfoBottom href="#ref-8"/>
+<UnpinnedTabInfoRight href="#ref-9"/>
+</a1:UltraDockManager>
+<a1:DockableControlPanesCollection id="ref-3" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<Count>15</Count>
+</a1:DockableControlPanesCollection>
+<a1:PaneSettings id="ref-4" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<AllowDockBottom>2</AllowDockBottom>
+<AllowDockingLeft>2</AllowDockingLeft>
+<AllowDockingRight>2</AllowDockingRight>
+<AllowDockingTop>2</AllowDockingTop>
+<AllowFloating>2</AllowFloating>
+<DoubleClickAction>1</DoubleClickAction>
+<AllowDockAsTab>2</AllowDockAsTab>
+</a1:PaneSettings>
+<a1:DockAreasCollection id="ref-5" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<Count>1</Count>
+<_x0030_ href="#ref-10"/>
+</a1:DockAreasCollection>
+<a1:UnpinnedTabAreaInfo id="ref-6" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<tabGroups href="#ref-11"/>
+<tabAreaSide>Left</tabAreaSide>
+</a1:UnpinnedTabAreaInfo>
+<a1:UnpinnedTabAreaInfo id="ref-7" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<tabGroups href="#ref-12"/>
+<tabAreaSide>Top</tabAreaSide>
+</a1:UnpinnedTabAreaInfo>
+<a1:UnpinnedTabAreaInfo id="ref-8" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<tabGroups href="#ref-13"/>
+<tabAreaSide>Bottom</tabAreaSide>
+</a1:UnpinnedTabAreaInfo>
+<a1:UnpinnedTabAreaInfo id="ref-9" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<tabGroups href="#ref-14"/>
+<tabAreaSide>Right</tabAreaSide>
+</a1:UnpinnedTabAreaInfo>
+<a1:DockAreaPane id="ref-10" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<Size xsi:type="a2:Size" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<width>1107</width>
+<height>779</height>
+</Size>
+<Id xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>95189734</_a>
+<_b>-22201</_b>
+<_c>16505</_c>
+<_d>137</_d>
+<_e>75</_e>
+<_f>192</_f>
+<_g>100</_g>
+<_h>160</_h>
+<_i>239</_i>
+<_j>153</_j>
+<_k>206</_k>
+</Id>
+<DockedParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>0</_a>
+<_b>0</_b>
+<_c>0</_c>
+<_d>0</_d>
+<_e>0</_e>
+<_f>0</_f>
+<_g>0</_g>
+<_h>0</_h>
+<_i>0</_i>
+<_j>0</_j>
+<_k>0</_k>
+</DockedParentId>
+<FloatingParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>0</_a>
+<_b>0</_b>
+<_c>0</_c>
+<_d>0</_d>
+<_e>0</_e>
+<_f>0</_f>
+<_g>0</_g>
+<_h>0</_h>
+<_i>0</_i>
+<_j>0</_j>
+<_k>0</_k>
+</FloatingParentId>
+<Panes href="#ref-16"/>
+<SelectedTabIndex>2</SelectedTabIndex>
+<DockedLocation>3</DockedLocation>
+</a1:DockAreaPane>
+<SOAP-ENC:Array id="ref-11" SOAP-ENC:arrayType="a1:UnpinnedTabGroupInfo[0]" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+</SOAP-ENC:Array>
+<SOAP-ENC:Array id="ref-12" SOAP-ENC:arrayType="a1:UnpinnedTabGroupInfo[0]" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+</SOAP-ENC:Array>
+<SOAP-ENC:Array id="ref-13" SOAP-ENC:arrayType="a1:UnpinnedTabGroupInfo[0]" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+</SOAP-ENC:Array>
+<SOAP-ENC:Array id="ref-14" SOAP-ENC:arrayType="a1:UnpinnedTabGroupInfo[0]" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+</SOAP-ENC:Array>
+<a1:DockablePanesCollection id="ref-16" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<Count>5</Count>
+<_x0030_ href="#ref-17"/>
+<_x0031_ href="#ref-18"/>
+<_x0032_ href="#ref-19"/>
+<_x0033_ href="#ref-20"/>
+<_x0034_ href="#ref-21"/>
+</a1:DockablePanesCollection>
+<a1:DockableControlPane id="ref-17" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<Closed>true</Closed>
+<Settings href="#ref-23"/>
+<Text id="ref-24">PaneSpace_1</Text>
+<Tag xsi:type="a4:ObjectWrapper" xmlns:a4="http://schemas.microsoft.com/clr/nsassem/Infragistics.Shared.Serialization/Infragistics4.Shared.v15.1">
+<objectValue href="#ref-24"/>
+</Tag>
+<Size xsi:type="a2:Size" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<width>0</width>
+<height>0</height>
+</Size>
+<Id xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>-1774427886</_a>
+<_b>-21520</_b>
+<_c>18056</_c>
+<_d>143</_d>
+<_e>157</_e>
+<_f>205</_f>
+<_g>126</_g>
+<_h>245</_h>
+<_i>80</_i>
+<_j>150</_j>
+<_k>147</_k>
+</Id>
+<DockedParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>95189734</_a>
+<_b>-22201</_b>
+<_c>16505</_c>
+<_d>137</_d>
+<_e>75</_e>
+<_f>192</_f>
+<_g>100</_g>
+<_h>160</_h>
+<_i>239</_i>
+<_j>153</_j>
+<_k>206</_k>
+</DockedParentId>
+<FloatingParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>0</_a>
+<_b>0</_b>
+<_c>0</_c>
+<_d>0</_d>
+<_e>0</_e>
+<_f>0</_f>
+<_g>0</_g>
+<_h>0</_h>
+<_i>0</_i>
+<_j>0</_j>
+<_k>0</_k>
+</FloatingParentId>
+<ControlName id="ref-25">PaneSpace_1</ControlName>
+<OriginalControlBounds xsi:type="a2:Rectangle" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<x>0</x>
+<y>0</y>
+<width>75</width>
+<height>23</height>
+</OriginalControlBounds>
+<ControlPaneIndex>0</ControlPaneIndex>
+</a1:DockableControlPane>
+<a1:DockableGroupPane id="ref-18" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<Size xsi:type="a2:Size" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<width>100</width>
+<height>22</height>
+</Size>
+<Id xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>1100826939</_a>
+<_b>17290</_b>
+<_c>16736</_c>
+<_d>151</_d>
+<_e>196</_e>
+<_f>196</_f>
+<_g>37</_g>
+<_h>131</_h>
+<_i>24</_i>
+<_j>200</_j>
+<_k>211</_k>
+</Id>
+<DockedParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>95189734</_a>
+<_b>-22201</_b>
+<_c>16505</_c>
+<_d>137</_d>
+<_e>75</_e>
+<_f>192</_f>
+<_g>100</_g>
+<_h>160</_h>
+<_i>239</_i>
+<_j>153</_j>
+<_k>206</_k>
+</DockedParentId>
+<FloatingParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>0</_a>
+<_b>0</_b>
+<_c>0</_c>
+<_d>0</_d>
+<_e>0</_e>
+<_f>0</_f>
+<_g>0</_g>
+<_h>0</_h>
+<_i>0</_i>
+<_j>0</_j>
+<_k>0</_k>
+</FloatingParentId>
+<Panes href="#ref-26"/>
+<ChildPaneStyle>0</ChildPaneStyle>
+<SelectedTabIndex>1</SelectedTabIndex>
+</a1:DockableGroupPane>
+<a1:DockableGroupPane id="ref-19" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<Size xsi:type="a2:Size" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<width>100</width>
+<height>218</height>
+</Size>
+<Id xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>1517320461</_a>
+<_b>31954</_b>
+<_c>16841</_c>
+<_d>167</_d>
+<_e>145</_e>
+<_f>41</_f>
+<_g>75</_g>
+<_h>166</_h>
+<_i>205</_i>
+<_j>171</_j>
+<_k>5</_k>
+</Id>
+<DockedParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>95189734</_a>
+<_b>-22201</_b>
+<_c>16505</_c>
+<_d>137</_d>
+<_e>75</_e>
+<_f>192</_f>
+<_g>100</_g>
+<_h>160</_h>
+<_i>239</_i>
+<_j>153</_j>
+<_k>206</_k>
+</DockedParentId>
+<FloatingParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>0</_a>
+<_b>0</_b>
+<_c>0</_c>
+<_d>0</_d>
+<_e>0</_e>
+<_f>0</_f>
+<_g>0</_g>
+<_h>0</_h>
+<_i>0</_i>
+<_j>0</_j>
+<_k>0</_k>
+</FloatingParentId>
+<Panes href="#ref-27"/>
+<ChildPaneStyle>0</ChildPaneStyle>
+<SelectedTabIndex>0</SelectedTabIndex>
+</a1:DockableGroupPane>
+<a1:DockableControlPane id="ref-20" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<Settings href="#ref-28"/>
+<Text id="ref-29">工程計画実績数フレーム</Text>
+<Tag xsi:type="a4:ObjectWrapper" xmlns:a4="http://schemas.microsoft.com/clr/nsassem/Infragistics.Shared.Serialization/Infragistics4.Shared.v15.1">
+<objectValue href="#ref-29"/>
+</Tag>
+<Size xsi:type="a2:Size" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<width>100</width>
+<height>65</height>
+</Size>
+<Id xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>1384917288</_a>
+<_b>-12898</_b>
+<_c>18955</_c>
+<_d>143</_d>
+<_e>15</_e>
+<_f>124</_f>
+<_g>175</_g>
+<_h>199</_h>
+<_i>37</_i>
+<_j>208</_j>
+<_k>150</_k>
+</Id>
+<DockedParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>95189734</_a>
+<_b>-22201</_b>
+<_c>16505</_c>
+<_d>137</_d>
+<_e>75</_e>
+<_f>192</_f>
+<_g>100</_g>
+<_h>160</_h>
+<_i>239</_i>
+<_j>153</_j>
+<_k>206</_k>
+</DockedParentId>
+<FloatingParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>0</_a>
+<_b>0</_b>
+<_c>0</_c>
+<_d>0</_d>
+<_e>0</_e>
+<_f>0</_f>
+<_g>0</_g>
+<_h>0</_h>
+<_i>0</_i>
+<_j>0</_j>
+<_k>0</_k>
+</FloatingParentId>
+<ControlName href="#ref-29"/>
+<OriginalControlBounds xsi:type="a2:Rectangle" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<x>0</x>
+<y>0</y>
+<width>75</width>
+<height>23</height>
+</OriginalControlBounds>
+<ControlPaneIndex>12</ControlPaneIndex>
+</a1:DockableControlPane>
+<a1:DockableControlPane id="ref-21" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<Settings href="#ref-30"/>
+<Text id="ref-31">工程設備ステータスフレーム</Text>
+<Tag xsi:type="a4:ObjectWrapper" xmlns:a4="http://schemas.microsoft.com/clr/nsassem/Infragistics.Shared.Serialization/Infragistics4.Shared.v15.1">
+<objectValue href="#ref-31"/>
+</Tag>
+<Size xsi:type="a2:Size" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<width>100</width>
+<height>75</height>
+</Size>
+<Id xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>1118083568</_a>
+<_b>2227</_b>
+<_c>17188</_c>
+<_d>169</_d>
+<_e>41</_e>
+<_f>20</_f>
+<_g>43</_g>
+<_h>20</_h>
+<_i>95</_i>
+<_j>147</_j>
+<_k>224</_k>
+</Id>
+<DockedParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>95189734</_a>
+<_b>-22201</_b>
+<_c>16505</_c>
+<_d>137</_d>
+<_e>75</_e>
+<_f>192</_f>
+<_g>100</_g>
+<_h>160</_h>
+<_i>239</_i>
+<_j>153</_j>
+<_k>206</_k>
+</DockedParentId>
+<FloatingParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>0</_a>
+<_b>0</_b>
+<_c>0</_c>
+<_d>0</_d>
+<_e>0</_e>
+<_f>0</_f>
+<_g>0</_g>
+<_h>0</_h>
+<_i>0</_i>
+<_j>0</_j>
+<_k>0</_k>
+</FloatingParentId>
+<ControlName href="#ref-31"/>
+<OriginalControlBounds xsi:type="a2:Rectangle" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<x>0</x>
+<y>0</y>
+<width>75</width>
+<height>23</height>
+</OriginalControlBounds>
+<ControlPaneIndex>8</ControlPaneIndex>
+</a1:DockableControlPane>
+<a1:PaneSettings id="ref-23" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<PaneAppearance href="#ref-33"/>
+<PaddingBottom>2</PaddingBottom>
+<PaddingLeft>2</PaddingLeft>
+<PaddingRight>2</PaddingRight>
+<PaddingTop>2</PaddingTop>
+</a1:PaneSettings>
+<a1:DockablePanesCollection id="ref-26" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<Count>2</Count>
+<_x0030_ href="#ref-34"/>
+<_x0031_ href="#ref-35"/>
+</a1:DockablePanesCollection>
+<a1:DockablePanesCollection id="ref-27" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<Count>2</Count>
+<_x0030_ href="#ref-36"/>
+<_x0031_ href="#ref-37"/>
+</a1:DockablePanesCollection>
+<a1:PaneSettings id="ref-28" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<PaneAppearance href="#ref-38"/>
+<PaddingBottom>2</PaddingBottom>
+<PaddingLeft>2</PaddingLeft>
+<PaddingRight>2</PaddingRight>
+<PaddingTop>2</PaddingTop>
+</a1:PaneSettings>
+<a1:PaneSettings id="ref-30" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<PaneAppearance href="#ref-39"/>
+<PaddingBottom>2</PaddingBottom>
+<PaddingLeft>2</PaddingLeft>
+<PaddingRight>2</PaddingRight>
+<PaddingTop>2</PaddingTop>
+</a1:PaneSettings>
+<a5:AppearanceHolder id="ref-33" xmlns:a5="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics4.Win.v15.1">
+<Appearance href="#ref-40"/>
+</a5:AppearanceHolder>
+<a1:DockableControlPane id="ref-34" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<Settings href="#ref-41"/>
+<Text id="ref-42">タイトルフレーム</Text>
+<Tag xsi:type="a4:ObjectWrapper" xmlns:a4="http://schemas.microsoft.com/clr/nsassem/Infragistics.Shared.Serialization/Infragistics4.Shared.v15.1">
+<objectValue href="#ref-42"/>
+</Tag>
+<Size xsi:type="a2:Size" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<width>93</width>
+<height>100</height>
+</Size>
+<Id xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>745823131</_a>
+<_b>-8889</_b>
+<_c>16392</_c>
+<_d>170</_d>
+<_e>142</_e>
+<_f>216</_f>
+<_g>9</_g>
+<_h>81</_h>
+<_i>162</_i>
+<_j>102</_j>
+<_k>41</_k>
+</Id>
+<DockedParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>1100826939</_a>
+<_b>17290</_b>
+<_c>16736</_c>
+<_d>151</_d>
+<_e>196</_e>
+<_f>196</_f>
+<_g>37</_g>
+<_h>131</_h>
+<_i>24</_i>
+<_j>200</_j>
+<_k>211</_k>
+</DockedParentId>
+<FloatingParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>0</_a>
+<_b>0</_b>
+<_c>0</_c>
+<_d>0</_d>
+<_e>0</_e>
+<_f>0</_f>
+<_g>0</_g>
+<_h>0</_h>
+<_i>0</_i>
+<_j>0</_j>
+<_k>0</_k>
+</FloatingParentId>
+<ControlName href="#ref-42"/>
+<OriginalControlBounds xsi:type="a2:Rectangle" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<x>0</x>
+<y>0</y>
+<width>75</width>
+<height>23</height>
+</OriginalControlBounds>
+<ControlPaneIndex>1</ControlPaneIndex>
+</a1:DockableControlPane>
+<a1:DockableControlPane id="ref-35" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<Settings href="#ref-43"/>
+<Text id="ref-44">日付時刻フレーム</Text>
+<Tag xsi:type="a4:ObjectWrapper" xmlns:a4="http://schemas.microsoft.com/clr/nsassem/Infragistics.Shared.Serialization/Infragistics4.Shared.v15.1">
+<objectValue href="#ref-44"/>
+</Tag>
+<Size xsi:type="a2:Size" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<width>100</width>
+<height>100</height>
+</Size>
+<Id xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>-1308783712</_a>
+<_b>-29916</_b>
+<_c>19802</_c>
+<_d>148</_d>
+<_e>200</_e>
+<_f>35</_f>
+<_g>104</_g>
+<_h>214</_h>
+<_i>43</_i>
+<_j>172</_j>
+<_k>50</_k>
+</Id>
+<DockedParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>1100826939</_a>
+<_b>17290</_b>
+<_c>16736</_c>
+<_d>151</_d>
+<_e>196</_e>
+<_f>196</_f>
+<_g>37</_g>
+<_h>131</_h>
+<_i>24</_i>
+<_j>200</_j>
+<_k>211</_k>
+</DockedParentId>
+<FloatingParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>0</_a>
+<_b>0</_b>
+<_c>0</_c>
+<_d>0</_d>
+<_e>0</_e>
+<_f>0</_f>
+<_g>0</_g>
+<_h>0</_h>
+<_i>0</_i>
+<_j>0</_j>
+<_k>0</_k>
+</FloatingParentId>
+<ControlName href="#ref-44"/>
+<OriginalControlBounds xsi:type="a2:Rectangle" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<x>0</x>
+<y>0</y>
+<width>75</width>
+<height>23</height>
+</OriginalControlBounds>
+<ControlPaneIndex>2</ControlPaneIndex>
+</a1:DockableControlPane>
+<a1:DockableGroupPane id="ref-36" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<Size xsi:type="a2:Size" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<width>94</width>
+<height>100</height>
+</Size>
+<Id xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>488359973</_a>
+<_b>23178</_b>
+<_c>17144</_c>
+<_d>166</_d>
+<_e>244</_e>
+<_f>104</_f>
+<_g>84</_g>
+<_h>18</_h>
+<_i>66</_i>
+<_j>208</_j>
+<_k>150</_k>
+</Id>
+<DockedParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>1517320461</_a>
+<_b>31954</_b>
+<_c>16841</_c>
+<_d>167</_d>
+<_e>145</_e>
+<_f>41</_f>
+<_g>75</_g>
+<_h>166</_h>
+<_i>205</_i>
+<_j>171</_j>
+<_k>5</_k>
+</DockedParentId>
+<FloatingParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>0</_a>
+<_b>0</_b>
+<_c>0</_c>
+<_d>0</_d>
+<_e>0</_e>
+<_f>0</_f>
+<_g>0</_g>
+<_h>0</_h>
+<_i>0</_i>
+<_j>0</_j>
+<_k>0</_k>
+</FloatingParentId>
+<Panes href="#ref-45"/>
+<SelectedTabIndex>0</SelectedTabIndex>
+</a1:DockableGroupPane>
+<a1:DockableGroupPane id="ref-37" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<Size xsi:type="a2:Size" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<width>100</width>
+<height>100</height>
+</Size>
+<Id xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>209677613</_a>
+<_b>-6211</_b>
+<_c>19427</_c>
+<_d>184</_d>
+<_e>99</_e>
+<_f>237</_f>
+<_g>194</_g>
+<_h>96</_h>
+<_i>33</_i>
+<_j>94</_j>
+<_k>18</_k>
+</Id>
+<DockedParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>1517320461</_a>
+<_b>31954</_b>
+<_c>16841</_c>
+<_d>167</_d>
+<_e>145</_e>
+<_f>41</_f>
+<_g>75</_g>
+<_h>166</_h>
+<_i>205</_i>
+<_j>171</_j>
+<_k>5</_k>
+</DockedParentId>
+<FloatingParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>0</_a>
+<_b>0</_b>
+<_c>0</_c>
+<_d>0</_d>
+<_e>0</_e>
+<_f>0</_f>
+<_g>0</_g>
+<_h>0</_h>
+<_i>0</_i>
+<_j>0</_j>
+<_k>0</_k>
+</FloatingParentId>
+<Panes href="#ref-46"/>
+<SelectedTabIndex>4</SelectedTabIndex>
+</a1:DockableGroupPane>
+<a5:AppearanceHolder id="ref-38" xmlns:a5="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics4.Win.v15.1">
+<Appearance href="#ref-47"/>
+</a5:AppearanceHolder>
+<a5:AppearanceHolder id="ref-39" xmlns:a5="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics4.Win.v15.1">
+<Appearance href="#ref-48"/>
+</a5:AppearanceHolder>
+<a5:Appearance id="ref-40" xmlns:a5="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics4.Win.v15.1">
+<BackColor xsi:type="a2:Color" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>163</knownColor>
+<state>1</state>
+</BackColor>
+<Id>0</Id>
+</a5:Appearance>
+<a1:PaneSettings id="ref-41" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<PaneAppearance href="#ref-49"/>
+<PaddingBottom>2</PaddingBottom>
+<PaddingLeft>2</PaddingLeft>
+<PaddingRight>2</PaddingRight>
+<PaddingTop>2</PaddingTop>
+</a1:PaneSettings>
+<a1:PaneSettings id="ref-43" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<PaneAppearance href="#ref-50"/>
+<PaddingBottom>2</PaddingBottom>
+<PaddingLeft>2</PaddingLeft>
+<PaddingRight>2</PaddingRight>
+<PaddingTop>2</PaddingTop>
+</a1:PaneSettings>
+<a1:DockablePanesCollection id="ref-45" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<Count>5</Count>
+<_x0030_ href="#ref-51"/>
+<_x0031_ href="#ref-52"/>
+<_x0032_ href="#ref-53"/>
+<_x0033_ href="#ref-54"/>
+<_x0034_ href="#ref-55"/>
+</a1:DockablePanesCollection>
+<a1:DockablePanesCollection id="ref-46" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<Count>5</Count>
+<_x0030_ href="#ref-56"/>
+<_x0031_ href="#ref-57"/>
+<_x0032_ href="#ref-58"/>
+<_x0033_ href="#ref-59"/>
+<_x0034_ href="#ref-60"/>
+</a1:DockablePanesCollection>
+<a5:Appearance id="ref-47" xmlns:a5="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics4.Win.v15.1">
+<BackColor xsi:type="a2:Color" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>163</knownColor>
+<state>1</state>
+</BackColor>
+<Id>0</Id>
+</a5:Appearance>
+<a5:Appearance id="ref-48" xmlns:a5="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics4.Win.v15.1">
+<BackColor xsi:type="a2:Color" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>163</knownColor>
+<state>1</state>
+</BackColor>
+<Id>0</Id>
+</a5:Appearance>
+<a5:AppearanceHolder id="ref-49" xmlns:a5="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics4.Win.v15.1">
+<Appearance href="#ref-61"/>
+</a5:AppearanceHolder>
+<a5:AppearanceHolder id="ref-50" xmlns:a5="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics4.Win.v15.1">
+<Appearance href="#ref-62"/>
+</a5:AppearanceHolder>
+<a1:DockableControlPane id="ref-51" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<Settings href="#ref-63"/>
+<Text id="ref-64">ライン全体ステータスフレーム</Text>
+<Tag xsi:type="a4:ObjectWrapper" xmlns:a4="http://schemas.microsoft.com/clr/nsassem/Infragistics.Shared.Serialization/Infragistics4.Shared.v15.1">
+<objectValue href="#ref-64"/>
+</Tag>
+<Size xsi:type="a2:Size" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<width>94</width>
+<height>213</height>
+</Size>
+<Id xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>97328415</_a>
+<_b>-2679</_b>
+<_c>18003</_c>
+<_d>177</_d>
+<_e>102</_e>
+<_f>40</_f>
+<_g>163</_g>
+<_h>239</_h>
+<_i>249</_i>
+<_j>53</_j>
+<_k>24</_k>
+</Id>
+<DockedParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>488359973</_a>
+<_b>23178</_b>
+<_c>17144</_c>
+<_d>166</_d>
+<_e>244</_e>
+<_f>104</_f>
+<_g>84</_g>
+<_h>18</_h>
+<_i>66</_i>
+<_j>208</_j>
+<_k>150</_k>
+</DockedParentId>
+<FloatingParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>0</_a>
+<_b>0</_b>
+<_c>0</_c>
+<_d>0</_d>
+<_e>0</_e>
+<_f>0</_f>
+<_g>0</_g>
+<_h>0</_h>
+<_i>0</_i>
+<_j>0</_j>
+<_k>0</_k>
+</FloatingParentId>
+<ControlName href="#ref-64"/>
+<OriginalControlBounds xsi:type="a2:Rectangle" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<x>0</x>
+<y>0</y>
+<width>75</width>
+<height>23</height>
+</OriginalControlBounds>
+<ControlPaneIndex>9</ControlPaneIndex>
+</a1:DockableControlPane>
+<a1:DockableControlPane id="ref-52" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<Settings href="#ref-65"/>
+<Text id="ref-66">ラインカウントダウンフレーム</Text>
+<Tag xsi:type="a4:ObjectWrapper" xmlns:a4="http://schemas.microsoft.com/clr/nsassem/Infragistics.Shared.Serialization/Infragistics4.Shared.v15.1">
+<objectValue href="#ref-66"/>
+</Tag>
+<Size xsi:type="a2:Size" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<width>100</width>
+<height>268</height>
+</Size>
+<Id xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>1113264915</_a>
+<_b>-373</_b>
+<_c>19422</_c>
+<_d>183</_d>
+<_e>150</_e>
+<_f>149</_f>
+<_g>46</_g>
+<_h>149</_h>
+<_i>144</_i>
+<_j>60</_j>
+<_k>137</_k>
+</Id>
+<DockedParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>488359973</_a>
+<_b>23178</_b>
+<_c>17144</_c>
+<_d>166</_d>
+<_e>244</_e>
+<_f>104</_f>
+<_g>84</_g>
+<_h>18</_h>
+<_i>66</_i>
+<_j>208</_j>
+<_k>150</_k>
+</DockedParentId>
+<FloatingParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>0</_a>
+<_b>0</_b>
+<_c>0</_c>
+<_d>0</_d>
+<_e>0</_e>
+<_f>0</_f>
+<_g>0</_g>
+<_h>0</_h>
+<_i>0</_i>
+<_j>0</_j>
+<_k>0</_k>
+</FloatingParentId>
+<ControlName href="#ref-66"/>
+<OriginalControlBounds xsi:type="a2:Rectangle" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<x>0</x>
+<y>0</y>
+<width>75</width>
+<height>23</height>
+</OriginalControlBounds>
+<ControlPaneIndex>10</ControlPaneIndex>
+</a1:DockableControlPane>
+<a1:DockableControlPane id="ref-53" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<Settings href="#ref-67"/>
+<Text id="ref-68">当日実績進捗時間フレーム</Text>
+<Tag xsi:type="a4:ObjectWrapper" xmlns:a4="http://schemas.microsoft.com/clr/nsassem/Infragistics.Shared.Serialization/Infragistics4.Shared.v15.1">
+<objectValue href="#ref-68"/>
+</Tag>
+<Size xsi:type="a2:Size" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<width>100</width>
+<height>129</height>
+</Size>
+<Id xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>1609189637</_a>
+<_b>-24238</_b>
+<_c>19423</_c>
+<_d>128</_d>
+<_e>235</_e>
+<_f>114</_f>
+<_g>14</_g>
+<_h>117</_h>
+<_i>126</_i>
+<_j>229</_j>
+<_k>18</_k>
+</Id>
+<DockedParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>488359973</_a>
+<_b>23178</_b>
+<_c>17144</_c>
+<_d>166</_d>
+<_e>244</_e>
+<_f>104</_f>
+<_g>84</_g>
+<_h>18</_h>
+<_i>66</_i>
+<_j>208</_j>
+<_k>150</_k>
+</DockedParentId>
+<FloatingParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>0</_a>
+<_b>0</_b>
+<_c>0</_c>
+<_d>0</_d>
+<_e>0</_e>
+<_f>0</_f>
+<_g>0</_g>
+<_h>0</_h>
+<_i>0</_i>
+<_j>0</_j>
+<_k>0</_k>
+</FloatingParentId>
+<ControlName href="#ref-68"/>
+<OriginalControlBounds xsi:type="a2:Rectangle" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<x>0</x>
+<y>0</y>
+<width>75</width>
+<height>23</height>
+</OriginalControlBounds>
+<ControlPaneIndex>6</ControlPaneIndex>
+</a1:DockableControlPane>
+<a1:DockableControlPane id="ref-54" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<Settings href="#ref-69"/>
+<Text id="ref-70">当月実績進捗数フレーム</Text>
+<Tag xsi:type="a4:ObjectWrapper" xmlns:a4="http://schemas.microsoft.com/clr/nsassem/Infragistics.Shared.Serialization/Infragistics4.Shared.v15.1">
+<objectValue href="#ref-70"/>
+</Tag>
+<Size xsi:type="a2:Size" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<width>100</width>
+<height>126</height>
+</Size>
+<Id xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>-1280753477</_a>
+<_b>8500</_b>
+<_c>20337</_c>
+<_d>157</_d>
+<_e>134</_e>
+<_f>125</_f>
+<_g>32</_g>
+<_h>236</_h>
+<_i>216</_i>
+<_j>156</_j>
+<_k>215</_k>
+</Id>
+<DockedParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>488359973</_a>
+<_b>23178</_b>
+<_c>17144</_c>
+<_d>166</_d>
+<_e>244</_e>
+<_f>104</_f>
+<_g>84</_g>
+<_h>18</_h>
+<_i>66</_i>
+<_j>208</_j>
+<_k>150</_k>
+</DockedParentId>
+<FloatingParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>0</_a>
+<_b>0</_b>
+<_c>0</_c>
+<_d>0</_d>
+<_e>0</_e>
+<_f>0</_f>
+<_g>0</_g>
+<_h>0</_h>
+<_i>0</_i>
+<_j>0</_j>
+<_k>0</_k>
+</FloatingParentId>
+<ControlName href="#ref-70"/>
+<OriginalControlBounds xsi:type="a2:Rectangle" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<x>0</x>
+<y>0</y>
+<width>75</width>
+<height>23</height>
+</OriginalControlBounds>
+<ControlPaneIndex>7</ControlPaneIndex>
+</a1:DockableControlPane>
+<a1:DockableControlPane id="ref-55" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<Settings href="#ref-71"/>
+<Text id="ref-72">当日実績進捗数フレーム</Text>
+<Tag xsi:type="a4:ObjectWrapper" xmlns:a4="http://schemas.microsoft.com/clr/nsassem/Infragistics.Shared.Serialization/Infragistics4.Shared.v15.1">
+<objectValue href="#ref-72"/>
+</Tag>
+<Size xsi:type="a2:Size" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<width>100</width>
+<height>116</height>
+</Size>
+<Id xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>1109948424</_a>
+<_b>7804</_b>
+<_c>17027</_c>
+<_d>182</_d>
+<_e>36</_e>
+<_f>234</_f>
+<_g>14</_g>
+<_h>167</_h>
+<_i>219</_i>
+<_j>154</_j>
+<_k>202</_k>
+</Id>
+<DockedParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>488359973</_a>
+<_b>23178</_b>
+<_c>17144</_c>
+<_d>166</_d>
+<_e>244</_e>
+<_f>104</_f>
+<_g>84</_g>
+<_h>18</_h>
+<_i>66</_i>
+<_j>208</_j>
+<_k>150</_k>
+</DockedParentId>
+<FloatingParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>0</_a>
+<_b>0</_b>
+<_c>0</_c>
+<_d>0</_d>
+<_e>0</_e>
+<_f>0</_f>
+<_g>0</_g>
+<_h>0</_h>
+<_i>0</_i>
+<_j>0</_j>
+<_k>0</_k>
+</FloatingParentId>
+<ControlName href="#ref-72"/>
+<OriginalControlBounds xsi:type="a2:Rectangle" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<x>0</x>
+<y>0</y>
+<width>75</width>
+<height>23</height>
+</OriginalControlBounds>
+<ControlPaneIndex>5</ControlPaneIndex>
+</a1:DockableControlPane>
+<a1:DockableControlPane id="ref-56" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<Settings href="#ref-73"/>
+<Text id="ref-74">当日計画実績数フレーム</Text>
+<Tag xsi:type="a4:ObjectWrapper" xmlns:a4="http://schemas.microsoft.com/clr/nsassem/Infragistics.Shared.Serialization/Infragistics4.Shared.v15.1">
+<objectValue href="#ref-74"/>
+</Tag>
+<Size xsi:type="a2:Size" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<width>100</width>
+<height>581</height>
+</Size>
+<Id xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>-1716846394</_a>
+<_b>14077</_b>
+<_c>16397</_c>
+<_d>185</_d>
+<_e>246</_e>
+<_f>164</_f>
+<_g>116</_g>
+<_h>49</_h>
+<_i>172</_i>
+<_j>147</_j>
+<_k>196</_k>
+</Id>
+<DockedParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>209677613</_a>
+<_b>-6211</_b>
+<_c>19427</_c>
+<_d>184</_d>
+<_e>99</_e>
+<_f>237</_f>
+<_g>194</_g>
+<_h>96</_h>
+<_i>33</_i>
+<_j>94</_j>
+<_k>18</_k>
+</DockedParentId>
+<FloatingParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>0</_a>
+<_b>0</_b>
+<_c>0</_c>
+<_d>0</_d>
+<_e>0</_e>
+<_f>0</_f>
+<_g>0</_g>
+<_h>0</_h>
+<_i>0</_i>
+<_j>0</_j>
+<_k>0</_k>
+</FloatingParentId>
+<ControlName href="#ref-74"/>
+<OriginalControlBounds xsi:type="a2:Rectangle" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<x>0</x>
+<y>0</y>
+<width>75</width>
+<height>23</height>
+</OriginalControlBounds>
+<ControlPaneIndex>3</ControlPaneIndex>
+</a1:DockableControlPane>
+<a1:DockableControlPane id="ref-57" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<Settings href="#ref-75"/>
+<Text id="ref-76">当月計画実績数フレーム</Text>
+<Tag xsi:type="a4:ObjectWrapper" xmlns:a4="http://schemas.microsoft.com/clr/nsassem/Infragistics.Shared.Serialization/Infragistics4.Shared.v15.1">
+<objectValue href="#ref-76"/>
+</Tag>
+<Size xsi:type="a2:Size" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<width>100</width>
+<height>648</height>
+</Size>
+<Id xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>-1051281573</_a>
+<_b>-14835</_b>
+<_c>16928</_c>
+<_d>142</_d>
+<_e>244</_e>
+<_f>219</_f>
+<_g>29</_g>
+<_h>59</_h>
+<_i>149</_i>
+<_j>106</_j>
+<_k>6</_k>
+</Id>
+<DockedParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>209677613</_a>
+<_b>-6211</_b>
+<_c>19427</_c>
+<_d>184</_d>
+<_e>99</_e>
+<_f>237</_f>
+<_g>194</_g>
+<_h>96</_h>
+<_i>33</_i>
+<_j>94</_j>
+<_k>18</_k>
+</DockedParentId>
+<FloatingParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>0</_a>
+<_b>0</_b>
+<_c>0</_c>
+<_d>0</_d>
+<_e>0</_e>
+<_f>0</_f>
+<_g>0</_g>
+<_h>0</_h>
+<_i>0</_i>
+<_j>0</_j>
+<_k>0</_k>
+</FloatingParentId>
+<ControlName href="#ref-76"/>
+<OriginalControlBounds xsi:type="a2:Rectangle" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<x>0</x>
+<y>0</y>
+<width>75</width>
+<height>23</height>
+</OriginalControlBounds>
+<ControlPaneIndex>4</ControlPaneIndex>
+</a1:DockableControlPane>
+<a1:DockableControlPane id="ref-58" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<Settings href="#ref-77"/>
+<Text id="ref-78">ラインタクトタイムフレーム</Text>
+<Tag xsi:type="a4:ObjectWrapper" xmlns:a4="http://schemas.microsoft.com/clr/nsassem/Infragistics.Shared.Serialization/Infragistics4.Shared.v15.1">
+<objectValue href="#ref-78"/>
+</Tag>
+<Size xsi:type="a2:Size" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<width>100</width>
+<height>307</height>
+</Size>
+<Id xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>207819305</_a>
+<_b>-21024</_b>
+<_c>16946</_c>
+<_d>128</_d>
+<_e>212</_e>
+<_f>146</_f>
+<_g>239</_g>
+<_h>2</_h>
+<_i>84</_i>
+<_j>163</_j>
+<_k>253</_k>
+</Id>
+<DockedParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>209677613</_a>
+<_b>-6211</_b>
+<_c>19427</_c>
+<_d>184</_d>
+<_e>99</_e>
+<_f>237</_f>
+<_g>194</_g>
+<_h>96</_h>
+<_i>33</_i>
+<_j>94</_j>
+<_k>18</_k>
+</DockedParentId>
+<FloatingParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>0</_a>
+<_b>0</_b>
+<_c>0</_c>
+<_d>0</_d>
+<_e>0</_e>
+<_f>0</_f>
+<_g>0</_g>
+<_h>0</_h>
+<_i>0</_i>
+<_j>0</_j>
+<_k>0</_k>
+</FloatingParentId>
+<ControlName href="#ref-78"/>
+<OriginalControlBounds xsi:type="a2:Rectangle" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<x>0</x>
+<y>0</y>
+<width>75</width>
+<height>23</height>
+</OriginalControlBounds>
+<ControlPaneIndex>11</ControlPaneIndex>
+</a1:DockableControlPane>
+<a1:DockableControlPane id="ref-59" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<Settings href="#ref-79"/>
+<Text id="ref-80">遅延理由カウントフレーム</Text>
+<Tag xsi:type="a4:ObjectWrapper" xmlns:a4="http://schemas.microsoft.com/clr/nsassem/Infragistics.Shared.Serialization/Infragistics4.Shared.v15.1">
+<objectValue href="#ref-80"/>
+</Tag>
+<Size xsi:type="a2:Size" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<width>100</width>
+<height>501</height>
+</Size>
+<Id xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>1292589146</_a>
+<_b>27093</_b>
+<_c>18935</_c>
+<_d>146</_d>
+<_e>173</_e>
+<_f>50</_f>
+<_g>102</_g>
+<_h>189</_h>
+<_i>104</_i>
+<_j>97</_j>
+<_k>228</_k>
+</Id>
+<DockedParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>209677613</_a>
+<_b>-6211</_b>
+<_c>19427</_c>
+<_d>184</_d>
+<_e>99</_e>
+<_f>237</_f>
+<_g>194</_g>
+<_h>96</_h>
+<_i>33</_i>
+<_j>94</_j>
+<_k>18</_k>
+</DockedParentId>
+<FloatingParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>0</_a>
+<_b>0</_b>
+<_c>0</_c>
+<_d>0</_d>
+<_e>0</_e>
+<_f>0</_f>
+<_g>0</_g>
+<_h>0</_h>
+<_i>0</_i>
+<_j>0</_j>
+<_k>0</_k>
+</FloatingParentId>
+<ControlName href="#ref-80"/>
+<OriginalControlBounds xsi:type="a2:Rectangle" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<x>0</x>
+<y>0</y>
+<width>75</width>
+<height>23</height>
+</OriginalControlBounds>
+<ControlPaneIndex>13</ControlPaneIndex>
+</a1:DockableControlPane>
+<a1:DockableControlPane id="ref-60" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<Settings href="#ref-81"/>
+<Text id="ref-82">中断理由カウントフレーム</Text>
+<Tag xsi:type="a4:ObjectWrapper" xmlns:a4="http://schemas.microsoft.com/clr/nsassem/Infragistics.Shared.Serialization/Infragistics4.Shared.v15.1">
+<objectValue href="#ref-82"/>
+</Tag>
+<Size xsi:type="a2:Size" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<width>100</width>
+<height>520</height>
+</Size>
+<Id xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>-201459925</_a>
+<_b>30041</_b>
+<_c>20201</_c>
+<_d>140</_d>
+<_e>48</_e>
+<_f>97</_f>
+<_g>164</_g>
+<_h>254</_h>
+<_i>60</_i>
+<_j>112</_j>
+<_k>19</_k>
+</Id>
+<DockedParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>209677613</_a>
+<_b>-6211</_b>
+<_c>19427</_c>
+<_d>184</_d>
+<_e>99</_e>
+<_f>237</_f>
+<_g>194</_g>
+<_h>96</_h>
+<_i>33</_i>
+<_j>94</_j>
+<_k>18</_k>
+</DockedParentId>
+<FloatingParentId xsi:type="a3:Guid" xmlns:a3="http://schemas.microsoft.com/clr/ns/System">
+<_a>0</_a>
+<_b>0</_b>
+<_c>0</_c>
+<_d>0</_d>
+<_e>0</_e>
+<_f>0</_f>
+<_g>0</_g>
+<_h>0</_h>
+<_i>0</_i>
+<_j>0</_j>
+<_k>0</_k>
+</FloatingParentId>
+<ControlName href="#ref-82"/>
+<OriginalControlBounds xsi:type="a2:Rectangle" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<x>0</x>
+<y>0</y>
+<width>75</width>
+<height>23</height>
+</OriginalControlBounds>
+<ControlPaneIndex>14</ControlPaneIndex>
+</a1:DockableControlPane>
+<a5:Appearance id="ref-61" xmlns:a5="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics4.Win.v15.1">
+<BackColor xsi:type="a2:Color" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>163</knownColor>
+<state>1</state>
+</BackColor>
+<Id>0</Id>
+</a5:Appearance>
+<a5:Appearance id="ref-62" xmlns:a5="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics4.Win.v15.1">
+<BackColor xsi:type="a2:Color" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>163</knownColor>
+<state>1</state>
+</BackColor>
+<Id>0</Id>
+</a5:Appearance>
+<a1:PaneSettings id="ref-63" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<PaneAppearance href="#ref-83"/>
+<PaddingBottom>2</PaddingBottom>
+<PaddingLeft>2</PaddingLeft>
+<PaddingRight>2</PaddingRight>
+<PaddingTop>2</PaddingTop>
+</a1:PaneSettings>
+<a1:PaneSettings id="ref-65" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<PaneAppearance href="#ref-84"/>
+<PaddingBottom>2</PaddingBottom>
+<PaddingLeft>2</PaddingLeft>
+<PaddingRight>2</PaddingRight>
+<PaddingTop>2</PaddingTop>
+</a1:PaneSettings>
+<a1:PaneSettings id="ref-67" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<PaneAppearance href="#ref-85"/>
+<PaddingBottom>2</PaddingBottom>
+<PaddingLeft>2</PaddingLeft>
+<PaddingRight>2</PaddingRight>
+<PaddingTop>2</PaddingTop>
+</a1:PaneSettings>
+<a1:PaneSettings id="ref-69" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<PaneAppearance href="#ref-86"/>
+<PaddingBottom>2</PaddingBottom>
+<PaddingLeft>2</PaddingLeft>
+<PaddingRight>2</PaddingRight>
+<PaddingTop>2</PaddingTop>
+</a1:PaneSettings>
+<a1:PaneSettings id="ref-71" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<PaneAppearance href="#ref-87"/>
+<PaddingBottom>2</PaddingBottom>
+<PaddingLeft>2</PaddingLeft>
+<PaddingRight>2</PaddingRight>
+<PaddingTop>2</PaddingTop>
+</a1:PaneSettings>
+<a1:PaneSettings id="ref-73" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<PaneAppearance href="#ref-88"/>
+<PaddingBottom>2</PaddingBottom>
+<PaddingLeft>2</PaddingLeft>
+<PaddingRight>2</PaddingRight>
+<PaddingTop>2</PaddingTop>
+</a1:PaneSettings>
+<a1:PaneSettings id="ref-75" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<PaneAppearance href="#ref-89"/>
+<PaddingBottom>2</PaddingBottom>
+<PaddingLeft>2</PaddingLeft>
+<PaddingRight>2</PaddingRight>
+<PaddingTop>2</PaddingTop>
+</a1:PaneSettings>
+<a1:PaneSettings id="ref-77" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<PaneAppearance href="#ref-90"/>
+<PaddingBottom>2</PaddingBottom>
+<PaddingLeft>2</PaddingLeft>
+<PaddingRight>2</PaddingRight>
+<PaddingTop>2</PaddingTop>
+</a1:PaneSettings>
+<a1:PaneSettings id="ref-79" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<PaneAppearance href="#ref-91"/>
+<PaddingBottom>2</PaddingBottom>
+<PaddingLeft>2</PaddingLeft>
+<PaddingRight>2</PaddingRight>
+<PaddingTop>2</PaddingTop>
+</a1:PaneSettings>
+<a1:PaneSettings id="ref-81" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win.UltraWinDock/Infragistics4.Win.UltraWinDock.v15.1">
+<PaneAppearance href="#ref-92"/>
+<PaddingBottom>2</PaddingBottom>
+<PaddingLeft>2</PaddingLeft>
+<PaddingRight>2</PaddingRight>
+<PaddingTop>2</PaddingTop>
+</a1:PaneSettings>
+<a5:AppearanceHolder id="ref-83" xmlns:a5="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics4.Win.v15.1">
+<Appearance href="#ref-93"/>
+</a5:AppearanceHolder>
+<a5:AppearanceHolder id="ref-84" xmlns:a5="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics4.Win.v15.1">
+<Appearance href="#ref-94"/>
+</a5:AppearanceHolder>
+<a5:AppearanceHolder id="ref-85" xmlns:a5="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics4.Win.v15.1">
+<Appearance href="#ref-95"/>
+</a5:AppearanceHolder>
+<a5:AppearanceHolder id="ref-86" xmlns:a5="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics4.Win.v15.1">
+<Appearance href="#ref-96"/>
+</a5:AppearanceHolder>
+<a5:AppearanceHolder id="ref-87" xmlns:a5="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics4.Win.v15.1">
+<Appearance href="#ref-97"/>
+</a5:AppearanceHolder>
+<a5:AppearanceHolder id="ref-88" xmlns:a5="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics4.Win.v15.1">
+<Appearance href="#ref-98"/>
+</a5:AppearanceHolder>
+<a5:AppearanceHolder id="ref-89" xmlns:a5="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics4.Win.v15.1">
+<Appearance href="#ref-99"/>
+</a5:AppearanceHolder>
+<a5:AppearanceHolder id="ref-90" xmlns:a5="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics4.Win.v15.1">
+<Appearance href="#ref-100"/>
+</a5:AppearanceHolder>
+<a5:AppearanceHolder id="ref-91" xmlns:a5="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics4.Win.v15.1">
+<Appearance href="#ref-101"/>
+</a5:AppearanceHolder>
+<a5:AppearanceHolder id="ref-92" xmlns:a5="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics4.Win.v15.1">
+<Appearance href="#ref-102"/>
+</a5:AppearanceHolder>
+<a5:Appearance id="ref-93" xmlns:a5="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics4.Win.v15.1">
+<BackColor xsi:type="a2:Color" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>141</knownColor>
+<state>1</state>
+</BackColor>
+<Id>0</Id>
+</a5:Appearance>
+<a5:Appearance id="ref-94" xmlns:a5="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics4.Win.v15.1">
+<BackColor xsi:type="a2:Color" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>163</knownColor>
+<state>1</state>
+</BackColor>
+<Id>0</Id>
+</a5:Appearance>
+<a5:Appearance id="ref-95" xmlns:a5="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics4.Win.v15.1">
+<BackColor xsi:type="a2:Color" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>163</knownColor>
+<state>1</state>
+</BackColor>
+<Id>0</Id>
+</a5:Appearance>
+<a5:Appearance id="ref-96" xmlns:a5="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics4.Win.v15.1">
+<BackColor xsi:type="a2:Color" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>163</knownColor>
+<state>1</state>
+</BackColor>
+<Id>0</Id>
+</a5:Appearance>
+<a5:Appearance id="ref-97" xmlns:a5="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics4.Win.v15.1">
+<BackColor xsi:type="a2:Color" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>163</knownColor>
+<state>1</state>
+</BackColor>
+<Id>0</Id>
+</a5:Appearance>
+<a5:Appearance id="ref-98" xmlns:a5="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics4.Win.v15.1">
+<BackColor xsi:type="a2:Color" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>163</knownColor>
+<state>1</state>
+</BackColor>
+<Id>0</Id>
+</a5:Appearance>
+<a5:Appearance id="ref-99" xmlns:a5="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics4.Win.v15.1">
+<BackColor xsi:type="a2:Color" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>163</knownColor>
+<state>1</state>
+</BackColor>
+<Id>0</Id>
+</a5:Appearance>
+<a5:Appearance id="ref-100" xmlns:a5="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics4.Win.v15.1">
+<BackColor xsi:type="a2:Color" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>163</knownColor>
+<state>1</state>
+</BackColor>
+<Id>0</Id>
+</a5:Appearance>
+<a5:Appearance id="ref-101" xmlns:a5="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics4.Win.v15.1">
+<BackColor xsi:type="a2:Color" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>163</knownColor>
+<state>1</state>
+</BackColor>
+<Id>0</Id>
+</a5:Appearance>
+<a5:Appearance id="ref-102" xmlns:a5="http://schemas.microsoft.com/clr/nsassem/Infragistics.Win/Infragistics4.Win.v15.1">
+<BackColor xsi:type="a2:Color" xmlns:a2="http://schemas.microsoft.com/clr/nsassem/System.Drawing/System.Drawing">
+<name xsi:null="1"/>
+<value>0</value>
+<knownColor>163</knownColor>
+<state>1</state>
+</BackColor>
+<Id>0</Id>
+</a5:Appearance>
+</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

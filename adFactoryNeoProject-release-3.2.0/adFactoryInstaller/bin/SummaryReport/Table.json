@@ -1,0 +1,266 @@
+{
+    "name": "SummaryReport",
+    "defaultMode": "Push",
+    "tables": [
+        {
+            "name": "kanban_info",
+            "columns": [
+                {
+                    "name": "kanban_id",
+                    "dataType": "Int64",
+                    "isHidden": true
+                },
+                {
+                    "name": "kanban_name",
+                    "dataType": "String"
+                },
+                {
+                    "name": "model_name",
+                    "dataType": "String"
+                },
+                {
+                    "name": "workflow_name",
+                    "dataType": "String"
+                },
+                {
+                    "name": "actual_start_datetime",
+                    "dataType": "String"
+                },
+                {
+                    "name": "actual_comp_datetime",
+                    "dataType": "Datetime",
+                    "formatString": "yyyy/mm/dd"
+                }
+            ]
+        },
+        {
+            "name": "work_kanban_info",
+            "columns": [
+                {
+                    "name": "work_kanban_id",
+                    "dataType": "Int64",
+                    "isHidden": true
+                },
+                {
+                    "name": "work_name",
+                    "dataType": "String"
+                },
+                {
+                    "name": "kanban_id",
+                    "dataType": "Int64"
+                },
+                {
+                    "name": "actual_start_datetime",
+                    "dataType": "String"
+                },
+                {
+                    "name": "actual_comp_datetime",
+                    "dataType": "Datetime",
+                    "formatString": "yyyy/mm/dd"
+                }
+            ],
+            "measures" : [
+                {
+                    "name": "work_time",
+                    "expression": "SUM('actual_work_info'[work_time])"
+                },
+
+                {
+                    "name": "av_work_time",
+                    "expression": "AVERAGEX('work_kanban_info','work_kanban_info'[work_time])"
+                },
+                {
+                    "name": "dev_work_time",
+                    "expression": "STDEVX.P('work_kanban_info', 'work_kanban_info'[work_time])"
+                },
+                {
+                    "name": "delay_time",
+                    "expression": "SUM('actual_work_info'[delay_time])"
+                },
+                {
+                    "name": "av_delay_time",
+                    "expression": "AVERAGEX('work_kanban_info','work_kanban_info'[delay_time])"
+                },
+                {
+                    "name": "product_num",
+                    "expression": "CALCULATE(COUNTROWS(DISTINCT(work_kanban_info[kanban_id])),FILTER('work_kanban_info', RELATED(kanban_info[actual_comp_datetime])=='work_kanban_info'[actual_comp_datetime]))"
+                }
+            ]
+        },
+        {
+            "name": "actual_work_info",
+            "columns": [
+                {
+                    "name": "work_kanban_id",
+                    "dataType": "Int64"
+                },
+                {
+                    "name": "organization_id",
+                    "dataType": "Int64"
+                },
+                {
+                    "name": "equipment_id",
+                    "dataType": "Int64"
+                },
+                {
+                    "name": "work_time",
+                    "dataType": "Int64",
+                    "summarizeBy": "sum"
+                },
+                {
+                    "name": "delay_time",
+                    "dataType": "Int64",
+                    "summarizeBy": "sum"
+                },
+                {
+                    "name": "delay_reason",
+                    "dataType": "String"
+                }            
+            ],
+            "measures" : [
+                {
+                    "name": "work_kanban_count",
+                    "expression": "DISTINCTCOUNT('actual_work_info'[work_kanban_id])",
+                    "formatString": "0"
+                },
+                {
+                    "name": "average_work_time",
+                    "expression": "SUM('actual_work_info'[work_time])/'actual_work_info'[work_kanban_count]"
+                },
+                {
+                    "name": "average_delay_time",
+                    "expression": "SUM('actual_work_info'[delay_time])/'actual_work_info'[work_kanban_count]"
+                },
+                {
+                    "name": "delay_count",
+                    "expression": "COUNTX(FILTER('actual_work_info','actual_work_info'[delay_time]>0),[delay_reason])"
+                },
+                {
+                    "name": "dev_actual_work_time",
+                    "expression": "STDEVX.P(VALUES('actual_work_info'[work_kanban_id]),CALCULATE(SUM('actual_work_info'[work_time])))"
+                }
+            ]
+        },
+        {
+            "name": "interrupt_info",
+            "columns": [
+                {
+                    "name": "work_kanban_id",
+                    "dataType": "Int64"
+                },
+                {
+                    "name": "organization_id",
+                    "dataType": "String"
+                },
+                {
+                    "name": "equipment_id",
+                    "dataType": "String"
+                },
+                {
+                    "name": "interrupt_time",
+                    "dataType": "Int64",
+                    "summarizeBy": "sum"
+                },
+                {
+                    "name": "interrupt_reason",
+                    "dataType": "String"
+                }
+            ],
+            "measures": [
+                {
+                    "name": "interrupt_count",
+                    "expression": "COUNTROWS('interrupt_info' )",
+                    "formatString": "0"
+                },
+                {
+                    "name": "average_interrupt_time",
+                    "expression": "SUM('interrupt_info'[interrupt_time])/'interrupt_info'[interrupt_count]"
+                }
+            ]
+        },
+        {
+            "name": "organaization",
+            "columns": [
+                {
+                    "name": "organization_id",
+                    "dataType":"Int64"
+                },
+                {
+                    "name": "organization_name",
+                    "dataType":"String"
+                }
+            ]
+        },
+        {
+            "name": "equipment",
+            "columns": [
+                {
+                    "name": "equipment_id",
+                    "dataType":"Int64"
+                },
+                {
+                    "name": "equipment_name",
+                    "dataType":"String"
+                }
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "name": "work_kanban_info-kanban_info",
+            "fromTable": "work_kanban_info",
+            "fromColumn": "kanban_id",
+            "toTable": "kanban_info",
+            "toColumn": "kanban_id",
+            "crossFilteringBehavior": "OneDirection"
+        },
+        {
+            "name": "actual_work_info-work_kanban_info",
+            "fromTable": "actual_work_info",
+            "fromColumn": "work_kanban_id",
+            "toTable": "work_kanban_info",
+            "toColumn": "work_kanban_id",
+            "crossFilteringBehavior": "OneDirection"
+        },
+        {
+            "name": "interrupt_info-work_kanban_info",
+            "fromTable": "interrupt_info",
+            "fromColumn": "work_kanban_id",
+            "toTable": "work_kanban_info",
+            "toColumn": "work_kanban_id",
+            "crossFilteringBehavior": "OneDirection"
+        },
+        {
+            "name": "actual_work_info-organaization",
+            "fromTable": "actual_work_info",
+            "fromColumn": "organization_id",
+            "toTable": "organaization",
+            "toColumn": "organization_id",
+            "crossFilteringBehavior": "OneDirection"
+        },
+        {
+            "name": "interrupt_info-organaization",
+            "fromTable": "interrupt_info",
+            "fromColumn": "organization_id",
+            "toTable": "organaization",
+            "toColumn": "organization_id",
+            "crossFilteringBehavior": "OneDirection"
+        },
+        {
+            "name": "actual_work_info-equipment",
+            "fromTable": "actual_work_info",
+            "fromColumn": "equipment_id",
+            "toTable": "equipment",
+            "toColumn": "equipment_id",
+            "crossFilteringBehavior": "OneDirection"
+        },
+        {
+            "name": "interrupt_info-equipment",
+            "fromTable": "interrupt_info",
+            "fromColumn": "equipment_id",
+            "toTable": "equipment",
+            "toColumn": "equipment_id",
+            "crossFilteringBehavior": "OneDirection"
+        }
+    ]
+}

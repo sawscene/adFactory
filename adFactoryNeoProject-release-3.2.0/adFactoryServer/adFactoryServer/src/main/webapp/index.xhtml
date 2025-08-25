@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+        <title>adFactory server</title>
+        <h:outputStylesheet name ="style.css"/>
+    </h:head>
+    <h:body>
+        <p fullPage="true">
+            <p position="center">
+                <h:graphicImage value="#{resource['adfac_logo.png']}" height="100"/>
+                <p:accordionPanel multiple="true" activeIndex="0,1,2">
+                    <p:tab title="Welcome">
+                        ようこそ adFactory serverへ.
+                    </p:tab>
+                    <p:tab title="Information">
+                        <p:outputLabel value="adFactory version : #{serverInfo.outernalVersion}"/><br/>
+                        <p:outputLabel value="License expiration date : #{serverInfo.licenseDate}"/><br/>
+                        <p:scrollPanel style="white-space:pre-line;width:600px;height:300px"><p>#{serverInfo.systeminfo}</p></p:scrollPanel>
+                    </p:tab>
+                </p:accordionPanel>
+            </p>
+            <p styleClass="fixLayout" position="south" size="50" resizable="false" style="text-align: center;">
+                <h:graphicImage value="#{resource['adtek_logo.gif']}"/>
+            </p>
+        </p>
+    </h:body>
+</html>
+

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>#{msg['key.login.title']}</title>
+        <h:outputStylesheet library="styles" name="styles.css"/>
+        <h:outputStylesheet library="styles" name="ScreenDesignStyles.css"/>
+        <h:outputStylesheet library="styles" name="ScreenFontStyles.css"/>
+        <f:loadBundle basename="jp.adtekfuji.adfactoryserver.locale.locale" var="msg"/>
+        <style>
+            .content {
+                max-width: 600px;
+                margin: auto;
+            }
+            .block {
+                display: flex;
+                justify-content: center;
+            }
+        </style>
+    </h:head>
+    <h:body >
+        <f:metadata>
+            <f:viewAction action="#{login.view}"/>
+        </f:metadata>
+        <!-- ヘッダーコンテンツ -->
+        <ui:include src="header.xhtml"/>
+        <h:form id="loginForm" class="content" style="padding:10px">
+            <!--<h3 styleClass="font-15pt">#{msg['key.login']}</h3>-->
+            <br/><br/>
+            <div class="block">
+                <h:outputText value="#{msg['key.userId']}" styleClass="font-normal" style="width:160px;margin-right:10px;"/>
+                <h:inputText id="userId" value="#{login.userId}" styleClass="font-normal" a:autofocus="#{(empty login.userId) ? true : null }" disabled="true"/>
+            </div>
+            <br/>
+            <div class="block">
+                <h:outputText value="#{msg['key.password']}" styleClass="font-normal" style="width:160px;margin-right:10px;"/>
+                <h:inputSecret id="password" value="#{login.password}" styleClass="font-normal" a:autofocus="true"/>
+            </div>
+            <br/><br/>
+            <div class="block" style="height:48px">
+                <h:messages styleClass="font-normal font-red" layout="table"/>
+            </div>
+            <br/>
+            <div class="block">
+                <p:commandButton id="loginButton" type="submit" ajax="false" action="#{login.login()}" value="#{msg['key.login']}" style="width: 120pt;"/>
+            </div>
+        </h:form>
+    </h:body>
+</html>

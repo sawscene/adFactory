@@ -1,0 +1,80 @@
+<root>
+    <!-- 項目の表示・非表示の設定 -->
+    <DisplayControl>
+        <Value key="baseInfoLabel" flag="1111111111"/>
+        <Value key="checkItemNamePanel" flag="1111111111"/>
+		<Value key="maxValuePanel" flag="0000100000"/>
+		<Value key="minValuePanel" flag="0000100000"/>
+		<Value key="currentValuePanel" flag="1000110000"/>
+        <Value key="customSettingsPanel" flag="0111110100"/>
+        <Value key="dateFormatPanel" flag="0000001000"/>
+        <Value key="detailSettingsLabel" flag="0111110100"/>
+        <Value key="displayCommentPanel" flag="0001000000"/>
+        <Value key="equipmentPanel" flag="0011100000"/>
+        <Value key="equipmentUsedLabel" flag="0011100000"/>
+        <Value key="flowLayoutPanel" flag="1111111111"/>
+        <Value key="formulaPanel" flag="0000100000"/>
+        <Value key="initialValuePanel" flag="0000000000"/>
+        <Value key="inputCommentPanel" flag="0001000000"/>
+        <Value key="inputLabel" flag="1111111111"/>
+        <Value key="inputValuePanel" flag="0001110000"/>
+        <Value key="listPanel" flag="0000110000"/>
+        <Value key="mainPanel" flag="1111111111"/>
+        <Value key="noDirectInputPanel" flag="0101110000"/>
+        <Value key="noDuplicationPanel" flag="0000010000"/>
+        <Value key="preventErrorsLabel" flag="0101111000"/>
+        <Value key="requiredPanel" flag="0000011000"/>
+        <Value key="rulePanel" flag="0000010000"/>
+        <Value key="tableLayoutPanel" flag="0011110100"/>
+        <Value key="typePanel" flag="1111111111"/>
+        <Value key="workRecordLabel" flag="0001000000"/>
+    </DisplayControl>
+
+    <!-- コンボボックス定義 -->
+    <TypeComboBox>
+        <Value id="1">key.parts</Value>
+        <Value id="2">key.work</Value>
+        <Value id="3">key.inspection</Value>
+        <Value id="4">key.measure</Value>
+        <Value id="5">key.custom</Value>
+        <Value id="6">key.datetime</Value>
+        <!--<Value id="7">key.timer</Value>-->
+        <Value id="8">key.judg</Value>
+        <!--<Value id="9">key.product</Value>-->
+    </TypeComboBox>
+
+	<InputTypeComboBox>
+		<Value id="0" flag="1111111111"></Value>
+		<Value id="1" flag="0000010000">key.keyboardText</Value>
+		<Value id="2" flag="0000110000">key.tenKeyboard</Value>
+		<Value id="3" flag="0000000000"></Value>
+		<Value id="4" flag="0000000000"></Value>
+		<Value id="5" flag="0000000000"></Value>
+		<Value id="6" flag="0001000000">key.photosAndFiles</Value>
+		<Value id="7" flag="0000100000">key.calculationResults</Value>
+		<Value id="8" flag="0000000000"></Value>
+		<Value id="9" flag="0000000000"></Value>
+	</InputTypeComboBox>
+
+	<TimestampFormatComboBox>
+		<Value id="1">key.dateAndTime</Value>
+		<Value id="2">key.dateOnly</Value>
+		<Value id="3">key.timeOnly</Value>
+	</TimestampFormatComboBox>
+
+    <!-- 詳細設定 -->
+	<DetailSettings>
+		<Value flag="0011110000" type="1" tag="bulkInput">key.bulkInput</Value>
+		<Value flag="0000100100" type="0" tag="work">key.workName</Value>
+		<Value flag="0000100100" type="0" tag="property">key.property</Value>
+		<Value flag="0000100000" type="0" tag="integerDigits">key.integerDigits</Value>
+		<Value flag="0000100000" type="0" tag="decimalDigits">key.decimalDigits</Value>
+		<Value flag="0000100000" type="1" tag="absoluteDisplay">key.absoluteDisplay</Value>
+		<Value flag="0000010000" type="0" tag="plugin">key.pluginName</Value>
+		<Value flag="0000010000" type="2" tag="customFields">key.customFields</Value>
+		<Value flag="0000010000" type="1" tag="qrRead">key.qrRead</Value>
+		<Value flag="0000010000" type="0" tag="delimiter">key.delimiter</Value>
+		<Value flag="0000010000" type="1" tag="holdPrevData">key.holdPrevData</Value>
+		<Value flag="0000010000" type="1" tag="inputProductNum">key.inputProductNum</Value>
+	</DetailSettings>
+</root>

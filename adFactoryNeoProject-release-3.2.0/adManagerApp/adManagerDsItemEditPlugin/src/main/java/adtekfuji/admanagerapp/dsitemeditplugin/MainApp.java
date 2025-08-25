@@ -1,0 +1,124 @@
+package adtekfuji.admanagerapp.dsitemeditplugin;
+
+
+import adtekfuji.clientservice.SystemResourceFacade;
+import adtekfuji.fxscene.SceneContiner;
+import adtekfuji.fxscene.SceneProperties;
+import adtekfuji.locale.LocaleUtils;
+import adtekfuji.plugin.PluginLoader;
+import adtekfuji.property.AdProperty;
+import java.io.File;
+import java.io.IOException;
+import java.util.*;
+import javafx.application.Application;
+import static javafx.application.Application.launch;
+import javafx.stage.Stage;
+import jp.adtekfuji.adFactory.entity.login.LoginUserInfoEntity;
+import jp.adtekfuji.adFactory.entity.system.SystemOptionEntity;
+import jp.adtekfuji.adFactory.entity.system.SystemPropEntity;
+import jp.adtekfuji.adFactory.entity.workflow.WorkflowInfoEntity;
+import jp.adtekfuji.adFactory.enumerate.AuthorityEnum;
+import jp.adtekfuji.javafxcommon.utils.CacheUtils;
+import jp.adtekfuji.mainapp.LocalePluginInterface;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+public class MainApp extends Application {
+
+    private static final Double SCREEN_MIN_WIDTH = 600.0;
+    private static final Double SCREEN_MIN_HEIGHT = 400.0;
+
+    @Override
+    public void start(Stage stage) throws Exception {
+        LocaleUtils.load("locale");
+
+        // キャッシュの初期化
+        CacheUtils.createCacheData(WorkflowInfoEntity.class, true);
+
+        // 画面設定
+        SceneProperties sp = new SceneProperties(stage, AdProperty.getProperties());
+        sp.setAppTitle(LocaleUtils.getString("key.adManagerAppTitle"));
+        sp.addCssPath("/styles/colorStyles.css");
+        sp.addCssPath("/styles/designStyles.css");
+        sp.addCssPath("/styles/fontStyles.css");
+        sp.setMinWidth(SCREEN_MIN_WIDTH);
+        sp.setMinHeight(SCREEN_MIN_HEIGHT);
+        SceneContiner.createInstance(sp);
+        SceneContiner sc = SceneContiner.getInstance();
+
+        // 品番一覧画面
+        sc.trans("DsItemEditScene");
+        sc.visibleArea("MenuPane", false);
+        sc.visibleArea("MenuPaneUnderlay", false);
+        sc.visibleArea("WorkflowEditPane", false); // 工程・工程順編集画面
+        sc.setComponent("DsItemEditPane", "DsItemListCompo");
+    }
+
+    /**
+     * The main() method is ignored in correctly deployed JavaFX application.
+     * main() serves only as fallback in case the application can not be
+     * launched through deployment artifacts, e.g., in IDEs with limited FX
+     * support. NetBeans ignores main().
+     *
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // ログファイル名
+        System.setProperty("logFileName", "adManagerApp");
+
+        Logger logger = LogManager.getLogger();
+        logger.info("start adManager application");
+
+        // デバッグ用にシステムアドミン権限を設定しておく
+        LoginUserInfoEntity.getInstance().setAuthorityType(AuthorityEnum.SYSTEM_ADMIN);
+       
+        try {
+            PluginLoader.rebasePath(System.getenv("ADFACTORY_HOME") + File.separator + "plugin");
+            PluginLoader.load(LocalePluginInterface.class);
+            AdProperty.rebasePath(System.getenv("ADFACTORY_HOME") + File.separator + "conf");
+            AdProperty.load("adManeApp.properties");
+
+            // サーバーからシステム設定を取得する。
+            getSystemResources();
+
+        } catch (IOException ex) {
+            logger.fatal(ex, ex);
+        }
+
+        launch(args);
+
+        try {
+            AdProperty.store();
+        } catch (IOException ex) {
+            logger.fatal(ex, ex);
+        }
+    }
+
+    /**
+     * サーバーからシステム設定を取得して、ローカルプロパティに反映する。
+     */
+    public static void getSystemResources() {
+        Logger logger = LogManager.getLogger();
+        try {
+            Properties properties = AdProperty.getProperties();
+            SystemResourceFacade systemResourceFacade = new SystemResourceFacade();
+            
+            List<SystemOptionEntity> optionLicenses = systemResourceFacade.getLicenseOptions();
+            if (Objects.nonNull(optionLicenses)) {
+                for (SystemOptionEntity optionLicence : optionLicenses) {
+                    properties.setProperty(optionLicence.getOptionName(), optionLicence.getEnable().toString());
+                }
+            }
+        
+            List<SystemPropEntity> systemProps = systemResourceFacade.getSystemProperties();
+            if (Objects.nonNull(systemProps)) {
+                for (SystemPropEntity systemProp : systemProps) {
+                    properties.setProperty(systemProp.getKey(), systemProp.getValue());
+                }
+            }
+            
+        } catch (Exception ex) {
+            logger.fatal(ex, ex);
+        }
+    }
+}

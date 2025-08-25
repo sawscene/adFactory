@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.cell.*?>
+
+<AnchorPane fx:id="rootPane" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jp.adtekfuji.admonitorworkstatusplugin.WorkStatusCompoController">
+    <children>
+        <TableView fx:id="tableView" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" >
+            <columns>
+                <TableColumn fx:id="nameColumn" text="%key.Process" sortable="false" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="name" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="workColumn" text="%key.Progress" sortable="false" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="progress" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="todayColumn" text="%key.AccumProgress" sortable="false" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="todayProgress" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+    </children>
+    <padding>
+        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+    </padding>
+</AnchorPane>

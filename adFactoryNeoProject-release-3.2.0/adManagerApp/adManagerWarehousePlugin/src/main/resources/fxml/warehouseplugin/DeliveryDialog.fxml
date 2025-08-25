@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import jp.adtekfuji.javafxcommon.controls.*?>
+
+<StackPane fx:id="rootPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.warehouseplugin.dialog.DeliveryDialog">
+    <children>
+        <GridPane >
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" />
+                <ColumnConstraints hgrow="SOMETIMES" />
+                <ColumnConstraints hgrow="SOMETIMES" />
+                <ColumnConstraints hgrow="SOMETIMES" />
+                <ColumnConstraints hgrow="ALWAYS" />
+                <ColumnConstraints hgrow="SOMETIMES" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints vgrow="SOMETIMES" />
+                <RowConstraints vgrow="SOMETIMES" />
+                <RowConstraints vgrow="SOMETIMES" />
+                <RowConstraints vgrow="SOMETIMES" />
+                <RowConstraints vgrow="SOMETIMES" />
+                <RowConstraints vgrow="SOMETIMES" />
+                <RowConstraints vgrow="ALWAYS" />
+                <RowConstraints vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label styleClass="ContentTitleLabel" text="%key.PayoutManagement" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="6" />
+                <Label text="%deliveryNo" style="-fx-border-color: #d3d3d3;-fx-padding: 4;" prefWidth="100.0" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                <Label fx:id="deliveryNoLabel" style="-fx-border-color: #d3d3d3;-fx-padding: 4;"  prefWidth="180.0" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+                <HBox alignment="CENTER_RIGHT" spacing="8.0" GridPane.rowIndex="1" GridPane.columnIndex="5">
+                    <Label text="%key.Area" />
+                    <ComboBox fx:id="areaComboBox" minWidth="150.0" />
+                </HBox>
+
+                <Label text="%key.ModelName" style="-fx-border-color: #d3d3d3;-fx-padding: 4;" prefWidth="100.0" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                <Label fx:id="modelNameLabel" style="-fx-border-color: #d3d3d3;-fx-padding: 4;"  prefWidth="180.0" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+
+                <Label text="%deliveryDate" style="-fx-border-color: #d3d3d3;-fx-padding: 4;" prefWidth="100.0" GridPane.rowIndex="2" GridPane.columnIndex="2" />
+                <Label fx:id="dueDateLabel" style="-fx-border-color: #d3d3d3;-fx-padding: 4;" prefWidth="180.0" GridPane.rowIndex="2" GridPane.columnIndex="3" />
+
+                <Label text="%key.ProductNum" style="-fx-border-color: #d3d3d3;-fx-padding: 4;" prefWidth="100.0" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                <Label fx:id="productNumLabel" style="-fx-border-color: #d3d3d3;-fx-padding: 4;" prefWidth="180.0" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+
+                <Label text="%key.MissingGoods" style="-fx-border-color: #d3d3d3;-fx-padding: 4;" prefWidth="100.0" GridPane.rowIndex="3" GridPane.columnIndex="2" />
+                <Label fx:id="missingLabel" style="-fx-border-color: #d3d3d3;-fx-padding: 4;" prefWidth="180.0" GridPane.rowIndex="3" GridPane.columnIndex="3" />
+
+                <HBox alignment="CENTER_LEFT" spacing="8.0" GridPane.rowIndex="5" GridPane.columnIndex="0" GridPane.columnSpan="2">
+                    <Label text="%key.unitNo" />
+                    <ComboBox fx:id="unitNoComboBox" minWidth="150.0" />
+                </HBox>
+
+                <CheckBox fx:id="reservesCheck" text="%reservesCheck" GridPane.rowIndex="5" GridPane.columnIndex="2" GridPane.columnSpan="2" />
+
+                <HBox alignment="CENTER_RIGHT" spacing="8.0" minHeight="50.0" GridPane.rowIndex="5" GridPane.columnIndex="5" >
+                    <children>
+                       <!-- 自動引当 -->
+                       <Button fx:id="autoButton" mnemonicParsing="false" onAction="#onAutoReservation" styleClass="ContentButton" text="%autoReservation" />
+                       <!-- 引当全解除 -->
+                       <Button fx:id="releaseAllButton" mnemonicParsing="false" onAction="#onReleaseAllReservation" styleClass="ContentButton" text="%releaseAllReservation" />
+                    </children>
+                </HBox>
+
+                <AnchorPane GridPane.rowIndex="6" GridPane.columnIndex="0" GridPane.columnSpan="6">
+                    <children>
+                        <SplitPane fx:id="splitPane" styleClass="ContentSplitPane" orientation="VERTICAL" dividerPositions="0.8"
+                                   AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <items>
+                                <PropertySaveTableView fx:id="deliveryItemList" styleClass="ContentList" tableMenuButtonVisible="true">
+                                    <columns>
+                                        <TableColumn fx:id="unitNoColumn" prefWidth="100.0" text="%key.unitNo" />
+                                        <TableColumn fx:id="itemNoColumn" prefWidth="80.0" text="No" style="-fx-alignment: center-right" />
+                                        <TableColumn fx:id="productNoColumn" prefWidth="110.0" text="%key.ProductNo" />
+                                        <TableColumn fx:id="productNameColumn" prefWidth="100.0" text="%key.ProductName" />
+                                        <TableColumn fx:id="productTypeColumn" prefWidth="70.0" text="%prodType" />
+                                        <TableColumn fx:id="materialDescColumn" prefWidth="70.0" text="%materialDesc" />
+                                        <TableColumn fx:id="requiredQtyColumn" prefWidth="70.0" text="%requiredQty" style="-fx-alignment: center-right" />
+                                        <TableColumn fx:id="unitColumn" prefWidth="80.0" text="%unit" />
+                                        <TableColumn fx:id="locationNoColumn" prefWidth="110.0" text="%key.LocationNo" />
+                                        <TableColumn fx:id="reserveColumn" prefWidth="70.0" text="%inventoryReserve" style="-fx-alignment: center" />
+                                        <TableColumn fx:id="pickingQtyColumn" prefWidth="70.0" text="%pickingQty" style="-fx-alignment: center-right" />
+                                        <TableColumn fx:id="withdrawQtyColumn" prefWidth="70.0" text="%withdrawalQty" style="-fx-alignment: center-right" />
+                                    </columns>
+                                </PropertySaveTableView>
+
+                                <AnchorPane minHeight="0.0" minWidth="0.0">
+                                    <children>
+                                        <GridPane vgap="8.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="4.0" >
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" />
+                                                <ColumnConstraints hgrow="ALWAYS" halignment="RIGHT" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints vgrow="SOMETIMES" valignment="CENTER" minHeight="50.0" />
+                                                <RowConstraints vgrow="ALWAYS" fillHeight="true" />
+                                            </rowConstraints>
+                                            <children>
+                                                <HBox spacing="8.0" alignment="BOTTOM_LEFT">
+                                                    <Label style="-fx-font-size: 12pt;-fx-font-weight: bold;" text="%inventoryReserve" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                                                    <Button mnemonicParsing="false" onAction="#onRefresh" prefHeight="24.0" prefWidth="24.0">
+                                                        <graphic>
+                                                           <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                              <image>
+                                                                 <Image url="@../../image/refresh.png" />
+                                                              </image>
+                                                           </ImageView>
+                                                        </graphic>
+                                                    </Button>
+                                                </HBox>
+                                                <HBox spacing="8.0" alignment="BOTTOM_RIGHT" GridPane.rowIndex="0" GridPane.columnIndex="1">
+                                                    <Button fx:id="properyButton" mnemonicParsing="false" onAction="#onDetatil" styleClass="ContentButton" text="%details" />
+                                                    <Button fx:id="seveButton" mnemonicParsing="false" onAction="#onSave" styleClass="ContentButton" text="%key.Save" />
+                                                    <Button fx:id="releaseButton" mnemonicParsing="false" onAction="#onReleaseReservation" styleClass="ContentButton" text="%releaseReservation" disable="true" />
+                                                </HBox>
+                                                <PropertySaveTableView fx:id="reserveList" styleClass="ContentList" tableMenuButtonVisible="false" GridPane.rowIndex="1" GridPane.columnSpan="2" editable="true"  > 
+                                                    <columns>
+                                                        <TableColumn fx:id="supplyNoColumn" prefWidth="80.0" text="%key.SupplyNo" editable="false" />
+                                                        <TableColumn fx:id="productNumColumn" prefWidth="80.0" text="%key.ProductNum" editable="false" />
+                                                        <TableColumn fx:id="orderingColumn" prefWidth="80.0" text="%ordering" style="-fx-alignment: center-right"  editable="false" />
+                                                        <TableColumn fx:id="reservedStockColumn" prefWidth="80.0" text="%reservedStock" style="-fx-alignment: center-right"  editable="false" />
+                                                        <TableColumn fx:id="availableStockColumn" prefWidth="80.0" text="%availableStock" style="-fx-alignment: center-right" editable="false" />
+                                                        <TableColumn fx:id="reservationColumn" prefWidth="80.0" text="%reservation" style="-fx-alignment: center-right" editable="true" />
+                                                        <TableColumn fx:id="reservePickColumn" prefWidth="110.0" text="%pickingQty" style="-fx-alignment: center-right" editable="false" />
+                                                        <TableColumn fx:id="noteColumn" prefWidth="160.0" text="%note" editable="true" />
+                                                    </columns>
+                                                </PropertySaveTableView>
+                                            </children>
+                                        </GridPane>
+                                    </children>
+                                </AnchorPane>
+                            </items>
+                            <padding>
+                                <Insets bottom="8.0" left="0.0" right="0.0" top="8.0" />
+                            </padding>
+                        </SplitPane>
+                    </children>
+                </AnchorPane>
+
+                <HBox alignment="CENTER_LEFT" spacing="8.0" minHeight="50.0" GridPane.rowIndex="7" GridPane.columnIndex="0" GridPane.columnSpan="3">
+                    <children>
+                        <!-- 引当を確定する -->
+                        <Button fx:id="applyButton" mnemonicParsing="false" onAction="#onApply" styleClass="ContentButton" text="%applyReservation" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_RIGHT" spacing="8.0" minHeight="50.0" GridPane.rowIndex="7" GridPane.columnIndex="3" GridPane.columnSpan="3">
+                    <children>
+                        <!-- キャンセル -->
+                        <Button mnemonicParsing="false" onAction="#onClose" styleClass="ContentButton" text="%key.Close" />
+                    </children>
+                </HBox>
+            </children>
+        </GridPane>
+
+        <Pane fx:id="progress" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" visible="false" >
+           <children>
+               <ProgressIndicator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" />
+           </children>
+        </Pane>
+    </children>
+    <padding>
+        <Insets bottom="0.0" left="8.0" right="8.0" top="8.0" />
+    </padding>
+</StackPane>

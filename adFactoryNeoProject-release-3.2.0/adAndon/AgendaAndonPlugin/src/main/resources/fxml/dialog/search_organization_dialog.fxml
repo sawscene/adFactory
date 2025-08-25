@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.andon.agenda.component.OrganizationSelectonDialog">
+   <children>
+      <ScrollPane fx:id="scrollPaneOrganization" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <VBox fx:id="vBoxListOrganization" />
+         </content></ScrollPane>
+      <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#onButtonCancel" text="Cancel" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="40.0" />
+      <Button fx:id="btnOK" mnemonicParsing="false" onAction="#onButtonOK" text="OK" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" />
+   </children>
+</AnchorPane>

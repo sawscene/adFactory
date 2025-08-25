@@ -1,0 +1,9 @@
+PUT http://localhost/adFactoryServer/rest/organization/login?withAuth=true HTTP/1.1
+Accept: application/json;
+Content-type: application/json;
+
+{
+  "loginType": "BARCODE",
+  "loginId": "",
+  "authData": "10016"
+}

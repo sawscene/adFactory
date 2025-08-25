@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.kanbaneditplugin.component.WorkKanbanSettingCompoFxController">
+    <children>
+        <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <ScrollPane fitToWidth="true">
+                    <content>
+                        <VBox>
+                            <children>
+                                <GridPane hgap="8.0" vgap="8.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints prefWidth="140.0" />
+                                        <ColumnConstraints hgrow="ALWAYS" />
+                                        <ColumnConstraints prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints vgrow="ALWAYS" />
+                                        <RowConstraints vgrow="ALWAYS" />
+                                        <RowConstraints vgrow="SOMETIMES" />
+                                        <RowConstraints vgrow="ALWAYS" />
+                                        <RowConstraints prefHeight="120.0" vgrow="ALWAYS" valignment="TOP" />
+                                        <RowConstraints prefHeight="120.0" vgrow="ALWAYS"  valignment="TOP" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label text="%key.TactTimeTitle" />
+                                        <TextField fx:id="TactTimeTextField" maxWidth="160.0" GridPane.columnIndex="1" GridPane.hgrow="NEVER" />
+
+                                        <Label text="%key.OffsetTimeTitle" GridPane.rowIndex="1" />
+                                        <VBox spacing="8.0" GridPane.rowIndex="2">
+                                           <children>
+                                              <RadioButton fx:id="radioOffset" mnemonicParsing="false" selected="true" text="%key.OffsetTime">
+                                                 <toggleGroup>
+                                                    <ToggleGroup fx:id="offsetSetting" />
+                                                 </toggleGroup>
+                                              </RadioButton>
+                                              <RadioButton fx:id="radioStartTimeOffset" mnemonicParsing="false" text="%key.StandardStartTime" toggleGroup="$offsetSetting" />
+                                           </children>
+                                           <padding>
+                                              <Insets left="8.0" />
+                                           </padding>
+                                        </VBox>
+                                        <TextField fx:id="OffsetTimeTextField" maxWidth="160.0" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.hgrow="NEVER" />
+
+                                        <Label text="%key.Skip" GridPane.rowIndex="3" />
+                                        <CheckBox fx:id="skipCheck" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                                        <Label text="%key.Equipment" GridPane.rowIndex="4" GridPane.vgrow="NEVER" />
+                                        <ListView fx:id="equipmentsList" prefHeight="100.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                        <Button mnemonicParsing="false" onAction="#OnEditEquipment" text="%key.EditEquipmentTitle" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.vgrow="NEVER" />
+
+                                        <Label text="%key.Organization" GridPane.rowIndex="5" GridPane.vgrow="NEVER" />
+                                        <ListView fx:id="organizationList" prefHeight="100.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                        <Button mnemonicParsing="false" onAction="#OnEditOrganization" text="%key.EditOrgnizationTitle" GridPane.columnIndex="2" GridPane.rowIndex="5" GridPane.vgrow="NEVER" />
+                                    </children>
+                                </GridPane>
+                                <VBox fx:id="propertyPane" >
+                                    <VBox.margin>
+                                        <Insets top="16.0" />
+                                    </VBox.margin>
+                                </VBox>
+                            </children>
+                        </VBox>
+                    </content>
+                    <padding>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                    </padding>
+                </ScrollPane>
+                <Pane fx:id="progressPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+                    <children>
+                        <ProgressIndicator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" />
+                    </children>
+                </Pane>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

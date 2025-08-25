@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jp.adtekfuji.javafxcommon.selectcompo.EquipmentSelectionCompoFxController">
+    <children>
+        <StackPane fx:id="stackPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <GridPane>
+                    <children>
+                        <TreeView fx:id="hierarchyTree" />
+                        <ListView fx:id="itemList" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" />
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="12.0" GridPane.columnIndex="1">
+                            <children>
+                                <Button mnemonicParsing="false" onAction="#OnAdd" styleClass="ContentButton" text="%key.Add" />
+                                <Button mnemonicParsing="false" onAction="#OnRemove" styleClass="ContentButton" text="%key.Remove" />
+                            </children>
+                            <GridPane.margin>
+                                <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                            </GridPane.margin>
+                        </VBox>
+                    </children>
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                        <ColumnConstraints hgrow="SOMETIMES" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints vgrow="SOMETIMES" />
+                    </rowConstraints>
+                </GridPane>
+                <Pane fx:id="progressPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+                    <children>
+                        <ProgressIndicator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" />
+                    </children>
+                </Pane>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

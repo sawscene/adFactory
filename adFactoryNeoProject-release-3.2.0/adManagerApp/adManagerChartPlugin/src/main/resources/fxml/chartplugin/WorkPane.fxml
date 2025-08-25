@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"  xmlns:fx="http://javafx.com/fxml/1"  fx:controller="adtekfuji.admanagerapp.chartplugin.controller.WorkPane">
+    <children>
+        <Label layoutX="8.0" prefHeight="23.0"  text="%key.TargetWork" />
+        <TableView fx:id="workView" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="23.0" >
+            <columns>
+                <TableColumn fx:id="selectedColumn" prefWidth="30.0" resizable="false" style="-fx-alignment: CENTER;" />
+                <TableColumn fx:id="indexColumn" prefWidth="30.0" style="-fx-alignment: CENTER;" text="%key.Number" />
+                <TableColumn fx:id="workNameColumn" prefWidth="400.0" style="-fx-alignment: CENTER-LEFT;" styleClass="rightAlignedTableColumn" text="%key.ProcessName" />
+            </columns>
+        </TableView>
+        <Button layoutY="23.0" mnemonicParsing="false" onAction="#onUp" prefHeight="23.0" prefWidth="80.0" text="%key.MoveUp" AnchorPane.rightAnchor="8.0"  />
+        <Button layoutY="56.0" mnemonicParsing="false" onAction="#onDown" prefHeight="23.0" prefWidth="80.0" text="%key.MoveDown" AnchorPane.rightAnchor="8.0"  />
+    </children>
+</AnchorPane>

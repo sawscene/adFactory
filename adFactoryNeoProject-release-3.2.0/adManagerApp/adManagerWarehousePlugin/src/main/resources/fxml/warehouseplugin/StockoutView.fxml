@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.warehouseplugin.component.StockoutViewController">
+    <children>
+        <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <GridPane StackPane.alignment="TOP_LEFT">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="ALWAYS" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label styleClass="ContentTitleLabel" text="%key.StockoutList">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <AnchorPane GridPane.rowIndex="1" SplitPane.resizableWithParent="false">
+                            <children>
+                                <GridPane hgap="5.0" vgap="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" />
+                                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="-Infinity" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#onSearch" styleClass="ContentButton" text="%key.Search" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="0" GridPane.rowSpan="2">
+                                           <GridPane.margin>
+                                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                           </GridPane.margin>
+                                        </Button>
+                                        <!-- ユニットコード -->
+                                        <Label text="%key.UnitCode" GridPane.columnIndex="1" />
+                                        <TextField fx:id="unitCodeField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <!-- 予定日 -->
+                                        <Label text="%key.ScheduledDate" GridPane.columnIndex="2" />
+                                        <DatePicker fx:id="fromDatePicker" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                        <DatePicker fx:id="toDatePicker" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                        <!-- 作業日 -->
+                                        <Label text="%key.PayoutDate" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                        <DatePicker fx:id="fromPayoutDatePicker" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                        <DatePicker fx:id="toPayoutDatePicker" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                    </padding>
+                                </GridPane>
+                            </children>
+                        </AnchorPane>
+                        <TableView fx:id="tableView" editable="true" styleClass="ContentList" tableMenuButtonVisible="true" GridPane.rowIndex="2">
+                            <columns>
+                                <TableColumn fx:id="unitCodeColumn" prefWidth="100.0" text="%key.UnitCode" />
+                                <TableColumn fx:id="startNumberColumn" prefWidth="50.0" text="%key.StartNumber" />
+                                <TableColumn fx:id="compNumberColumn" prefWidth="50.0" text="%key.CompNumber" />
+                                <TableColumn fx:id="unitNameColumn" prefWidth="150.0" text="%key.UnitName" />
+                                <TableColumn fx:id="scheduledDateColumn" prefWidth="150.0" text="%key.ScheduledDate" />
+                                <TableColumn fx:id="payoutDateColumn" prefWidth="150.0" text="%key.PayoutDate" />
+                                <TableColumn fx:id="figureNumberColumn" prefWidth="150.0" text="%key.FigureNumber" />
+                                <TableColumn fx:id="productNameColumn" prefWidth="100.0" text="%key.ProductName" />
+                                <!--<TableColumn fx:id="storageColumn" prefWidth="100.0" text="%key.StorageNumbers" />-->
+                                <TableColumn fx:id="stockNumColumn" prefWidth="50.0" text="%key.StockQuantity" />
+                                <TableColumn fx:id="requestNumColumn" prefWidth="50.0" text="%key.RequestNumber" />
+                                <TableColumn fx:id="payoutNumColumn" prefWidth="50.0" text="%key.PayoutNumber" />
+                                <TableColumn fx:id="missingNumColumn" prefWidth="50.0" text="%key.MissingGoods" />
+                                <!--<TableColumn fx:id="workingParsonColumn" prefWidth="50.0" text="%key.WorkingParson" />-->
+                                <!--<TableColumn fx:id="payoutDestinationColumn" prefWidth="150.0" text="%key.PayoutDestination" />-->
+                                <TableColumn fx:id="standardColumn" prefWidth="100.0" text="%key.Standard" />
+                                <TableColumn fx:id="materialColumn" prefWidth="100.0" text="%key.Material" />
+                                <TableColumn fx:id="makerColumn" prefWidth="100.0" text="%key.Maker" />
+                                <!--<TableColumn fx:id="payoutNameColumn" prefWidth="200.0" text="%key.PayoutName" />-->
+                                <!--<TableColumn fx:id="partIdentNameColumn" prefWidth="150.0" text="%key.PartIdentName" />-->
+                                <TableColumn fx:id="managementNameColumn" prefWidth="30.0" text="%key.ManagementName" />
+                            </columns>
+                        </TableView>
+                        <Button fx:id="exportButton" alignment="CENTER" disable="true" mnemonicParsing="false" onAction="#onExport" styleClass="ContentButton" text="%key.ExportCSV" wrapText="true" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                            <GridPane.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </GridPane.margin>
+                        </Button>
+                    </children>
+                </GridPane>
+                <Pane fx:id="progressPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" StackPane.alignment="CENTER">
+                   <children>
+                      <ProgressIndicator prefHeight="100.0" prefWidth="100.0" />
+                   </children>
+                </Pane>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

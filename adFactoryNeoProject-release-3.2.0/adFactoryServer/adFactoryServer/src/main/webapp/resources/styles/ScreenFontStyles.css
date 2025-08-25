@@ -1,0 +1,100 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2020/05/13, 18:07:59
+    Author     : 14-0282
+
+デフォルトフォント
+M PLUS Rounded 1c 500
+Noto Sans JP 400
+Noto Sans JP 700
+
+Webフォントがダウンロードされるまでは、システムフォントで表示する。
+font-weight:boldはシステムの環境によってフォントの太さが変わるため、font-weightには数値を指定すること。
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700&family=Noto+Sans+JP:wght@400&display=swap');
+
+body, html {
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.round {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.noto {
+    font-family: 'Noto Sans JP', sans-serif;  
+}
+
+.font-15pt{
+    font-size: 15pt;
+}
+
+.font-25pt{
+    font-size: 25pt;
+}
+
+.font-27pt{
+    font-size: 27pt;
+}
+
+.font-30pt{
+    font-size: 30pt;
+}
+
+.font-30ptBld{
+    font-size: 30pt;
+    font-weight: 700;
+}
+
+.font-32pt {
+    font-size: 34pt;
+}
+
+.font-39pt{
+    font-size: 39pt;
+}
+
+.font-39ptBld{
+    font-size: 39pt;
+    font-weight: 700;
+}
+
+.font-42pt{
+    font-size: 42pt;
+}
+
+.font-42ptBld{
+    font-size: 42pt;
+    font-weight: 700;
+}
+
+.font-48pt{
+    font-size: 48pt;
+}
+
+.font-45pt{
+    font-size: 45pt;
+}
+
+.font-45ptBld{
+    font-size: 45pt;
+    font-weight: 700;
+}
+
+.font-60pt{
+    font-size: 60pt;
+}
+
+.font-60ptBld{
+    font-size: 60pt;
+    font-weight: 700;
+}
+
+.font-89pt{
+    font-size: 89pt;
+}

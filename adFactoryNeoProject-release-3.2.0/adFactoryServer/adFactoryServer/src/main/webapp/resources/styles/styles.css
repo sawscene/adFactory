@@ -1,0 +1,113 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2020/05/13, 18:07:59
+    Author     : 14-0282
+
+デフォルトフォント
+M PLUS Rounded 1c 500
+Noto Sans JP 400
+Noto Sans JP 700
+
+Webフォントがダウンロードされるまでは、システムフォントで表示する。
+font-weight:boldはシステムの環境によってフォントの太さが変わるため、font-weightには数値を指定すること。
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700&family=Noto+Sans+JP:wght@400&display=swap');
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body, html {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 16px;
+}
+
+h1 { font-size: 2.2em; }
+h2 { font-size: 2.0em; }
+h3 { font-size: 1.8em; } 
+
+.round {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.noto {
+    font-family: 'Noto Sans JP', sans-serif;  
+}
+
+.font-normal {
+    font-size: 16pt;
+}
+
+.font-red {
+   color: red; 
+}
+
+.font-white {
+   color: white; 
+}
+
+.ui-dialog .ui-dialog-content {
+    overflow: hidden;
+}
+
+button {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    background: #0070c0 !important;
+    color: #ffffff !important;
+    font-size: 14pt !important;
+    height: 48px !important;
+    border-radius: 0 !important;
+    border: none !important;
+}
+
+button[disabled=disabled], button:disabled {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    background: #a6cde9 !important;
+    color: #ffffff !important;
+    font-size: 14pt !important;
+    height: 48px !important;
+    border-radius: 0 !important;
+    border: none !important;
+}
+
+.dialogGrid {
+    position: absolute;
+    bottom: 30px;
+    right: 0;
+}
+
+.dialogGrid.ui-panelgrid > * > tr,
+.dialogGrid.ui-panelgrid .ui-panelgrid-cell {
+    border: none;
+}
+
+.pre-formatted {
+    white-space: pre;
+}
+
+.margin-10 {
+    margin-right : 10px;
+}
+
+.ui-datatable {
+    border: 1px #848484 solid;
+}
+
+.ui-datatable-header {
+    -webkit-appearance: none;
+    background: #6E6E6E;
+    border: 1px #848484 solid;
+    color: #FFFFFF;
+    text-align: center;
+    text-shadow: none;
+    font-size: 16px;
+    font-family: 'A-OTF Jun Pro 34', sans-serif;
+}

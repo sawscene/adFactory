@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddToolStripItem" xml:space="preserve">
+    <value>Add Item</value>
+    <comment>コンテキストメニュー名称</comment>
+  </data>
+  <data name="AddToolStripMenuItem" xml:space="preserve">
+    <value>&amp;Add Item</value>
+    <comment>メニューリスト名称</comment>
+  </data>
+  <data name="AppTitle" xml:space="preserve">
+    <value>Dashboard Customizer</value>
+    <comment>ツール名称</comment>
+  </data>
+  <data name="DeleteToolStripItem" xml:space="preserve">
+    <value>Delete Item</value>
+    <comment>コンテキストメニュー名称</comment>
+  </data>
+  <data name="DeleteToolStripMenuItem" xml:space="preserve">
+    <value>&amp;Delete Item</value>
+    <comment>メニューリスト名称</comment>
+  </data>
+  <data name="EditToolStripMenuItem" xml:space="preserve">
+    <value>&amp;Edit</value>
+    <comment>メニューリスト名称</comment>
+  </data>
+  <data name="EndToolStripMenuItem" xml:space="preserve">
+    <value>E&amp;xit</value>
+    <comment>メニューリスト名称</comment>
+  </data>
+  <data name="ErrorMessage_Item_IniFile" xml:space="preserve">
+    <value>The program cannot be started because the settings file is corrupt.</value>
+    <comment>アプリケーション起動時、設定ファイルの情報取得にてエラーが発生したときに本メッセージダイアログを表示し、OKボタンによりアプリケーションを終了します。</comment>
+  </data>
+  <data name="ErrorMessageFujiFlexaDll" xml:space="preserve">
+    <value>Missing required DLL(s).</value>
+    <comment>アプリケーション起動時、必要なモジュールが不足しているため起動できないときに本メッセージダイアログを表示し、OKボタンによりアプリケーションを終了します。</comment>
+  </data>
+  <data name="ErrorMessageLayoutIniFile" xml:space="preserve">
+    <value>The layout information could not be read because the layout information file is corrupt.</value>
+    <comment>アプリケーション起動時、画面表示のための情報取得にてエラーが発生したときに本メッセージダイアログを表示し、OKボタンによりアプリケーションを終了します。</comment>
+  </data>
+  <data name="ErrorMessageLayoutIniFileDifference" xml:space="preserve">
+    <value>The setting file and layout information file versions are different.
+Items that are not in the setting file will not be displayed.</value>
+    <comment>アプリケーション起動時、定義ファイルに定義されていないアイテムの表示設定がされている場合に本メッセージを表示します。</comment>
+  </data>
+  <data name="ErrorMessageSaveLayout" xml:space="preserve">
+    <value>Cannot save because the layout information file is corrupt.</value>
+    <comment>レイアウト保存時にエラーが発生したときに本メッセージダイアログを表示し保存を中断します。</comment>
+  </data>
+  <data name="ExportToolStripMenuItem" xml:space="preserve">
+    <value>&amp;Export</value>
+    <comment>メニューリスト名称</comment>
+  </data>
+  <data name="ConfigToolStripMenuItem" xml:space="preserve">
+    <value>&amp;Configuration</value>
+    <comment>メニューリスト名称</comment>
+  </data>
+  <data name="FileFToolStripMenuItem" xml:space="preserve">
+    <value>&amp;File</value>
+    <comment>メニューリスト名称</comment>
+  </data>
+  <data name="FileReadDlgFilter" xml:space="preserve">
+    <value>Layout information file|*.cfg</value>
+    <comment>インポート/エクスポート時のファイル選択ダイアログのファイル種で表示</comment>
+  </data>
+  <data name="FileReadDlgTitle" xml:space="preserve">
+    <value>Select Import File</value>
+    <comment>レイアウト設定情報をインポートする際のダイアログタイトルです。</comment>
+  </data>
+  <data name="FileSaveDlgTitle" xml:space="preserve">
+    <value>Select Export File</value>
+    <comment>レイアウト設定情報をエクスポートする際のダイアログタイトルです。</comment>
+  </data>
+  <data name="ImportToolStripMenuItem" xml:space="preserve">
+    <value>&amp;Import</value>
+    <comment>メニューリスト名称</comment>
+  </data>
+  <data name="MessageDashboardEnd" xml:space="preserve">
+    <value>Quit Dashboard and continue work?</value>
+    <comment>アプリケーション起動時にDashboardが起動していると本メッセージを表示後、Dashboard終了してからアプリケーションを起動します。</comment>
+  </data>
+  <data name="MessageImportLayout" xml:space="preserve">
+    <value>Will import layout. Any current layout will be discarded.
+Continue?</value>
+    <comment>インポート実行時に現在表示している内容を破棄し、インポートしたレイアウトで表示されるため本メッセージを表示します。</comment>
+  </data>
+  <data name="MessageLayoutCfg" xml:space="preserve">
+    <value>Save the data first and then export.</value>
+    <comment>レイアウト設定情報をエクスポートする際、編集したレイアウトが保存されていない場合、本メッセージを表示します。</comment>
+  </data>
+  <data name="MessageSaveLayout" xml:space="preserve">
+    <value>Save current layout?</value>
+    <comment>レイアウトを変更後、保存せずに終了を行おうとした際に本メッセージを表示します。</comment>
+  </data>
+  <data name="SaveToolStripMenuItem" xml:space="preserve">
+    <value>&amp;Save</value>
+    <comment>メニューリスト名称</comment>
+  </data>
+  <data name="ErrorMessageDouble" xml:space="preserve">
+    <value>DashBoardCustomizeTool Already is running.</value>
+    <comment>DashBoardCustomizeToolが既に起動しています。</comment>
+  </data>
+  <data name="CancelButtonText" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>ボタンテキスト</comment>
+  </data>
+  <data name="ConfigDialogTitle" xml:space="preserve">
+    <value>Configuration</value>
+    <comment>ダイアログ名称</comment>
+  </data>
+  <data name="LayoutAreaHeightText" xml:space="preserve">
+    <value>H</value>
+  </data>
+  <data name="LayoutAreaSizeText" xml:space="preserve">
+    <value>Overall size</value>
+  </data>
+  <data name="LayoutAreaWidthText" xml:space="preserve">
+    <value>W</value>
+  </data>
+  <data name="OkButtonText" xml:space="preserve">
+    <value>OK</value>
+    <comment>ボタンテキスト</comment>
+  </data>
+  <data name="OpenToolStripMenuItem" xml:space="preserve">
+    <value>&amp;Open</value>
+    <comment>メニューリスト名称</comment>
+  </data>
+  <data name="SaveAsToolStripMenuItem" xml:space="preserve">
+    <value>Save as equipment identifier name(&amp;A)</value>
+    <comment>メニューリスト名称</comment>
+  </data>
+  <data name="EquipmentIdentNameText" xml:space="preserve">
+    <value>equipment identifier name</value>
+  </data>
+  <data name="SaveAsDialogTitle" xml:space="preserve">
+    <value>Save as equipment identifier name</value>
+    <comment>ダイアログ名称</comment>
+  </data>
+  <data name="SaveButtonText" xml:space="preserve">
+    <value>Save</value>
+    <comment>ボタンテキスト</comment>
+  </data>
+  <data name="OpenDialogTitle" xml:space="preserve">
+    <value>Open</value>
+    <comment>ダイアログ名称</comment>
+  </data>
+  <data name="MessageSaveAsExsistFile" xml:space="preserve">
+    <value>A layout setting with the specified equipment identification name already exists.
+Do you want to overwrite?</value>
+    <comment>名前を付けて保存時の上書き確認メッセージ。</comment>
+  </data>
+  <data name="MessageExportComplete" xml:space="preserve">
+    <value>Export completed.</value>
+    <comment>エクスポート完了メッセージ。</comment>
+  </data>
+  <data name="MessageSaveAsComplete" xml:space="preserve">
+    <value>Save completed with equipment identification name.</value>
+    <comment>設備識別名で保存完了メッセージ。</comment>
+  </data>
+  <data name="MessageSaveComplete" xml:space="preserve">
+    <value>Save completed.</value>
+    <comment>保存完了メッセージ。</comment>
+  </data>
+  <data name="ErrorMessageSaveLayoutFile" xml:space="preserve">
+    <value>Failed to save layout information file.</value>
+  </data>
+  <data name="ErrorMessageExport" xml:space="preserve">
+    <value>Export failure.</value>
+    <comment>エクスポート失敗メッセージ。</comment>
+  </data>
+  <data name="ErrorMessageImport" xml:space="preserve">
+    <value>Import failure.</value>
+    <comment>インポート失敗メッセージ。</comment>
+  </data>
+  <data name="ErrorMessageOpen" xml:space="preserve">
+    <value>Loading of layout failed.</value>
+    <comment>開く失敗メッセージ。</comment>
+  </data>
+  <data name="MessageImportComplete" xml:space="preserve">
+    <value>Import completed.</value>
+    <comment>インポート完了メッセージ。</comment>
+  </data>
+  <data name="MessageOpenComplete" xml:space="preserve">
+    <value>Loading of the layout is completed.</value>
+    <comment>開く完了メッセージ。</comment>
+  </data>
+</root>

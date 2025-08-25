@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.controlsfx.control.*?>
+
+<fx:root type="javafx.scene.layout.VBox"  xmlns:fx="http://javafx.com/fxml/1">   
+    <children>
+        <CheckBox fx:id="checkBox" text="%key.Category" />
+        <CheckListView fx:id="listView" prefHeight="220.0" />
+    </children> 
+</fx:root>

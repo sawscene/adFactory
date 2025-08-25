@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.adcustommonitorapp.controller.CellProductionMonitorSubMeneCompoFxController">
+   <children>
+      <VBox spacing="8.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#onShowPanelProduction" styleClass="ContentButton" text="%key.CellPanelMonitor" />
+            <Button mnemonicParsing="false" onAction="#onShowGraphProduction" styleClass="ContentButton" text="%key.CellGraphMonitor" />
+            <Button mnemonicParsing="false" onAction="#onShowListProduction" styleClass="ContentButton" text="%key.CellListMonitor" />
+            <Button mnemonicParsing="false" onAction="#onShowList2Production" styleClass="ContentButton" text="%key.CellList2Monitor" />
+            <Button mnemonicParsing="false" onAction="#onSetting" styleClass="ContentButton" text="%key.setting.Title" />
+         </children>
+         <padding>
+            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

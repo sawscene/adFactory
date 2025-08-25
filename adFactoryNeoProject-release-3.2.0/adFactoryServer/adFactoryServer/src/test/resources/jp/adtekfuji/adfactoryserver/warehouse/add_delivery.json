@@ -1,0 +1,11 @@
+[
+    { "deliveryNo":"delivery-1", "no":"1", "orderNo":"order-1", "prodNo":"prodNo-11", "prodName":"prodName-11", "reqNum":"1", "due":"2020/05/12" },
+    { "deliveryNo":"delivery-1", "no":"2", "orderNo":"order-1", "prodNo":"prodNo-12", "prodName":"prodName-12", "reqNum":"2", "due":"2020/05/12" },
+    { "deliveryNo":"delivery-2", "no":"3", "orderNo":"order-2", "prodNo":"prodNo-14", "prodName":"prodName-14", "reqNum":"6", "due":"2020/05/13", "locationNo":"A-1-1" },
+    { "deliveryNo":"delivery-2", "no":"1", "orderNo":"order-2", "prodNo":"prodNo-11", "prodName":"prodName-11", "reqNum":"10", "due":"2020/05/13", "locationNo":"A-1-2" },
+    { "deliveryNo":"delivery-2", "no":"2", "orderNo":"order-2", "prodNo":"prodNo-12", "prodName":"prodName-12", "reqNum":"5", "due":"2020/05/13", "locationNo":"A-1-3" },
+    { "deliveryNo":"delivery-3", "no":"1", "orderNo":"order-3", "prodNo":"prodNo-3", "prodName":"prodName-3", "reqNum":"1", "due":"2020/05/13" },
+    { "deliveryNo":"delivery-3", "no":"2", "orderNo":"order-3", "prodNo":"prodNo-1", "prodName":"prodName-1", "reqNum":"1", "due":"2020/05/13" },
+    { "deliveryNo":"delivery-4", "orderNo":"order-4", "prodNo":"prodNo-3", "prodName":"prodName-3", "reqNum":"1", "due":"2020/05/13" },
+    { "deliveryNo":"delivery-1", "no":"3", "orderNo":"order-1", "prodNo":"prodNo-14", "prodName":"prodName-14", "reqNum":"3", "due":"2020/05/12" }
+]

@@ -1,0 +1,105 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2020/06/03, 16:57:51
+    Author     : 14-0282
+*/
+
+.table {
+    border-collapse: collapse;
+}
+
+.emptyTable {
+    margin-top: 60px;
+}
+
+.titleCell {
+    text-align: left;
+    width: 300px;
+    padding: 2px 4px;
+}
+
+.labelCell {
+    width: 300px;
+    padding-right: 30px;
+}
+
+.inputCell {
+    width: 300px;
+}
+
+.leftCell {
+    width: 380px;
+    left: 0;
+}
+
+.rightCell {
+    width: 420px;
+    right: 0;
+}
+
+.inputText {
+    text-align: right;
+    width: 200px;
+    border-style: solid;
+    border-radius: 0px;
+    border-color: #8c8c8c;
+    outline: none;
+}
+
+.fixedForm {
+    position: fixed;
+    bottom: 0;
+    background: white;
+    padding: 10px 0px;
+    width: 100%
+}
+
+.submitButton {
+    text-align: center;
+    border-radius: 20px;
+    border-color: #8c8c8c;
+}
+
+.viewMessage {
+    height: 300px;
+    margin: 10px 4px;
+    color: red;
+    padding: 10px 0;
+}
+
+.select {
+    /* styling */
+    width: 300px;
+    background-color: white;
+    border-color: #8c8c8c;
+    border-width: 2px;
+
+    /* reset */
+    margin: 0;      
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    /* arrows */
+    background-image:
+        linear-gradient(63.43deg, transparent 50%, black 50%),
+        linear-gradient(116.57deg, black 50%, transparent 50%);
+    background-position:
+        calc(100% - 30px),
+        calc(100% - 10px);
+    background-size:
+        20px 40px,
+        20px 40px;
+    background-repeat: no-repeat;
+}
+
+select::-ms-expand { /* select要素のデザインを無効にする（IE用） */
+    display: none;
+}
+
+input::-webkit-calendar-picker-indicator {
+  display: none;
+}

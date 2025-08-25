@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="678.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jp.adtekfuji.adfactoryactualdataoutput.MainSceneFXMLController">
+   <children>
+      <ToolBar layoutX="42.0" />
+      <BorderPane layoutX="483.0" layoutY="79.0" prefHeight="621.0" prefWidth="998.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <ToolBar BorderPane.alignment="CENTER">
+              <items>
+                <Button mnemonicParsing="false" onAction="#onSaveSetting" style="-fx-font-size: 14px;" text="設定を保存">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#onOutputCSV" style="-fx-font-size: 14px;" text="実績ファイル出力">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+              </items>
+            </ToolBar>
+         </top>
+         <center>
+            <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+              <tabs>
+                <Tab closable="false" text="出力設定">
+                  <content>
+                        <ScrollPane prefHeight="613.0" prefViewportHeight="611.0" prefViewportWidth="685.0" prefWidth="687.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <content>
+                              <VBox layoutX="24.0" layoutY="46.0" prefHeight="611.0" prefWidth="685.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="出力時間設定">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <GridPane hgap="5.0" vgap="5.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" valignment="TOP" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" valignment="TOP" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <RadioButton fx:id="pastTimeSelect" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" selected="true" text="実行時から過去の時間で指定する">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="out_time_group" />
+                                             </toggleGroup>
+                                          </RadioButton>
+                                          <RadioButton fx:id="rangeTimeSelect" mnemonicParsing="false" text="期間の範囲で指定する" toggleGroup="$out_time_group" GridPane.rowIndex="1" />
+                                          <HBox spacing="5.0" GridPane.columnIndex="1">
+                                             <children>
+                                                <Label text="過去" />
+                                                <TextField fx:id="pastTimeField" alignment="CENTER_RIGHT" prefHeight="23.0" prefWidth="50.0" />
+                                                <Label text="時間分" />
+                                             </children>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                          </HBox>
+                                          <HBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <children>
+                                                <TextField fx:id="fromRangeTimeField" prefWidth="160.0" promptText="yyyy/MM/dd HH:mm:ss" />
+                                                <Label text="~" />
+                                                <TextField fx:id="toRangeTimeField" prefWidth="160.0" promptText="yyyy/MM/dd HH:mm:ss" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="30.0" />
+                                       </VBox.margin>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </GridPane>
+                                    <Label text="出力形式設定">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <VBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" spacing="5.0">
+                                       <VBox.margin>
+                                          <Insets left="30.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <HBox spacing="5.0">
+                                             <children>
+                                                <Label text="ファイルエンコード" />
+                                                <ChoiceBox fx:id="fileEncodeChoice" prefWidth="150.0" />
+                                             </children>
+                                          </HBox>
+                                          <CheckBox fx:id="firstRowColumnCheck" mnemonicParsing="false" selected="true" text="1行目にカラムを付ける" />
+                                          <CheckBox fx:id="doubleMarkCheck" mnemonicParsing="false" text="値を２重符で囲む" />
+                                          <HBox spacing="5.0">
+                                             <children>
+                                                <CheckBox fx:id="addLastStringCheck" mnemonicParsing="false" text="最終行に文字列を付ける" />
+                                                <TextField fx:id="lastStringField" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    <Label text="出力フォルダパス設定">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <GridPane hgap="5.0" vgap="5.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" valignment="TOP" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" valignment="TOP" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" valignment="TOP" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <VBox.margin>
+                                          <Insets left="30.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <RadioButton fx:id="outLocalPathSelect" mnemonicParsing="false" selected="true" text="ローカルフォルダ">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="out_path_group" />
+                                             </toggleGroup>
+                                          </RadioButton>
+                                          <RadioButton fx:id="outSharedPathSelect" mnemonicParsing="false" text="ネットワーク共有フォルダ" toggleGroup="$out_path_group" GridPane.rowIndex="1" />
+                                          <HBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" spacing="5.0" GridPane.columnIndex="1">
+                                             <children>
+                                                <Label text="出力先フォルダパス" />
+                                                <TextField fx:id="localPathField" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="327.0" promptText="c:\" />
+                                             </children>
+                                          </HBox>
+                                          <RadioButton fx:id="outFtpPathSelect" mnemonicParsing="false" text="FTPフォルダ" toggleGroup="$out_path_group" GridPane.rowIndex="2" />
+                                          <GridPane hgap="5.0" vgap="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                              <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                              <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label text="出力先フォルダパス" />
+                                                <TextField fx:id="sharedPathField" promptText="\\\server" GridPane.columnIndex="1" />
+                                                <Label text="ユーザー名" GridPane.rowIndex="1" />
+                                                <TextField fx:id="sharedUserField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <Label text="パスワード" GridPane.rowIndex="2" />
+                                                <PasswordField fx:id="sharedPassField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                             </children>
+                                          </GridPane>
+                                          <GridPane hgap="5.0" vgap="5.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <children>
+                                                <Label text="出力先フォルダパス" />
+                                                <TextField fx:id="ftpPathField" promptText="ftp://" GridPane.columnIndex="1" />
+                                                <Label text="ユーザー名" GridPane.rowIndex="2" />
+                                                <TextField fx:id="ftpUserField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Label text="パスワード" GridPane.rowIndex="3" />
+                                                <PasswordField fx:id="ftpPassField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                <Label text="ポート番号" GridPane.rowIndex="1" />
+                                                <TextField fx:id="ftpPortField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                             </children>
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                          </GridPane>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </GridPane>
+                                    <Label text="出力ファイルパス設定">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="filePathField">
+                                       <VBox.margin>
+                                          <Insets left="30.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                  </content>
+                </Tab>
+                <Tab closable="false" text="出力カラム名の変換設定">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <GridPane prefHeight="611.0" prefWidth="685.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <TableView fx:id="columnNameTable" editable="true" layoutX="23.0" layoutY="41.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <columns>
+                                        <TableColumn fx:id="changeInColumn" prefWidth="300.0" text="adFactoryカラム名" />
+                                        <TableColumn fx:id="changeOutColumn" prefWidth="300.0" text="出力カラム名" />
+                                      </columns>
+                                    </TableView>
+                                    <HBox alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0" GridPane.rowIndex="1">
+                                       <children>
+                                          <Button mnemonicParsing="false" text="追加" />
+                                          <Button mnemonicParsing="false" text="削除" />
+                                          <Button mnemonicParsing="false" text="初期リセット" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab closable="false" text="実績データのフィルター設定">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="filterTable" layoutX="247.0" layoutY="80.0" prefHeight="559.0" prefWidth="998.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columns>
+                                  <TableColumn fx:id="filterInColumn" prefWidth="300.0" text="adFactoryカラム名" />
+                                  <TableColumn fx:id="filterOutColumn" prefWidth="300.0" text="フィルター設定" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

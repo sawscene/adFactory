@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import jp.adtekfuji.javafxcommon.controls.*?>
+
+<StackPane fx:id="pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.workfloweditplugin.component.ApprovalDialog">
+    <children>
+        <VBox spacing="8.0" >
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="8.0">
+                    <Label fx:id="dataTypeExplanation" />
+                </HBox>
+                <GridPane>
+                    <columnConstraints>
+                        <ColumnConstraints maxWidth="-Infinity" minWidth="-Infinity" hgrow="SOMETIMES" halignment="RIGHT" />
+                        <ColumnConstraints maxWidth="-Infinity" minWidth="-Infinity" hgrow="SOMETIMES" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label fx:id="requestorNameTitleLabel">
+                            <VBox.margin>
+                                <Insets bottom="8.0" top="8.0" />
+                            </VBox.margin>
+                        </Label>
+                        <Label fx:id="requestorNameLabel" GridPane.columnIndex="1" />
+                        <Label fx:id="dataTypeNameTitleLabel" GridPane.rowIndex="1" />
+                        <Label fx:id="dataTypeNameLabel" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                        <Label fx:id="revisionTitleLabel" GridPane.rowIndex="2" />
+                        <Label fx:id="revisionLabel" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                    </children>
+                    <GridPane.margin>
+                        <Insets bottom="8.0" top="8.0" />
+                    </GridPane.margin>
+                </GridPane>    
+                <HBox alignment="CENTER_LEFT" spacing="8.0">
+                    <Label styleClass="ContentTitleLabel" text="%key.ApprovalRoute" minWidth="80"/>
+                    <ComboBox fx:id="approvalRouteComboBox" styleClass="ContentComboBox" HBox.hgrow="ALWAYS" minWidth="350">
+                    </ComboBox>
+                    <VBox.margin>
+                        <Insets bottom="8.0" top="8.0" />
+                    </VBox.margin>
+                </HBox>
+                <GridPane alignment="CENTER_LEFT" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS" hgap="8.0" vgap="8.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                        <ColumnConstraints hgrow="SOMETIMES" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <!-- コメント -->
+                        <Label text="%key.ApprovalComment" minWidth="50.0" />
+                        <TextArea fx:id="commentTextArea" GridPane.columnIndex="1"/>    
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="8.0" top="8.0" />
+                    </VBox.margin>
+                </GridPane>
+                <HBox alignment="CENTER_RIGHT" spacing="8.0" minHeight="50.0" >
+                    <children>
+                        <!-- 申請 -->
+                        <Button fx:id="approvalButton" mnemonicParsing="false" onAction="#onApprovalButton" styleClass="ContentButton" />
+                        <!-- キャンセル -->
+                        <Button mnemonicParsing="false" onAction="#onCancelButton" styleClass="ContentButton" text="%key.Cancel" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+        <Pane fx:id="progress" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" >
+            <children>
+                <ProgressIndicator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" />
+            </children>
+        </Pane>
+    </children>
+</StackPane>

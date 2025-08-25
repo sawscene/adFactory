@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<warehouseCommonSettingInfo>
+    <doublequotation>true</doublequotation>
+    <encode>UTF-8</encode>
+    <startline>2</startline>
+    <parameter>
+        <key>prodNo</key>
+        <column>1</column>
+    </parameter>
+    <parameter>
+        <key>area</key>
+        <column>2</column>
+    </parameter>
+    <parameter>
+        <key>loc</key>
+        <column>3</column>
+    </parameter>
+    <parameter>
+        <key>rank</key>
+        <column>4</column>
+    </parameter>
+</warehouseCommonSettingInfo>

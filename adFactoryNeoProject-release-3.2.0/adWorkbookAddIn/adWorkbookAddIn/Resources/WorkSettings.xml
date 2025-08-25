@@ -1,0 +1,28 @@
+<root>
+    <!-- コンボボックス定義 -->
+	<AdditionalInfoType>
+		<Value id="0"></Value>
+		<Value id="1">AdditionalOptionForm.typeString</Value>
+		<Value id="2">AdditionalOptionForm.typeBoolean</Value>
+		<Value id="3">AdditionalOptionForm.typeInteger</Value>
+		<Value id="4">AdditionalOptionForm.typeNumeric</Value>
+		<Value id="5">AdditionalOptionForm.typeDate</Value>
+		<Value id="6">AdditionalOptionForm.typeIp4Address</Value>
+		<Value id="7">AdditionalOptionForm.typeMacAddress</Value>
+		<Value id="8">AdditionalOptionForm.typePlugin</Value>
+		<Value id="9">AdditionalOptionForm.typeTrace</Value>
+		<Value id="10">AdditionalOptionForm.typeDefect</Value>
+	</AdditionalInfoType>
+</root>
+
+
+
+
+
+
+
+
+
+
+
+

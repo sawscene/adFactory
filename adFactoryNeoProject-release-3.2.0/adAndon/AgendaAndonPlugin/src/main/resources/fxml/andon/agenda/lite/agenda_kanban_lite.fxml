@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="contentPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: black;" styleClass="ContentSplitPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.andon.agenda.component.lite.AgendaKanbanLite">
+   <children>
+      <TableView fx:id="tableView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columns>
+          <TableColumn fx:id="workflowColumn" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="100.0" text="%key.OrderProcesses" />
+          <TableColumn fx:id="kanbanColumn" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="100.0" text="%key.Kanban" />
+          <TableColumn fx:id="deliveryTimeColumn" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="100.0" text="%key.DeliveryTime" />
+          <TableColumn fx:id="progressColumn" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="100.0" text="%key.Progress" />
+          <TableColumn fx:id="processStatusColumn" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="500.0" text="%key.ProcessStatus" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

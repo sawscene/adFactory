@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.net.*?>
+<?import org.controlsfx.control.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import jp.adtekfuji.javafxcommon.controls.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.productionnaviplugin.component.WorkPlanChartCompoController">
+    <children>
+        <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <SplitPane fx:id="workPlanPane" dividerPositions="0.25" styleClass="ContentSplitPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                        <!-- 左ペイン -->
+                        <GridPane SplitPane.resizableWithParent="false">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="300.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <!-- カンバン階層ツリー -->
+                                <TreeView fx:id="hierarchyTree" onKeyPressed="#onKeyPressed">
+                                    <opaqueInsets>
+                                        <Insets />
+                                    </opaqueInsets>
+                                    <GridPane.margin>
+                                        <Insets bottom="8.0" />
+                                    </GridPane.margin>
+                                </TreeView>
+                                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                                    <children>
+                                        <ToolBar fx:id="hierarchyBtnArea" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <items>
+                                                <!-- 権限ボタン -->
+                                                <Button fx:id="authButton" mnemonicParsing="false" onAction="#onAuth" styleClass="ContentButton" text="%key.EditedAuth" />
+                                                <!-- 編集ボタン -->
+                                                <Button fx:id="editTreeButton" mnemonicParsing="false" onAction="#onTreeEdit" styleClass="ContentButton" text="%key.Edit" />
+                                                <!-- 削除ボタン -->
+                                                <Button fx:id="delTreeButton" mnemonicParsing="false" onAction="#onTreeDelete" styleClass="ContentButton" text="%key.Delete" />
+                                                <!-- 新規作成ボタン -->
+                                                <Button fx:id="createTreeButton" mnemonicParsing="false" onAction="#onTreeCreate" styleClass="ContentButton" text="%key.NewCreate" />
+                                            </items>
+                                        </ToolBar>
+                                    </children>
+                                </AnchorPane>
+                                <ScrollPane minHeight="300.0" GridPane.rowIndex="2">
+                                    <content>
+                                        <AnchorPane minHeight="300.0">
+                                            <children>
+                                                <GridPane minHeight="300.0" vgap="4.0" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="8.0">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                                                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <!-- カンバン名 -->
+                                                        <Label text="%key.KanbanName">
+                                                            <graphic>
+                                                                <ImageView fitHeight="8.0" fitWidth="8.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <image>
+                                                                        <Image url="@../../images/square_shape.png" />
+                                                                    </image>
+                                                                </ImageView>
+                                                            </graphic>
+                                                        </Label>
+                                                        <TextField fx:id="kanbanNameField" GridPane.rowIndex="1" />
+                                                        <!-- モデル名 -->
+                                                        <Label text="%key.ModelName" GridPane.rowIndex="2">
+                                                            <graphic>
+                                                                <ImageView fitHeight="8.0" fitWidth="8.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <image>
+                                                                        <Image url="@../../images/square_shape.png" />
+                                                                    </image>
+                                                                </ImageView>
+                                                            </graphic>
+                                                        </Label>
+                                                        <TextField fx:id="ModelNameField" GridPane.rowIndex="3" />
+                                                        <!-- ステータス -->
+                                                        <Label text="%key.Status" GridPane.rowIndex="4">
+                                                            <graphic>
+                                                                <ImageView fitHeight="8.0" fitWidth="8.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <image>
+                                                                        <Image url="@../../images/square_shape.png" />
+                                                                    </image>
+                                                                </ImageView>
+                                                            </graphic>
+                                                        </Label>
+                                                        <CheckListView fx:id="statusList" prefHeight="124.0" GridPane.rowIndex="5" />
+                                                    </children>
+                                                </GridPane>
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </ScrollPane>
+                            </children>
+                        </GridPane>
+                        <!-- 右ペイン -->
+                        <GridPane>
+                            <columnConstraints>
+                                <!--<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />-->
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" vgrow="SOMETIMES" />
+                                <RowConstraints vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <GridPane GridPane.rowIndex="1">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <SplitPane dividerPositions="0.24581939799331104" prefHeight="200.0" prefWidth="200.0">
+                                            <items>
+                                                <GridPane SplitPane.resizableWithParent="false">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                        <RowConstraints vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <ScrollPane fx:id="serialScrollPane" fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="NEVER" GridPane.rowIndex="1">
+                                                            <content>
+                                                                <VBox fx:id="serialPane" />
+                                                            </content>
+                                                        </ScrollPane>
+                                                        <AnchorPane />
+                                                    </children>
+                                                </GridPane>
+                                                <GridPane>
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="100.0" />
+                                                        <RowConstraints vgrow="SOMETIMES" />
+                                                    </rowConstraints> 
+                                                    <children>
+                                                        <ScrollPane fx:id="timeScrollPane" fitToHeight="true" hbarPolicy="NEVER" pannable="true" vbarPolicy="NEVER">
+                                                            <content>
+                                                                <HBox fx:id="timePane" />
+                                                            </content>
+                                                        </ScrollPane>
+                                                        <ScrollPane fx:id="scheduleScrollPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" GridPane.rowIndex="1">
+                                                            <content>
+                                                                <AnchorPane>
+                                                                    <children>
+                                                                        <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                            <children>
+                                                                                <AnchorPane fx:id="holidayPane" />
+                                                                                <AnchorPane>
+                                                                                    <children>
+                                                                                        <Label fx:id="timeLine" style="-fx-border-color: red;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                                                    </children>
+                                                                                </AnchorPane>
+                                                                            </children>
+                                                                        </StackPane>
+                                                                        <VBox fx:id="schedulePane" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                                    </children>
+                                                                </AnchorPane>
+                                                            </content>
+                                                        </ScrollPane>
+                                                   </children>
+                                                </GridPane>
+                                            </items>
+                                        </SplitPane>
+                                        <AnchorPane GridPane.rowIndex="1">
+                                            <children>
+                                                <ToolBar layoutX="468.0" layoutY="25.0" nodeOrientation="RIGHT_TO_LEFT" styleClass="ContentToolbar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                    <items>
+                                                        <HBox alignment="CENTER_RIGHT">
+                                                            <children>
+                                                                <Slider fx:id="dateWidthSizeSlider" blockIncrement="200.0" majorTickUnit="100.0" max="1800.0" min="50.0" minorTickCount="2" nodeOrientation="LEFT_TO_RIGHT" showTickMarks="true" value="100.0" />
+                                                            </children>
+                                                        </HBox>
+                                                    </items>
+                                                </ToolBar>
+                                            </children>
+                                        </AnchorPane>
+                                    </children>
+                                </GridPane>
+                                <!-- 検索条件 -->
+                                <GridPane hgap="8.0" vgap="8.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                        <ColumnConstraints fillWidth="false" halignment="RIGHT" hgrow="SOMETIMES" minWidth="-Infinity" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <!-- 日付検索 -->
+                                        <HBox alignment="CENTER_LEFT">
+                                            <children>
+                                                <DatePicker fx:id="startDatePicker" onAction="#onStartDate" />
+                                                <Label alignment="CENTER" prefHeight="7.0" prefWidth="25.0" text="-" textAlignment="CENTER" textOverrun="CLIP" />
+                                                <DatePicker fx:id="endDatePicker" onAction="#onStopDate" />
+                                            </children>
+                                        </HBox>
+                                        <!-- 検索ボタン -->
+                                        <Button mnemonicParsing="false" onAction="#onUpdateFilter" styleClass="ContentButton" text="%key.Search" GridPane.columnIndex="1" />
+                                        <!-- Toggle Button -->
+                                        <GridPane hgap="8.0" GridPane.columnIndex="2">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <!--<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>-->
+                                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Label text="%key.step.following" />
+                                                <HBox GridPane.columnIndex="1">
+                                                    <children>
+                                                        <ToggleButton fx:id="trackingON" onAction="#onProcessFollowOn" style="-fx-text-fill:black ;-fx-background-color:#e5e5e5;-fx-border-width: 0.3; -fx-border-color: black;" text="ON">
+                                                            <toggleGroup>
+                                                                <ToggleGroup fx:id="trackingFlg" />
+                                                            </toggleGroup>
+                                                        </ToggleButton>
+                                                        <ToggleButton fx:id="trackingOFF" onAction="#onProcessFollowOff" selected="true" style="-fx-text-fill:white;-fx-background-color:#5065ba;-fx-border-width: 0.3; -fx-border-color: black;" text="OFF" toggleGroup="$trackingFlg" />
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </GridPane>
+                                    </children>
+                                    <GridPane.margin>
+                                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                    </GridPane.margin>
+                                </GridPane>
+                                <ToolBar nodeOrientation="RIGHT_TO_LEFT" GridPane.rowIndex="2">
+                                    <items>
+                                        <!-- カンバンの帳票出力ボタン -->
+                                        <Button fx:id="ledgerOutButton" mnemonicParsing="false" onAction="#onCreateLedger" styleClass="ContentButton" text="%key.OutLedgerTitle" />
+                                        <Button fx:id="changePlansButton" mnemonicParsing="false" onAction="#onChangePlans" styleClass="ContentButton" text="%key.plans.setting" />
+                                        <!-- カンバンの移動ボタン -->
+                                        <Button fx:id="moveKanbanButton" mnemonicParsing="false" onAction="#onMoveKanban" styleClass="ContentButton" text="%key.moveHierarchy" />
+                                        <!-- カンバンの削除ボタン -->
+                                        <Button fx:id="deleteKanbanButton" mnemonicParsing="false" onAction="#onDeleteKanban" styleClass="ContentButton" text="%key.Delete" />
+                                        <!-- カンバンの編集ボタン -->
+                                        <Button fx:id="editKanbanButton" mnemonicParsing="false" onAction="#onEditKanban" styleClass="ContentButton" text="%key.Edit" />
+                                        <Button mnemonicParsing="false" onAction="#onImportKanban" styleClass="ContentButton" text="%key.import.title" />
+                                        <!-- カンバンの新規作成ボタン -->
+                                        <Button fx:id="createKanbanButton" mnemonicParsing="false" onAction="#onCreateKanban" styleClass="ContentButton" text="%key.createNew" />
+                                    </items>
+                                </ToolBar>
+                            </children>
+                        </GridPane>
+                    </items>
+                </SplitPane>
+                <Pane fx:id="Progress" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+                    <children>
+                        <ProgressIndicator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" />
+                    </children>
+                </Pane>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import jp.adtekfuji.javafxcommon.controls.*?>
+
+<AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.kanbaneditplugin.component.PlanChangeFxController">
+    <children>
+        <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <GridPane hgap="16.0" vgap="16.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                        <RowConstraints vgrow="SOMETIMES" minHeight="-Infinity" />
+                    </rowConstraints>
+                    <children>
+                        <!-- 開始時間 -->
+                        <CheckBox fx:id="startDateCheckBox" text="%key.StartTime" />
+                        <HBox fx:id="startDatePane" spacing="8.0" GridPane.columnIndex="1" >
+                            <DatePicker fx:id="startDatePicker" prefWidth="130.0" />
+                            <TimeTextField fx:id="startTimeTextField" prefWidth="90.0" alignment="CENTER" />
+                        </HBox>
+                        <!-- 中断時間 -->
+                        <CheckBox fx:id="interruptTimeCheckBox" text="%key.SuspendTime" GridPane.rowIndex="1" />
+                        <HBox fx:id="interruptTimePane" spacing="8.0" GridPane.rowIndex="1" GridPane.columnIndex="1" >
+                            <TimeTextField fx:id="interruptFromTextField" prefWidth="90.0" alignment="CENTER" />
+                            <Label text="-" />
+                            <TimeTextField fx:id="interruptToTextField" prefWidth="90.0" alignment="CENTER" />
+                        </HBox>
+                    </children>
+                    <padding>
+                        <Insets bottom="32.0" left="16.0" right="32.0" top="8.0" />
+                    </padding>
+                </GridPane>
+                <HBox alignment="CENTER_RIGHT" spacing="8.0">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#onOkButton" styleClass="ContentButton" text="%key.Ok" />
+                        <Button defaultButton="true" mnemonicParsing="false" onAction="#onCancelButton" styleClass="ContentButton" text="%key.Cancel" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+    <padding>
+        <Insets bottom="-6.0" left="12.0" right="12.0" top="12.0" />
+    </padding>
+</AnchorPane>

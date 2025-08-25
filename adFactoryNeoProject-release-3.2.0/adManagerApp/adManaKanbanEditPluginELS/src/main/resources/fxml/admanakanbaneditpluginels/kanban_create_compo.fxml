@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.kanbaneditpluginels.component.KanbanCreateCompoFxController">
+    <children>
+        <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <GridPane>
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="100.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="ALWAYS" styleClass=".ContentScrollPane" vbarPolicy="ALWAYS">
+                            <content>
+                                <VBox spacing="8.0">
+                                    <children>
+                                        <GridPane hgap="8.0" vgap="8.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints prefWidth="150.0" />
+                                                <ColumnConstraints prefWidth="400.0" />
+                                                <ColumnConstraints />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints />
+                                                <RowConstraints />
+                                                <RowConstraints />
+                                                <RowConstraints />
+                                                <RowConstraints />
+                                                <RowConstraints />
+                                            </rowConstraints>
+                                            <children>
+                                                <!-- 工程順 -->
+                                                <HBox alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                                    <children>
+                                                        <Label styleClass="ContentTitleLabel" text="%key.OrderProcessesName" />
+                                                        <Label styleClass="ContentTitleLabel" text="%key.RequiredMark" />
+                                                    </children>
+                                                </HBox>
+                                                <TextField fx:id="workflowTextField" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                                <Button fx:id="selectWorkflowButton" maxWidth="100.0" minWidth="100.0" mnemonicParsing="false" onAction="#onSelectWorkflow" styleClass="SimpleButton" text="%key.Choice" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                                <!-- カンバン名 -->
+                                                <HBox alignment="CENTER_LEFT" prefWidth="400.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                                    <children>
+                                                        <Label styleClass="ContentTitleLabel" text="%key.KanbanName" />
+                                                        <!-- <Label styleClass="ContentTitleLabel" text="%key.RequiredMark" /> -->
+                                                    </children>
+                                                </HBox>
+                                                <TextField fx:id="kanbanNameTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <!-- シリアル番号 -->
+                                                <Label styleClass="ContentTitleLabel" text="%key.SerialNumber" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                                <TextField fx:id="serialTextField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Button maxWidth="100.0" minWidth="100.0" mnemonicParsing="false" onAction="#onAdd" styleClass="SimpleButton" text="%key.Add" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                                <ListView fx:id="serialListView" minHeight="180" maxHeight="360.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                <!-- ロット数量 -->
+                                                <Label styleClass="ContentTitleLabel" text="%key.LotSize" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                                                <TextField fx:id="lotSizeTextField" editable="true" maxWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" alignment="CENTER_RIGHT" />
+                                                <!-- 追加情報 -->
+                                                <ScrollPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="400.0" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.rowIndex="5">
+                                                    <content>
+                                                        <AnchorPane>
+                                                            <children>
+                                                                <VBox fx:id="propertyPane">
+                                                                    <padding>
+                                                                        <Insets bottom="8.0" left="8.0" right="16.0" top="8.0" />
+                                                                    </padding>
+                                                                </VBox>
+                                                            </children>
+                                                        </AnchorPane>
+                                                    </content>
+                                                    <GridPane.margin>
+                                                        <Insets top="16.0" />
+                                                    </GridPane.margin>
+                                                </ScrollPane>
+                                            </children>
+                                        </GridPane>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                    </padding>
+                                </VBox>
+                            </content>
+                            <GridPane.margin>
+                                <Insets bottom="8.0" />
+                            </GridPane.margin>
+                        </ScrollPane>
+                        <!-- ツールバー -->
+                        <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0" GridPane.rowIndex="1">
+                            <items>
+                                <Button mnemonicParsing="false" onAction="#onClose" styleClass="ContentButton" text="%key.Cancel" />
+                                <Button fx:id="createButton" mnemonicParsing="false" onAction="#onCreate" styleClass="ContentButton" text="%key.RegistKanban" />
+                            </items>
+                        </ToolBar>
+                    </children>
+                </GridPane>
+                <Pane fx:id="progressPane">
+                    <children>
+                        <ProgressIndicator fx:id="progressIndicator" />
+                    </children>
+                </Pane>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

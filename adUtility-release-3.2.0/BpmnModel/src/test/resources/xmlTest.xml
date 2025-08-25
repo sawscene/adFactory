@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions targetNamespace="http://www.adtek-fuji.co.jp/adfactory">
+<process isExecutable="true"><startEvent id="start_id" name="start"/>
+<endEvent id="end_id" name="end"/>
+<task id="task4_id" name="task4"/>
+<task id="task6_id" name="task6"/>
+<task id="task7_id" name="task7"/>
+<task id="task3_id" name="task3"/>
+<task id="task2_id" name="task2"/>
+<task id="task5_id" name="task5"/>
+<task id="task1_id" name="task1"/>
+<parallelGateway pair="parallel2_id" id="parallel1_id" name="parallel1"/>
+<parallelGateway pair="parallel1_id" id="parallel2_id" name="parallel2"/>
+<sequenceFlow sourceRef="task7_id" targetRef="parallel2_id" id="hVVqY4FO" name=""/>
+<sequenceFlow sourceRef="parallel1_id" targetRef="task4_id" id="JDkPzqVv" name=""/>
+<sequenceFlow sourceRef="parallel1_id" targetRef="task7_id" id="TiWbMB8V" name=""/>
+<sequenceFlow sourceRef="task5_id" targetRef="parallel2_id" id="z6lhS39o" name=""/>
+<sequenceFlow sourceRef="task1_id" targetRef="task2_id" id="6vdLXFZb" name=""/>
+<sequenceFlow sourceRef="task3_id" targetRef="parallel2_id" id="TQ2VNJ3N" name=""/>
+<sequenceFlow sourceRef="parallel1_id" targetRef="parallel2_id" id="2KKzoUJi" name=""/>
+<sequenceFlow sourceRef="parallel1_id" targetRef="task6_id" id="R6HfJ04v" name=""/>
+<sequenceFlow sourceRef="parallel1_id" targetRef="task5_id" id="sOSqEDtG" name=""/>
+<sequenceFlow sourceRef="parallel1_id" targetRef="task3_id" id="rbuBtaZw" name=""/>
+<sequenceFlow sourceRef="start_id" targetRef="task1_id" id="RJVq38RS" name=""/>
+<sequenceFlow sourceRef="task6_id" targetRef="parallel2_id" id="utYI0UNb" name=""/>
+<sequenceFlow sourceRef="parallel2_id" targetRef="end_id" id="zrQ1Lq9p" name=""/>
+<sequenceFlow sourceRef="task2_id" targetRef="parallel1_id" id="nj4vF30Z" name=""/>
+<sequenceFlow sourceRef="task4_id" targetRef="parallel2_id" id="WGL1Ml9O" name=""/>
+</process>
+</definitions>

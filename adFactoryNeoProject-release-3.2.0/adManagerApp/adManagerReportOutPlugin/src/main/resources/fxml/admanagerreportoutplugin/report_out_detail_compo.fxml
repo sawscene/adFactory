@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import jp.adtekfuji.javafxcommon.controls.*?>
+<?import org.controlsfx.control.*?>
+
+<AnchorPane id="AnchorPane" fx:id="MainScenePane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.reportoutplugin.component.ReportOutDetailCompoFxController">
+    <children>
+        <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <SplitPane fx:id="reportOutPane" orientation="HORIZONTAL" dividerPositions="0.25" StackPane.alignment="TOP_LEFT">
+                    <items>
+                        <!-- 左ペイン -->
+                        <VBox minHeight="0.0" minWidth="0.0" styleClass="ContentPane" SplitPane.resizableWithParent="false">
+                            <!-- タイトル -->
+                            <Label styleClass="ContentTitleLabel" text="%key.OutReportTitle" minWidth="-Infinity">
+                                <font>
+                                    <Font size="18.0" />
+                                </font>
+                                <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                </padding>
+                            </Label>
+                            <!-- 検索条件 -->
+                            <ScrollPane minHeight="0.0" minWidth="0.0" fitToWidth="true" hbarPolicy="NEVER" styleClass="ContentScrollPane">
+                                <GridPane>
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                                        <RowConstraints vgrow="SOMETIMES" minHeight="-Infinity" />
+                                        <RowConstraints vgrow="SOMETIMES" minHeight="-Infinity" />
+                                    </rowConstraints>
+                                    <children>
+                                        <!-- 対象日 -->
+                                        <VBox spacing="8.0">
+                                            <children>
+                                                <CheckBox fx:id="dateCheckBox" text="%key.TargetDay" minWidth="-Infinity" onAction="#onCheckDate" />
+                                                <Pane fx:id="fromToDatePane">
+                                                    <HBox spacing="8.0" alignment="CENTER" >
+                                                        <children>
+                                                            <DatePicker fx:id="fromDatePicker" prefWidth="130.0" />
+                                                            <Label text="%key.FromSymbol" />
+                                                            <DatePicker fx:id="toDatePicker" prefWidth="130.0" />
+                                                        </children>
+                                                    </HBox>
+                                                </Pane>
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                            </padding>
+                                        </VBox>
+                                        <!-- カンバン名 -->
+                                        <VBox spacing="8.0" GridPane.rowIndex="1" >
+                                            <CheckBox fx:id="kanbanCheckBox" text="%key.KanbanName" minWidth="-Infinity" onAction="#onCheckKanbanName" />
+                                            <TextField fx:id="kanbanTextField" />
+                                            <padding>
+                                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                            </padding>
+                                        </VBox>
+                                        <!-- 製造番号 -->
+                                        <VBox fx:id="productionNumberPane" spacing="8.0" GridPane.rowIndex="2" >
+                                            <CheckBox fx:id="productionNumberCheckBox" text="%key.ProductionNumber" minWidth="-Infinity" onAction="#onCheckProductionNumber" />
+                                            <TextField fx:id="productionNumberTextField" />
+                                            <padding>
+                                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                            </padding>
+                                        </VBox>
+                                        <!-- 機種名 -->
+                                        <!-- TODO: 機種名を使用する場合、有効にする。 -->
+                                        <VBox fx:id="modelNamePane" spacing="8.0" GridPane.rowIndex="3" >
+                                            <CheckBox fx:id="modelNameCheckBox" text="%key.ModelName" minWidth="-Infinity" onAction="#onCheckModelName" />
+                                            <TextField fx:id="modelNameTextField" />
+                                            <padding>
+                                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                            </padding>
+                                        </VBox>
+                                        <!-- 設備 -->
+                                        <fx:include fx:id="equipmentSelectPane" source="select_pane.fxml" GridPane.rowIndex="4" />
+                                        <!-- 組織 -->
+                                        <fx:include fx:id="organizationSelectPane" source="select_pane.fxml" GridPane.rowIndex="5" />
+                                        <!-- 工程順 -->
+                                        <fx:include fx:id="workflowSelectPane" source="select_pane.fxml" GridPane.rowIndex="6" />
+                                        <!-- ステータス -->
+                                        <VBox fx:id="statusPane" spacing="8.0" GridPane.rowIndex="7">
+                                            <CheckBox fx:id="statusCheckBox" text="%key.Status" minWidth="-Infinity" onAction="#onCheckStatus" />
+                                            <CheckListView fx:id="statusListView" prefHeight="120.0" />
+                                            <padding>
+                                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                            </padding>
+                                        </VBox>
+                                        <!-- 固定列 -->
+                                        <CheckBox fx:id="fixedColumnsCheckBox" text="%key.OutputInFixedColumn" GridPane.rowIndex="8" >
+                                            <padding>
+                                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                            </padding>
+                                        </CheckBox>
+                                        <CheckBox fx:id="summaryCheckBox" text="%outputSummary" GridPane.rowIndex="9" >
+                                            <padding>
+                                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                            </padding>
+                                        </CheckBox>
+                                    </children>
+                                </GridPane>
+                            </ScrollPane>
+                        </VBox>
+                        <!-- 右ペイン -->
+                        <SplitPane fx:id="reportOutListPane" orientation="VERTICAL" dividerPositions="0.5" StackPane.alignment="TOP_LEFT">
+                            <items>
+                                <GridPane minHeight="0.0" styleClass="ContentPane">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                                        <RowConstraints vgrow="SOMETIMES" minHeight="0.0" />
+                                    </rowConstraints>
+                                    <children>
+                                        <!-- 右上部ペイン -->
+                                        <GridPane hgap="8.0" alignment="BOTTOM_LEFT" >
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity"  />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                                            </rowConstraints>
+                                            <children>
+                                                <!-- 検索ボタン -->
+                                                <Button alignment="CENTER" mnemonicParsing="false" minWidth="80.0" onAction="#onSearch" text="%key.Search" GridPane.valignment="BOTTOM" />
+                                                <!-- 追加項目ボタン -->
+                                                <Button alignment="CENTER" mnemonicParsing="false" minWidth="80.0" onAction="#onAdditionalColumns" text="%key.AdditionalColumns" GridPane.valignment="BOTTOM" GridPane.columnIndex="1" />
+                                                <!-- CSV出力ボタン -->
+                                                <Button alignment="CENTER" mnemonicParsing="false" minWidth="80.0" onAction="#onExport" text="%key.PrintOutCSV" GridPane.valignment="BOTTOM" GridPane.columnIndex="2" />
+                                                <!-- 実績時間の修正 -->
+                                                <Button fx:id="changeButton" alignment="CENTER" mnemonicParsing="false" minWidth="80.0" onAction="#onChangeActualTime" text="%changeActualTime" GridPane.valignment="BOTTOM" GridPane.columnIndex="3"/>
+                                                <!-- 設定保存 -->
+                                                <Button alignment="CENTER" mnemonicParsing="false" minWidth="80.0" onAction="#onSaveSetting" text="%key.SaveSetting" GridPane.valignment="BOTTOM" GridPane.columnIndex="4"/>
+                                                <!-- 設定読込 -->
+                                                <Button alignment="CENTER" mnemonicParsing="false" minWidth="80.0" onAction="#onLoadSetting" text="%key.LoadSetting" GridPane.valignment="BOTTOM" GridPane.columnIndex="5"/>
+                                                <!-- 実績件数 -->
+                                                <VBox spacing="4.0" alignment="CENTER_RIGHT" style="-fx-border-width: 1.0; -fx-border-color: #bababa;" GridPane.columnIndex="6">
+                                                    <children>
+                                                        <Label text="%key.actualNum" />
+                                                        <Label fx:id="dataCountLabel" text="999,999,999 / 999,999,999" />
+                                                    </children>
+                                                    <padding>
+                                                        <Insets bottom="4.0" left="8.0" right="8.0" top="4.0" />
+                                                    </padding>
+                                                </VBox>
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                            </padding>
+                                        </GridPane>
+                                        <!-- 実績リスト(作業実績) -->
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" GridPane.rowIndex="1">
+                                            <children>
+                                                <PropertySaveTableView fx:id="reportOutSummaryList" styleClass="ContentList" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                    <columns>
+                                                        <TableColumn fx:id="kanbanNameSummaryColumn" prefWidth="150.0" text="%key.KanbanName" />
+                                                        <TableColumn fx:id="workflowNameSummaryColumn" prefWidth="150.0" text="%key.WorkflowName" />
+                                                        <TableColumn fx:id="workNameSummaryColumn" prefWidth="150.0" text="%key.ProcessName" />
+                                                        <TableColumn fx:id="statusSummaryColumn" prefWidth="100.0" text="%key.Status" />
+                                                        <TableColumn fx:id="taktTimeSummaryColumn" prefWidth="90.0" style="-fx-alignment: center-right" text="%key.StandardTime" />
+                                                        <TableColumn fx:id="totalWorkTimeSummaryColumn" prefWidth="90.0" style="-fx-alignment: center-right" text="%key.WorkTime" />
+                                                        <TableColumn fx:id="totalSuspendTimeSummaryColumn" prefWidth="90.0" style="-fx-alignment: center-right" text="%key.SuspendTime" />
+                                                        <TableColumn fx:id="startDatetimeSummaryColumn" prefWidth="150.0" text="%key.StartTime" />
+                                                        <TableColumn fx:id="completeDatetimeSummaryColumn" prefWidth="150.0" text="%key.CompleteTime" />
+                                                        <TableColumn fx:id="delayReasonSummaryColumn" prefWidth="75.0" text="%key.EditDelayReasonTitle" />
+                                                        <TableColumn fx:id="productionNumberSummaryColumn" prefWidth="150.0" text="%key.ProductionNumber" />
+                                                        <TableColumn fx:id="modelNameSummaryColumn" prefWidth="150.0" text="%key.ModelName" />
+                                                    </columns>
+                                                </PropertySaveTableView>
+                                            </children>
+                                        </AnchorPane>
+                                    </children>
+                                </GridPane>
+
+                                <!-- 実績リスト(作業実績詳細) -->
+                                <AnchorPane minHeight="0.0" minWidth="0.0">
+                                    <children>
+                                        <PropertySaveTableView fx:id="reportOutList" styleClass="ContentList" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columns>
+                                                <TableColumn fx:id="kanbanNameColumn" prefWidth="150.0" text="%key.KanbanName" />
+                                                <TableColumn fx:id="workflowNameColumn" prefWidth="150.0" text="%key.WorkflowName" />
+                                                <TableColumn fx:id="workNameColumn" prefWidth="150.0" text="%key.ProcessName" />
+                                                <TableColumn fx:id="workingParsonColumn" prefWidth="100.0" text="%key.WorkingParson" />
+                                                <TableColumn fx:id="workEquipmentColumn" prefWidth="100.0" text="%key.EquipmentName" />
+                                                <TableColumn fx:id="actualStatusColumn" prefWidth="100.0" text="%key.ActualStatus" />
+                                                <TableColumn fx:id="interruptReasonColumn" prefWidth="75.0" text="%key.EditInterruptReasonTitle" />
+                                                <TableColumn fx:id="delayReasonColumn" prefWidth="75.0" text="%key.EditDelayReasonTitle" />
+                                                <TableColumn fx:id="implementDatetimeColumn" prefWidth="150.0" text="%key.ImplementTime" />
+                                                <TableColumn fx:id="totalWorkTimeColumn" prefWidth="90.0" style="-fx-alignment: center-right" text="%key.WorkTime" />
+                                                <TableColumn fx:id="defectReasonColumn" prefWidth="100.0" text="%key.DefectReason" />
+                                                <TableColumn fx:id="defectNumColumn" prefWidth="75.0" style="-fx-alignment: center-right" text="%key.DefectNum" />
+                                                <TableColumn fx:id="productionNumberColumn" prefWidth="150.0" text="%key.ProductionNumber" />                       
+                                                <TableColumn fx:id="taktTimeColumn" prefWidth="90.0" style="-fx-alignment: center-right" text="%key.StandardTime" />                       
+                                                <TableColumn fx:id="compNumColumn" prefWidth="75.0" style="-fx-alignment: center-right" text="%key.CompNum" />                     
+                                                <TableColumn fx:id="serialNoColumn" prefWidth="75.0" text="%key.SerialNumber" />                     
+                                            </columns>
+                                        </PropertySaveTableView>
+                                    </children>
+                                </AnchorPane>
+                            </items>
+                        </SplitPane>
+                    </items>
+                </SplitPane>
+                <!-- 処理中表示 -->
+                <Pane fx:id="progressPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" StackPane.alignment="CENTER">
+                    <children>
+                        <ProgressIndicator />
+                    </children>
+                </Pane>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

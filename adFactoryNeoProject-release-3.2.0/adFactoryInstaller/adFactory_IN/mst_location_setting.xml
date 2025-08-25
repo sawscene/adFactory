@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<warehouseCommonSettingInfo>
+    <encode>UTF-8</encode>
+    <startline>2</startline>
+    <parameter>
+        <key>area</key>
+        <column>1</column>
+    </parameter>
+    <parameter>
+        <key>loc</key>
+        <column>2</column>
+    </parameter>
+    <parameter>
+        <key>newArea</key>
+        <column>3</column>
+    </parameter>
+    <parameter>
+        <key>newLoc</key>
+        <column>4</column>
+    </parameter>
+    <parameter>
+        <key>order</key>
+        <column>5</column>
+    </parameter>
+    <parameter>
+        <key>locSpec</key>
+        <column>6</column>
+    </parameter>
+    <parameter>
+        <key>type</key>
+        <column>7</column>
+    </parameter>
+</warehouseCommonSettingInfo>

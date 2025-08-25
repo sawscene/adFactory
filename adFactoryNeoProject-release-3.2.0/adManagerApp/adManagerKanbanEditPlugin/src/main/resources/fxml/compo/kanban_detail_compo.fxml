@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import jp.adtekfuji.javafxcommon.controls.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.kanbaneditplugin.component.KanbanDetailCompoFxController">
+    <children>
+        <StackPane alignment="TOP_LEFT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <GridPane StackPane.alignment="TOP_LEFT">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <ScrollPane hbarPolicy="ALWAYS" prefViewportHeight="400.0" prefViewportWidth="600.0" styleClass=".ContentScrollPane" vbarPolicy="ALWAYS">
+                            <content>
+                                <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="8.0">
+                                    <children>
+                                        <GridPane hgap="8.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" vgap="8.0">
+                                            <children>
+                                                <!-- カンバン名 -->
+                                                <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="ContentTitleLabel" text="%key.KanbanName" />
+                                                <RestrictedTextField fx:id="kanbanNameTextField" styleClass="ContentTextBox" GridPane.columnIndex="1" maxLength="256" />
+                                                <ComboBox fx:id="kanbanStatusCombo" prefWidth="150.0" visible="false" styleClass="ContentComboBox" GridPane.columnIndex="2" />
+                                                <!-- 製造番号 -->
+                                                <Label fx:id="productionNumberLabel" styleClass="ContentTitleLabel" text="%key.ProductionNumber" GridPane.rowIndex="1" />
+                                                <RestrictedTextField fx:id="productionNumberTextField" styleClass="ContentTextBox" GridPane.columnIndex="1" GridPane.rowIndex="1" maxLength="32" />
+                                                <!-- 工程順名 -->
+                                                <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="ContentTitleLabel" text="%key.OrderProcessesName" GridPane.rowIndex="2" />
+                                                <TextField fx:id="workflowNameTextField" editable="false" styleClass="ContentTextBox" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Button fx:id="orderProcessesSelectButton" onAction="#onSelectWorkflow" styleClass="ContentTextBox" text="%key.Choice" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                                <!-- モデル名 -->
+                                                <Label fx:id="modelNameLabel" styleClass="ContentTitleLabel" text="%key.ModelName" GridPane.rowIndex="3" />
+                                                <RestrictedTextField fx:id="modelNameTextField" styleClass="ContentTextBox" GridPane.columnIndex="1" GridPane.rowIndex="3" maxLength="256" />
+                                            </children>
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                                <ColumnConstraints hgrow="SOMETIMES" prefWidth="500.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                            </columnConstraints>
+                                            <padding>
+                                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                            </padding>
+                                            <rowConstraints>
+                                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                        </GridPane>
+                                        <VBox fx:id="detailPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+                                            <children>
+                                                <VBox fx:id="workKanbanInfoPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+                                                    <VBox.margin>
+                                                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                                    </VBox.margin>
+                                                </VBox>
+                                                <VBox fx:id="separateworkFieldPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+                                                    <VBox.margin>
+                                                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                                    </VBox.margin>
+                                                </VBox>
+                                                <VBox fx:id="propertyFieldPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+                                                    <VBox.margin>
+                                                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                                    </VBox.margin>
+                                                </VBox>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </VBox>
+                            </content>
+                            <GridPane.margin>
+                                <Insets />
+                            </GridPane.margin>
+                        </ScrollPane>
+                        <AnchorPane GridPane.rowIndex="1" >
+                            <children>
+                                <HBox alignment="BASELINE_RIGHT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <ToolBar nodeOrientation="LEFT_TO_RIGHT" styleClass="TransparentToolbar">
+                                            <items>
+                                                <Button fx:id="registButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onRegist" styleClass="NarrowWidthButton" text="%key.Regist" />
+                                                <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onCancel" styleClass="NarrowWidthButton" text="%key.Cancel" />
+                                                <Button fx:id="applyButton" mnemonicParsing="false" onAction="#onApply" styleClass="NarrowWidthButton" text="%key.Apply" />
+                                            </items>
+                                        </ToolBar>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </GridPane>
+                <Pane fx:id="progressPane" layoutX="6.281186103820801" layoutY="6.196590423583984" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" StackPane.alignment="CENTER">
+                    <children>
+                        <ProgressIndicator layoutX="1.3761529922485352" layoutY="1.7653913497924805" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="80.0" />
+                    </children>
+                </Pane>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

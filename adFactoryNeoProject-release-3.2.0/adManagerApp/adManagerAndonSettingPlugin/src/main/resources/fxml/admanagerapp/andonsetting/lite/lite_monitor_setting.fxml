@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+<?import jp.adtekfuji.javafxcommon.controls.*?>
+
+<fx:root type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <!-- 表示条件 -->
+        <VBox styleClass="ContentTitleLabel">
+            <padding>
+                <Insets bottom="0" left="0" right="0" top="10" />
+            </padding>
+            <Label text="%key.MonitorSettings" />
+        </VBox>
+        <GridPane fx:id="conditionPane" hgap="2" styleClass="ContentTitleLabel" vgap="2">
+            <columnConstraints>
+                <ColumnConstraints minWidth="240.0" />
+                <ColumnConstraints hgrow="ALWAYS" maxWidth="200.0" />
+                <ColumnConstraints />
+            </columnConstraints>
+
+            <!-- 表示対象 -->
+            <Label text="%key.MonitorTarget" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <ComboBox fx:id="targetLine" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Button fx:id="selectTarget" onAction="#onSelectLine" text="%key.AndonLineSettingSelectLine" minWidth="120.0" maxWidth="140.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <!-- 更新間隔(分) -->
+            <Label text="%key.updateIntervalMinutes" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+            <RestrictedTextField fx:id="updateInterval" maxLimit="60" minLimit="1" verifier="NUMBER_ONLY" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <!-- モデル名 -->
+            <Label fx:id="modelNameLabel" text="%key.ModelName" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+            <TextField fx:id="modelNameField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+        </GridPane>
+        <VBox />
+        <VBox styleClass="ContentTitleLabel">
+            <padding>
+                <Insets bottom="0" left="0" right="0" top="10" />
+            </padding>
+            <Label text="%key.DisplaySettings" />
+        </VBox>
+        <Pane> 
+            <!-- 画面設定 -->
+            <GridPane fx:id="screenSetting" hgap="2" styleClass="ContentTitleLabel" vgap="2">
+                <columnConstraints>
+                    <ColumnConstraints minWidth="240.0" />
+                    <ColumnConstraints hgrow="ALWAYS" maxWidth="200.0" />
+                    <ColumnConstraints />
+                    <ColumnConstraints />
+                </columnConstraints>
+
+                <!-- ディスプレイ番号 -->
+                <Label text="%key.DisplayNumber" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <ComboBox fx:id="displayNumber" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                <!-- フルスクリーン表示 -->
+                <Label text="%key.FullScreen" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <SwitchButton fx:id="fullScrren" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <!-- 詳細表示 -->
+                <Label text="%key.MonitorDetail" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <ComboBox fx:id="contentType" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <!-- ページ切り替え -->
+                <Label text="%key.TogglePages" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <SwitchButton fx:id="togglePages" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <!-- ページ切り替え間隔(秒) -->
+                <Label text="%key.PageToggleTime" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                <RestrictedTextField fx:id="togglePageTime" maxLimit="60" minLimit="3" verifier="NUMBER_ONLY" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <!-- 表示列数 -->
+                <Label text="%key.ProcessDisplayColumns" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                <RestrictedTextField fx:id="processDisplayColumns" maxLimit="100" minLimit="1" verifier="NUMBER_ONLY" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                <!-- 表示列行 -->
+                <Label text="%key.ProcessDisplayRows" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                <RestrictedTextField fx:id="processDisplayRows" maxLimit="100" minLimit="1" verifier="NUMBER_ONLY" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                <!-- 工程ページ切替間隔(秒) -->
+                <Label text="%key.ProcessPageSwitchingInterval" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+                <RestrictedTextField fx:id="processPageSwitchingInterval" maxLimit="60" minLimit="3" verifier="NUMBER_ONLY" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                <!-- 呼出音設定 -->
+                <Label text="%key.CallSoundSetting" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+                <TextField fx:id="callSoundSetting" GridPane.columnIndex="1" GridPane.rowIndex="8" editable="false"/>
+                <Button fx:id="selectMelody" onAction="#onSelectMelody" text="%key.Choice" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                <Button fx:id="cancelMelody" onAction="#onCancelMelody" text="%key.Delete" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+            <rowConstraints>
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+            </rowConstraints>
+            </GridPane>
+        </Pane> 
+        <!-- フォントサイズ -->
+        <VBox styleClass="ContentTitleLabel">
+            <padding>
+                <Insets bottom="0" left="0" right="0" top="10" />
+            </padding>
+            <Label text="%key.FontSize" />
+        </VBox>
+        <GridPane fx:id="fontSetting" hgap="2" styleClass="ContentTitleLabel" vgap="2">
+            <columnConstraints>
+                <ColumnConstraints minWidth="240.0" />
+                <ColumnConstraints hgrow="ALWAYS" maxWidth="200.0" />
+            </columnConstraints>
+
+            <!-- タイトルのフォントサイズ -->
+            <Label text="%key.titleFontSize" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <RestrictedTextField fx:id="titleText" format="\%.1f" maxLimit="40.0" minLimit="8.0" verifier="DECIMAL_NUMBER_ONLY" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <!-- カラムのフォントサイズ -->
+            <Label text="%key.columnFontSize" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <RestrictedTextField fx:id="columnText" format="\%.1f" maxLimit="40.0" minLimit="8.0" verifier="DECIMAL_NUMBER_ONLY" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <!-- アイテムのフォントサイズ -->
+            <Label text="%key.itemFontSize" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <RestrictedTextField fx:id="itemText" format="\%.1f" maxLimit="40.0" minLimit="8.0" verifier="DECIMAL_NUMBER_ONLY" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+        </GridPane>
+    </children>
+</fx:root>

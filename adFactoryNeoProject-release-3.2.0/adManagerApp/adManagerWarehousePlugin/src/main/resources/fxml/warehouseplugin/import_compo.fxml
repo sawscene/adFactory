@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="587.0" prefWidth="859.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.warehouseplugin.component.ImportCompoFxController">
+    <children>
+        <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <VBox>
+                    <children>
+                        <Label styleClass="ContentTitleLabel" text="%key.Import">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+
+                        <HBox alignment="CENTER_LEFT">
+                            <children>
+                                <Label prefWidth="200" styleClass="text-normal" text="%key.ImportFolder" />
+                                <TextField fx:id="importFolderField" prefWidth="400.0" styleClass="text-normal" />
+                                <Button fx:id="selectFoldeButton" mnemonicParsing="true" onAction="#onSelectFolderAction" prefHeight="35.0" prefWidth="50.0" styleClass="SimpleButton" text="%key.Choice">
+                                    <HBox.margin>
+                                        <Insets left="5.0" />
+                                    </HBox.margin>
+                                </Button>
+                            </children>
+                            <VBox.margin>
+                                <Insets top="30.0" />
+                            </VBox.margin>
+                        </HBox>
+
+                        <Label fx:id="messageLabel" styleClass="text-normal">
+                            <VBox.margin>
+                                <Insets top="40.0" />
+                            </VBox.margin>
+                        </Label>
+
+                        <Button fx:id="importButton" mnemonicParsing="true" onAction="#onImportAction" styleClass="ContentButton" text="%key.Import">
+                            <VBox.margin>
+                                <Insets top="30.0" />
+                            </VBox.margin>
+                        </Button>
+                    </children>
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                    </padding>
+                </VBox>
+                <Pane fx:id="progressPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+                   <children>
+                      <ProgressIndicator layoutX="4.929872512817383" layoutY="4.476036071777344" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                   </children>
+                </Pane>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

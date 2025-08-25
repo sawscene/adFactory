@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import jp.adtekfuji.javafxcommon.controls.*?>
+
+<StackPane fx:id="anchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.kanbaneditplugin.dialog.ApproveDialog">
+    <children>
+        <VBox spacing="8.0" alignment="CENTER_LEFT">
+            <children>
+                <GridPane hgap="8.0" vgap="16.0" prefWidth="400.0" >
+                    <columnConstraints>
+                        <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                    </rowConstraints>
+                    <children>
+                        <!-- メッセージ -->
+                        <VBox fx:id="messageVBox" GridPane.rowIndex="0" GridPane.columnSpan="2" />
+                        <!-- 種別(承認コンボボックス) -->
+                        <Label text="%key.Category" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                        <ComboBox fx:id="approveNumComboBox" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                        <!-- 承認理由 -->
+                        <Label text="%key.Reason" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                        <Pane fx:id="reasonPane" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                    </children>
+                    <padding>
+                        <Insets bottom="32.0" left="16.0" right="16.0" top="8.0" />
+                    </padding>
+                </GridPane>
+                <AnchorPane> 
+                    <HBox spacing="8.0" AnchorPane.leftAnchor="0.0" >
+                        <children>
+                            <!-- 可ボタン -->
+                            <Button mnemonicParsing="false" onAction="#onApproveButton" styleClass="ContentButton" text="%key.ApprovalStatus" />
+                            <!-- 否ボタン -->
+                            <Button mnemonicParsing="false" onAction="#onDisApproveButton" styleClass="ContentButton" text="%key.DisapprovalStatus" />
+                        </children>
+                    </HBox>
+                    <HBox spacing="8.0" AnchorPane.rightAnchor="0.0" >
+                        <children>
+                            <!-- 取り消しボタン -->
+                            <Button mnemonicParsing="false" onAction="#onRevocationButton" styleClass="ContentButton" text="%key.Revocation" />
+                        </children>
+                    </HBox>
+                </AnchorPane>
+            </children>
+        </VBox>
+    </children>
+    <padding>
+        <Insets bottom="-6.0" left="12.0" right="12.0" top="12.0" />
+    </padding>
+</StackPane>

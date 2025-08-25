@@ -1,0 +1,19 @@
+■利用方法
+コピーして使用してください。
+また、コピー後各種パッケージ、ｲﾝﾀｰﾌｪｰｽ等の名前はリファクタして
+使用してください。
+＊リファクタしないと使用できません
+
+■リファクタ時のチェック項目
+・プロジェクト名
+・各種パッケージ名
+・Monitor~CompoFxControllerクラスのクラス名
+・AdAndonComponentInterface　のターゲットクラス名
+　(Monitor~CompoFxControllerの変更後と同じにすること）
+・コントローラクラスの＠FxSceneのパス
+・各種FXMLのコントローラクラスとの連動パス
+・pomの起動クラス名
+・プロジェクト直下にあるrelease.batの「set APPLICATION_NAME=~」を
+　作成するアプリケーションのプロジェクト名に変更してください。
+
+・@FxScene・@FxCompoのidとfxmlPathは他のプロジェクトと重複しないようにしてください。

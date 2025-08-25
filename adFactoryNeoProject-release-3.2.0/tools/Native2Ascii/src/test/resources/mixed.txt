@@ -1,0 +1,3 @@
+Hello, 世界!
+This is a テスト file.
+It contains both ASCII and 日本語 characters.

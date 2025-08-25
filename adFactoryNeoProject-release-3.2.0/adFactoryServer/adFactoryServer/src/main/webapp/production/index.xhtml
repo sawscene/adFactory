@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+        <title>#{performanceBean.title}</title>
+        <h:outputStylesheet library="css" name="styles.css"/>
+    </h:head>
+    <h:body style="background: #000;">
+        <script>
+            setInterval(function() {
+                document.getElementById("conditions:update").click();
+            }, 60000);
+        </script>
+        <style>
+            .pink {
+                -webkit-appearance: none;
+                background: #F6CED8;
+                text-align: center;
+                font-size: xx-large;
+                font-family: 'A-OTF Jun Pro 34', sans-serif;
+            }
+            .normal {
+                -webkit-appearance: none;
+                text-align: center;
+                font-size: xx-large;
+                font-family: 'A-OTF Jun Pro 34', sans-serif;
+            }
+            th {
+                -webkit-appearance: none;
+                background: #BDBDBD !important;
+                border: 1px #848484 solid !important;
+                border-radius: 0px !important;
+                text-shadow: none !important;
+            }
+            td {
+                border: 1px #848484 solid !important;
+            }
+            .ui-chkbox .ui-chkbox-box {
+                width: 40px;
+                height: 40px;
+            }
+            .refresh {
+                width: 30px; 
+                height: 30px; 
+                background: url(#{resource['images/refresh.png']}) no-repeat top !important;
+                border: 0;
+                margin-left: 10px;
+            }
+        </style>
+        <h:form id="conditions">
+            <h1 style="color: white;">#{performanceBean.title}</h1>
+            <!-- <h:outputLabel accesskey="n">期間:</h:outputLabel> -->
+            <p:calendar id="fromDate" value="#{performanceBean.fromDate}" pattern="yyyy/MM/dd" />
+            <h:outputLabel accesskey="n" style="color: white;margin: 0 5px;">～</h:outputLabel>
+            <p:calendar id="toDate" value="#{performanceBean.toDate}" pattern="yyyy/MM/dd" />
+            <h:selectBooleanCheckbox value="#{performanceBean.selectProductionNumber}" style="margin-left: 15px;" />
+            <h:outputLabel accesskey="n" style="color: white; margin-right: 10px;">製造番号</h:outputLabel>
+            <p:commandButton id="update" actionListener="#{performanceBean.update}" update=":result" value="更新" style="margin-left: 10px;"/>
+        </h:form>
+        <h:form id="result" style="margin-top: 5px;">
+            <p:dataTable id="dataTable" widgetVar="dataTableWidgetVar" 
+                         value="#{performanceBean.dataList}" 
+                         var="performanceData" 
+                         tableStyle="width:auto" 
+                         rowStyleClass="#{performanceData.index eq 0 ? 'pink' : 'normal'}">
+
+                <p:column id="modelName" styleClass="pink">
+                    <f:facet name="header">
+                        <h:outputText value="モデル"/>
+                    </f:facet>
+                    <h:outputText value="#{performanceData.modelName}" />
+                </p:column>
+
+                <p:column id="productionNumber" styleClass="pink" rendered="#{performanceBean.selectProductionNumber}" >
+                    <f:facet name="header">
+                        <h:outputText value="製造番号"/>
+                    </f:facet>
+                    <h:outputText value="#{performanceData.productionNumber}" />
+                </p:column>
+                
+                <p:columns value="#{performanceBean.dataTableColumns}"
+                           var="column" >
+                    <f:facet name="header">
+                        <h:outputText value="#{column.header}" styleClass="normal"/>
+                    </f:facet>
+                    <div align="right">
+                        <h:outputText value="#{performanceData.cells[column.id].value}" />
+                    </div>
+               </p:columns>
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</html>

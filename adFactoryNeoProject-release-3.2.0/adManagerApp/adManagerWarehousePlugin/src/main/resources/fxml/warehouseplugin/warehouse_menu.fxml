@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="MainScenePane" prefWidth="220.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.warehouseplugin.component.MenuCompoFxController">
+    <children>
+        <VBox spacing="16.0" styleClass="SideNaviVBox" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <!-- 在庫照会 -->
+                <Button alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onStock" styleClass="SideNaviButton" text="%key.StockView" textOverrun="CLIP" />
+                <!-- 払出指示 -->
+                <Button alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onDelivery" styleClass="SideNaviButton" text="%key.PayoutManagement" textOverrun="CLIP" />
+                <!-- ロットトレース(製品) -->
+                <Button fx:id="lotTraceKanbanButton" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onLotTraceKanban" styleClass="SideNaviButton" text="%key.LotTrace.kanban" textOverrun="CLIP" />
+                <!-- ロットトレース(資材) -->
+                <Button fx:id="lotTraceMaterialButton" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onLotTraceMaterial" styleClass="SideNaviButton" text="%key.LotTrace.material" textOverrun="CLIP" />
+                <!-- ロットトレース(作業者) -->
+                <Button fx:id="lotTracePersonButton" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onLotTracePerson" styleClass="SideNaviButton" text="%key.LotTrace.person" textOverrun="CLIP" />
+                <!-- 作業ログ出力 -->
+                <Button alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onOperationLog" styleClass="SideNaviButton" text="%operationLog" textOverrun="CLIP" />
+                <!-- インポート -->
+                <Button fx:id="importButton" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onImport" styleClass="SideNaviButton" text="%key.Import" textOverrun="CLIP" />
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

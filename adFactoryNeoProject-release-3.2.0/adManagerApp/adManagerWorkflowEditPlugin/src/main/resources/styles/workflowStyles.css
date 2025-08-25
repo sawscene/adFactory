@@ -1,0 +1,31 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2019/07/29, 11:09:51
+    Author     : fu-kato
+*/
+
+.ScalingButton {
+    -fx-background-image: url("../image/btnZoomOFF.PNG"); 
+    -fx-background-color: transparent;
+    -fx-background-repeat: no-repeat; 
+    -fx-background-position: center center; 
+    -fx-border-width: 0;
+    -fx-border-color: transparent; 
+    -fx-padding: 0; 
+    -fx-spacing: 0;
+}
+
+.ScalingButton:selected {
+    -fx-background-image: url("../image/btnZoomON.png"); 
+    -fx-background-color: transparent;
+    -fx-background-repeat: no-repeat; 
+    -fx-background-position: center center; 
+    -fx-border-width: 0;
+    -fx-border-color: transparent; 
+    -fx-padding: 0; 
+    -fx-spacing: 0;
+}

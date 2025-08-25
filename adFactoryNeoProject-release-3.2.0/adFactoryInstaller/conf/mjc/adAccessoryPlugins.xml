@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<adaccessoryplugins>
+    <date>2016-11-25 08:15:00</date>
+    <plugins>
+        <name>Simple</name>
+        <name>Delvo</name>
+        <name>HiTESTER</name>
+        <name>Measure</name>
+        <name>Torque Driver</name>
+	<name>IMADA DST-200N</name>
+	<name>HIOKI SM7110</name>
+	<name>MITSUTOYO MF-U</name>
+	<name>760Z</name>
+	<name>SIP</name>
+    </plugins>
+</adaccessoryplugins>

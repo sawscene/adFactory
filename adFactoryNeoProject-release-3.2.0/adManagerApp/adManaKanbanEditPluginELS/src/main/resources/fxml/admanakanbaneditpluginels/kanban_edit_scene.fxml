@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="MainScenePane" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.kanbaneditpluginels.scene.SceneFxController">
+    <children>
+        <SplitPane fx:id="MainSceneSplitPane" dividerPositions="0.15" prefHeight="200.0" prefWidth="200.0" styleClass="ContentSplitPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="64.0">
+            <items>
+                <AnchorPane fx:id="SideNaviPane" minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="160.0" styleClass="SideNaviPane" SplitPane.resizableWithParent="false">
+                    <padding>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                    </padding>
+                </AnchorPane>
+                <AnchorPane fx:id="ContentNaviPane" minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="199.0" styleClass="ContentPane">
+                    <padding>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                    </padding>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+        <AnchorPane fx:id="AppBarPane" layoutX="165.0" prefHeight="64.0" styleClass="MenuPane" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <padding>
+                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+            </padding>
+        </AnchorPane>
+        <AnchorPane fx:id="MenuPaneUnderlay" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+        <AnchorPane fx:id="MenuPane" prefHeight="320.0" prefWidth="320.0" styleClass="MenuPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <padding>
+                <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+            </padding>
+        </AnchorPane>
+    </children>
+</AnchorPane>

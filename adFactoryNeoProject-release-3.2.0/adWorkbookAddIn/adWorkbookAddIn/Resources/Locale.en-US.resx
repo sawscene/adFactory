@@ -1,0 +1,830 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AdditionalOptionForm" xml:space="preserve">
+    <value>Additional option</value>
+  </data>
+  <data name="AdditionalOptionForm.cancelButton" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="AdditionalOptionForm.itemNameLabel" xml:space="preserve">
+    <value>Item name*</value>
+  </data>
+  <data name="AdditionalOptionForm.okButton" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="AdditionalOptionForm.typeBoolean" xml:space="preserve">
+    <value>Truth value</value>
+  </data>
+  <data name="AdditionalOptionForm.typeDate" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="AdditionalOptionForm.typeDefect" xml:space="preserve">
+    <value>Defect info</value>
+  </data>
+  <data name="AdditionalOptionForm.typeInteger" xml:space="preserve">
+    <value>Integer</value>
+  </data>
+  <data name="AdditionalOptionForm.typeIp4Address" xml:space="preserve">
+    <value>IPv4 address</value>
+  </data>
+  <data name="AdditionalOptionForm.typeLabel" xml:space="preserve">
+    <value>Type*</value>
+  </data>
+  <data name="AdditionalOptionForm.typeMacAddress" xml:space="preserve">
+    <value>Mac address</value>
+  </data>
+  <data name="AdditionalOptionForm.typeNumeric" xml:space="preserve">
+    <value>Real number</value>
+  </data>
+  <data name="AdditionalOptionForm.typePlugin" xml:space="preserve">
+    <value>Plugin name</value>
+  </data>
+  <data name="AdditionalOptionForm.typeString" xml:space="preserve">
+    <value>String</value>
+  </data>
+  <data name="AdditionalOptionForm.typeTrace" xml:space="preserve">
+    <value>Trace info</value>
+  </data>
+  <data name="AdditionalOptionForm.valueLabel" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="backButton" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="CheckItemsControl" xml:space="preserve">
+    <value>Check item</value>
+  </data>
+  <data name="CheckItemsControl.baseInfoLabel" xml:space="preserve">
+    <value>Basic information </value>
+  </data>
+  <data name="CheckItemsControl.checkItemNameLabel" xml:space="preserve">
+    <value>Item :</value>
+  </data>
+  <data name="CheckItemsControl.currentValueLabel" xml:space="preserve">
+    <value>Default value :</value>
+  </data>
+  <data name="CheckItemsControl.customSettingsButton" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="CheckItemsControl.customSettingsLabel" xml:space="preserve">
+    <value>Custom settings </value>
+  </data>
+  <data name="CheckItemsControl.dateFormatLabel" xml:space="preserve">
+    <value>Date format </value>
+  </data>
+  <data name="CheckItemsControl.detailSettingsLabel" xml:space="preserve">
+    <value>Detail settings </value>
+  </data>
+  <data name="CheckItemsControl.displayCommentCheckBox" xml:space="preserve">
+    <value>Display comment </value>
+  </data>
+  <data name="CheckItemsControl.equipmentButton" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="CheckItemsControl.equipmentLabel" xml:space="preserve">
+    <value>Equipment </value>
+  </data>
+  <data name="CheckItemsControl.equipmentUsedLabel" xml:space="preserve">
+    <value>Equipment used </value>
+  </data>
+  <data name="CheckItemsControl.formulaLabel" xml:space="preserve">
+    <value>Formula </value>
+  </data>
+  <data name="CheckItemsControl.initialValueLabel" xml:space="preserve">
+    <value>Initial value </value>
+  </data>
+  <data name="CheckItemsControl.inputCommentCheckBox" xml:space="preserve">
+    <value>Input comment </value>
+  </data>
+  <data name="CheckItemsControl.inputLabel" xml:space="preserve">
+    <value>Input </value>
+  </data>
+  <data name="CheckItemsControl.inputTypeLabel" xml:space="preserve">
+    <value>Input type </value>
+  </data>
+  <data name="CheckItemsControl.itemNameLabel" xml:space="preserve">
+    <value>Item name </value>
+  </data>
+  <data name="CheckItemsControl.itemValueLabel" xml:space="preserve">
+    <value>Item value </value>
+  </data>
+  <data name="CheckItemsControl.listButton" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="CheckItemsControl.listLabel" xml:space="preserve">
+    <value>List </value>
+  </data>
+  <data name="CheckItemsControl.maxValueLabel" xml:space="preserve">
+    <value>Max value :</value>
+  </data>
+  <data name="CheckItemsControl.minValueLabel" xml:space="preserve">
+    <value>Min value :</value>
+  </data>
+  <data name="CheckItemsControl.noDirectInputCheckBox" xml:space="preserve">
+    <value>No direct Input </value>
+  </data>
+  <data name="CheckItemsControl.noDuplicationCheckBox" xml:space="preserve">
+    <value>No Duplication </value>
+  </data>
+  <data name="CheckItemsControl.preventErrorsLabel" xml:space="preserve">
+    <value>Error prevention </value>
+  </data>
+  <data name="CheckItemsControl.requiredCheckBox" xml:space="preserve">
+    <value>Required </value>
+  </data>
+  <data name="CheckItemsControl.ruleLabel" xml:space="preserve">
+    <value>Rules </value>
+  </data>
+  <data name="CheckItemsControl.typeLabel" xml:space="preserve">
+    <value>Type </value>
+  </data>
+  <data name="CheckItemsControl.workRecordLabel" xml:space="preserve">
+    <value>Work record </value>
+  </data>
+  <data name="CommunicationError" xml:space="preserve">
+    <value>An error occurred while communicating with the server.</value>
+  </data>
+  <data name="CustomListForm" xml:space="preserve">
+    <value>Custom value list</value>
+  </data>
+  <data name="CustomListForm.addButton" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="CustomListForm.cancelButton" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CustomListForm.itemNameLabel" xml:space="preserve">
+    <value>Item name</value>
+  </data>
+  <data name="CustomListForm.okButton" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="CustomListForm.valueLabel" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="CustomRibbon.aboutButton" xml:space="preserve">
+    <value>Version info</value>
+  </data>
+  <data name="CustomRibbon.aboutButtonTip" xml:space="preserve">
+    <value>You can check the version of the adWorkbook.</value>
+  </data>
+  <data name="CustomRibbon.dataCheckButton" xml:space="preserve">
+    <value>Data check</value>
+  </data>
+  <data name="CustomRibbon.dataCheckButtonTip" xml:space="preserve">
+    <value>Verify the created work procdure sheet.</value>
+  </data>
+  <data name="CustomRibbon.drawingSupportButton" xml:space="preserve">
+    <value>Drawing support</value>
+  </data>
+  <data name="CustomRibbon.drawingSupportButtonTip" xml:space="preserve">
+    <value>Insert shapes into the work procdure sheet.</value>
+  </data>
+  <data name="CustomRibbon.HelpGroup" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="CustomRibbon.LinkGroup" xml:space="preserve">
+    <value>Link</value>
+  </data>
+  <data name="CustomRibbon.loginButton" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="CustomRibbon.loginButtonTip" xml:space="preserve">
+    <value>Login by entering Login ID and password.</value>
+  </data>
+  <data name="CustomRibbon.manualButton" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="CustomRibbon.manualButtonTip" xml:space="preserve">
+    <value>You can learn how to create a work procdure sheet.</value>
+  </data>
+  <data name="CustomRibbon.operateWorkProcedure" xml:space="preserve">
+    <value>Work procedure</value>
+  </data>
+  <data name="CustomRibbon.operateWorkProcedureTip" xml:space="preserve">
+    <value>Edit the work instructions within the work process sheet.</value>
+  </data>
+  <data name="CustomRibbon.SectionGroup" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="CustomRibbon.uploadButton" xml:space="preserve">
+    <value>Upload</value>
+  </data>
+  <data name="CustomRibbon.uploadButtonTip" xml:space="preserve">
+    <value>Register the created work procdure sheet in adFactory.</value>
+  </data>
+  <data name="DisplayItemsForm" xml:space="preserve">
+    <value>Display item</value>
+  </data>
+  <data name="DisplayItemsForm.addButton" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="DisplayItemsForm.cancelButton" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="DisplayItemsForm.itemNameLabel" xml:space="preserve">
+    <value>Item name</value>
+  </data>
+  <data name="DisplayItemsForm.kanban" xml:space="preserve">
+    <value>Kanban</value>
+  </data>
+  <data name="DisplayItemsForm.okButton" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="DisplayItemsForm.targetLabel" xml:space="preserve">
+    <value>Target</value>
+  </data>
+  <data name="DisplayItemsForm.work" xml:space="preserve">
+    <value>Work</value>
+  </data>
+  <data name="DisplayItemsForm.workKanban" xml:space="preserve">
+    <value>Work kanban</value>
+  </data>
+  <data name="DrawingSupportControl" xml:space="preserve">
+    <value>Drawing support</value>
+  </data>
+  <data name="EquipmentNotFound" xml:space="preserve">
+    <value>Equipment not found: {0}</value>
+  </data>
+  <data name="EquipmentsForm" xml:space="preserve">
+    <value>Equipments </value>
+  </data>
+  <data name="EquipmentsForm.addButton" xml:space="preserve">
+    <value>Add </value>
+  </data>
+  <data name="EquipmentsForm.cancelButton" xml:space="preserve">
+    <value>Cancel </value>
+  </data>
+  <data name="EquipmentsForm.deleteButton" xml:space="preserve">
+    <value>Remove </value>
+  </data>
+  <data name="EquipmentsForm.okButton" xml:space="preserve">
+    <value>Ok </value>
+  </data>
+  <data name="EquipmentsForm.root" xml:space="preserve">
+    <value>Equipments</value>
+  </data>
+  <data name="ExcelImport.diffImage" xml:space="preserve">
+    <value>A different image file has already been set in this work procedure. Please check the image file.</value>
+  </data>
+  <data name="ExcelImport.DoImport.ImportingModel" xml:space="preserve">
+    <value>reading data</value>
+  </data>
+  <data name="ExcelImport.DoImport.UploadingImages" xml:space="preserve">
+    <value>uploading images</value>
+  </data>
+  <data name="ExcelImport.NotSaved" xml:space="preserve">
+    <value>Excel document is not saved.</value>
+  </data>
+  <data name="ExcelImport.WorkParameterImageNotFound" xml:space="preserve">
+    <value>Work parameter image "{0}" not found.</value>
+  </data>
+  <data name="ExcelUtils.Args.Workbook" xml:space="preserve">
+    <value>workbook</value>
+  </data>
+  <data name="ExcelUtils.Args.WorkProcedure" xml:space="preserve">
+    <value>work procedure</value>
+  </data>
+  <data name="ExcelUtils.Args.Worksheet" xml:space="preserve">
+    <value>sheet</value>
+  </data>
+  <data name="ExcelUtils.Validate.DuplicateValue" xml:space="preserve">
+    <value>Please enter a value in this cell that is unique within the {0}.</value>
+  </data>
+  <data name="ExcelUtils.Validate.Enum" xml:space="preserve">
+    <value>Please enter one of following values: {0}。</value>
+  </data>
+  <data name="ExcelUtils.Validate.GetCellFailed" xml:space="preserve">
+    <value>Getting cell value failed.</value>
+  </data>
+  <data name="ExcelUtils.Validate.GetImageFailed" xml:space="preserve">
+    <value>Getting image failed.</value>
+  </data>
+  <data name="ExcelUtils.Validate.Integer" xml:space="preserve">
+    <value>Please enter integer value.</value>
+  </data>
+  <data name="ExcelUtils.Validate.InvalidExternalFile" xml:space="preserve">
+    <value>Invalid external file data.</value>
+  </data>
+  <data name="ExcelUtils.Validate.InvalidReference" xml:space="preserve">
+    <value>Invalid reference number.</value>
+  </data>
+  <data name="ExcelUtils.Validate.InvalidTaktTime" xml:space="preserve">
+    <value>Please enter value in format hh:mm:ss.</value>
+  </data>
+  <data name="ExcelUtils.Validate.MinMaxValue" xml:space="preserve">
+    <value>Please enter value greater or equal then minimum value.</value>
+  </data>
+  <data name="ExcelUtils.Validate.MissingMasterSheet" xml:space="preserve">
+    <value>Master sheet "{0}" don't exist.</value>
+  </data>
+  <data name="ExcelUtils.Validate.Number" xml:space="preserve">
+    <value>Please enter numeric value.</value>
+  </data>
+  <data name="ExcelUtils.Validate.Required" xml:space="preserve">
+    <value>Please enter value.</value>
+  </data>
+  <data name="forwardButton" xml:space="preserve">
+    <value>Forward</value>
+  </data>
+  <data name="HelpViewer" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="indexButton" xml:space="preserve">
+    <value>Index</value>
+  </data>
+  <data name="InternalServerError" xml:space="preserve">
+    <value>Unknown error returned from server.</value>
+  </data>
+  <data name="key.absoluteDisplay" xml:space="preserve">
+    <value>Reference value ± display</value>
+  </data>
+  <data name="key.addDataFailed" xml:space="preserve">
+    <value>Failed to add data.</value>
+  </data>
+  <data name="key.addToEnd" xml:space="preserve">
+    <value>(Add to end)</value>
+  </data>
+  <data name="key.alreadyAdded" xml:space="preserve">
+    <value>{0} has already been added.</value>
+  </data>
+  <data name="key.bulkInput" xml:space="preserve">
+    <value>Enter in product unit</value>
+  </data>
+  <data name="key.calculationResults" xml:space="preserve">
+    <value>Calculation results</value>
+  </data>
+  <data name="key.cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="key.confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="key.confirmDiscardEdited" xml:space="preserve">
+    <value>Do you want to discard your edits?</value>
+  </data>
+  <data name="key.connectionFailed" xml:space="preserve">
+    <value>Connection failed to server.</value>
+  </data>
+  <data name="key.connectionSucceeded" xml:space="preserve">
+    <value>Connection succeeded.</value>
+  </data>
+  <data name="key.connectionTest" xml:space="preserve">
+    <value>Connection test</value>
+  </data>
+  <data name="key.createDataFailed" xml:space="preserve">
+    <value>Failed to create data.</value>
+  </data>
+  <data name="key.createDiagramFailed" xml:space="preserve">
+    <value>Failed to create diagram.</value>
+  </data>
+  <data name="key.custom" xml:space="preserve">
+    <value>Custom</value>
+  </data>
+  <data name="key.customFields" xml:space="preserve">
+    <value>Custom fields</value>
+  </data>
+  <data name="key.dataCheck" xml:space="preserve">
+    <value>Data check</value>
+  </data>
+  <data name="key.dataCheckCompleted" xml:space="preserve">
+    <value>Data check completed.</value>
+  </data>
+  <data name="key.dataCheckFailed" xml:space="preserve">
+    <value>Data check Failed.</value>
+  </data>
+  <data name="key.dataChecking" xml:space="preserve">
+    <value>Checking data...</value>
+  </data>
+  <data name="key.dateAndTime" xml:space="preserve">
+    <value>Date and time</value>
+  </data>
+  <data name="key.dateOnly" xml:space="preserve">
+    <value>Date only</value>
+  </data>
+  <data name="key.datetime" xml:space="preserve">
+    <value>Date time</value>
+  </data>
+  <data name="key.decimalDigits" xml:space="preserve">
+    <value>Decimal digits</value>
+  </data>
+  <data name="key.deleteDataFailed" xml:space="preserve">
+    <value>Failed to delete data.</value>
+  </data>
+  <data name="key.delimiter" xml:space="preserve">
+    <value>Delimiter</value>
+  </data>
+  <data name="key.drawingSupport" xml:space="preserve">
+    <value>Drawing support</value>
+  </data>
+  <data name="key.emptyWorkProcedure" xml:space="preserve">
+    <value>(Empty work procedure)</value>
+  </data>
+  <data name="key.error" xml:space="preserve">
+    <value>error</value>
+  </data>
+  <data name="key.getEquipmentInfoFailed" xml:space="preserve">
+    <value>Could not get equipment information.</value>
+  </data>
+  <data name="key.getOrganizationInfoFailed" xml:space="preserve">
+    <value>Could not get worker information.</value>
+  </data>
+  <data name="key.holdPrevData" xml:space="preserve">
+    <value>Hold previous data</value>
+  </data>
+  <data name="key.import" xml:space="preserve">
+    <value>Upload</value>
+  </data>
+  <data name="key.importCompleted" xml:space="preserve">
+    <value>Upload completed.</value>
+  </data>
+  <data name="key.importFailed" xml:space="preserve">
+    <value>Upload Failed.</value>
+  </data>
+  <data name="key.importing" xml:space="preserve">
+    <value>Importing...</value>
+  </data>
+  <data name="key.information" xml:space="preserve">
+    <value>information</value>
+  </data>
+  <data name="key.inputProductNum" xml:space="preserve">
+    <value>Register product number</value>
+  </data>
+  <data name="key.inputRequired" xml:space="preserve">
+    <value>There are fields that have not been filled in.
+Please fill in the required fields.</value>
+  </data>
+  <data name="key.inspection" xml:space="preserve">
+    <value>Inspection</value>
+  </data>
+  <data name="key.integerDigits" xml:space="preserve">
+    <value>Integer digits</value>
+  </data>
+  <data name="key.judg" xml:space="preserve">
+    <value>Completion check</value>
+  </data>
+  <data name="key.keyboardText" xml:space="preserve">
+    <value>Touch keyboard</value>
+  </data>
+  <data name="key.licenseInvalid" xml:space="preserve">
+    <value>License is invalid.</value>
+  </data>
+  <data name="key.licenseValid" xml:space="preserve">
+    <value>License is valid.</value>
+  </data>
+  <data name="key.loadDataFailed" xml:space="preserve">
+    <value>Failed to load data.</value>
+  </data>
+  <data name="key.loadXmlDataFailed" xml:space="preserve">
+    <value>Failed to load xml data.</value>
+  </data>
+  <data name="key.measure" xml:space="preserve">
+    <value>Measure</value>
+  </data>
+  <data name="key.moveDataFailed" xml:space="preserve">
+    <value>Failed to move data.</value>
+  </data>
+  <data name="key.noEquipmentConfigured" xml:space="preserve">
+    <value>(No equipment configured)</value>
+  </data>
+  <data name="key.noOrganizationConfigured" xml:space="preserve">
+    <value>(No organization configured)</value>
+  </data>
+  <data name="key.noOrganizationTerminalConfigured" xml:space="preserve">
+    <value>(No organization terminal configured)</value>
+  </data>
+  <data name="key.parts" xml:space="preserve">
+    <value>Parts</value>
+  </data>
+  <data name="key.photosAndFiles" xml:space="preserve">
+    <value>Photos and files</value>
+  </data>
+  <data name="key.pluginName" xml:space="preserve">
+    <value>Plugin name</value>
+  </data>
+  <data name="key.product" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="key.productName" xml:space="preserve">
+    <value>Work Manual Creator</value>
+  </data>
+  <data name="key.property" xml:space="preserve">
+    <value>Property</value>
+  </data>
+  <data name="key.qrRead" xml:space="preserve">
+    <value>Scan QR code with camera</value>
+  </data>
+  <data name="key.readConfigFileFailed" xml:space="preserve">
+    <value>Failed to read the configuration file.</value>
+  </data>
+  <data name="key.saveDataFailed" xml:space="preserve">
+    <value>Failed to save data.</value>
+  </data>
+  <data name="key.tenKeyboard" xml:space="preserve">
+    <value>Ten keyboard</value>
+  </data>
+  <data name="key.timeOnly" xml:space="preserve">
+    <value>Time only</value>
+  </data>
+  <data name="key.timer" xml:space="preserve">
+    <value>Timer</value>
+  </data>
+  <data name="key.warning" xml:space="preserve">
+    <value>warning</value>
+  </data>
+  <data name="key.work" xml:space="preserve">
+    <value>Work</value>
+  </data>
+  <data name="key.workName" xml:space="preserve">
+    <value>Work name</value>
+  </data>
+  <data name="key.workProcedure" xml:space="preserve">
+    <value>Work procedure</value>
+  </data>
+  <data name="ListWithColorForm" xml:space="preserve">
+    <value>Input list with color</value>
+  </data>
+  <data name="ListWithColorForm.addButton" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="ListWithColorForm.backgroundColorLabel" xml:space="preserve">
+    <value>Background color</value>
+  </data>
+  <data name="ListWithColorForm.cancelButton" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ListWithColorForm.fontColorLabel" xml:space="preserve">
+    <value>Font color</value>
+  </data>
+  <data name="ListWithColorForm.okButton" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ListWithColorForm.valueLabel" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="LOCKED_RESOURCE" xml:space="preserve">
+    <value>Kanban exists that used this work procedure. Please update the revision number.</value>
+  </data>
+  <data name="LoginForm.loginFailed" xml:space="preserve">
+    <value>Login ID or password is incorrect.</value>
+  </data>
+  <data name="LoginForm.loginSucceed" xml:space="preserve">
+    <value>Login succeed.</value>
+  </data>
+  <data name="LoginForm.notPermission" xml:space="preserve">
+    <value>This account does not have permission to edit resources. Please contact the administrator.</value>
+  </data>
+  <data name="LoginForm.Title" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="NOT_ACCESS_RESOURCE" xml:space="preserve">
+    <value>Not permission to access the hierarchy.</value>
+  </data>
+  <data name="OrganizationNotFound" xml:space="preserve">
+    <value>Organization not found: {0}</value>
+  </data>
+  <data name="OrganizationsForm" xml:space="preserve">
+    <value>Workers</value>
+  </data>
+  <data name="OrganizationsForm.addButton" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="OrganizationsForm.cancelButton" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="OrganizationsForm.deleteButton" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="OrganizationsForm.okButton" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="OrganizationsForm.root" xml:space="preserve">
+    <value>Workers</value>
+  </data>
+  <data name="printButton" xml:space="preserve">
+    <value>Ptint</value>
+  </data>
+  <data name="topButton" xml:space="preserve">
+    <value>Top</value>
+  </data>
+  <data name="WorkControl" xml:space="preserve">
+    <value>Work</value>
+  </data>
+  <data name="WorkControl.additionalInfoLabel" xml:space="preserve">
+    <value>Additional information</value>
+  </data>
+  <data name="WorkControl.backgroundColorButton" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="WorkControl.backgroundColorLabel" xml:space="preserve">
+    <value>Background color </value>
+  </data>
+  <data name="WorkControl.baseInfoLabel" xml:space="preserve">
+    <value>Basic information</value>
+  </data>
+  <data name="WorkControl.displayInfoLabel" xml:space="preserve">
+    <value>Display information</value>
+  </data>
+  <data name="WorkControl.displayItemsButton" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="WorkControl.displayItemsLabel" xml:space="preserve">
+    <value>Display items </value>
+  </data>
+  <data name="WorkControl.equipmentsButton" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="WorkControl.equipmentsLabel" xml:space="preserve">
+    <value>Equipments </value>
+  </data>
+  <data name="WorkControl.fontColorButton" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="WorkControl.fontColorLabel" xml:space="preserve">
+    <value>Font color </value>
+  </data>
+  <data name="WorkControl.optionButton" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="WorkControl.optionLabel" xml:space="preserve">
+    <value>Option </value>
+  </data>
+  <data name="WorkControl.organizationInfoLabel" xml:space="preserve">
+    <value>Workers information</value>
+  </data>
+  <data name="WorkControl.organizationsButton" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="WorkControl.organizationsLabel" xml:space="preserve">
+    <value>Organizations </value>
+  </data>
+  <data name="WorkControl.revLabel" xml:space="preserve">
+    <value>Rev :</value>
+  </data>
+  <data name="WorkControl.taktTimeLabel" xml:space="preserve">
+    <value>Takt time :</value>
+  </data>
+  <data name="WorkControl.workNameLabel" xml:space="preserve">
+    <value>Work name :</value>
+  </data>
+  <data name="WorkControl.workNoLabel" xml:space="preserve">
+    <value>Work no :</value>
+  </data>
+  <data name="WorkProcedureForm" xml:space="preserve">
+    <value>Work procedure editing</value>
+  </data>
+  <data name="WorkProcedureForm.addWorkProcedureButton" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="WorkProcedureForm.cancelButton" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="WorkProcedureForm.cannotDelete" xml:space="preserve">
+    <value>Cannot be deleted as it is referenced in the product list.</value>
+  </data>
+  <data name="WorkProcedureForm.currentWorkLabel" xml:space="preserve">
+    <value>Current work：</value>
+  </data>
+  <data name="WorkProcedureForm.deleteWorkProcedureButton" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="WorkProcedureForm.explanationLabel" xml:space="preserve">
+    <value>You can create, delete, and reorder work procedures.
+To create a new one from an existing procedure, please specify the source.</value>
+  </data>
+  <data name="WorkProcedureForm.notFoundTemplate" xml:space="preserve">
+    <value>[{0}] sheet not found.</value>
+  </data>
+  <data name="WorkProcedureForm.notWorkSheet" xml:space="preserve">
+    <value>Not work process sheet.Please select work process sheet.</value>
+  </data>
+  <data name="WorkProcedureForm.okButton" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="WorkProcedureForm.sourceGroupBox" xml:space="preserve">
+    <value>Copy source</value>
+  </data>
+  <data name="WorkProcedureForm.workLabel" xml:space="preserve">
+    <value>Work</value>
+  </data>
+  <data name="WorkProcedureForm.workProcedureLabel" xml:space="preserve">
+    <value>Work procedure</value>
+  </data>
+</root>

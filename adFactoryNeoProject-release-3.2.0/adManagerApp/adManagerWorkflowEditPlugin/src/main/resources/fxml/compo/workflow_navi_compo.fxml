@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.workfloweditplugin.component.FunctionNaviCompoFxController">
+    <children>
+        <VBox fx:id="menuPane" prefWidth="300.0" spacing="16.0" styleClass="SideNaviVBox" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Button fx:id="registProcessButton" alignment="CENTER_LEFT"  maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onRegistProcessAction" styleClass="SideNaviButton" text="%key.RegistProcess" />
+                <Button fx:id="registOrderButton" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onRegistOrderProcessesAction" styleClass="SideNaviButton" text="%key.RegistOrderProcesses" />
+                <Button fx:id="liteRegistOrderButton" alignment="CENTER_LEFT"  maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onLiteRegistProcessAction" styleClass="SideNaviButton" text="%key.LiteRegistOrderProcesses" />
+                <Button fx:id="backButton" alignment="CENTER_LEFT"  maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onBack" styleClass="SideNaviButton" text="戻る" />
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

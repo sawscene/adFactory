@@ -1,0 +1,4 @@
+## adManagerNativeService
+
+adManager ネイティブサービス
+

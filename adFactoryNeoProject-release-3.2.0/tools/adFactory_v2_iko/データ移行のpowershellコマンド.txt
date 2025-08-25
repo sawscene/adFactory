@@ -1,0 +1,6 @@
+データ移行
+powershell -ExecutionPolicy RemoteSigned -File C:\adFactory_v2_iko\iko_shell\adFactory移行親shell.ps1
+
+実施中監視 ※ログファイルの日付部分を当日の日付に変更する必要あり
+powershell Get-Content -Path  C:\adFactory_v2_iko\data\log\adFactoryDB_20191206.log -Wait -Tail 10
+

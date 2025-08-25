@@ -1,0 +1,5 @@
+\encoding UTF8;
+
+-- ロール作成
+CREATE ROLE bi_user LOGIN ENCRYPTED PASSWORD '37Ub79V7';
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO bi_user;

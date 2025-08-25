@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.workfloweditplugin.component.WorkDetailCompoFxController">
+    <children>
+        <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" vgrow="SOMETIMES" />
+                <RowConstraints vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <ScrollPane GridPane.rowIndex="1">
+                    <content>
+                        <VBox>
+                            <children>
+                                <!-- 設定項目 -->
+                                <VBox fx:id="topSidePane" spacing="4.0" />
+                                <!-- 使用部品 -->
+                                <HBox fx:id="usePartsPane" spacing="4.0" visible="false" alignment="CENTER_LEFT" >
+                                    <children>
+                                        <Label styleClass="ContentTitleLabel" text="%key.UseParts" prefWidth="179.0"  />
+                                        <TextArea fx:id="usePartsTextArea" styleClass="non-editable-text-area" style="-fx-font-size: 12pt;" prefWidth="800.0" prefRowCount="1" wrapText="true" editable="false" />
+                                        <Pane>
+                                            <Button styleClass="ContentTextBox" text="%key.Choice" onAction="#onChoice" />
+                                        </Pane>
+                                    </children>
+                                </HBox>
+                                <!-- 追加情報 -->
+                                <VBox fx:id="bottomSidePane" spacing="4.0">
+                                    <VBox.margin>
+                                        <Insets top="20.0" />
+                                    </VBox.margin>
+                                </VBox>
+                                <!-- ドキュメント表示 --> 
+                                <VBox fx:id="docPane" alignment="TOP_LEFT" visible="true">
+                                    <VBox.margin>
+                                        <Insets top="20.0" />
+                                    </VBox.margin>
+                                </VBox>
+                            </children>
+                            <padding>
+                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                            </padding>
+                        </VBox>
+                    </content>
+                    <GridPane.margin>
+                        <Insets bottom="8.0" />
+                    </GridPane.margin>
+                </ScrollPane>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+                    <children>
+                        <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <ToolBar nodeOrientation="LEFT_TO_RIGHT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <items>
+                                        <Button fx:id="requestButton" mnemonicParsing="false" onAction="#onRequest" styleClass="NarrowWidthButton" text="%key.Approval" />
+                                        <Button fx:id="requestCancelButton" mnemonicParsing="false" onAction="#onRequestCancel" styleClass="NarrowWidthButton" text="%key.ApprovalCancel" />
+                                    </items>
+                                </ToolBar>
+                                <HBox alignment="BASELINE_RIGHT" GridPane.columnIndex="1">
+                                    <children>
+                                        <ToolBar nodeOrientation="RIGHT_TO_LEFT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <items>
+                                                <Button fx:id="applyButton" mnemonicParsing="false" onAction="#onApply" styleClass="NarrowWidthButton" text="%key.Apply" />
+                                                <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#onCancel" styleClass="NarrowWidthButton" text="%key.Cancel" />
+                                                <Button fx:id="registButton" mnemonicParsing="false" onAction="#onRegist" styleClass="NarrowWidthButton" text="%key.Regist" />
+                                            </items>
+                                        </ToolBar>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </GridPane>
+                    </children>
+                </AnchorPane>
+                <HBox alignment="CENTER_LEFT">
+                    <children>
+                        <Label fx:id="parentNameLabel" styleClass="ContentTitleLabel" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_RIGHT">
+                    <children>
+                        <Label fx:id="requestingLabel" styleClass="ContentTitleLabel" text="%key.StateRequesting">
+                            <HBox.margin>
+                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0"  />
+                            </HBox.margin>
+                        </Label>
+                        <Label fx:id="requestorNameLabel" styleClass="ContentTitleLabel">
+                            <HBox.margin>
+                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0"  />
+                            </HBox.margin>
+                        </Label>
+                    </children>
+                </HBox>
+            </children>
+        </GridPane>
+    </children>
+</AnchorPane>

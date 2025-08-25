@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pf="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Label Print</title>
+        <h:outputStylesheet library="styles" name="ScreenDesignStyles.css"/>
+        <h:outputStylesheet library="styles" name="ScreenFontStyles.css"/>
+        <h:outputScript library="scripts" name="PrintDialogScripts.js"/>
+        <f:loadBundle basename="jp.adtekfuji.adfactoryserver.locale.locale" var="msg"/>
+        <style>
+            input:focus {
+                background: #fffccc;
+                border-color: #00cc00;
+            }
+            select {
+                border: 1px solid #eee;
+                border-radius: 0;
+                font-size: 42pt;
+                width: 90%;
+            }
+            select:focus {
+                background: #fffccc;
+                border-color: #00cc00;
+            }
+        </style>
+    </h:head>
+
+    <h:body onload="onPageLoad();#{menuData.onChangeLocale(null)}">
+        <audio id="sound" preload="auto">
+            <source src ="#{resource['media/beep.wav']}" type="audio/wav" />
+        </audio>
+        <div>
+            <h:form id="inputForm">
+                <!--印刷部数-->
+                <h:panelGrid columns="2" styleClass="table" style="margin-top: 20px;" columnClasses="labelCell font-42ptBld,inputCell">
+                    <h:outputLabel id="printValLabel" value="#{msg['warehouse.copies']}"/>
+                    <h:inputText id="printNumInput" class="font-48pt" style="width: 350px" maxlength='5'
+                           onkeydown="return numOnly()" onfocus="focusPrintNum()" 
+                           onkeypress='if (event.key === "Enter") { focusPrintButton(); }'
+                           value="#{pickingData.copies}"
+                           autocomplete="false" >
+                         <f:ajax event="change" execute="@this" render=":inputForm" onerror="ajaxError"/>
+                    </h:inputText>
+                </h:panelGrid>
+            </h:form>
+
+            <!--ボタン-->
+            <h:form id="buttonForm" styleClass="fixedForm">
+                <pf:remoteCommand name="closePrintDialog" action="#{pickingData.closePrintDialog}" />
+
+                <h:outputText id="printMsg" value="#{pickingData.printLog}" styleClass="viewMessage font-30pt" escape="false"/>
+                <h:panelGrid >
+                    <h:panelGrid columns="2" styleClass="table" columnClasses="leftCell,rightCell">
+                        <pf:commandButton id="printReq" type="submit" styleClass="submitButton font-39pt" style="width:260px;"
+                                          value="#{msg['warehouse.print']}" action="#{pickingData.printKitLabel}" update=":buttonForm" />
+                        <pf:commandButton id="printCancel" type="submit" styleClass="submitButton font-39pt" style="width:400px;"
+                                          value="#{msg['warehouse.cancel']}" action="#{pickingData.closePrintDialog}" />
+                    </h:panelGrid>
+                </h:panelGrid>
+            </h:form>
+        </div>
+
+    </h:body>
+</html>

@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddToolStripItem" xml:space="preserve">
+    <value>项目的追加</value>
+    <comment>コンテキストメニュー名称</comment>
+  </data>
+  <data name="AddToolStripMenuItem" xml:space="preserve">
+    <value>项目的追加(&amp;A)</value>
+    <comment>メニューリスト名称</comment>
+  </data>
+  <data name="AppTitle" xml:space="preserve">
+    <value>Dashboard画面页面布局的变更工具</value>
+    <comment>ツール名称</comment>
+  </data>
+  <data name="DeleteToolStripItem" xml:space="preserve">
+    <value>项目的删除</value>
+    <comment>コンテキストメニュー名称</comment>
+  </data>
+  <data name="DeleteToolStripMenuItem" xml:space="preserve">
+    <value>项目的删除(&amp;D)</value>
+    <comment>メニューリスト名称</comment>
+  </data>
+  <data name="EditEToolStripMenuItem" xml:space="preserve">
+    <value>编辑(&amp;E)</value>
+    <comment>メニューリスト名称</comment>
+  </data>
+  <data name="EndDToolStripMenuItem" xml:space="preserve">
+    <value>结束(&amp;X)</value>
+    <comment>メニューリスト名称</comment>
+  </data>
+  <data name="ErrorMessage_Item_IniFile" xml:space="preserve">
+    <value>因为应用软件设定文件不正常，所以不能启动。</value>
+    <comment>アプリケーション起動時、設定ファイルの情報取得にてエラーが発生したときに本メッセージダイアログを表示し、OKボタンによりアプリケーションを終了します。</comment>
+  </data>
+  <data name="ErrorMessageFujiFlexaDll" xml:space="preserve">
+    <value>实行时必要的DLL不足。</value>
+    <comment>アプリケーション起動時、必要なモジュールが不足しているため起動できないときに本メッセージダイアログを表示し、OKボタンによりアプリケーションを終了します。</comment>
+  </data>
+  <data name="ErrorMessageFujiFlexaLogon" xml:space="preserve">
+    <value>FujiFlexa的注册失败了。</value>
+    <comment>アプリケーション起動時、Fuji Flexaへのログオン失敗時したときに本メッセージダイアログを表示し、OKボタンによりアプリケーションを終了します。</comment>
+  </data>
+  <data name="ErrorMessageLayoutIniFile" xml:space="preserve">
+    <value>因为页面布局信息文件不正常，所以不能读入页面布局信息。</value>
+    <comment>アプリケーション起動時、画面表示のための情報取得にてエラーが発生したときに本メッセージダイアログを表示し、OKボタンによりアプリケーションを終了します。</comment>
+  </data>
+  <data name="ErrorMessageLayoutIniFileDifference" xml:space="preserve">
+    <value>应用软件设定文件和页面布局信息文件的版本不同。不显示在应用软件设定文件中没有的项目。</value>
+    <comment>アプリケーション起動時、定義ファイルに定義されていないアイテムの表示設定がされている場合に本メッセージを表示します。</comment>
+  </data>
+  <data name="ErrorMessageSaveLayout" xml:space="preserve">
+    <value>因为页面布局信息文件不正常，保存失败了。</value>
+    <comment>レイアウト保存時にエラーが発生したときに本メッセージダイアログを表示し保存を中断します。</comment>
+  </data>
+  <data name="ExportToolStripMenuItem" xml:space="preserve">
+    <value>导出(&amp;E)</value>
+    <comment>メニューリスト名称</comment>
+  </data>
+  <data name="FileFToolStripMenuItem" xml:space="preserve">
+    <value>文件(&amp;F)</value>
+    <comment>メニューリスト名称</comment>
+  </data>
+  <data name="FileReadDlgFilter" xml:space="preserve">
+    <value>页面布局信息文件|*.cfg</value>
+    <comment>インポート/エクスポート時のファイル選択ダイアログのファイル種で表示</comment>
+  </data>
+  <data name="FileReadDlgTitle" xml:space="preserve">
+    <value>导入文件的选择</value>
+    <comment>レイアウト設定情報をインポートする際のダイアログタイトルです。</comment>
+  </data>
+  <data name="FileSaveDlgTitle" xml:space="preserve">
+    <value>导出文件的选择</value>
+    <comment>レイアウト設定情報をエクスポートする際のダイアログタイトルです。</comment>
+  </data>
+  <data name="ImportToolStripMenuItem" xml:space="preserve">
+    <value>导入(&amp;I)</value>
+    <comment>メニューリスト名称</comment>
+  </data>
+  <data name="MessageDashboardEnd" xml:space="preserve">
+    <value>结束Dashboard，持续作业吗？</value>
+    <comment>アプリケーション起動時にDashboardが起動していると本メッセージを表示後、Dashboard終了してからアプリケーションを起動します。</comment>
+  </data>
+  <data name="MessageImportLayout" xml:space="preserve">
+    <value>取入页面布局。是否可以废弃现有的页面布局？</value>
+    <comment>インポート実行時に現在表示している内容を破棄し、インポートしたレイアウトで表示されるため本メッセージを表示します。</comment>
+  </data>
+  <data name="MessageLayoutCfg" xml:space="preserve">
+    <value>请在保存后实行导出。</value>
+    <comment>レイアウト設定情報をエクスポートする際、編集したレイアウトが保存されていない場合、本メッセージを表示します。</comment>
+  </data>
+  <data name="MessageLogonAuthority" xml:space="preserve">
+    <value>注册用户没有DashboardCustomizeTool的启动权限。请以有启动权限的用户进入。</value>
+    <comment>アプリケーション起動時、ログオンダイアログで入力したユーザが本アプリケーションの起動権限を持っていないときに本メッセージを表示し、ログオンダイアログに戻ります。</comment>
+  </data>
+  <data name="MessageSaveLayout" xml:space="preserve">
+    <value>是否保存当前的页面布局？</value>
+    <comment>レイアウトを変更後、保存せずに終了を行おうとした際に本メッセージを表示します。</comment>
+  </data>
+  <data name="SaveToolStripMenuItem" xml:space="preserve">
+    <value>保存(&amp;S)</value>
+    <comment>メニューリスト名称</comment>
+  </data>
+  <data name="ErrorMessageDouble" xml:space="preserve">
+    <value>DashBoardCustomizeToolが既に起動しています。</value>
+    <comment>DashBoardCustomizeToolが既に起動しています。</comment>
+  </data>
+</root>

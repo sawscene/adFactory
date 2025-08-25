@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import jp.adtekfuji.javafxcommon.controls.*?>
+
+<AnchorPane fx:id="MainScenePane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.warehouseplugin.component.StockViewController">
+    <children>
+        <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <GridPane vgap="4.0" >
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="ALWAYS" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                        <RowConstraints vgrow="ALWAYS" />
+                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                    </rowConstraints>
+                    <children>
+                        <!-- タイトル -->
+                        <Label styleClass="ContentTitleLabel" text="%key.StockView" />
+                        <!-- 検索 -->
+                        <AnchorPane GridPane.rowIndex="1" SplitPane.resizableWithParent="false">
+                            <children>
+                                <GridPane hgap="5.0" vgap="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints />
+                                        <ColumnConstraints />
+                                        <ColumnConstraints />
+                                        <ColumnConstraints />
+                                        <ColumnConstraints />
+                                        <ColumnConstraints />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" />
+                                        <ColumnConstraints />
+                                        <ColumnConstraints hgrow="ALWAYS" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints />
+                                        <RowConstraints />
+                                        <RowConstraints />
+                                    </rowConstraints>
+                                    <children>
+                                        <!-- 品目 -->
+                                        <CheckBox fx:id="productNoCheck" text="%key.ProductNo" minWidth="-Infinity" GridPane.columnIndex="0" />
+                                        <TextField fx:id="productNoField" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                        <!-- 発注番号 -->
+                                        <CheckBox fx:id="supplyNoCheck" text="%key.SupplyNo" minWidth="-Infinity" GridPane.columnIndex="1" />
+                                        <TextField fx:id="supplyNoField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <!-- 製造オーダー番号 -->
+                                        <CheckBox fx:id="orderNoCheck" text="%key.ProductionNumber" minWidth="-Infinity" GridPane.columnIndex="2" />
+                                        <TextField fx:id="orderNoField" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                        <!-- 資材番号 -->
+                                        <CheckBox fx:id="materialNoCheck" text="%key.MaterialNo" minWidth="-Infinity" GridPane.columnIndex="3" />
+                                        <TextField fx:id="materialNoField" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                        <!-- 区画名 -->
+                                        <CheckBox fx:id="areaNameCheck" text="%key.AreaName" minWidth="-Infinity" GridPane.columnIndex="4" />
+                                        <ComboBox fx:id="areaNameField" editable="false" minWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                                        <!-- 棚番号 -->
+                                        <CheckBox fx:id="locationNoCheck" text="%key.LocationNo" minWidth="-Infinity" GridPane.columnIndex="5" />
+                                        <TextField fx:id="locationNoField" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                                        <!-- 最終入庫日 -->
+                                        <CheckBox fx:id="stockDateCheck" text="%key.StockDate" minWidth="-Infinity" GridPane.columnIndex="6" />
+                                        <DatePicker fx:id="stockDateField" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                                        <!-- ユニットNo -->
+                                        <CheckBox fx:id="unitNoCheck" text="%key.unitNo" minWidth="-Infinity" GridPane.columnIndex="7" />
+                                        <TextField fx:id="unitNoField" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+
+                                        <HBox spacing="16.0" alignment="CENTER_LEFT" GridPane.rowIndex="2" GridPane.columnSpan="8">
+                                            <children>
+                                                <Label text="%key.Class" minWidth="-Infinity"/> 
+                                                <ComboBox fx:id="groupingField" editable="false" minWidth="100.0" />
+                                                
+                                                <!-- 在庫がない資材を含める -->
+                                                <CheckBox fx:id="outStockCheck" text="%key.OutStock" minWidth="-Infinity" />
+                                                <!-- 棚卸 -->
+                                                <HBox spacing="8.0" alignment="CENTER_LEFT">
+                                                    <children>
+                                                        <CheckBox fx:id="inventoryCheck" text="%key.Inventories" minWidth="-Infinity" />
+                                                        <HBox fx:id="inventoryHBox" spacing="8.0" styleClass="FrameHBox">
+                                                            <children>
+                                                                <!-- 未実施 -->
+                                                                <CheckBox fx:id="inventoryUnregisteredCheck" text="%key.NotImplemented" minWidth="-Infinity" />
+                                                                <!-- 在庫過不足あり -->
+                                                                <CheckBox fx:id="inventoryDifferentCheck" text="%key.InventoryDifferent" minWidth="-Infinity" />
+                                                                <!-- 在庫過不足なし -->
+                                                                <CheckBox fx:id="inventoryNoDifferentCheck" text="%key.InventoryNoDifferent" minWidth="-Infinity" />
+                                                            </children>
+                                                            <padding>
+                                                                <Insets bottom="6.0" left="8.0" right="8.0" top="6.0" />
+                                                            </padding>
+                                                        </HBox>
+                                                    </children>
+                                                </HBox>
+                                                <!-- 未納入品のみ -->
+                                                <CheckBox fx:id="unarrivedOnlyCheck" text="%unarrivedOnly" minWidth="-Infinity" />
+                                            </children>
+                                        </HBox>
+
+                                        <!-- 検索ボタン -->
+                                        <Button fx:id="searchButton" mnemonicParsing="false" onAction="#onSearch" styleClass="NarrowWidthButton" text="%key.Search" GridPane.columnIndex="9" GridPane.rowSpan="3" GridPane.valignment="BOTTOM" />
+                                    </children>
+                                </GridPane>
+                            </children>
+                            <padding>
+                                <Insets bottom="4.0" left="0.0" right="0.0" top="4.0" />
+                            </padding>
+                        </AnchorPane>
+
+                        <AnchorPane GridPane.rowIndex="2">
+                            <children>
+                                <SplitPane fx:id="splitPane" dividerPositions="0.75" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <items>
+                                        <!-- 在庫状況 -->
+                                        <PropertySaveTreeTableView fx:id="stockTable" tableMenuButtonVisible="true" editable="true" >
+                                            <columns>
+                                                <!-- 発注番号 -->
+                                                <TreeTableColumn fx:id="supplyNoColumn" prefWidth="140.0" text="%key.SupplyNo" />
+                                                <!-- 品目 -->
+                                                <TreeTableColumn fx:id="productNoColumn" prefWidth="140.0" text="%key.ProductNo" visible="false"/>
+                                                <!-- 品名 -->
+                                                <TreeTableColumn fx:id="productNameColumn" prefWidth="140.0" text="%key.ProductName" visible="false"/>
+                                                <!-- 規格・型式 -->
+                                                <TreeTableColumn fx:id="specColumn" prefWidth="100.0" text="%key.KikakuKatasiki" />
+                                                <!-- 製造オーダー番号 -->
+                                                <TreeTableColumn fx:id="orderNoColumn" prefWidth="140.0" text="%key.ProductionNumber" />
+                                                <!-- ユニット番号 -->
+                                                <TreeTableColumn fx:id="unitNoColumn" prefWidth="100.0" text="%key.unitNo" visible="false"/>
+                                                <!-- 製造番号 -->
+                                                <TreeTableColumn fx:id="serialNoColumn" prefWidth="100.0" text="%key.SerialNumber" visible="false"/>
+                                                <!-- 資材番号 -->
+                                                <TreeTableColumn fx:id="materialNoColumn" prefWidth="100.0" text="%key.MaterialNo" />
+                                                <!-- 在庫数 -->
+                                                <TreeTableColumn fx:id="inStockNumColumn" prefWidth="60.0" text="%key.StockQuantity" />
+                                                <!-- 単位 -->
+                                                <TreeTableColumn fx:id="unitColumn" prefWidth="60.0" text="%unit" />
+                                                <!-- 区画名 -->
+                                                <TreeTableColumn fx:id="areaNameColumn" prefWidth="70.0" text="%key.AreaName" />
+                                                <!-- 棚番号 -->
+                                                <TreeTableColumn fx:id="locationNoColumn" prefWidth="60.0" text="%key.LocationNo" />
+                                                <!-- 納入予定数 -->
+                                                <TreeTableColumn fx:id="arrivalNumColumn" prefWidth="60.0" text="%key.ArrivalNum" />
+                                                <!-- 発注残 -->
+                                                <TreeTableColumn fx:id="releasedOrderColumn" prefWidth="60.0" text="%releasedOrder" />
+                                                <!-- 納入予定日 -->
+                                                <TreeTableColumn fx:id="arrivalDateColumn" prefWidth="120.0" text="%key.ArrivalDate" />
+                                                <!-- 最終入庫日 -->
+                                                <TreeTableColumn fx:id="stockDateColumn" prefWidth="120.0" text="%key.StockDate" />
+                                                <!-- 棚卸状態 -->
+                                                <TreeTableColumn fx:id="inventoryFlagColumn" prefWidth="60.0" text="%key.Inventory.State" />
+                                                <!-- 在庫過不足 -->
+                                                <TreeTableColumn fx:id="inventoryDiffColumn" prefWidth="70.0" text="%key.InventoryDiff" />
+                                                <!-- 棚卸在庫数 -->
+                                                <TreeTableColumn fx:id="inventoryNumColumn" prefWidth="60.0" text="%key.InventoryStockQuantity" />
+                                                <!-- 棚番訂正 -->
+                                                <TreeTableColumn fx:id="inventoryLocationNoColumn" prefWidth="60.0" text="%key.Inventory.Location" />
+                                                <!-- 棚卸実施日 -->
+                                                <TreeTableColumn fx:id="inventoryDateColumn" prefWidth="100.0" text="%key.InventoryDate" />
+                                                <!-- ロット番号 -->
+                                                <TreeTableColumn fx:id="lotNoColumn" prefWidth="60.0" text="%key.LotNumber" />
+                                                <!-- 不良数 -->
+                                                <TreeTableColumn fx:id="defectNumColumn" prefWidth="60.0" text="%key.DefectNum" />
+                                                <!-- 備考 -->
+                                                <TreeTableColumn fx:id="noteColumn" prefWidth="100.0" text="%remarks" />
+                                            </columns>
+                                        </PropertySaveTreeTableView>
+                                        <PropertySaveTableView fx:id="logTable" styleClass="ContentList" tableMenuButtonVisible="true" >
+                                            <columns>
+                                                <!-- 種別 -->
+                                                <TableColumn fx:id="logEventKindColumn" prefWidth="60.0" text="%key.Category" />
+                                                <!-- 資材番号 -->
+                                                <TableColumn fx:id="logMaterialNoColumn" prefWidth="100.0" text="%key.MaterialNo" />
+                                                <!-- 製造番号 -->
+                                                <TableColumn fx:id="logOrderNoColumn" prefWidth="100.0" text="%key.ProductionNumber" />
+                                                <!-- 数量 -->
+                                                <TableColumn fx:id="logEventNumColumn" prefWidth="60.0" text="%key.Quantity" />
+                                                <!-- 在庫数 -->
+                                                <TableColumn fx:id="logInStockNumColumn" prefWidth="60.0" text="%key.StockQuantity" />
+                                                <!-- 区画名 -->
+                                                <TableColumn fx:id="logAreaNameColumn" prefWidth="70.0" text="%key.AreaName" />
+                                                <!-- 棚番号 -->
+                                                <TableColumn fx:id="logLocationNoColumn" prefWidth="60.0" text="%key.LocationNo" />
+                                                <!-- 日時 -->
+                                                <TableColumn fx:id="logEventDateColumn" prefWidth="120.0" text="%key.Datetime" />
+                                                <!-- 担当者 -->
+                                                <TableColumn fx:id="logPersonNoColumn" prefWidth="70.0" text="%key.PersonInCharge" />
+                                            </columns>
+                                        </PropertySaveTableView>
+                                    </items>
+                                </SplitPane>
+                            </children>
+                        </AnchorPane>
+
+                        <!-- 下部ペイン -->
+                        <AnchorPane GridPane.rowIndex="3">
+                            <children>
+                                <HBox alignment="BASELINE_LEFT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <ToolBar nodeOrientation="LEFT_TO_RIGHT" styleClass="TransparentToolbar">
+                                            <items>
+                                                <!-- 受入ボタン -->
+                                                <Button fx:id="acceptanceButton" visible="true" alignment="CENTER" mnemonicParsing="false" onAction="#onAccept" styleClass="NarrowWidthButton" text="%key.Accepted" GridPane.columnIndex="0" GridPane.halignment="RIGHT"/>
+                                                <!-- ラベル印刷ボタン -->
+                                                <Button fx:id="printButton" visible="true" disable="true" alignment="CENTER" mnemonicParsing="false" onAction="#onPrint" styleClass="NarrowWidthButton" text="%key.LabelPrinting" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
+                                                <!-- 払出品リスト出力ボタン -->
+                                                <Button fx:id="outputDeliveryListButton" alignment="CENTER" mnemonicParsing="false" onAction="#onDeliveryList" styleClass="NarrowWidthButton" text="%key.outputDeliveryList" GridPane.columnIndex="2" GridPane.halignment="RIGHT" managed="false"  />
+                                                <!-- 在庫リスト出力ボタン -->
+                                                <Button fx:id="outputInventoryCsvButton" alignment="CENTER" mnemonicParsing="false" onAction="#onStockCsv" styleClass="NarrowWidthButton" text="%outputInventoryList" GridPane.columnIndex="3" GridPane.halignment="RIGHT" />
+                                                <!-- CSV出力ボタン -->
+                                                <Button fx:id="outputCsvButton" alignment="CENTER" mnemonicParsing="false" onAction="#onOutputCsv" styleClass="NarrowWidthButton" text="%key.PrintOutCSV" GridPane.columnIndex="3" GridPane.halignment="RIGHT" />
+                                            </items>
+                                        </ToolBar>
+                                        <ToolBar nodeOrientation="LEFT_TO_RIGHT" styleClass="TransparentToolbar">
+                                            <items>
+                                                <!-- 棚卸開始ボタン -->
+                                                <Button fx:id="inventoryStartButton" alignment="CENTER" mnemonicParsing="false" onAction="#onInventoryStart" styleClass="NarrowWidthButton" text="%key.Inventory.Start" GridPane.columnIndex="4" GridPane.halignment="RIGHT" />
+                                                <!-- 棚卸中止ボタン -->
+                                                <Button fx:id="inventoryCancelButton" alignment="CENTER" mnemonicParsing="false" onAction="#onInventoryCancel" styleClass="NarrowWidthButton" text="%key.Inventory.Cancel" GridPane.columnIndex="5" GridPane.halignment="RIGHT" />
+                                                <!-- 棚卸完了ボタン -->
+                                                <Button fx:id="inventoryCompleteButton" alignment="CENTER" mnemonicParsing="false" onAction="#onInventoryComplete" styleClass="NarrowWidthButton" text="%key.Inventory.Complete" GridPane.columnIndex="5" GridPane.halignment="RIGHT" />
+                                            </items>
+                                        </ToolBar>
+                                        <ToolBar nodeOrientation="LEFT_TO_RIGHT" styleClass="TransparentToolbar">
+                                            <items>
+                                                <!-- ページ送りボタン -->
+                                                <Button fx:id="prevButton" visible="false" alignment="CENTER" mnemonicParsing="false" onAction="#onPrev" styleClass="NarrowWidthButton" text="%key.PrevPage" GridPane.columnIndex="6" />
+                                                <Label fx:id="pageLabel" visible="false" GridPane.columnIndex="7" />
+                                                <Button fx:id="nextButton" visible="false" alignment="CENTER" mnemonicParsing="false" onAction="#onNext" styleClass="NarrowWidthButton" text="%key.NextPage" GridPane.columnIndex="8" />
+                                            </items>
+                                        </ToolBar>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </GridPane>
+
+                <!-- 処理中表示 -->
+                <Pane fx:id="progressPane" visible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" StackPane.alignment="CENTER">
+                    <children>
+                        <ProgressIndicator layoutX="0.0" layoutY="0.0" prefHeight="100.0" prefWidth="100.0" />
+                    </children>
+                </Pane>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

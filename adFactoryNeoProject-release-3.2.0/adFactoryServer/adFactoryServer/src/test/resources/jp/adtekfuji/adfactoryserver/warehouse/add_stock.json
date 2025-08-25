@@ -1,0 +1,7 @@
+[
+    { "prodNo":"prodNo-3", "area":"第一倉庫", "loc":"AZ-1-2", "rank":"1" },
+    { "prodNo":"prodNo-3", "area":"第二倉庫", "loc":"AZ-1-2" },
+    { "prodNo":"prodNo-3", "area":"第二倉庫", "loc":"AZ-1-2" },
+    { "prodNo":"prodNo-3", "area":"第五倉庫", "loc":"AZ-1-2" },
+    { "prodNo":"prodNo-10" }
+]

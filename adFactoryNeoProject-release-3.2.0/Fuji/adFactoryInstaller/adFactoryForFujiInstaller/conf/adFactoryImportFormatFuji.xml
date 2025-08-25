@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<importFormatInfo>
+    <orderFormatInfo>
+        <csvFileEncode>UTF-8</csvFileEncode>
+        <csvFileName>Order.csv</csvFileName>
+        <csvStartRow>2</csvStartRow>
+    </orderFormatInfo>
+    <bomFormatInfo>
+        <csvFileEncode>UTF-8</csvFileEncode>
+        <csvFileName>BOM.csv</csvFileName>
+        <csvStartRow>2</csvStartRow>
+    </bomFormatInfo>
+</importFormatInfo>

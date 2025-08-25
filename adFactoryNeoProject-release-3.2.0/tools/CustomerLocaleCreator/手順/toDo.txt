@@ -1,0 +1,13 @@
+初回
+ GitLabにSSHで接続できるように登録数ｒ
+ (GitLabにSSHで接続できるようにするまでの手順を参照)
+ 
+
+バージョン追加時
+ CustomerLocaleCreator.ps1のファイルを開きバージョンを追加する
+
+お客さんが追加された時
+ Locale.csv(adProduct, adFactoryNeoProject両方)にお客さんを追加する
+
+言語ファイル生成時
+ CustomerLocaleCreator.batを実行する

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<adaccessoryplugins>
+    <date>2020-11-11 00:00:00</date>
+    <plugins>
+        <name>Simple</name>
+        <name>Measure</name>
+        <name>FP Inspection</name>
+    </plugins>
+</adaccessoryplugins>

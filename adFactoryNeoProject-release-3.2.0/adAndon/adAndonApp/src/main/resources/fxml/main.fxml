@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="300.0" prefWidth="300.0" style="-fx-background-color: black;" onKeyPressed="#onKeyPressed" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jp.adtekfuji.andonapp.MainFxController">
+    <children>
+        <Pane fx:id="mainPane" />
+        <VBox fx:id="defaultPane" alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label fx:id="label" alignment="CENTER" text="Connecting to server..." textFill="WHITE" wrapText="true">
+                    <font>
+                        <Font size="72.0" />
+                    </font>
+                </Label>
+                <Button fx:id="retryButton" alignment="CENTER" mnemonicParsing="false" onAction="#onRetry" style="-fx-font-size: 72pt;" text="Retry" visible="false">
+                    <VBox.margin>
+                        <Insets top="40.0" />
+                    </VBox.margin>
+                </Button>
+            </children>
+            <padding>
+                <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+            </padding>
+        </VBox>
+    </children>
+</AnchorPane>

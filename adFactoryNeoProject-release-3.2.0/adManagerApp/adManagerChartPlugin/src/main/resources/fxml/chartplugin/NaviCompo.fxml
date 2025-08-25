@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.chartplugin.controller.NaviCompoController">
+    <children>
+        <VBox spacing="16.0" styleClass="SideNaviVBox" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Button fx:id="timeLineButton" maxWidth="1.7976931348623157E308" alignment="CENTER_LEFT" mnemonicParsing="false" onAction="#onTimeLine" styleClass="SideNaviButton" text="%key.WorkAnalysis" />
+                <Button fx:id="kanbanSummaryButton" maxWidth="1.7976931348623157E308" alignment="CENTER_LEFT" mnemonicParsing="false" onAction="#onKanbanSummary" styleClass="SideNaviButton" text="%key.KanbanTotalWorkTime" />
+                <Button fx:id="workSummaryButton" maxWidth="1.7976931348623157E308" alignment="CENTER_LEFT" mnemonicParsing="false" onAction="#onWorkSummary" styleClass="SideNaviButton" text="%key.WorkAverageWorkTime" />
+                <Button fx:id="organizationSummaryButton" maxWidth="1.7976931348623157E308" alignment="CENTER_LEFT" mnemonicParsing="false" onAction="#onOrganizationSummary" styleClass="SideNaviButton" text="%key.WorkersAverageWorkTime" />
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

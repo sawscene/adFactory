@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.adcustommonitorapp.controller.CellProductionList2MonitorCompoFxController">
+   <children>
+      <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane fx:id="progressPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+               <children>
+                  <ProgressIndicator />
+               </children>
+            </Pane>
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="203.0" minHeight="-Infinity" prefHeight="31.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="349.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <AnchorPane style="-fx-border-width: 1.0; -fx-border-color: black;">
+                     <children>
+                        <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="SOMETIMES" />
+                            <ColumnConstraints hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="SOMETIMES" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label fx:id="shipments1" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+                              <Label fx:id="date1" GridPane.columnSpan="8" />
+                              <Label fx:id="notStartedTitle1" text="%key.NotStarted" GridPane.rowIndex="1" />
+                              <Label fx:id="notStarted1" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label fx:id="Separator11" text="/" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <Label fx:id="workmanshipTitle1" text="%key.Workmanship" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <Label fx:id="workmanship1" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                              <Label fx:id="Separator12" text="/" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                              <Label fx:id="shipmentsTitle1" text="%key.Shipments" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <TableView fx:id="transitionTable2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#OnClickedTable2" styleClass="ContentTable" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <columns>
+                              <TableColumn fx:id="work21Column" prefWidth="75.0" text="%key.Work1" />
+                              <TableColumn fx:id="work22Column" prefWidth="75.0" text="%key.Work2" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <children>
+                        <TableView fx:id="transitionTable3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#OnClickedTable3" styleClass="ContentTable" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <columns>
+                              <TableColumn fx:id="work31Column" prefWidth="75.0" text="%key.Work1" />
+                              <TableColumn fx:id="work32Column" prefWidth="75.0" text="%key.Work2" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane style="-fx-border-width: 1.0; -fx-border-color: black;" GridPane.columnIndex="1">
+                     <children>
+                        <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label fx:id="notStartedTitle2" text="%key.NotStarted" GridPane.rowIndex="1" />
+                              <Label fx:id="notStarted2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label fx:id="Separator21" text="/" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <Label fx:id="date2" GridPane.columnSpan="8" />
+                              <Label fx:id="workmanshipTitle2" text="%key.Workmanship" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <Label fx:id="workmanship2" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                              <Label fx:id="Separator22" text="/" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                              <Label fx:id="shipmentsTitle2" text="%key.Shipments" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                              <Label fx:id="shipments2" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="SOMETIMES" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane style="-fx-border-width: 1.0; -fx-border-color: black;" GridPane.columnIndex="2">
+                     <children>
+                        <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label fx:id="date3" GridPane.columnSpan="8" />
+                              <Label fx:id="notStartedTitle3" text="%key.NotStarted" GridPane.rowIndex="1" />
+                              <Label fx:id="notStarted3" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label fx:id="Separator31" text="/" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <Label fx:id="workmanshipTitle3" text="%key.Workmanship" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <Label fx:id="workmanship3" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                              <Label fx:id="Separator32" text="/" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                              <Label fx:id="shipmentsTitle3" text="%key.Shipments" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                              <Label fx:id="shipments3" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="SOMETIMES" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+                <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.rowIndex="1">
+                     <children>
+                        <TableView fx:id="transitionTable1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#OnClickedTable1" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn fx:id="work11Column" prefWidth="75.0" text="%key.Work1" />
+                            <TableColumn fx:id="work12Column" prefWidth="75.0" text="%key.Work2" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

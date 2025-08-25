@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jp.adtekfuji.javafxcommon.selectcompo.WorksSelectionCompoFxController">
+    <children>
+        <StackPane fx:id="stackPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <GridPane GridPane.rowIndex="1">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" />
+                        <ColumnConstraints hgrow="SOMETIMES" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                        <ColumnConstraints hgrow="SOMETIMES" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="30.0" spacing="10.0" GridPane.columnIndex="1" GridPane.columnSpan="3" >
+                            <children>
+                                <RadioButton fx:id="showLatestOnlyRButton" mnemonicParsing="false" selected="true" text="%key.displayLatestOnly">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="showingToggleGroup" />
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton mnemonicParsing="false" text="%key.displayAll" toggleGroup="$showingToggleGroup" />
+                            </children>
+                            <GridPane.margin>
+                                <Insets bottom="10.0" left="0.0" right="10.0" top="10.0" />
+                            </GridPane.margin>
+                        </HBox>
+
+                        <TreeView fx:id="hierarchyTree" prefWidth="200.0" GridPane.rowIndex="1" />
+                        <ListView fx:id="itemList" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <VBox alignment="CENTER" prefWidth="100.0" spacing="12.0" GridPane.rowIndex="1" GridPane.columnIndex="2">
+                            <children>
+                                <Button mnemonicParsing="false" onAction="#OnAdd" styleClass="ContentButton" text="%key.Add" />
+                                <Button mnemonicParsing="false" onAction="#OnRemove" styleClass="ContentButton" text="%key.Remove" />
+                            </children>
+                            <GridPane.margin>
+                                <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                            </GridPane.margin>
+                        </VBox>
+                        <ListView fx:id="workList" prefWidth="200.0" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                    </children>
+                </GridPane>
+                <Pane fx:id="progressPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+                    <children>
+                        <ProgressIndicator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" />
+                    </children>
+                </Pane>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

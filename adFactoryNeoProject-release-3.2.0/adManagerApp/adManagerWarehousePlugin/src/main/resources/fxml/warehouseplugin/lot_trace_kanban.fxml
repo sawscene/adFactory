@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import jp.adtekfuji.javafxcommon.controls.*?>
+
+<AnchorPane id="AnchorPane" fx:id="MainScenePane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.warehouseplugin.component.LotTraceKanbanController">
+    <children>
+        <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <GridPane vgap="4.0" >
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="ALWAYS" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                        <RowConstraints vgrow="ALWAYS" />
+                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                    </rowConstraints>
+                    <children>
+                        <!-- タイトル -->
+                        <Label styleClass="ContentTitleLabel" text="%key.LotTrace.kanban" />
+                        <!-- 検索条件 -->
+                        <HBox alignment="CENTER_LEFT" spacing="8.0" GridPane.rowIndex="1" >
+                            <children>
+                                <!-- 日付範囲(組付け日) -->
+                                <Label text="%key.AssemblyDate" />
+                                <DatePicker fx:id="startDatePicker" prefWidth="130.0" />
+                                <Label text="%key.FromSymbol" />
+                                <DatePicker fx:id="endDatePicker" prefWidth="130.0" />
+                            </children>
+                            <padding>
+                                <Insets bottom="4.0" left="0.0" right="0.0" top="4.0" />
+                            </padding>
+                        </HBox>
+                        <AnchorPane GridPane.rowIndex="2" SplitPane.resizableWithParent="false">
+                            <children>
+                                <GridPane hgap="5.0" vgap="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints />
+                                        <ColumnConstraints />
+                                        <ColumnConstraints />
+                                        <ColumnConstraints hgrow="ALWAYS" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints />
+                                        <RowConstraints />
+                                    </rowConstraints>
+                                    <children>
+                                        <!-- 品目 -->
+                                        <CheckBox fx:id="productNoCheck" text="%key.ProductNo" />
+                                        <TextField fx:id="productNoField" GridPane.rowIndex="1" />
+                                        <!-- ロット番号 -->
+                                        <CheckBox fx:id="lotNoCheck" text="%key.LotNumber" GridPane.columnIndex="1" />
+                                        <TextField fx:id="lotNoField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <!-- 資材番号 -->
+                                        <CheckBox fx:id="materialNoCheck" text="%key.MaterialNo" GridPane.columnIndex="2" />
+                                        <TextField fx:id="materialNoField" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+
+                                        <!-- 検索ボタン -->
+                                        <Button mnemonicParsing="false" onAction="#onSearch" styleClass="NarrowWidthButton" text="%key.Search" GridPane.columnIndex="4" GridPane.rowSpan="2" GridPane.valignment="BOTTOM" />
+                                    </children>
+                                </GridPane>
+                            </children>
+                            <padding>
+                                <Insets bottom="4.0" left="0.0" right="0.0" top="4.0" />
+                            </padding>
+                        </AnchorPane>
+
+                        <AnchorPane GridPane.rowIndex="3">
+                            <children>
+                                <SplitPane fx:id="splitPane" dividerPositions="0.2" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <items>
+                                        <!-- 製品 -->
+                                        <PropertySaveTreeTableView fx:id="mainTable" tableMenuButtonVisible="false" SplitPane.resizableWithParent="false">
+                                            <columns>
+                                                <!-- カンバン名 -->
+                                                <TreeTableColumn fx:id="kanbanNameColumn" text="%key.KanbanName" />
+                                            </columns>
+                                        </PropertySaveTreeTableView>
+
+                                        <!-- 部材 -->
+                                        <PropertySaveTreeTableView fx:id="subTable" tableMenuButtonVisible="true">
+                                            <columns>
+                                                <!-- 品目 -->
+                                                <TreeTableColumn fx:id="subProductNoColumn" prefWidth="140.0" text="%key.ProductNo" />
+                                                <!-- 品名 -->
+                                                <TreeTableColumn fx:id="subProductNameColumn" prefWidth="140.0" text="%key.ProductName" />
+                                                <!-- ロット番号 -->
+                                                <TreeTableColumn fx:id="subLotNoColumn" prefWidth="100.0" text="%key.LotNumber" />
+                                                <!-- 資材番号 -->
+                                                <TreeTableColumn fx:id="subMaterialNoColumn" prefWidth="120.0" text="%key.MaterialNo" />
+                                                <!-- 数量 -->
+                                                <TreeTableColumn fx:id="subQuantityColumn" prefWidth="60.0" text="%key.Quantity" />
+                                                <!-- 作業者名 -->
+                                                <TreeTableColumn fx:id="subPersonNameColumn" prefWidth="100.0" text="%key.WokerName" />
+                                                <!-- 組付け日時 -->
+                                                <TreeTableColumn fx:id="subAssemblyDatetimeColumn" prefWidth="120.0" text="%key.AssemblyDatetime" />
+                                            </columns>
+                                        </PropertySaveTreeTableView>
+                                    </items>
+                                </SplitPane>
+                            </children>
+                        </AnchorPane>
+
+                        <!-- 下部ペイン -->
+                        <AnchorPane GridPane.rowIndex="4">
+                            <children>
+                                <ToolBar nodeOrientation="LEFT_TO_RIGHT" styleClass="TransparentToolbar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <items>
+                                        <!-- CSV出力 -->
+                                        <Button fx:id="outputCsvButton" mnemonicParsing="false" onAction="#onOutputCsv" styleClass="NarrowWidthButton" text="%key.PrintOutCSV" />
+                                    </items>
+                                </ToolBar>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </GridPane>
+
+                <!-- 処理中表示 -->
+                <Pane fx:id="progressPane" visible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" StackPane.alignment="CENTER">
+                    <children>
+                        <ProgressIndicator layoutX="0.0" layoutY="0.0" prefHeight="100.0" prefWidth="100.0" />
+                    </children>
+                </Pane>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

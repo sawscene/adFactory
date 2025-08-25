@@ -1,0 +1,106 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package adtekfuji.admanagerapp.productionnaviplugin.utils;
+
+import java.util.Date;
+import java.util.List;
+import jp.adtekfuji.adFactory.entity.master.BreakTimeInfoEntity;
+import jp.adtekfuji.adFactory.entity.workkanban.WorkKanbanInfoEntity;
+
+/**
+ *
+ * @author e-mori
+ */
+public class WorkKanbanTimeReplaceData {
+
+    private String dateFormat;
+    private Date referenceStartTime;
+    private Integer workKanbanListIndex;
+    private List<WorkKanbanInfoEntity> workKanbanInfoEntitys;
+    private List<BreakTimeInfoEntity> breakTimeInfoEntitys;
+    private WorkPlanKanbanDefaultOffsetData kanbanDefaultOffsetData;
+
+    public WorkKanbanTimeReplaceData() {
+    }
+
+    public WorkKanbanTimeReplaceData dateFormat(String dateFormat) {
+        this.dateFormat = dateFormat;
+        return this;
+    }
+
+    public WorkKanbanTimeReplaceData referenceStartTime(Date referenceStartTime) {
+        this.referenceStartTime = referenceStartTime;
+        return this;
+    }
+
+    public WorkKanbanTimeReplaceData workKanbanListIndex(Integer workKanbanListIndex) {
+        this.workKanbanListIndex = workKanbanListIndex;
+        return this;
+    }
+
+    public WorkKanbanTimeReplaceData workKanbanInfoEntitys(List<WorkKanbanInfoEntity> workKanbanInfoEntitys) {
+        this.workKanbanInfoEntitys = workKanbanInfoEntitys;
+        return this;
+    }
+
+    public WorkKanbanTimeReplaceData breakTimeInfoEntitys(List<BreakTimeInfoEntity> breakTimeInfoEntitys) {
+        this.breakTimeInfoEntitys = breakTimeInfoEntitys;
+        return this;
+    }
+
+    public WorkKanbanTimeReplaceData kanbanDefaultOffsetData(WorkPlanKanbanDefaultOffsetData kanbanDefaultOffsetData) {
+        this.kanbanDefaultOffsetData = kanbanDefaultOffsetData;
+        return this;
+    }
+    
+    public String getDateFormat() {
+        return dateFormat;
+    }
+
+    public void setDateFormat(String dateFormat) {
+        this.dateFormat = dateFormat;
+    }
+    
+    public Date getReferenceStartTime() {
+        return referenceStartTime;
+    }
+
+    public void setReferenceStartTime(Date referenceStartTime) {
+        this.referenceStartTime = referenceStartTime;
+    }
+
+    public Integer getWorkKanbanListIndex() {
+        return workKanbanListIndex;
+    }
+
+    public void setWorkKanbanListIndex(Integer workKanbanListIndex) {
+        this.workKanbanListIndex = workKanbanListIndex;
+    }
+
+    public List<WorkKanbanInfoEntity> getWorkKanbanInfoEntitys() {
+        return workKanbanInfoEntitys;
+    }
+
+    public void setWorkKanbanInfoEntitys(List<WorkKanbanInfoEntity> workKanbanInfoEntitys) {
+        this.workKanbanInfoEntitys = workKanbanInfoEntitys;
+    }
+
+    public List<BreakTimeInfoEntity> getBreakTimeInfoEntitys() {
+        return breakTimeInfoEntitys;
+    }
+
+    public void setBreakTimeInfoEntitys(List<BreakTimeInfoEntity> breakTimeInfoEntitys) {
+        this.breakTimeInfoEntitys = breakTimeInfoEntitys;
+    }
+
+    public WorkPlanKanbanDefaultOffsetData getKanbanDefaultOffsetData() {
+        return kanbanDefaultOffsetData;
+    }
+
+    public void setKanbanDefaultOffsetData(WorkPlanKanbanDefaultOffsetData kanbanDefaultOffsetData) {
+        this.kanbanDefaultOffsetData = kanbanDefaultOffsetData;
+    }
+}

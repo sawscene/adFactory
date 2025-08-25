@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import jp.adtekfuji.javafxcommon.controls.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.productionnaviplugin.component.RosterCompoController">
+    <children>
+        <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <SplitPane fx:id="rosterPane" orientation="HORIZONTAL" dividerPositions="0.25" styleClass="ContentSplitPane" StackPane.alignment="TOP_LEFT">
+                    <items>
+                        <!-- 左ペイン -->
+                        <GridPane minHeight="0.0" minWidth="0.0" SplitPane.resizableWithParent="false">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints vgrow="SOMETIMES" minHeight="-Infinity" maxHeight="-Infinity" />
+                                <RowConstraints vgrow="SOMETIMES" minHeight="0.0" />
+                                <RowConstraints vgrow="SOMETIMES" minHeight="-Infinity" maxHeight="-Infinity" />
+                            </rowConstraints>
+                            <children>
+                                <!-- 機能名 -->
+                                <Label styleClass="ContentTitleLabel" text="%key.ProductionNavi.Roster" minWidth="-Infinity">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                    </padding>
+                                </Label>
+
+                                <!-- 組織階層ツリー -->
+                                <TreeView fx:id="hierarchyTree" onKeyPressed="#onKeyPressed" GridPane.rowIndex="1">
+                                </TreeView>
+
+                                <!-- ボタン表示エリア -->
+                                <ToolBar nodeOrientation="LEFT_TO_RIGHT" styleClass="TransparentToolbar" GridPane.rowIndex="2">
+                                    <items>
+                                        <!-- 予定表インポートボタン -->
+                                        <Button fx:id="importPlansButton" mnemonicParsing="false" onAction="#onImportPlans" styleClass="NarrowWidthButton" text="%key.PlansImport" />
+                                        <!-- 休日表インポートボタン -->
+                                        <Button fx:id="importHolidayButton" mnemonicParsing="false" onAction="#onImportHoliday" styleClass="NarrowWidthButton" text="%key.HolidayImport" />
+                                    </items>
+                                </ToolBar>
+                            </children>
+                        </GridPane>
+
+                        <!-- 右ペイン -->
+                        <GridPane minHeight="0.0" minWidth="0.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints vgrow="SOMETIMES" minHeight="-Infinity" maxHeight="-Infinity" />
+                                <RowConstraints vgrow="SOMETIMES" minHeight="-Infinity" maxHeight="-Infinity" />
+                                <RowConstraints vgrow="SOMETIMES" minHeight="-Infinity" />
+                                <RowConstraints vgrow="SOMETIMES" minHeight="-Infinity" maxHeight="-Infinity" />
+                            </rowConstraints>
+                            <children>
+                                <!-- カレンダー -->
+                                <GridPane alignment="TOP_CENTER">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="50.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="50.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="50.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="50.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="50.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="50.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="50.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" valignment="CENTER" />
+                                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" />
+                                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" />
+                                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" />
+                                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" />
+                                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" />
+                                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" />
+                                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                                    </rowConstraints>
+                                    <children>
+                                        <!-- 月　-->
+                                        <GridPane GridPane.columnSpan="3" GridPane.rowIndex="0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" maxWidth="-Infinity" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" maxWidth="-Infinity" prefWidth="80.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" maxWidth="-Infinity" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints vgrow="SOMETIMES" minHeight="-Infinity" maxHeight="-Infinity" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Label fx:id="linkTargetMonthBack" onMouseClicked="#onMonthBack" text="%key.calendar.back" />  
+                                                <Label fx:id="linkTargetMonthNow" text="XX月" GridPane.halignment="CENTER" GridPane.columnIndex="1" />  
+                                                <Label fx:id="linkTargetMonthNext" onMouseClicked="#onMonthNext" text="%key.calendar.next" GridPane.columnIndex="2" />  
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="4.0" />
+                                            </padding>
+                                        </GridPane>
+
+                                        <!-- 年　-->
+                                        <GridPane GridPane.halignment="RIGHT" GridPane.columnIndex="4" GridPane.columnSpan="3" GridPane.rowIndex="0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" maxWidth="-Infinity" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" maxWidth="-Infinity" prefWidth="80.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" maxWidth="-Infinity" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints vgrow="SOMETIMES" minHeight="-Infinity" maxHeight="-Infinity" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Label fx:id="linkTargetYearBack" onMouseClicked="#onYearBack" text="%key.calendar.back" GridPane.columnIndex="1" />  
+                                                <Label fx:id="linkTargetYearNow" text="XXXX年" GridPane.halignment="CENTER" GridPane.columnIndex="2" />  
+                                                <Label fx:id="linkTargetYearNext" onMouseClicked="#onYearNext" text="%key.calendar.next" GridPane.columnIndex="3" />  
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="4.0" />
+                                            </padding>
+                                        </GridPane>
+
+                                        <Label fx:id="labelWeekSubday" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: HOTPINK; -fx-border-color: GAINSBORO;" text="日" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                        <Label fx:id="labelWeekMonday" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: LIGHTCYAN; -fx-border-color: GAINSBORO;" text="月" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <Label fx:id="labelWeekTuesday" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: LIGHTCYAN; -fx-border-color: GAINSBORO;" text="火" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                        <Label fx:id="labelWeekWednesday" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: LIGHTCYAN; -fx-border-color: GAINSBORO;" text="水" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                        <Label fx:id="labelWeekThursday" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: LIGHTCYAN; -fx-border-color: GAINSBORO;" text="木" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                                        <Label fx:id="labelWeekFriday" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: LIGHTCYAN; -fx-border-color: GAINSBORO;" text="金" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                                        <Label fx:id="labelWeekSaturday" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: LAVENDER;" text="土" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+
+                                        <ToggleButton fx:id="calSubday1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onSunday1" text="" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                            <toggleGroup>
+                                                <ToggleGroup fx:id="calGroup" />
+                                            </toggleGroup>
+                                        </ToggleButton>
+
+                                        <ToggleButton fx:id="calMonday1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onMonday1" text="" toggleGroup="$calGroup" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                        <ToggleButton fx:id="calTuesday1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onTuesday1" text="" toggleGroup="$calGroup" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                        <ToggleButton fx:id="calWednesday1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onWednesday1" text="" toggleGroup="$calGroup" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                        <ToggleButton fx:id="calThursday1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onThursday1" text="" toggleGroup="$calGroup" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                                        <ToggleButton fx:id="calFriday1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onFryday1" text="" toggleGroup="$calGroup" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                                        <ToggleButton fx:id="calSaturday1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onSaturday1" toggleGroup="$calGroup" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+
+                                        <ToggleButton fx:id="calSubday2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onSunday2" toggleGroup="$calGroup" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                                        <ToggleButton fx:id="calMonday2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onMonday2" toggleGroup="$calGroup" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                        <ToggleButton fx:id="calTuesday2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onTuesday2" toggleGroup="$calGroup" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                        <ToggleButton fx:id="calWednesday2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onWednesday2" toggleGroup="$calGroup" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                        <ToggleButton fx:id="calThursday2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onThursday2" toggleGroup="$calGroup" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                                        <ToggleButton fx:id="calFriday2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onFryday2" toggleGroup="$calGroup" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                                        <ToggleButton fx:id="calSaturday2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onSaturday2" toggleGroup="$calGroup" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+
+                                        <ToggleButton fx:id="calSubday3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onSunday3" toggleGroup="$calGroup" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                                        <ToggleButton fx:id="calMonday3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onMonday3" toggleGroup="$calGroup" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                        <ToggleButton fx:id="calTuesday3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onTuesday3" toggleGroup="$calGroup" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                        <ToggleButton fx:id="calWednesday3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onWednesday3" toggleGroup="$calGroup" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                                        <ToggleButton fx:id="calThursday3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onThursday3" toggleGroup="$calGroup" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                                        <ToggleButton fx:id="calFriday3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onFryday3" toggleGroup="$calGroup" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+                                        <ToggleButton fx:id="calSaturday3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onSaturday3" toggleGroup="$calGroup" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+
+                                        <ToggleButton fx:id="calSubday4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onSunday4" toggleGroup="$calGroup" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                                        <ToggleButton fx:id="calMonday4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onMonday4" toggleGroup="$calGroup" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                        <ToggleButton fx:id="calTuesday4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onTuesday4" toggleGroup="$calGroup" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                                        <ToggleButton fx:id="calWednesday4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onWednesday4" toggleGroup="$calGroup" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                                        <ToggleButton fx:id="calThursday4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onThursday4" toggleGroup="$calGroup" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                                        <ToggleButton fx:id="calFriday4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onFryday4" toggleGroup="$calGroup" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+                                        <ToggleButton fx:id="calSaturday4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onSaturday4" toggleGroup="$calGroup" GridPane.columnIndex="6" GridPane.rowIndex="5" />
+
+                                        <ToggleButton fx:id="calSubday5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onSunday5" toggleGroup="$calGroup" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                                        <ToggleButton fx:id="calMonday5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onMonday5" toggleGroup="$calGroup" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                        <ToggleButton fx:id="calTuesday5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onTuesday5" toggleGroup="$calGroup" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                                        <ToggleButton fx:id="calWednesday5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onWednesday5" toggleGroup="$calGroup" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                                        <ToggleButton fx:id="calThursday5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onThursday5" toggleGroup="$calGroup" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+                                        <ToggleButton fx:id="calFriday5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onFryday5" toggleGroup="$calGroup" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+                                        <ToggleButton fx:id="calSaturday5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onSaturday5" toggleGroup="$calGroup" GridPane.columnIndex="6" GridPane.rowIndex="6" />
+
+                                        <ToggleButton fx:id="calSubday6" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onSunday6" toggleGroup="$calGroup" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+                                        <ToggleButton fx:id="calMonday6" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onMonday6" text="" toggleGroup="$calGroup" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                        <ToggleButton fx:id="calTuesday6" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onTuesday6" text="" toggleGroup="$calGroup" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                                        <ToggleButton fx:id="calWednesday6" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onWednesday6" text="" toggleGroup="$calGroup" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+                                        <ToggleButton fx:id="calThursday6" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onThursday6" text="" toggleGroup="$calGroup" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+                                        <ToggleButton fx:id="calFriday6" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onFryday6" text="" toggleGroup="$calGroup" GridPane.columnIndex="5" GridPane.rowIndex="7" />
+                                        <ToggleButton fx:id="calSaturday6" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onSaturday6" text="" toggleGroup="$calGroup" GridPane.columnIndex="6" GridPane.rowIndex="7" />
+
+                                        <Label text="%key.legend.title" GridPane.columnSpan="7" GridPane.rowIndex="8">
+                                            <GridPane.margin>
+                                                <Insets top="8.0" />
+                                            </GridPane.margin>
+                                        </Label>
+
+                                        <!--凡例--> 
+                                        <GridPane GridPane.columnSpan="7" GridPane.rowIndex="9">
+                                            <columnConstraints>
+                                                <ColumnConstraints maxWidth="-Infinity" minWidth="-Infinity" />
+                                                <ColumnConstraints maxWidth="-Infinity" minWidth="-Infinity" />
+                                                <ColumnConstraints maxWidth="-Infinity" minWidth="-Infinity" />
+                                                <ColumnConstraints maxWidth="-Infinity" minWidth="-Infinity" />
+                                                <ColumnConstraints maxWidth="-Infinity" minWidth="-Infinity" />
+                                                <ColumnConstraints maxWidth="-Infinity" minWidth="-Infinity" />
+                                                <ColumnConstraints maxWidth="-Infinity" minWidth="-Infinity" />
+                                                <ColumnConstraints maxWidth="-Infinity" minWidth="-Infinity" />
+                                                <ColumnConstraints maxWidth="-Infinity" minWidth="-Infinity" />
+                                                <ColumnConstraints maxWidth="-Infinity" minWidth="-Infinity" />
+                                                <ColumnConstraints maxWidth="-Infinity" minWidth="-Infinity" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints vgrow="SOMETIMES" minHeight="-Infinity" maxHeight="-Infinity" />
+                                            </rowConstraints>
+                                            <children>
+                                                <!--休日--> 
+                                                <Label fx:id="LegendHolidayColorBack" text="%key.legend.symbol" />
+                                                <Label text="%key.separation" GridPane.columnIndex="1" />
+                                                <Label fx:id="LegendHolidayColorChar" text="%key.HolidayDate" GridPane.columnIndex="2" />
+                                                <Label text="  " GridPane.columnIndex="3" />
+                                                <!--予定あり--> 
+                                                <Label fx:id="LegendPlansColorBack" text="%key.legend.symbol" GridPane.columnIndex="4" />
+                                                <Label text="%key.separation" GridPane.columnIndex="5" />
+                                                <Label fx:id="LegendPlansColorChar" text="%key.RosterPlans" GridPane.columnIndex="6" />
+                                                <Label text="  " GridPane.columnIndex="7" />
+                                                <!--予定なし--> 
+                                                <Label fx:id="LegendNoneColorBack" text="%key.legend.symbol" GridPane.columnIndex="8" />
+                                                <Label text="%key.separation" GridPane.columnIndex="9" />
+                                                <Label fx:id="LegendNoneColorChar" text="%key.RosterNone" GridPane.columnIndex="10" />
+                                            </children>
+                                            <padding>
+                                                <Insets top="8.0" />
+                                            </padding>
+                                        </GridPane>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                    </padding>
+                                </GridPane>
+
+                                <!-- 予定表の表示対象日付 -->
+                                <Label fx:id="targetDayText" styleClass="text-normal" GridPane.rowIndex="1" />
+
+                                <!--予定表の一覧--> 
+                                <ScrollPane prefHeight="60.0" fitToHeight="true" fitToWidth="true" GridPane.rowIndex="2">
+                                    <content>
+                                        <StackPane>
+                                            <children>
+                                                <!--予定表一覧--> 
+                                                <PropertySaveTableView fx:id="plansList">
+                                                    <columns>
+                                                        <!--予定開始時間--> 
+                                                        <TableColumn fx:id="listColumnStartDateTime" prefWidth="150.0" text="%key.WorkStartTime" />
+                                                        <!--予定終了時間--> 
+                                                        <TableColumn fx:id="listColumnStopDateTime" prefWidth="150.0" text="%key.WorkEndTime" />
+                                                        <!--予定名--> 
+                                                        <TableColumn fx:id="listColumnPlansName" prefWidth="180.0" text="%key.import.read.plans.name" />
+                                                        <!--組織識別名--> 
+                                                        <TableColumn fx:id="listColumnOrganizationName" prefWidth="180.0" text="%key.OrganizationName" />
+                                                    </columns>
+                                                </PropertySaveTableView>
+                                            </children>
+                                        </StackPane>
+                                    </content>
+                                </ScrollPane>
+
+                                <!-- ボタンエリア -->
+                                <HBox alignment="BASELINE_RIGHT" GridPane.rowIndex="3">
+                                    <children>
+                                        <ToolBar nodeOrientation="LEFT_TO_RIGHT" styleClass="TransparentToolbar">
+                                            <items>
+                                                <!--予定の新規作成ボタン--> 
+                                                <Button fx:id="createPlansButton" mnemonicParsing="false" onAction="#onPlansCreate" styleClass="NarrowWidthButton" text="%key.createNew" />
+                                                <!--予定の編集ボタン--> 
+                                                <Button fx:id="updatePlansButton" mnemonicParsing="false" onAction="#onPlansUpdate" styleClass="NarrowWidthButton" text="%key.Update" />
+                                                <!--予定の削除ボタン--> 
+                                                <Button fx:id="deletePlansButton" mnemonicParsing="false" onAction="#onPlansDelete" styleClass="NarrowWidthButton" text="%key.Delete" />
+                                            </items>
+                                        </ToolBar>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </GridPane>
+                    </items>
+                </SplitPane>
+                <Pane fx:id="progressPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+                    <children>
+                        <ProgressIndicator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" />
+                    </children>
+                </Pane>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

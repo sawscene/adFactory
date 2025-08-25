@@ -1,0 +1,830 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AdditionalOptionForm" xml:space="preserve">
+    <value>追加情報</value>
+  </data>
+  <data name="AdditionalOptionForm.cancelButton" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="AdditionalOptionForm.itemNameLabel" xml:space="preserve">
+    <value>項目名*</value>
+  </data>
+  <data name="AdditionalOptionForm.okButton" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="AdditionalOptionForm.typeBoolean" xml:space="preserve">
+    <value>真理値</value>
+  </data>
+  <data name="AdditionalOptionForm.typeDate" xml:space="preserve">
+    <value>日付</value>
+  </data>
+  <data name="AdditionalOptionForm.typeDefect" xml:space="preserve">
+    <value>不良情報</value>
+  </data>
+  <data name="AdditionalOptionForm.typeInteger" xml:space="preserve">
+    <value>数値</value>
+  </data>
+  <data name="AdditionalOptionForm.typeIp4Address" xml:space="preserve">
+    <value>IPv4アドレス</value>
+  </data>
+  <data name="AdditionalOptionForm.typeLabel" xml:space="preserve">
+    <value>タイプ*</value>
+  </data>
+  <data name="AdditionalOptionForm.typeMacAddress" xml:space="preserve">
+    <value>Macアドレス</value>
+  </data>
+  <data name="AdditionalOptionForm.typeNumeric" xml:space="preserve">
+    <value>実数</value>
+  </data>
+  <data name="AdditionalOptionForm.typePlugin" xml:space="preserve">
+    <value>プラグイン名</value>
+  </data>
+  <data name="AdditionalOptionForm.typeString" xml:space="preserve">
+    <value>文字列</value>
+  </data>
+  <data name="AdditionalOptionForm.typeTrace" xml:space="preserve">
+    <value>トレース情報</value>
+  </data>
+  <data name="AdditionalOptionForm.valueLabel" xml:space="preserve">
+    <value>現在値</value>
+  </data>
+  <data name="backButton" xml:space="preserve">
+    <value>戻る</value>
+  </data>
+  <data name="CheckItemsControl" xml:space="preserve">
+    <value>チェック項目</value>
+  </data>
+  <data name="CheckItemsControl.baseInfoLabel" xml:space="preserve">
+    <value>基本情報</value>
+  </data>
+  <data name="CheckItemsControl.checkItemNameLabel" xml:space="preserve">
+    <value>項目：</value>
+  </data>
+  <data name="CheckItemsControl.currentValueLabel" xml:space="preserve">
+    <value>初期値：</value>
+  </data>
+  <data name="CheckItemsControl.customSettingsButton" xml:space="preserve">
+    <value>変更</value>
+  </data>
+  <data name="CheckItemsControl.customSettingsLabel" xml:space="preserve">
+    <value>カスタム設定</value>
+  </data>
+  <data name="CheckItemsControl.dateFormatLabel" xml:space="preserve">
+    <value>日付形式</value>
+  </data>
+  <data name="CheckItemsControl.detailSettingsLabel" xml:space="preserve">
+    <value>詳細設定</value>
+  </data>
+  <data name="CheckItemsControl.displayCommentCheckBox" xml:space="preserve">
+    <value>後工程にコメントを表示する</value>
+  </data>
+  <data name="CheckItemsControl.equipmentButton" xml:space="preserve">
+    <value>変更</value>
+  </data>
+  <data name="CheckItemsControl.equipmentLabel" xml:space="preserve">
+    <value>設備</value>
+  </data>
+  <data name="CheckItemsControl.equipmentUsedLabel" xml:space="preserve">
+    <value>使用設備</value>
+  </data>
+  <data name="CheckItemsControl.formulaLabel" xml:space="preserve">
+    <value>計算式</value>
+  </data>
+  <data name="CheckItemsControl.initialValueLabel" xml:space="preserve">
+    <value>初期値</value>
+  </data>
+  <data name="CheckItemsControl.inputCommentCheckBox" xml:space="preserve">
+    <value>コメントを入力する</value>
+  </data>
+  <data name="CheckItemsControl.inputLabel" xml:space="preserve">
+    <value>入力</value>
+  </data>
+  <data name="CheckItemsControl.inputTypeLabel" xml:space="preserve">
+    <value>入力種</value>
+  </data>
+  <data name="CheckItemsControl.itemNameLabel" xml:space="preserve">
+    <value>項目名</value>
+  </data>
+  <data name="CheckItemsControl.itemValueLabel" xml:space="preserve">
+    <value>現在値</value>
+  </data>
+  <data name="CheckItemsControl.listButton" xml:space="preserve">
+    <value>変更</value>
+  </data>
+  <data name="CheckItemsControl.listLabel" xml:space="preserve">
+    <value>リスト</value>
+  </data>
+  <data name="CheckItemsControl.maxValueLabel" xml:space="preserve">
+    <value>基準値(最大)：</value>
+  </data>
+  <data name="CheckItemsControl.minValueLabel" xml:space="preserve">
+    <value>基準値(最小)：</value>
+  </data>
+  <data name="CheckItemsControl.noDirectInputCheckBox" xml:space="preserve">
+    <value>直接入力を禁止する</value>
+  </data>
+  <data name="CheckItemsControl.noDuplicationCheckBox" xml:space="preserve">
+    <value>重複データの入力を禁止する</value>
+  </data>
+  <data name="CheckItemsControl.preventErrorsLabel" xml:space="preserve">
+    <value>入力ミス防止</value>
+  </data>
+  <data name="CheckItemsControl.requiredCheckBox" xml:space="preserve">
+    <value>必須入力</value>
+  </data>
+  <data name="CheckItemsControl.ruleLabel" xml:space="preserve">
+    <value>入力規則</value>
+  </data>
+  <data name="CheckItemsControl.typeLabel" xml:space="preserve">
+    <value>種別</value>
+  </data>
+  <data name="CheckItemsControl.workRecordLabel" xml:space="preserve">
+    <value>作業記録</value>
+  </data>
+  <data name="CommunicationError" xml:space="preserve">
+    <value>サーバーとの通信中にエラーが発生しました。</value>
+  </data>
+  <data name="CustomListForm" xml:space="preserve">
+    <value>カスタム設定値リスト</value>
+  </data>
+  <data name="CustomListForm.addButton" xml:space="preserve">
+    <value>追加</value>
+  </data>
+  <data name="CustomListForm.cancelButton" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="CustomListForm.itemNameLabel" xml:space="preserve">
+    <value>項目名</value>
+  </data>
+  <data name="CustomListForm.okButton" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="CustomListForm.valueLabel" xml:space="preserve">
+    <value>現在値</value>
+  </data>
+  <data name="CustomRibbon.aboutButton" xml:space="preserve">
+    <value>バージョン情報</value>
+  </data>
+  <data name="CustomRibbon.aboutButtonTip" xml:space="preserve">
+    <value>作業手順書作成ツールのバージョンを確認できます。</value>
+  </data>
+  <data name="CustomRibbon.dataCheckButton" xml:space="preserve">
+    <value>データチェック</value>
+  </data>
+  <data name="CustomRibbon.dataCheckButtonTip" xml:space="preserve">
+    <value>作成した作業手順書を検証します。</value>
+  </data>
+  <data name="CustomRibbon.drawingSupportButton" xml:space="preserve">
+    <value>作図支援</value>
+  </data>
+  <data name="CustomRibbon.drawingSupportButtonTip" xml:space="preserve">
+    <value>作業手順書に図形を挿入します。</value>
+  </data>
+  <data name="CustomRibbon.HelpGroup" xml:space="preserve">
+    <value>ヘルプ</value>
+  </data>
+  <data name="CustomRibbon.LinkGroup" xml:space="preserve">
+    <value>連携</value>
+  </data>
+  <data name="CustomRibbon.loginButton" xml:space="preserve">
+    <value>ログイン</value>
+  </data>
+  <data name="CustomRibbon.loginButtonTip" xml:space="preserve">
+    <value>adFactoryのログインIDとパスワードを入力してログインします。</value>
+  </data>
+  <data name="CustomRibbon.manualButton" xml:space="preserve">
+    <value>操作ガイド</value>
+  </data>
+  <data name="CustomRibbon.manualButtonTip" xml:space="preserve">
+    <value>作業手順書の作成方法を学ぶことができます。</value>
+  </data>
+  <data name="CustomRibbon.operateWorkProcedure" xml:space="preserve">
+    <value>作業手順</value>
+  </data>
+  <data name="CustomRibbon.operateWorkProcedureTip" xml:space="preserve">
+    <value>工程シート内の作業手順を編集します。</value>
+  </data>
+  <data name="CustomRibbon.SectionGroup" xml:space="preserve">
+    <value>編集</value>
+  </data>
+  <data name="CustomRibbon.uploadButton" xml:space="preserve">
+    <value>アップロード</value>
+  </data>
+  <data name="CustomRibbon.uploadButtonTip" xml:space="preserve">
+    <value>作成した作業手順書をadFactoryに登録します。</value>
+  </data>
+  <data name="DisplayItemsForm" xml:space="preserve">
+    <value>表示項目</value>
+  </data>
+  <data name="DisplayItemsForm.addButton" xml:space="preserve">
+    <value>追加</value>
+  </data>
+  <data name="DisplayItemsForm.cancelButton" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="DisplayItemsForm.itemNameLabel" xml:space="preserve">
+    <value>項目名</value>
+  </data>
+  <data name="DisplayItemsForm.kanban" xml:space="preserve">
+    <value>カンバン</value>
+  </data>
+  <data name="DisplayItemsForm.okButton" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="DisplayItemsForm.targetLabel" xml:space="preserve">
+    <value>対象</value>
+  </data>
+  <data name="DisplayItemsForm.work" xml:space="preserve">
+    <value>工程</value>
+  </data>
+  <data name="DisplayItemsForm.workKanban" xml:space="preserve">
+    <value>工程カンバン</value>
+  </data>
+  <data name="DrawingSupportControl" xml:space="preserve">
+    <value>作図支援</value>
+  </data>
+  <data name="EquipmentNotFound" xml:space="preserve">
+    <value>作業者端末 [{0}] が見つかりません。adManagerで確認してください。</value>
+  </data>
+  <data name="EquipmentsForm" xml:space="preserve">
+    <value>設備</value>
+  </data>
+  <data name="EquipmentsForm.addButton" xml:space="preserve">
+    <value>追加</value>
+  </data>
+  <data name="EquipmentsForm.cancelButton" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="EquipmentsForm.deleteButton" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="EquipmentsForm.okButton" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="EquipmentsForm.root" xml:space="preserve">
+    <value>設備</value>
+  </data>
+  <data name="ExcelImport.diffImage" xml:space="preserve">
+    <value>この作業手順には、すでに別の画像ファイルが設定されています。画像ファイルを確認してください。</value>
+  </data>
+  <data name="ExcelImport.DoImport.ImportingModel" xml:space="preserve">
+    <value>データ取得中</value>
+  </data>
+  <data name="ExcelImport.DoImport.UploadingImages" xml:space="preserve">
+    <value>画像アップロード中</value>
+  </data>
+  <data name="ExcelImport.NotSaved" xml:space="preserve">
+    <value>Excelドキュメントは保存されていません。</value>
+  </data>
+  <data name="ExcelImport.WorkParameterImageNotFound" xml:space="preserve">
+    <value>画像ファイル [{0}]が見つかりません。</value>
+  </data>
+  <data name="ExcelUtils.Args.Workbook" xml:space="preserve">
+    <value>ワークブック</value>
+  </data>
+  <data name="ExcelUtils.Args.WorkProcedure" xml:space="preserve">
+    <value>作業手順</value>
+  </data>
+  <data name="ExcelUtils.Args.Worksheet" xml:space="preserve">
+    <value>シート</value>
+  </data>
+  <data name="ExcelUtils.Validate.DuplicateValue" xml:space="preserve">
+    <value>このセルには{0}内で重複しない値を入力してください。</value>
+  </data>
+  <data name="ExcelUtils.Validate.Enum" xml:space="preserve">
+    <value>このセルには{0}の選択肢から入力してください。</value>
+  </data>
+  <data name="ExcelUtils.Validate.GetCellFailed" xml:space="preserve">
+    <value>セルの値を取得できません。</value>
+  </data>
+  <data name="ExcelUtils.Validate.GetImageFailed" xml:space="preserve">
+    <value>画像の取得に失敗しました。青枠内に画像や図形を収めるように配置してください。</value>
+  </data>
+  <data name="ExcelUtils.Validate.Integer" xml:space="preserve">
+    <value>このセルには整数を入力してください。</value>
+  </data>
+  <data name="ExcelUtils.Validate.InvalidExternalFile" xml:space="preserve">
+    <value>JSONファイルを開けません。</value>
+  </data>
+  <data name="ExcelUtils.Validate.InvalidReference" xml:space="preserve">
+    <value>このセルには有効な参照番号を入力してください。</value>
+  </data>
+  <data name="ExcelUtils.Validate.InvalidTaktTime" xml:space="preserve">
+    <value>このセルには hh:mm:ss 形式の値を入力してください。</value>
+  </data>
+  <data name="ExcelUtils.Validate.MinMaxValue" xml:space="preserve">
+    <value>このセルには基準値(最小)以上の数値を入力してください。</value>
+  </data>
+  <data name="ExcelUtils.Validate.MissingMasterSheet" xml:space="preserve">
+    <value>工程順マスター・シート「{0}」が存在しません。</value>
+  </data>
+  <data name="ExcelUtils.Validate.Number" xml:space="preserve">
+    <value>このセルには数値を入力してください。</value>
+  </data>
+  <data name="ExcelUtils.Validate.Required" xml:space="preserve">
+    <value>このセルには値を入力してください。</value>
+  </data>
+  <data name="forwardButton" xml:space="preserve">
+    <value>進む</value>
+  </data>
+  <data name="HelpViewer" xml:space="preserve">
+    <value>操作ガイド</value>
+  </data>
+  <data name="indexButton" xml:space="preserve">
+    <value>目次</value>
+  </data>
+  <data name="InternalServerError" xml:space="preserve">
+    <value>サーバーから不明なエラーが返ってきました。</value>
+  </data>
+  <data name="key.absoluteDisplay" xml:space="preserve">
+    <value>基準値を±表示</value>
+  </data>
+  <data name="key.addDataFailed" xml:space="preserve">
+    <value>データの追加に失敗しました。</value>
+  </data>
+  <data name="key.addToEnd" xml:space="preserve">
+    <value>(末尾へ追加)</value>
+  </data>
+  <data name="key.alreadyAdded" xml:space="preserve">
+    <value>{0}は既に追加されています。</value>
+  </data>
+  <data name="key.bulkInput" xml:space="preserve">
+    <value>製品単位に入力する</value>
+  </data>
+  <data name="key.calculationResults" xml:space="preserve">
+    <value>計算結果</value>
+  </data>
+  <data name="key.cancel" xml:space="preserve">
+    <value>中止</value>
+  </data>
+  <data name="key.confirm" xml:space="preserve">
+    <value>確認</value>
+  </data>
+  <data name="key.confirmDiscardEdited" xml:space="preserve">
+    <value>編集内容を破棄しますか？</value>
+  </data>
+  <data name="key.connectionFailed" xml:space="preserve">
+    <value>サーバーへの接続に失敗しました。</value>
+  </data>
+  <data name="key.connectionSucceeded" xml:space="preserve">
+    <value>接続に成功しました。</value>
+  </data>
+  <data name="key.connectionTest" xml:space="preserve">
+    <value>接続テスト</value>
+  </data>
+  <data name="key.createDataFailed" xml:space="preserve">
+    <value>データの作成に失敗しました。</value>
+  </data>
+  <data name="key.createDiagramFailed" xml:space="preserve">
+    <value>図の作成に失敗しました。</value>
+  </data>
+  <data name="key.custom" xml:space="preserve">
+    <value>カスタム</value>
+  </data>
+  <data name="key.customFields" xml:space="preserve">
+    <value>カスタム入力フィールド</value>
+  </data>
+  <data name="key.dataCheck" xml:space="preserve">
+    <value>データチェック</value>
+  </data>
+  <data name="key.dataCheckCompleted" xml:space="preserve">
+    <value>データチェックが完了しました。</value>
+  </data>
+  <data name="key.dataCheckFailed" xml:space="preserve">
+    <value>データチェックが失敗しました。</value>
+  </data>
+  <data name="key.dataChecking" xml:space="preserve">
+    <value>データチェック中</value>
+  </data>
+  <data name="key.dateAndTime" xml:space="preserve">
+    <value>年月日時間</value>
+  </data>
+  <data name="key.dateOnly" xml:space="preserve">
+    <value>年月日のみ</value>
+  </data>
+  <data name="key.datetime" xml:space="preserve">
+    <value>日時</value>
+  </data>
+  <data name="key.decimalDigits" xml:space="preserve">
+    <value>小数有効桁数</value>
+  </data>
+  <data name="key.deleteDataFailed" xml:space="preserve">
+    <value>データの削除に失敗しました。</value>
+  </data>
+  <data name="key.delimiter" xml:space="preserve">
+    <value>入力データの区切り文字</value>
+  </data>
+  <data name="key.drawingSupport" xml:space="preserve">
+    <value>作図支援</value>
+  </data>
+  <data name="key.emptyWorkProcedure" xml:space="preserve">
+    <value>(空の作業手順)</value>
+  </data>
+  <data name="key.error" xml:space="preserve">
+    <value>エラー</value>
+  </data>
+  <data name="key.getEquipmentInfoFailed" xml:space="preserve">
+    <value>設備情報の取得ができませんでした。</value>
+  </data>
+  <data name="key.getOrganizationInfoFailed" xml:space="preserve">
+    <value>作業者情報の取得ができませんでした。</value>
+  </data>
+  <data name="key.holdPrevData" xml:space="preserve">
+    <value>前回の入力情報を保持する</value>
+  </data>
+  <data name="key.import" xml:space="preserve">
+    <value>アップロード</value>
+  </data>
+  <data name="key.importCompleted" xml:space="preserve">
+    <value>アップロードが完了しました。</value>
+  </data>
+  <data name="key.importFailed" xml:space="preserve">
+    <value>アップロードが失敗しました。</value>
+  </data>
+  <data name="key.importing" xml:space="preserve">
+    <value>アップロード中</value>
+  </data>
+  <data name="key.information" xml:space="preserve">
+    <value>情報</value>
+  </data>
+  <data name="key.inputProductNum" xml:space="preserve">
+    <value>製造番号を登録する</value>
+  </data>
+  <data name="key.inputRequired" xml:space="preserve">
+    <value>未入力の項目があります。
+必須項目を入力してください。</value>
+  </data>
+  <data name="key.inspection" xml:space="preserve">
+    <value>検査</value>
+  </data>
+  <data name="key.integerDigits" xml:space="preserve">
+    <value>整数有効桁数</value>
+  </data>
+  <data name="key.judg" xml:space="preserve">
+    <value>完了判定</value>
+  </data>
+  <data name="key.keyboardText" xml:space="preserve">
+    <value>タッチキーボード</value>
+  </data>
+  <data name="key.licenseInvalid" xml:space="preserve">
+    <value>ライセンスが無効です。</value>
+  </data>
+  <data name="key.licenseValid" xml:space="preserve">
+    <value>ライセンスが有効です。</value>
+  </data>
+  <data name="key.loadDataFailed" xml:space="preserve">
+    <value>データの読込に失敗しました。</value>
+  </data>
+  <data name="key.loadXmlDataFailed" xml:space="preserve">
+    <value>XMLデータの読込に失敗しました。</value>
+  </data>
+  <data name="key.measure" xml:space="preserve">
+    <value>測定</value>
+  </data>
+  <data name="key.moveDataFailed" xml:space="preserve">
+    <value>データの移動に失敗しました。</value>
+  </data>
+  <data name="key.noEquipmentConfigured" xml:space="preserve">
+    <value>（設備は設定されていません）</value>
+  </data>
+  <data name="key.noOrganizationConfigured" xml:space="preserve">
+    <value>（作業者は設定されていません）</value>
+  </data>
+  <data name="key.noOrganizationTerminalConfigured" xml:space="preserve">
+    <value>（作業者端末は設定されていません）</value>
+  </data>
+  <data name="key.parts" xml:space="preserve">
+    <value>部品</value>
+  </data>
+  <data name="key.photosAndFiles" xml:space="preserve">
+    <value>写真・ファイル</value>
+  </data>
+  <data name="key.pluginName" xml:space="preserve">
+    <value>プラグイン名</value>
+  </data>
+  <data name="key.product" xml:space="preserve">
+    <value>完成品</value>
+  </data>
+  <data name="key.productName" xml:space="preserve">
+    <value>作業手順書作成ツール</value>
+  </data>
+  <data name="key.property" xml:space="preserve">
+    <value>タグ</value>
+  </data>
+  <data name="key.qrRead" xml:space="preserve">
+    <value>カメラでQRコードを読み取る</value>
+  </data>
+  <data name="key.readConfigFileFailed" xml:space="preserve">
+    <value>設定ファイルの読込に失敗しました。</value>
+  </data>
+  <data name="key.saveDataFailed" xml:space="preserve">
+    <value>データの保存に失敗しました。</value>
+  </data>
+  <data name="key.tenKeyboard" xml:space="preserve">
+    <value>テンキーボード</value>
+  </data>
+  <data name="key.timeOnly" xml:space="preserve">
+    <value>時間のみ</value>
+  </data>
+  <data name="key.timer" xml:space="preserve">
+    <value>タイマー</value>
+  </data>
+  <data name="key.warning" xml:space="preserve">
+    <value>警告</value>
+  </data>
+  <data name="key.work" xml:space="preserve">
+    <value>作業</value>
+  </data>
+  <data name="key.workName" xml:space="preserve">
+    <value>工程名</value>
+  </data>
+  <data name="key.workProcedure" xml:space="preserve">
+    <value>作業手順</value>
+  </data>
+  <data name="ListWithColorForm" xml:space="preserve">
+    <value>色付き入力値リスト</value>
+  </data>
+  <data name="ListWithColorForm.addButton" xml:space="preserve">
+    <value>追加</value>
+  </data>
+  <data name="ListWithColorForm.backgroundColorLabel" xml:space="preserve">
+    <value>背景色</value>
+  </data>
+  <data name="ListWithColorForm.cancelButton" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="ListWithColorForm.fontColorLabel" xml:space="preserve">
+    <value>文字色</value>
+  </data>
+  <data name="ListWithColorForm.okButton" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ListWithColorForm.valueLabel" xml:space="preserve">
+    <value>値</value>
+  </data>
+  <data name="LOCKED_RESOURCE" xml:space="preserve">
+    <value>この作業手順書を使用したカンバンが存在します。リビジョン番号を更新してください。</value>
+  </data>
+  <data name="LoginForm.loginFailed" xml:space="preserve">
+    <value>ログインID または パスワードが正しくありません。</value>
+  </data>
+  <data name="LoginForm.loginSucceed" xml:space="preserve">
+    <value>ログインが成功しました。</value>
+  </data>
+  <data name="LoginForm.notPermission" xml:space="preserve">
+    <value>このアカウントにはリソースを編集する権限がありません。</value>
+  </data>
+  <data name="LoginForm.Title" xml:space="preserve">
+    <value>ログイン</value>
+  </data>
+  <data name="NOT_ACCESS_RESOURCE" xml:space="preserve">
+    <value>工程階層 または 工程順階層へのアクセス権がありません。</value>
+  </data>
+  <data name="OrganizationNotFound" xml:space="preserve">
+    <value>作業者 [{0}] が見つかりません。adManagerで確認してください。</value>
+  </data>
+  <data name="OrganizationsForm" xml:space="preserve">
+    <value>作業者</value>
+  </data>
+  <data name="OrganizationsForm.addButton" xml:space="preserve">
+    <value>追加</value>
+  </data>
+  <data name="OrganizationsForm.cancelButton" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="OrganizationsForm.deleteButton" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="OrganizationsForm.okButton" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="OrganizationsForm.root" xml:space="preserve">
+    <value>作業者</value>
+  </data>
+  <data name="printButton" xml:space="preserve">
+    <value>印刷</value>
+  </data>
+  <data name="topButton" xml:space="preserve">
+    <value>ページ先頭</value>
+  </data>
+  <data name="WorkControl" xml:space="preserve">
+    <value>工程</value>
+  </data>
+  <data name="WorkControl.additionalInfoLabel" xml:space="preserve">
+    <value>追加情報</value>
+  </data>
+  <data name="WorkControl.backgroundColorButton" xml:space="preserve">
+    <value>変更</value>
+  </data>
+  <data name="WorkControl.backgroundColorLabel" xml:space="preserve">
+    <value>背景色</value>
+  </data>
+  <data name="WorkControl.baseInfoLabel" xml:space="preserve">
+    <value>基本情報</value>
+  </data>
+  <data name="WorkControl.displayInfoLabel" xml:space="preserve">
+    <value>表示情報</value>
+  </data>
+  <data name="WorkControl.displayItemsButton" xml:space="preserve">
+    <value>変更</value>
+  </data>
+  <data name="WorkControl.displayItemsLabel" xml:space="preserve">
+    <value>表示項目</value>
+  </data>
+  <data name="WorkControl.equipmentsButton" xml:space="preserve">
+    <value>変更</value>
+  </data>
+  <data name="WorkControl.equipmentsLabel" xml:space="preserve">
+    <value>作業者端末</value>
+  </data>
+  <data name="WorkControl.fontColorButton" xml:space="preserve">
+    <value>変更</value>
+  </data>
+  <data name="WorkControl.fontColorLabel" xml:space="preserve">
+    <value>文字色</value>
+  </data>
+  <data name="WorkControl.optionButton" xml:space="preserve">
+    <value>変更</value>
+  </data>
+  <data name="WorkControl.optionLabel" xml:space="preserve">
+    <value>追加情報</value>
+  </data>
+  <data name="WorkControl.organizationInfoLabel" xml:space="preserve">
+    <value>作業者情報</value>
+  </data>
+  <data name="WorkControl.organizationsButton" xml:space="preserve">
+    <value>変更</value>
+  </data>
+  <data name="WorkControl.organizationsLabel" xml:space="preserve">
+    <value>作業者</value>
+  </data>
+  <data name="WorkControl.revLabel" xml:space="preserve">
+    <value>Rev：</value>
+  </data>
+  <data name="WorkControl.taktTimeLabel" xml:space="preserve">
+    <value>タクトタイム：</value>
+  </data>
+  <data name="WorkControl.workNameLabel" xml:space="preserve">
+    <value>工程名：</value>
+  </data>
+  <data name="WorkControl.workNoLabel" xml:space="preserve">
+    <value>作業番号：</value>
+  </data>
+  <data name="WorkProcedureForm" xml:space="preserve">
+    <value>作業手順の編集</value>
+  </data>
+  <data name="WorkProcedureForm.addWorkProcedureButton" xml:space="preserve">
+    <value>作成</value>
+  </data>
+  <data name="WorkProcedureForm.cancelButton" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="WorkProcedureForm.cannotDelete" xml:space="preserve">
+    <value>品番リストから参照されているため削除できません。</value>
+  </data>
+  <data name="WorkProcedureForm.currentWorkLabel" xml:space="preserve">
+    <value>現在の工程：</value>
+  </data>
+  <data name="WorkProcedureForm.deleteWorkProcedureButton" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="WorkProcedureForm.explanationLabel" xml:space="preserve">
+    <value>作業手順の作成は削除、順序変更が出来ます。
+既存の作業手順から新しい作業手順を作成したい場合は、コピー元を指定してください。</value>
+  </data>
+  <data name="WorkProcedureForm.notFoundTemplate" xml:space="preserve">
+    <value>[{0}]シートが見つかりません。</value>
+  </data>
+  <data name="WorkProcedureForm.notWorkSheet" xml:space="preserve">
+    <value>工程シートではありません。シート名を確認してください。</value>
+  </data>
+  <data name="WorkProcedureForm.okButton" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="WorkProcedureForm.sourceGroupBox" xml:space="preserve">
+    <value>コピー元</value>
+  </data>
+  <data name="WorkProcedureForm.workLabel" xml:space="preserve">
+    <value>工程</value>
+  </data>
+  <data name="WorkProcedureForm.workProcedureLabel" xml:space="preserve">
+    <value>作業手順</value>
+  </data>
+</root>

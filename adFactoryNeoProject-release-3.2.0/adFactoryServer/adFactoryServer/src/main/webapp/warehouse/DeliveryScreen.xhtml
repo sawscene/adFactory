@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>adFactory Warehouse</title>
+        <h:outputStylesheet library="styles" name="ScreenDesignStyles.css"/>
+        <h:outputStylesheet library="styles" name="ScreenFontStyles.css"/>
+        <h:outputStylesheet library="styles" name="jquery-confirm.css"/>
+        <h:outputScript library="scripts" name="jquery-confirm.min.js"/>
+        <h:outputScript library="scripts" name="confirmDialog.js"/>
+        <h:outputScript library="scripts" name="warehouse-common.js"/>
+        <h:outputScript library="scripts" name="PickingScripts.js"/>
+        <f:loadBundle basename="jp.adtekfuji.adfactoryserver.locale.locale" var="msg"/>
+    </h:head>
+    <h:body id="body" onload="onLoadPickKanban()">
+        <style>
+        </style>
+        <audio id="sound" preload="auto">
+            <source src="#{resource['media/beep.wav']}" type="audio/wav" />
+        </audio>
+
+        <div align="center">
+            <!--タイトル-->          
+            <h:form id="titleForm" styleClass="headerForm">
+                <h:panelGrid styleClass="headerTable" columns="3" columnClasses="backButtonCell,titleCell,timeCell">
+                    <h:commandButton type="submit" immediate="true" image="#{resource['back.png']}"
+                                      onclick="#{menuData.init()}; goBack('', '#{pickingData.language}', 'PickKanbanScreen.xhtml'); return false;" />
+                    <h:outputLabel value="#{pickingData.title}" styleClass="font-42ptBld" 
+                                   onclick="#{menuData.init()}; goBack('', '#{pickingData.language}', 'PickKanbanScreen.xhtml'); return false;"/>
+                    <h:outputLabel id="timeLabel" value = "" styleClass="font-42ptBld" />
+                </h:panelGrid>
+                <h:panelGrid styleClass="headerTable" columns="1" columnClasses="areaCell">                
+                    <h:outputLabel id="areaLabel" value="#{pickingData.areaName}" styleClass="font-30ptBld" />
+                </h:panelGrid>
+            </h:form>
+
+            <!--社員情報フォーム-->
+            <h:form id="userInfoForm" styleClass="formCommon form-nomal" style="margin-top:170px" onsubmit="return false">
+                <!--社員名-->
+                <h:panelGrid columns="2" styleClass="tableCommon" columnClasses="labelCell font-42ptBld,dataCell noto font-42pt">
+                    <h:outputLabel value="#{msg['warehouse.userName']}"/>
+                    <h:outputLabel id="userNameOutput" value="#{pickingData.userName}"/>
+                </h:panelGrid>
+            </h:form>
+
+            <h:form id="kanbanForm" styleClass="formCommon form-nomal" onsubmit="return false;">
+                <h:panelGrid columns="2" styleClass="tableCommon" columnClasses="labelCell font-42ptBld,dataCell noto font-42pt">
+                    <h:outputLabel value="#{msg['warehouse.pickingId']}"/>
+                    <h:outputLabel value="#{pickingData.deliveryNo}"/>
+                </h:panelGrid>
+                <h:panelGrid columns="2" styleClass="tableCommon" columnClasses="labelCell font-42ptBld,dataCell noto font-42pt">
+                    <h:outputLabel value="#{msg['warehouse.modelName']}"/>
+                    <h:outputLabel value="#{pickingData.modelName}"/>
+                </h:panelGrid>
+                <h:panelGrid columns="2" styleClass="tableCommon" columnClasses="labelCell font-42ptBld,dataCell noto font-42pt">
+                    <h:outputLabel value="#{msg['warehouse.unitNo']}"/>
+                    <h:outputLabel value="#{pickingData.unitNo}"/>
+                </h:panelGrid>
+                <h:panelGrid columns="2" styleClass="tableCommon" columnClasses="labelCell font-42ptBld,dataCell noto font-42pt">
+                    <h:outputLabel value="#{msg['warehouse.workDate']}"/>
+                    <h:outputLabel value="#{pickingData.workDate}"/>
+                </h:panelGrid>
+                <h:panelGrid columns="2" styleClass="tableCommon" columnClasses="labelCell font-42ptBld,dataCell noto font-42pt">
+                    <h:outputLabel value="#{msg['key.status']}"/>
+                    <h:outputLabel value="#{pickingData.status}"/>
+                </h:panelGrid>
+            </h:form>
+            
+            <h:form id = "InfMsgForm" style="margin-bottom:120px">
+                <h:panelGrid columns="1">
+                    <h:outputLabel styleClass="font-42ptBld" value="#{msg['warehouse.confirmDelivery']}" escape="false"/>
+                    <h:outputLabel styleClass="viewMessage font-42ptBld" value="#{pickingData.readInfoMsg}" rendered="#{pickingData.readInfoMsg.length() != 0}" escape="false"/>
+                </h:panelGrid>
+            </h:form>
+
+            <h:form id="buttonForm" styleClass="footer">
+                <h:panelGrid columns="2" styleClass="tableCommon" cellspacing="1">
+                    <p:commandButton id="backButton" type="submit" styleClass="submitButton font-42pt" actionListener="#{pickingData.onBackPickKanban}"
+                                      value="#{msg['key.back']}" update=":kanbanForm" />
+                    <p:commandButton id="startButton" type="submit" styleClass="submitButton font-42pt" action="#{pickingData.onDelivery}"
+                                      value="#{msg['key.complete']}" ajax="false"/>
+                </h:panelGrid>
+            </h:form>
+        </div>
+    </h:body>
+</html>

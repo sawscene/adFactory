@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="adtekfuji.admanagerapp.productionnaviplugin.component.LinkAspCompoController">
+    <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+               AnchorPane.topAnchor="0.0">
+        <GridPane fx:id="operationPane" vgap="4.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <!-- タイトル -->
+            <Label styleClass="ContentTitleLabel" text="Asprova連携">
+                <font>
+                    <Font size="18.0"/>
+                </font>
+            </Label>
+
+            <!-- ファイル選択 -->
+            <GridPane style="-fx-background-color: #F3F3F3" vgap="8.0" GridPane.rowIndex="1">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity"/>
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES"/>
+                    <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES"/>
+                </rowConstraints>
+                <padding>
+                    <Insets bottom="8.0"/>
+                </padding>
+                <TabPane fx:id="tabImportMode" tabClosingPolicy="UNAVAILABLE">
+                    <!-- 月初生産計画取り込み -->
+                    <Tab id="tabCsvMode" fx:id="tabMonthlyPlanMode" text="月初生産計画取り込み">
+                        <GridPane hgap="8.0" vgap="8.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity"
+                                                   minWidth="-Infinity"/>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="240" minWidth="0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity"/>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity"
+                                                   minWidth="-Infinity"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity"
+                                                vgrow="SOMETIMES"/>
+                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity"
+                                                vgrow="SOMETIMES"/>
+                            </rowConstraints>
+                            <padding>
+                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0"/>
+                            </padding>
+                            <Label styleClass="text-normal" text="入力フォルダ"/>
+                            <TextField fx:id="importAspMonthlyPlanFolderField" styleClass="text-normal"
+                                       GridPane.columnIndex="1" GridPane.columnSpan="2"/>
+                            <!-- フォルダ選択 -->
+                            <Button fx:id="selectMonthlyFolderButton" minWidth="50.0"
+                                    mnemonicParsing="false" onAction="#onSelectMonthlyPlanFolderButton"
+                                    prefHeight="35.0" styleClass="SimpleButton" text="選択"
+                                    GridPane.columnIndex="3"/>
+                            <!-- 取り込みボタン -->
+                            <Button fx:id="aspMonthlyPlanImportButton" mnemonicParsing="false"
+                                    onAction="#onAspMonthlyPlanImportButton" prefHeight="35.0"
+                                    styleClass="ContentButton" text="取り込み" GridPane.rowIndex="1"
+                                    GridPane.columnIndex="3"/>
+                        </GridPane>
+                    </Tab>
+                    <!-- 生産計画取り込み -->
+                    <Tab id="tabExportMode" fx:id="tabCsvMode" text="生産計画取り込み">
+                        <GridPane hgap="8.0" vgap="8.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity"
+                                                   minWidth="-Infinity"/>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="240" minWidth="0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity"/>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity"
+                                                   minWidth="-Infinity"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity"
+                                                vgrow="SOMETIMES"/>
+                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity"
+                                                vgrow="SOMETIMES"/>
+                            </rowConstraints>
+                            <padding>
+                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0"/>
+                            </padding>
+                            <Label styleClass="text-normal" text="入力ファイル"/>
+                            <TextField fx:id="importAspPlanFileField" styleClass="text-normal"
+                                       GridPane.columnIndex="1" GridPane.columnSpan="2"/>
+                            <!-- ファイル選択 -->
+                            <Button fx:id="selectExcelFileButton" minWidth="50.0"
+                                    mnemonicParsing="false" onAction="#onSelectPlanFileButton"
+                                    prefHeight="35.0" styleClass="SimpleButton" text="選択"
+                                    GridPane.columnIndex="3"/>
+                            <!-- 階層選択 -->
+                            <Label styleClass="text-normal" text="カンバン階層" GridPane.rowIndex="1"
+                                   GridPane.columnIndex="0"/>
+                            <TextField fx:id="kanbanHierarchyField" styleClass="text-normal"
+                                       minWidth="100.0" GridPane.rowIndex="1"
+                                       GridPane.columnIndex="1"/>
+                            <Button fx:id="selectKanbanHierarchyButton" minWidth="50.0"
+                                    mnemonicParsing="false"
+                                    onAction="#onSelectKanbanHierarchyButton" prefHeight="35.0"
+                                    styleClass="SimpleButton" text="選択" GridPane.rowIndex="1"
+                                    GridPane.columnIndex="2"/>
+                            <!-- 取り込みボタン -->
+                            <Button fx:id="aspPlanImportButton" mnemonicParsing="false"
+                                    onAction="#onAspPlanImportButton" prefHeight="35.0"
+                                    styleClass="ContentButton" text="取り込み" GridPane.rowIndex="1"
+                                    GridPane.columnIndex="3"/>
+                        </GridPane>
+                    </Tab>
+                    <!-- 製造BOM取り込み -->
+                    <Tab id="tabExportMode" fx:id="tabExportMode" text="製造BOM取り込み">
+                        <GridPane hgap="8.0" vgap="8.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity"
+                                                   minWidth="-Infinity"/>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="220" minWidth="0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="70" minWidth="0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity"
+                                                   minWidth="-Infinity"/>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="220" minWidth="0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="70" minWidth="0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity"
+                                                   minWidth="-Infinity"/>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="220" minWidth="0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity"/>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity"
+                                                   minWidth="-Infinity"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity"
+                                                vgrow="SOMETIMES"/>
+                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity"
+                                                vgrow="SOMETIMES"/>
+                            </rowConstraints>
+                            <padding>
+                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0"/>
+                            </padding>
+                            <Label styleClass="text-normal" text="入力ファイル"/>
+                            <TextField fx:id="importBomFileField" styleClass="text-normal"
+                                       GridPane.columnIndex="1" GridPane.columnSpan="8"/>
+                            <Button fx:id="selectBomFileButton" minWidth="50.0"
+                                    mnemonicParsing="false" onAction="#onSelectBomFileAction"
+                                    prefHeight="35.0" styleClass="SimpleButton" text="選択"
+                                    GridPane.columnIndex="9"/>
+                            <!-- 工程選択 -->
+                            <Label styleClass="text-normal" text="工程階層" GridPane.rowIndex="1"
+                                   GridPane.columnIndex="0"/>
+                            <TextField fx:id="workHierarchyField" styleClass="text-normal"
+                                       minWidth="100.0" GridPane.rowIndex="1"
+                                       GridPane.columnIndex="1"/>
+                            <!-- 工程階層選択ボタン -->
+                            <Button fx:id="selectWorkHierarchyButton" minWidth="50.0"
+                                    mnemonicParsing="false"
+                                    onAction="#onSelectWorkHierarchyButton" prefHeight="35.0"
+                                    styleClass="SimpleButton" text="選択" GridPane.rowIndex="1"
+                                    GridPane.columnIndex="2"/>
+                            <!-- 工程順選択 -->
+                            <Label styleClass="text-normal" text="工程順階層" GridPane.rowIndex="1"
+                                   GridPane.columnIndex="3"/>
+                            <TextField fx:id="workflowHierarchyField" styleClass="text-normal"
+                                       minWidth="100.0" GridPane.rowIndex="1"
+                                       GridPane.columnIndex="4"/>
+                            <!-- 工程順階層選択ボタン -->
+                            <Button fx:id="selectWorkflowHierarchyButton" minWidth="50.0"
+                                    mnemonicParsing="false"
+                                    onAction="#onSelectWorkflowHierarchyButton"
+                                    prefHeight="35.0" styleClass="SimpleButton" text="選択"
+                                    GridPane.rowIndex="1" GridPane.columnIndex="5"/>
+                            <!-- 直列・並列 -->
+                            <Label styleClass="text-normal" text="工程接続" GridPane.rowIndex="1"
+                                   GridPane.columnIndex="6"/>
+                            <ComboBox visible="false" disable="false" GridPane.rowIndex="1"
+                                      GridPane.columnIndex="7"/> <!-- コンボボックスの上部に▼が出る不具合の回避用 -->
+                            <ComboBox fx:id="importBomWorkConnectComboBox"
+                                      styleClass="ContentComboBox" GridPane.rowIndex="1"
+                                      GridPane.columnIndex="7"/>
+                            <CheckBox fx:id="changeKanbansWorkflow"
+                                      styleClass="text-normal" GridPane.rowIndex = "1"
+                                      GridPane.columnIndex="8" text="工程変更許可" />
+                            <!-- 取り込みボタン -->
+                            <Button fx:id="aspBomImportButton" onAction="#onAspBomImportButton"
+                                    mnemonicParsing="false" prefHeight="35.0"
+                                    styleClass="ContentButton" text="取り込み" GridPane.rowIndex="1"
+                                    GridPane.columnIndex="9"/>
+                        </GridPane>
+                    </Tab>
+                    <!-- 生産実績取り出し -->
+                    <Tab id="tabExcelMode" fx:id="tabExcelMode" text="生産実績取り出し">
+                        <GridPane hgap="8.0" vgap="8.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity"
+                                                   minWidth="-Infinity"/>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="240" minWidth="0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity"/>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity"
+                                                   minWidth="-Infinity"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity"
+                                                vgrow="SOMETIMES"/>
+                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity"
+                                                vgrow="SOMETIMES"/>
+                            </rowConstraints>
+                            <children>
+                                <Label styleClass="text-normal" text="出力フォルダ"/>
+                                <TextField fx:id="exportFolderField" styleClass="text-normal"
+                                           GridPane.columnIndex="1" GridPane.columnSpan="2"/>
+                                <!-- 出力先フォルダ選択 -->
+                                <Button fx:id="selectExportFolder" minWidth="50.0"
+                                        mnemonicParsing="false" onAction="#onSelectExportFolder"
+                                        prefHeight="35.0" styleClass="SimpleButton" text="選択"
+                                        GridPane.columnIndex="3"/>
+                                <!-- 出力ボタン -->
+                                <Button fx:id="exportButton" mnemonicParsing="false"
+                                        onAction="#onExportButton" prefHeight="35.0"
+                                        styleClass="ContentButton" text="取り出し" GridPane.rowIndex="1"
+                                        GridPane.columnIndex="3"/>
+                                <!-- 階層選択 -->
+                                <Label styleClass="text-normal" text="カンバン階層" GridPane.rowIndex="1"
+                                       GridPane.columnIndex="0"/>
+                                <TextField fx:id="kanbanHierarchyFieldForExport"
+                                           styleClass="text-normal" minWidth="100.0"
+                                           GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                                <Button fx:id="selectKanbanHierarchyButtonForExport" minWidth="50.0"
+                                        mnemonicParsing="false"
+                                        onAction="#onSelectKanbanHierarchyButtonForExport"
+                                        prefHeight="35.0" styleClass="SimpleButton" text="選択"
+                                        GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                            </children>
+                            <padding>
+                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0"/>
+                            </padding>
+                        </GridPane>
+                    </Tab>
+                </TabPane>
+            </GridPane>
+
+            <!-- 結果タイトル -->
+            <Label styleClass="text-normal" text="結果" GridPane.rowIndex="2">
+                <padding>
+                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                </padding>
+            </Label>
+
+            <!-- 結果 -->
+            <ListView fx:id="resultList" editable="false" focusTraversable="false" prefHeight="100.0"
+                      GridPane.rowIndex="3">
+                <padding>
+                    <Insets left="4.0" right="4.0"/>
+                </padding>
+            </ListView>
+        </GridPane>
+        <Pane fx:id="progressPane" maxHeight="-Infinity" maxWidth="-Infinity" StackPane.alignment="CENTER">
+            <ProgressIndicator fx:id="progressIndicator" prefHeight="80.0" prefWidth="80.0"/>
+        </Pane>
+    </StackPane>
+</AnchorPane>

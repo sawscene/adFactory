@@ -1,0 +1,166 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package jp.adtekfuji.adinterfaceservicecommon.plugin.util;
+
+import adtekfuji.utility.StringTime;
+import adtekfuji.utility.StringUtils;
+import java.util.List;
+import java.util.Objects;
+import jp.adtekfuji.adFactory.entity.kanban.KanbanInfoEntity;
+import jp.adtekfuji.adFactory.entity.kanban.KanbanPropertyInfoEntity;
+import jp.adtekfuji.adFactory.entity.workkanban.WorkKanbanInfoEntity;
+import jp.adtekfuji.adFactory.entity.workkanban.WorkKanbanPropertyInfoEntity;
+
+/**
+ *
+ * @author e-mori
+ */
+public class WorkPlanKanbanCheckerUtils {
+
+    /**
+     * カンバン情報が空欄になっていないか確認
+     *
+     * @param kanbanName
+     * @param kanbanPropertyInfoEntitys
+     * @return
+     */
+    public static Boolean checkEmptyKanban(String kanbanName, List<KanbanPropertyInfoEntity> kanbanPropertyInfoEntitys) {
+
+        if (Objects.isNull(kanbanName) || "".equals(kanbanName)) {
+            return true;
+        }
+        for (KanbanPropertyInfoEntity entity : kanbanPropertyInfoEntitys) {
+            entity.updateMember();
+            if (Objects.isNull(entity.getKanbanPropertyName())
+                    || entity.getKanbanPropertyName().isEmpty()
+                    || Objects.isNull(entity.getKanbanPropertyType())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 工程カンバンの情報が空になっていないか確認
+     *
+     * @param entities
+     * @return
+     */
+    public static Boolean checkEmptyWorkKanbanProp(List<WorkKanbanPropertyInfoEntity> entities) {
+        for (WorkKanbanPropertyInfoEntity entity : entities) {
+            entity.updateMember();
+            if (StringUtils.isEmpty(entity.getWorkKanbanPropName())
+                    || Objects.isNull(entity.getWorkKanbanPropType())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * カンバン情報が空欄になっていないか確認
+     *
+     * @param kanban
+     * @return
+     */
+    public static Boolean isEmptyKanban(KanbanInfoEntity kanban) {
+        // インスタンスの存在確認
+        if (Objects.isNull(kanban)) {
+            return true;
+        }
+        for (WorkKanbanInfoEntity work : kanban.getWorkKanbanCollection()) {
+            if (work.getStartDatetime().after(work.getCompDatetime())) {
+                return true;
+            }
+        }
+        for (WorkKanbanInfoEntity work : kanban.getSeparateworkKanbanCollection()) {
+            if (work.getStartDatetime().after(work.getCompDatetime())) {
+                return true;
+            }
+        }
+        return (Objects.isNull(kanban.getFkWorkflowId()) || (0L == kanban.getFkWorkflowId()))
+                || (Objects.isNull(kanban.getKanbanName()) || "".equals(kanban.getKanbanName()))
+                || (Objects.isNull(kanban.getStartDatetime()) || Objects.isNull(kanban.getCompDatetime()))
+                || isEmptyKanbanProp(kanban.getPropertyCollection());
+    }
+
+    /**
+     * カンバンのプロパティ情報で入力漏れがないか確認
+     *
+     * @param entities ユニットプロパティ
+     * @return 成否 true:入力漏れ有/false:入力漏れ無
+     */
+    public static Boolean isEmptyKanbanProp(List<KanbanPropertyInfoEntity> entities) {
+        for (KanbanPropertyInfoEntity entity : entities) {
+            entity.updateMember();
+            if (StringUtils.isEmpty(entity.getKanbanPropertyName())
+                    || Objects.isNull(entity.getKanbanPropertyType())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     *
+     */
+    public enum KanbanValidEnum {
+
+        TIME_COMP_ERR("key.TimeFormatErrMessage"),
+        DATE_COMP_ERR("key.DateCompErrMessage"),
+        SUCCSESS("");
+
+        private final String resourceKey;
+
+        /**
+         *
+         * @param resourceKey
+         */
+        private KanbanValidEnum(String resourceKey) {
+            this.resourceKey = resourceKey;
+        }
+
+        /**
+         *
+         * @return
+         */
+        public String getResourceKey() {
+            return this.resourceKey;
+        }
+    }
+
+    /**
+     *
+     * @param kanbanInfoEntity
+     * @return
+     */
+    public static KanbanValidEnum validItems(KanbanInfoEntity kanbanInfoEntity) {
+        //タクトタイムフォーマット判定
+        if (kanbanInfoEntity.getWorkKanbanCollection().stream().anyMatch(workKanban -> (!StringTime.validStringTime(workKanban.taktTimeProperty().get())
+                || StringTime.convertStringTimeToMillis(workKanban.taktTimeProperty().get()) > Integer.MAX_VALUE))
+                || kanbanInfoEntity.getSeparateworkKanbanCollection().stream().anyMatch(separatework -> (!StringTime.validStringTime(separatework.taktTimeProperty().get())
+                || StringTime.convertStringTimeToMillis(separatework.taktTimeProperty().get()) > Integer.MAX_VALUE))) {
+//            sc.showAlert(Alert.AlertType.WARNING, LocaleUtils.getString("key.Warning"), LocaleUtils.getString("key.TimeFormatErrMessage"));
+            return KanbanValidEnum.TIME_COMP_ERR;
+        }
+
+        //開始時間、終了時間フォーマット判定
+        if (kanbanInfoEntity.getWorkKanbanCollection().stream().anyMatch(workKanban -> (Objects.isNull(workKanban.getStartDatetime()) || Objects.isNull(workKanban.getCompDatetime())))
+                || kanbanInfoEntity.getSeparateworkKanbanCollection().stream().anyMatch(separatework -> (Objects.isNull(separatework.getStartDatetime()) || Objects.isNull(separatework.getCompDatetime())))) {
+//            sc.showAlert(Alert.AlertType.WARNING, LocaleUtils.getString("key.Warning"), LocaleUtils.getString("key.TimeFormatErrMessage"));
+            return KanbanValidEnum.TIME_COMP_ERR;
+        }
+
+        //開始時間<終了時間判定
+        if (kanbanInfoEntity.getWorkKanbanCollection().stream().anyMatch(workKanban -> (workKanban.getStartDatetime().getTime() > workKanban.getCompDatetime().getTime()))
+                || kanbanInfoEntity.getSeparateworkKanbanCollection().stream().anyMatch(separatework -> (separatework.getStartDatetime().getTime() > separatework.getCompDatetime().getTime()))) {
+//            sc.showAlert(Alert.AlertType.WARNING, LocaleUtils.getString("key.Warning"), LocaleUtils.getString("key.DateCompErrMessage"));
+            return KanbanValidEnum.DATE_COMP_ERR;
+        }
+
+        return KanbanValidEnum.SUCCSESS;
+    }
+}

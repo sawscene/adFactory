@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="80.0" prefWidth="1920.0" style="-fx-background-color: BLACK" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.andon.agenda.component.HeaderCompoController">
+    <children>
+        <HBox prefHeight="32.0" spacing="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" alignment="BOTTOM_LEFT" >
+            <children>
+                <DatePicker fx:id="datePicker" minWidth="100.0" minHeight="34.0" />
+                <Button fx:id="configButton" minWidth="100.0" mnemonicParsing="false" onAction="#onUpdateConfig" minHeight="34.0" style="-fx-graphic: url('image/configicon.PNG');" />
+                <Button fx:id="refreshButton" minWidth="100.0" mnemonicParsing="false" onAction="#onRefreshAction" minHeight="34.0" style="-fx-graphic: url('image/refreshicon.PNG');" />
+                <Button fx:id="csvButton" minWidth="100.0" mnemonicParsing="false" onAction="#onCsvOutput" minHeight="34.0" text="%key.PrintOutCSV"/>
+                <!-- モデル名 -->
+                <Label fx:id="modelNameLabel" text="%key.ModelName" id="conditionLabel" />
+                <TextField fx:id="modelNameField" />
+                <!-- 製番 -->
+                <Label fx:id="orderNoLabel" text="%key.ProductNum" id="conditionLabel" />
+                <TextField fx:id="orderNoField" />
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>

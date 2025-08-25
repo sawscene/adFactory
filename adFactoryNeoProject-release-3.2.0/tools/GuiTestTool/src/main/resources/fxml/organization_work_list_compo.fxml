@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" onKeyPressed="#onKeyPressed" prefHeight="577.0" prefWidth="468.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jp.adtekfuji.guitesttool.OrganizationWorkListCompoFXController">
+   <children>
+      <StackPane prefHeight="800.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane StackPane.alignment="TOP_LEFT">
+               <children>
+                  <SplitPane dividerPositions="0.08853575482406356, 0.5925085130533485" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="883.0" prefWidth="850.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <items>
+                        <GridPane hgap="2.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" vgap="2.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="組織ID" />
+                              <Label text="組織名" GridPane.rowIndex="1" />
+                              <Label text="組織識別名" GridPane.rowIndex="2" />
+                              <TextField fx:id="organizationIdField" editable="false" prefWidth="300.0" GridPane.columnIndex="1" />
+                              <TextField fx:id="organizationNameField" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="organizationIdentField" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           </children>
+                           <padding>
+                              <Insets top="2.0" />
+                           </padding>
+                        </GridPane>
+                        <TableView fx:id="workKanbanList" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" tableMenuButtonVisible="true">
+                           <columns>
+                              <TableColumn fx:id="kanbanIdColumn1" text="カンバンID" visible="false" />
+                              <TableColumn fx:id="kanbanNameColumn1" prefWidth="150.0" text="カンバン名" />
+                              <TableColumn fx:id="workflowIdColumn1" text="工程順ID" visible="false" />
+                              <TableColumn fx:id="workflowNameColumn1" prefWidth="150.0" text="工程順名" />
+                              <TableColumn fx:id="workKanbanIdColumn1" text="工程カンバンID" visible="false" />
+                              <TableColumn fx:id="workIdColumn1" text="工程ID" visible="false" />
+                              <TableColumn fx:id="workNameColumn1" prefWidth="150.0" text="工程名" />
+                              <TableColumn fx:id="workStatusColumn1" prefWidth="75.0" text="ステータス" />
+                              <TableColumn fx:id="workImpFlgColumn1" prefWidth="75.0" text="実施フラグ" />
+                              <TableColumn fx:id="workSkipFlgColumn1" prefWidth="75.0" text="スキップフラグ" />
+                              <TableColumn fx:id="workEquipmentColumn1" prefWidth="150.0" text="設備" />
+                              <TableColumn fx:id="workTaktTimeColumn1" prefWidth="100.0" text="タクトタイム[msec]" />
+                              <TableColumn fx:id="workSumTimeColumn1" prefWidth="100.0" text="累積時間[msec]" />
+                              <TableColumn fx:id="workStartDatetimeColumn1" prefWidth="150.0" text="計画開始時間" />
+                              <TableColumn fx:id="workEndDatetimeColumn1" prefWidth="150.0" text="計画完了時間" />
+                           </columns>
+                        </TableView>
+                        <TableView fx:id="actualList" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" tableMenuButtonVisible="true">
+                           <columns>
+                              <TableColumn fx:id="actualIdColumn" prefWidth="100.0" text="実績ID" visible="false" />
+                              <TableColumn fx:id="actualTimeColumn" prefWidth="150.0" text="実施時間" />
+                              <TableColumn fx:id="actualStatusColumn" prefWidth="100.0" text="ステータス" />
+                              <TableColumn fx:id="actualKanbanIdColumn" text="カンバンID" visible="false" />
+                              <TableColumn fx:id="actualKanbanNameColumn" prefWidth="150.0" text="カンバン名" />
+                              <TableColumn fx:id="actualWorkflowIdColumn" text="工程順ID" visible="false" />
+                              <TableColumn fx:id="actualWorkflowNameColumn" prefWidth="150.0" text="工程順名" />
+                              <TableColumn fx:id="actualWorkKanbanIdColumn" text="工程カンバンID" visible="false" />
+                              <TableColumn fx:id="actualWorkIdColumn" text="工程ID" visible="false" />
+                              <TableColumn fx:id="actualWorkNameColumn" prefWidth="150.0" text="工程名" />
+                              <TableColumn fx:id="actualEquipmentColumn" prefWidth="150.0" text="設備" />
+                              <TableColumn fx:id="actualOrganizationColumn" prefWidth="150.0" text="組織" />
+                              <TableColumn fx:id="actualWorkTimeColumn" text="作業時間[ms]" />
+                              <TableColumn fx:id="actualInterruptColumn" text="中断理由" />
+                              <TableColumn fx:id="actualDelayColumn" text="遅延理由" />
+                           </columns>
+                        </TableView>
+                     </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+            <Pane fx:id="progressPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+               <children>
+                  <ProgressIndicator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="150.0" />
+               </children></Pane>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#onKeyPressed" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.scheduleplugin.component.UnitScheduleCompoFxController">
+   <children>
+      <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <GridPane fx:id="base">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <SplitPane dividerPositions="0.24581939799331104" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                     <items>
+                        <GridPane SplitPane.resizableWithParent="false">
+                           <children>
+                              <ScrollPane fx:id="serialScrollPane" fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="NEVER" GridPane.rowIndex="1">
+                                 <content>
+                                    <VBox fx:id="serialPane" />
+                                 </content>
+                              </ScrollPane>
+                              <AnchorPane />
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="100.0" vgrow="SOMETIMES" />
+                              <RowConstraints vgrow="SOMETIMES" />
+                           </rowConstraints>
+                        </GridPane>
+                        <GridPane fx:id="scheduleGrid">
+                           <children>
+                              <ScrollPane fx:id="timeScrollPane" fitToHeight="true" hbarPolicy="NEVER" pannable="true" vbarPolicy="NEVER">
+                                 <content>
+                                    <HBox fx:id="timePane" />
+                                 </content>
+                              </ScrollPane>
+                              <ScrollPane fx:id="scheduleScrollPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" GridPane.rowIndex="1">
+                                 <content>
+                                    <AnchorPane>
+                                       <children>
+                                          <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <AnchorPane>
+                                                   <children>
+                                                      <Label fx:id="timeLine" style="-fx-border-color: red;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </StackPane>
+                                          <VBox fx:id="schedulePane" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="100.0" />
+                              <RowConstraints vgrow="SOMETIMES" />
+                           </rowConstraints>
+                        </GridPane>
+                     </items>
+                  </SplitPane>
+                  <GridPane>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <AnchorPane>
+                           <children>
+                              <ToolBar styleClass="ContentToolbar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <items>
+                                    <HBox alignment="CENTER">
+                                       <children>
+                                          <DatePicker fx:id="showStartDatePicker" editable="false" />
+                                          <Label alignment="CENTER" prefHeight="7.0" prefWidth="25.0" text="-" textAlignment="CENTER" textOverrun="CLIP" />
+                                          <DatePicker fx:id="showEndDatePicker" />
+                                       </children>
+                                    </HBox>
+                                 </items>
+                              </ToolBar>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </GridPane>
+                  <AnchorPane GridPane.rowIndex="2">
+                     <children>
+                        <ToolBar layoutX="468.0" layoutY="25.0" nodeOrientation="RIGHT_TO_LEFT" styleClass="ContentToolbar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <items>
+                              <HBox alignment="CENTER_RIGHT">
+                                 <children>
+                                    <Slider fx:id="dateWidthSizeSlider" blockIncrement="200.0" majorTickUnit="100.0" max="1800.0" min="50.0" minorTickCount="2" nodeOrientation="LEFT_TO_RIGHT" showTickMarks="true" value="100.0" />
+                                 </children>
+                              </HBox>
+                           </items>
+                        </ToolBar>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+         </children>
+      </StackPane>
+        <VBox fx:id="progressPane" alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+           <children>
+              <ProgressIndicator prefHeight="100.0" prefWidth="100.0" />
+              <!-- <Button mnemonicParsing="false" onAction="#onCommInterrupt" styleClass="SimpleButton" text="%key.suspend" /> -->
+           </children>
+        </VBox>
+   </children>
+</AnchorPane>

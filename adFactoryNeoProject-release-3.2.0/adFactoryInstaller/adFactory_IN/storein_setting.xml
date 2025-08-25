@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<warehouseCommonSettingInfo>
+    <doublequotation>true</doublequotation>
+    <encode>UTF-8</encode>
+    <startline>2</startline>
+    <parameter>
+        <key>supplyNo</key>
+        <column>1</column>
+    </parameter>
+    <parameter>
+        <key>orderNo</key>
+        <column>2</column>
+    </parameter>
+    <parameter>
+        <key>no</key>
+        <column>3</column>
+    </parameter>
+    <parameter>
+        <key>prodNo</key>
+        <column>4</column>
+    </parameter>
+    <parameter>
+        <key>prodName</key>
+        <column>5</column>
+    </parameter>
+    <parameter>
+        <key>arrNum</key>
+        <column>6</column>
+    </parameter>
+    <parameter>
+        <key>arrPlan</key>
+        <column>7</column>
+    </parameter>
+    <parameter>
+        <key>mod</key>
+        <column>8</column>
+    </parameter>
+    <parameter>
+        <key>del</key>
+        <column>9</column>
+    </parameter>
+
+</warehouseCommonSettingInfo>

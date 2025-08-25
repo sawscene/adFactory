@@ -1,0 +1,338 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+    Created on : 2015/02/11, 14:39:53
+    Author     : e-mori
+*/
+
+.pane {
+    -fx-background-color: white;
+}
+
+/*
+    FontDefaultCSS
+    Create
+*/
+.LoginButton, .LoginButton > .text{
+    -fx-fill: white;
+    -fx-background-color:#1565C0;
+}
+
+.LoginButton:hover {
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 1.5,1.5,1.5,1.5 );
+}
+
+.LoginButton:pressed {
+    -fx-background-color:#0D47A1;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 0.5,0.5,0.5,0.5 );
+}
+
+/*
+    AppBarCSS
+    Create
+*/
+.AppBarPane {
+    -fx-background-color:#1565C0;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 7.5,0,0,0);
+}
+
+.AppBarButton {
+    -fx-background-color:transparent;
+}
+
+.AppBarButton:hover {
+    -fx-background-color:#1565C0;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 0.5,0.5,0.5,0.5 );
+}
+
+.AppBarButton:pressed {
+    -fx-background-color:#0D47A1;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 0.5,0.5,0.5,0.5 );
+}
+
+.AppBarTitleLabel {
+    -fx-background-color:transparent;
+}
+
+/*
+    MenuBarCSS
+    Create
+*/
+.MainSceneSplitPane > .split-pane-divider {
+    -fx-background-color:transparent;
+}
+
+.MenuPane {
+    -fx-background-color:#1565C0;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 15,0,0,0);
+}
+
+.MenuButton, .MenuButton > .text {
+    -fx-background-color:transparent;
+}
+
+.MenuButton:hover {
+    -fx-background-color:#EF6C00;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 1.5,0,0,1.5 );
+}
+
+.MenuButton:pressed {
+    -fx-background-color:#E65100;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 0.5,0,0,0.5 );
+}
+
+.MenuLabel {
+    -fx-background-color: transparent;
+}
+
+.MenuScrollPane,
+.MenuScrollPane > .viewport,
+.MenuScrollPane > .corner,
+.MenuScrollPane > .scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.MenuScrollPane > .scroll-bar > .thumb{
+    -fx-background-color: #cdcdcd;
+}
+
+.MenuScrollPane > .scroll-bar > .thumb:hover,
+.MenuScrollPane > .scroll-bar > .increment-button:hover,
+.MenuScrollPane > .scroll-bar > .decrement-button:hover {
+    -fx-background-color: #dadada;
+}
+
+.MenuScrollPane > .scroll-bar > .thumb:pressed,
+.MenuScrollPane > .scroll-bar > .increment-button:pressed,
+.MenuScrollPane > .scroll-bar > .decrement-button:pressed {
+    -fx-background-color: #606060;
+}
+
+.MenuScrollPane > .scroll-bar > .track,
+.MenuScrollPane > .scroll-bar > .increment-button,
+.MenuScrollPane > .scroll-bar > .decrement-button {
+    -fx-background-color: #f0f0f0;
+}
+
+.MenuScrollPane > .scroll-bar > .decrement-button > .decrement-arrow,
+.MenuScrollPane > .scroll-bar > .increment-button > .increment-arrow {
+    -fx-background-color: transparent, #606060;
+}
+
+.MenuScrollPane > .scroll-bar > .decrement-button:pressed > .decrement-arrow,
+.MenuScrollPane > .scroll-bar > .increment-button:pressed > .increment-arrow {
+    -fx-background-color: transparent, white;
+}
+
+/*
+    SideNaviCSS
+    Create
+*/
+.SideNaviPane {
+    -fx-background-color:#E3F2FD;
+}
+
+.SideNaviButton , .SideNaviButton > .text {
+    -fx-background-color:transparent;
+}
+
+.SideNaviButton:hover {
+    -fx-background-color:#FFA726;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 1.5,0,0,1.5 );
+}
+
+.SideNaviButton:pressed {
+    -fx-background-color:#FFE0B2;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 0.5,0,0,0.5 );
+}
+
+.SideNaviButton:selected{
+    -fx-background-color:#FFE0B2;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 0.5,0,0,0.5 );
+}
+
+/*
+    MenuBarCSS
+    Create
+*/
+.ContentTitleLabel {
+    -fx-background-color:transparent;
+}
+
+.ContentTitleLabel > .text {
+    -fx-background-color:transparent;
+}
+
+.ContentPane {
+    -fx-background-color:#FFFFFF;
+}
+
+.ContentButton, .ContentButton > .text {
+    -fx-background-color:#1565C0;
+}
+
+.ContentButton:hover {
+    -fx-background-color:#1565C0;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 1.5,0,0,1.5 );
+}
+
+.ContentButton:pressed {
+    -fx-background-color:#0D47A1;
+}
+
+.ContentSplitPane {
+    -fx-background-color:transparent;
+}
+
+.ContentSplitPane > .split-pane-divider{
+    -fx-background-color:transparent;
+}
+
+.ContentCheckBox {
+}
+
+.ContentToolbar {
+    -fx-background-color: #EEEEEE;
+}
+
+.ContentTable > .column-header-background > .nested-column-header > .table-column,
+.ContentTable > .column-header-background > .nested-column-header ,
+.ContentTable > .column-header-background {
+    -fx-background-color: #EEEEEE;
+}
+
+.ContentTab > .tab:selected {
+    -fx-background-color: #EEEEEE;
+}
+
+.ContentTab > .tab {
+    -fx-background-color: #CCCCCC;
+}
+
+.cellBorder {
+    -fx-border-color: black ;
+}
+
+.cellSkipFalse {
+    -fx-background-color: gray ;
+}
+
+.ContentMenuButton, .ContentMenuButton > .label, .ContentMenuButton > .arrow-button {
+    -fx-background-color:#1565C0;
+}
+
+.ContentMenuButton:hover {
+    -fx-background-color:#1565C0;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 1.5,0,0,1.5 );
+}
+
+.ContentMenuButton:pressed {
+    -fx-background-color:#0D47A1;
+}
+
+.SimpleButton, .SimpleButton > .text {
+    -fx-background-color: #1565C0;
+}
+
+.SimpleButton:hover {
+    -fx-background-color: #1565C0;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 1.5,0,0,1.5 );
+}
+
+.SimpleButton:pressed {
+    -fx-background-color: #0D47A1;
+}
+
+.DeleteButton, .DeleteButton > .text {
+    -fx-background-color: transparent;
+}
+
+.DeleteButton:hover {
+    -fx-background-color: #d8d8d8;
+}
+
+.DeleteButton:pressed {
+    -fx-background-color: black;
+}
+
+.SelectedButton {
+    -fx-background-color: rgba(227,242,253,0.95);
+    -fx-effect: innershadow(three-pass-box, rgba(0,0,0,0.75), 3, 0, 2, 2);
+}
+
+.ContentScrollPane,
+.ContentScrollPane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.ToggleButton {
+    -fx-base: #e8e8e8;
+    -fx-border-color: #909090;
+}
+
+.ToggleButton:selected {
+    -fx-base: #1565C0;
+    -fx-border-color: #909090;
+}
+
+.ContentToggleButton, .ContentToggleButton > .text {
+    -fx-background-color:#1565C0;
+}
+
+.ContentToggleButton:hover {
+    -fx-background-color:#1565C0;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 1.5,0,0,1.5 );
+}
+
+.ContentToggleButton:pressed {
+    -fx-background-color:#0D47A1;
+}
+
+.ContentToggleButton:selected {
+    -fx-background-color: #ffcc00;
+}
+
+.NarrowWidthButton, .NarrowWidthButton > .text {
+    -fx-background-color:#1565C0;
+}
+
+.NarrowWidthButton:hover {
+    -fx-background-color: #1565C0;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 1.5,0,0,1.5 );
+}
+
+.NarrowWidthButton:pressed {
+    -fx-background-color: #0D47A1;
+}
+
+.SpecialButton, .SpecialButton > .text {
+    -fx-background-color:#F0E2A3;
+}
+
+.SpecialButton:hover {
+    -fx-background-color: #F0E2A3;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 1.5,0,0,1.5 );
+}
+
+.SpecialButton:pressed {
+    -fx-background-color: #DDBC2C;
+}
+
+.TransparentToolbar {
+    -fx-background-color: transparent;
+}
+
+.DividerSplitPane {
+    -fx-background-color: transparent;
+}
+
+.DividerSplitPane > .split-pane-divider {
+}
+
+.FrameHBox {
+    -fx-background-color: transparent;
+    -fx-border-color: #cdcdcd;
+}

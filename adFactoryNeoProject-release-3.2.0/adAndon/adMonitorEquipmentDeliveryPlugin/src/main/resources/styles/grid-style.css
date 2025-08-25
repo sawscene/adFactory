@@ -1,0 +1,29 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+    Created on : 2017/04/06, 14:28:12
+    Author     : s-heya
+*/
+
+.grid {
+    -fx-background-color: white, black ;
+    -fx-background-insets: 0, 1 1 0 0 ;
+    -fx-padding: 1 1 0 0;
+}
+
+.title-cell {
+    -fx-alignment: CENTER;
+    -fx-background-color: white, lightgray;
+    -fx-background-insets: 0, 0 0 1 1;
+    -fx-label-padding: 4 6 4 6;
+    -fx-text-fill: black;
+}
+
+.cell {
+    -fx-alignment: CENTER;
+    -fx-background-insets: 0, 0 0 1 1 ;
+    -fx-label-padding: 4 6 4 6;
+}

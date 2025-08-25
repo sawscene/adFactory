@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <style>
+            .bak{
+                position: relative;
+                width: 300px;
+                height: 450px;
+            }
+            .fl1,.fl2,.fl3,.fl4,.fl7,.fl8{
+                position: absolute;
+                left: 95px;
+                width: 116px;
+                height: 54px;
+            }
+            .fl1{
+                top: 0px;
+            }
+            .fl2{
+                top: 66px;
+            }
+            .fl3{
+                top: 132px;
+            }
+            .fl4{
+                top: 198px;
+            }
+            .fl5{
+                position: absolute;
+                top: 264px;
+                left: 30px;
+                width: 116px;
+                height: 54px;
+            }
+            .fl6{
+                position: absolute;
+                top: 264px;
+                left: 159px;
+                width: 116px;
+                height: 54px;
+            }
+            .fl7{
+                top: 330px;
+            }
+            .fl8{
+                top: 396px;
+            }
+            .trya1,.trya2,.trya3,.trya4,.trya5,.trya6{
+                position: absolute;
+                left: 135px;
+                width: 34px;
+            }
+            .trya1{
+                top:56px;
+            }
+            .trya2{
+                top:122px;
+            }
+            .trya3{
+                top:188px;
+            }
+            .trya4{
+                top:254px;
+            }
+            .trya5{
+                top:320px;
+            }
+            .trya6{
+                top:386px;
+            }
+            ul{
+                margin-top: -7px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>作業手順書を作成する</h1>
+        <div class="bak">
+            <a href="#one"><img src="C:\adFactory\adWorkbook\help\images\flow1.png" alt="フロー1" class="fl1"></a>
+            <img src="C:\adFactory\adWorkbook\help\images\triangle.png" alt="↓" class="trya1">
+            <a href="#two"><img src="C:\adFactory\adWorkbook\help\images\flow2.png" alt="フロー2" class="fl2"></a>
+            <img src="C:\adFactory\adWorkbook\help\images\triangle.png" alt="↓" class="trya2">
+            <a href="#three"><img src="C:\adFactory\adWorkbook\help\images\flow3.png" alt="フロー3" class="fl3"></a>
+            <img src="C:\adFactory\adWorkbook\help\images\triangle.png" alt="↓" class="trya3">
+            <a href="#four"><img src="C:\adFactory\adWorkbook\help\images\flow4.png" alt="フロー4" class="fl4"></a>
+            <img src="C:\adFactory\adWorkbook\help\images\triangle.png" alt="↓" class="trya4">
+            <a href="#five"><img src="C:\adFactory\adWorkbook\help\images\flow5.png" alt="フロー5" class="fl5"></a>
+            <a href="#six"><img src="C:\adFactory\adWorkbook\help\images\flow6.png" alt="フロー6" class="fl6"></a>
+            <img src="C:\adFactory\adWorkbook\help\images\triangle.png" alt="↓" class="trya5">
+            <a href="#seven"><img src="C:\adFactory\adWorkbook\help\images\flow7.png" alt="フロー7" class="fl7"></a>
+            <img src="C:\adFactory\adWorkbook\help\images\triangle.png" alt="↓" class="trya6">
+            <a href="#eight"><img src="C:\adFactory\adWorkbook\help\images\flow8.png" alt="フロー8" class="fl8"></a>
+        </div>
+        <!--もくじ1-->
+        <h2><a name="one">1. テンプレートファイルのコピー</a></h2>
+        <p>作業手順書は、指定されたテンプレートファイルから作成します。"C:\adFactory\adWorkbook\テンプレート.xlsx" をコピーし、新しいExcelファイルを作成してください。</p>
+        <!--もくじ2-->
+        <h2><a name="two">2. 工程順情報の入力</a></h2>
+        <p>作成したExcelファイルを開き、「作業手順」シートに工程順の情報を入力します。</p>
+        <p>入力必要な項目</p>
+        <ul>
+            <li>工程順名</li>
+            <li>Rev (レビジョン)</li>
+            <li>作業順序</li>
+            <li>更新者</li>
+            <li>工程順階層</li>
+        </ul>
+        <!--もくじ3-->
+        <h2><a name="three">3. 工程シートの作成</a></h2>
+        <p>「テンプレート」シートをコピーし、工程シートを作成します。シート名は「工程1」「工程2」のように、"工程"に連番を組み合わせた名前に変更してください。</p>
+        <!--もくじ4-->
+        <h2><a name="four">4. 工程情報の入力</a></h2>
+        <p>作成した工程のシートに、工程情報を入力します。</p>
+        <p>入力必要な項目</p>
+        <ul>
+            <li>工程名</li>
+            <li>Rev (レビジョン)</li>
+        </ul>
+        <p>任意で作業番号とタクトタイムを入力してください。</p>
+        <p>工程名のセルをクリックすると、右側に工程ウィンドウが表示されます。工程ウィンドウに作業者端末と作業者を登録してください。
+        登録された作業者端末と作業者以外では、その工程の作業を実施できません。</p>
+        <!--もくじ5-->
+        <h2><a name="five">5. 図解の作成</a></h2>
+        <p>写真やイラストなどを用い、作業内容を視覚的に理解できるようにします。工程シートの青い枠内に写真やイラストを貼り付け、作業のポイントを入力してください。また、[adFactory]リボンの[作図支援]をクリックすると、作図支援ウィンドウが表示されます。作図支援ウィンドウのラベルをクリックすることで、図解にラベルを挿入することが可能です。</p>
+        <!--もくじ6-->
+        <h2><a name="six">6. チェック項目の入力</a></h2>
+        <p>チェック項目を用い、作業の漏れを防止し、作業結果を記録できるようにします。チェック項目には、作業内容や記録内容を入力してください。タグには、他のタグと重複しない一意の文字列(例: TAG_A01)を入力してください。</p>
+        チェック以外の記録を取りたい場合は、<a href="C:\adFactory\adWorkbook\help\advance.html">「高度な使い方」</a>をご参照ください。
+        </p>
+        <!--もくじ7-->
+        <h2><a name="seven">7. データチェックを行う</a></h2>
+        <p>すべての入力を完了したら、[adFactory]リボンの[データチェック]をクリックしてください。入力内容に不備がある場合は警告が表示されます。警告内容を確認し、指示に従って入力内容を修正してください。</p>
+        <!--もくじ8-->
+        <h2><a name="eight">8. アップロードを行う</a></h2>
+        <p>最後にadFactoryに作業手順を登録するため、[adFactory]リボンの[アップロード]をクリックしてください。登録された作業手順は、adManagerの[工程・工程順の編集]で確認することができます。
+        </p>
+        <p>アップロードには、リソース編集権限があるアカウントでログインする必要があります。</p>
+    </body>
+</html>

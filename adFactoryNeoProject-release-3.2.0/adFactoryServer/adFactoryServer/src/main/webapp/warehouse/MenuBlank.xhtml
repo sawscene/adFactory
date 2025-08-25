@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>Warehouse</title>
+        <h:outputStylesheet library="styles" name="ScreenDesignStyles.css"/>
+        <h:outputStylesheet library="styles" name="ScreenFontStyles.css"/>
+        <h:outputScript library="scripts" name="MenuScripts.js"/>
+        <f:loadBundle basename="jp.adtekfuji.adfactoryserver.locale.locale" var="msg"/>
+    </h:head>
+
+    <h:body id="body" onload='onPageLoad("#{menuData.errMsg}")' > 
+        <audio id="sound" preload="auto">
+            <source src ="#{resource['media/beep.wav']}" type="audio/wav" />
+        </audio>
+        <div align="right">
+            <h:panelGrid columns="1" styleClass="headerTable" columnClasses="righting">
+                <h:outputLabel value="#{serverInfo.outernalVersion}" styleClass="font-39pt"/>
+            </h:panelGrid>
+        </div>
+        <!--タイトル--> 
+        <div align="center">
+            <h:form id="titleForm">
+                <h:panelGrid columns="1" styleClass="tableMenuTitle" columnClasses="centering">
+                    <h:outputLabel value="#{msg['warehouse.title']}" styleClass="font-45ptBld" escape="false"/>
+                </h:panelGrid>
+            </h:form>
+
+            <h:panelGrid columns="1"  styleClass="headerTable mergin_65_0_65_0" columnClasses="centering">
+                <h:outputLabel styleClass="viewMessage font-42ptBld" value="#{menuData.errMsg}"/>                
+            </h:panelGrid>
+        </div>
+
+    </h:body>
+</html>

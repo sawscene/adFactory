@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="contentPane" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.warehouseplugin.dialog.OutputSuppliedListDialog">
+    <children>
+        <StackPane minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <GridPane fx:id="operationPane" minHeight="-Infinity" minWidth="-Infinity" vgap="5.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <GridPane hgap="10.0" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" vgap="12.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label styleClass="text-normal" text="%suppliedScheduleDate" />
+                                <Label styleClass="text-normal" text="%key.OutputDestination" GridPane.rowIndex="1" />
+                                <DatePicker fx:id="scheduledDatePicker" styleClass="text-normal" prefWidth="150.0" GridPane.columnIndex="1" />
+                                <TextField fx:id="outputDestinationField" styleClass="text-normal" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <Button fx:id="choiceButton" mnemonicParsing="false" onAction="#onChoiceButton" styleClass="SimpleButton" minWidth="50.0" prefHeight="35.0" text="%key.Choice" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                <Button fx:id="outputButton" mnemonicParsing="false" onAction="#onOutputButton" styleClass="ContentButton" text="%key.Output" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                    <GridPane.margin>
+                                        <Insets bottom="10.0" top="10.0" />
+                                    </GridPane.margin>
+                                </Button>
+                            </children>
+                            <padding>
+                                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                            </padding>
+                        </GridPane>
+                        <Label styleClass="text-normal" text="%key.Result" GridPane.rowIndex="1">
+                            <GridPane.margin>
+                                <Insets top="10.0" />
+                            </GridPane.margin>
+                            <padding>
+                                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                            </padding>
+                        </Label>
+                        <ListView fx:id="resultList" editable="false" focusTraversable="false" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" GridPane.rowIndex="2">
+                            <padding>
+                                <Insets left="4.0" right="4.0" />
+                            </padding>
+                        </ListView>
+                        <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" GridPane.rowIndex="3">
+                            <children>
+                                <Button fx:id="closeButton" mnemonicParsing="false" onAction="#onCloseButton" styleClass="ContentButton" text="%key.Close" >
+                                    <HBox.margin>
+                                        <Insets top="10.0" />
+                                    </HBox.margin>
+                                </Button>
+                            </children>
+                            <padding>
+                                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                            </padding>
+                        </HBox>
+                    </children>
+                </GridPane>
+                <Pane fx:id="progressPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+                    <children>
+                        <ProgressIndicator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" />
+                    </children>
+                </Pane>
+            </children>
+        </StackPane>
+    </children>
+    <padding>
+        <Insets bottom="0.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+</AnchorPane>

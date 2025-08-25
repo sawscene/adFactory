@@ -1,0 +1,10 @@
+[
+    { "supplyNo":"supply-1", "orderNo":"order-1", "no":"1", "prodNo":"prodNo-3", "prodName":"prodName-3", "arrNum":"60", "arrPlan":"2020/05/15","mod":"1" },
+    { "supplyNo":"supply-2", "orderNo":"order-1", "no":"1", "prodNo":"prodNo-11", "prodName":"prodName-11", "arrNum":"50", "arrPlan":"2020/05/12","mod":"1" },
+    { "supplyNo":"supply-3", "orderNo":"order-1", "no":"1", "prodNo":"prodNo-100", "prodName":"prodName-100", "arrNum":"100", "arrPlan":"2020/05/12","mod":"1","del":"1" },
+    { "supplyNo":"supply-6", "orderNo":"order-1", "no":"2", "prodNo":"prodNo-3", "prodName":"prodName-3", "arrNum":"30", "arrPlan":"2020/05/20" },
+    { "supplyNo":"supply-7", "orderNo":"order-1", "no":"1", "prodNo":"prodNo-3", "prodName":"prodName-3", "arrNum":"30", "arrPlan":"2020/05/20","mod":"1" },
+    { "supplyNo":"supply-8", "orderNo":"order-1", "no":"1", "prodNo":"prodNo-12", "prodName":"prodName-12", "arrNum":"10", "arrPlan":"2020/05/12" },
+    { "supplyNo":"supply-9", "orderNo":"order-1", "no":"1", "prodNo":"prodNo-14", "prodName":"prodName-14", "arrNum":"10", "arrPlan":"2020/05/12" },
+    { "supplyNo":"supply-10", "orderNo":"order-1", "no":"1", "prodNo":"prodNo-5", "prodName":"prodName-5", "arrNum":"10", "arrPlan":"2020/05/12" }
+]

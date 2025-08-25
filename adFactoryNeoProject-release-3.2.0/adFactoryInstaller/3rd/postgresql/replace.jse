@@ -1,0 +1,30 @@
+
+var path = WScript.Arguments.Item(0);
+var file_from = "postgresql.conf.temp";
+var file_to   = "postgresql.conf";
+
+// 新規ファイル作成
+var fso_w = WScript.CreateObject( "Scripting.FileSystemObject" );
+if( fso_w.FileExists( file_to ) )
+{
+    // ファイルが存在していたら削除する
+	fso_w.DeleteFile( file_to );
+}
+// この時点ではファイルがないはずなので新規作成する
+var txt_w = fso_w.CreateTextFile( file_to );
+
+// 旧ファイルを読み込み
+var fso_r = WScript.CreateObject( "Scripting.FileSystemObject" );
+var txt_r = fso_r.OpenTextFile( file_from, 1 );
+
+// 用意しておいた設定ファイルから１行ずつ読み出して新規設定ファイルに書き出す
+while( ! txt_r.AtEndOfStream )
+{
+	// 置換
+	str = txt_r.ReadLine();
+	str = str.replace(  new RegExp( "##INSTALL_PATH##", "g" ), path );
+	txt_w.WriteLine( str );
+}
+
+txt_r.Close();
+txt_w.Close();

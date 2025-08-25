@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pf="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Label Print</title>
+        <h:outputStylesheet library="styles" name="ScreenDesignStyles.css"/>
+        <h:outputStylesheet library="styles" name="ScreenFontStyles.css"/>
+        <h:outputScript library="scripts" name="PrintDialogScripts.js"/>
+        <f:loadBundle basename="jp.adtekfuji.adfactoryserver.locale.locale" var="msg"/>
+        <style>
+            input:focus {
+                background: #fffccc;
+                border-color: #00cc00;
+            }
+            select {
+                border: 1px solid #eee;
+                border-radius: 0;
+                font-size: 42pt;
+                width: 90%;
+            }
+            select:focus {
+                background: #fffccc;
+                border-color: #00cc00;
+            }
+        </style>
+    </h:head>
+
+    <h:body onload="onPageLoad();#{menuData.onChangeLocale(null)}">
+        <audio id="sound" preload="auto">
+            <source src ="#{resource['media/beep.wav']}" type="audio/wav" />
+        </audio>
+        <div>
+            <!--印刷部数-->
+            <h:panelGrid columns="2" styleClass="table" style="margin-top: 20px;" columnClasses="labelCell font-42ptBld,inputCell">
+                <h:outputLabel id="printValLabel" value="#{msg['warehouse.copies']}"/>
+                <input id="printNumInput" type="text" class="font-48pt" style="width: 350px" value="1" maxlength='5'
+                       onkeydown="return numOnly()" onfocus="focusPrintNum()" 
+                       onkeypress='if (event.key === "Enter") { (#{pickingData.orderNoList.size() != 0}) ? focusOrderNoList() : focusPrintButton(); }'
+                       inputmode="numeric" autocomplete="false" />
+            </h:panelGrid>
+
+            <!--<datalist id="printNumList">
+                <div jsfc="ui:repeat" value="#{pickingData.numList}" varStatus="loop">
+                    <option value="#{pickingData.numList[loop.index]}" />
+                </div>
+            </datalist>-->
+
+            <!--ボタン-->
+            <h:form id="buttonForm" style="margin-top:30px;">
+                <div>
+                    <h:outputText value="#{msg['warehouse.orderNo'] += ': ' += pickingData.orderNoPrefix}" styleClass="font-42ptBld" 
+                                  rendered="#{(pickingData.orderNoPrefix.length() != 0)}" />
+                    <div>
+                        <h:selectManyListbox id="orderNoList" value="#{pickingData.selectedOrderNo}" size="4" rendered="#{(pickingData.orderNoList.size() != 0)}">
+                            <f:selectItems value="#{pickingData.orderNoList}" />
+                            <pf:ajax listener="#{pickingData.orderNoChanged}" onsuccess="focusPrintButton()" update="printReq" />
+                        </h:selectManyListbox >
+                    </div>
+                </div>
+                <h:panelGrid styleClass="fixedForm">
+                    <h:outputText id="printMsg" value="" styleClass="viewMessage font-30pt" escape="false"/>
+                    <h:panelGrid columns="2" styleClass="table" columnClasses="leftCell,rightCell">
+                        <pf:commandButton id="printReq" type="submit" styleClass="submitButton font-39pt" style="width:260px;"
+                                          value="#{msg['warehouse.print']}" action="#{pickingData.printLabel}" />
+                        <pf:commandButton id="printCancel" type="submit" styleClass="submitButton font-39pt" style="width:400px;"
+                                          value="#{msg['warehouse.cancel']}" action="#{pickingData.closePrintDialog}" />
+                    </h:panelGrid>
+                </h:panelGrid>
+            </h:form>
+
+            <h:form id="hiddenForm">
+                <h:inputHidden id="printLog" value="#{pickingData.printLog}"/>
+                <h:inputHidden id="printReqResult" value="#{pickingData.printReqResult}"/>
+                <h:inputHidden id="hiddenDialog" value="#{pickingData.hiddenDialog}"/>
+            </h:form>
+        </div>
+    </h:body>
+</html>

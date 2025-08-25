@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.ledgermanagerplugin.component.HistorySelectionCompoFxController">
+    <StackPane fx:id="stackPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <SplitPane fx:id="reportHistorySelectionSplitPane" dividerPositions="1.0" styleClass="ContentSplitPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <!-- 左ペイン -->
+            <VBox SplitPane.resizableWithParent="false">
+                <!-- タイトル -->
+                <Label minWidth="-Infinity" styleClass="ContentTitleLabel" text="%key.OutLedgerTitle">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <!-- 検索条件 -->
+                <GridPane fx:id="search_Pane" hgap="4.0" vgap="4.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <!-- 対象日 -->
+                    <VBox spacing="8.0" GridPane.rowIndex="0">
+                        <CheckBox fx:id="dateCheckBox" minWidth="-Infinity" text="%key.TargetPeriod" />
+                        <Pane>
+                            <HBox alignment="CENTER" spacing="8.0">
+                                <DatePicker fx:id="fromDatePicker" disable="true" prefWidth="130.0" />
+                                <Label text="%key.FromSymbol" />
+                                <DatePicker fx:id="toDatePicker" disable="true" prefWidth="130.0" />
+                            </HBox>
+                        </Pane>
+                        <padding>
+                            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                        </padding>
+                    </VBox>
+                    <!-- 設備 -->
+                    <fx:include fx:id="equipmentSelectPane" source="select_pane.fxml" GridPane.rowIndex="1" />
+                    <!-- 組織 -->
+                    <fx:include fx:id="organizationSelectPane" source="select_pane.fxml" GridPane.rowIndex="2" />
+                </GridPane>
+                <HBox alignment="CENTER_RIGHT" spacing="8.0">
+                    <Button alignment="CENTER" minWidth="80.0" mnemonicParsing="false" onAction="#onSearchAction" text="%key.Search" />
+                    <VBox.margin>
+                        <Insets right="8.0" top="8.0" />
+                    </VBox.margin>
+                </HBox>
+            </VBox>
+            <GridPane>
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" vgrow="SOMETIMES" />
+                </rowConstraints>
+                <!-- リスト -->
+                <AnchorPane minHeight="0.0" minWidth="0.0" GridPane.rowIndex="0">
+                    <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <GridPane.margin>
+                            <Insets bottom="8.0" />
+                        </GridPane.margin>
+                        <TableView fx:id="reportListTableView">
+                            <columns>
+                                <!-- チェック -->
+                                <TableColumn fx:id="checkColumn" prefWidth="60.0" />
+                                <!-- 作業日時 -->
+                                <TableColumn fx:id="dateColumn" prefWidth="100.0" text="作業日時" />
+                                <!-- 工程順名 -->
+                                <TableColumn fx:id="workflowNameColumn" prefWidth="100.0" text="%key.workflow" />
+                                <!-- 工程 -->
+                                <TableColumn fx:id="workNameColumn" prefWidth="100.0" text="%key.Process" />
+                                <!-- 設備 -->
+                                <TableColumn fx:id="equipmentNameColumn" prefWidth="100.0" text="%key.Equipment" />
+                                <!-- 作業者 -->
+                                <TableColumn fx:id="workerNameColumn" prefWidth="100.0" text="%key.workers" />
+                            </columns>
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                     <StackPane.margin>
+                        <Insets bottom="8.0" />
+                     </StackPane.margin>
+                        </TableView>
+                    </StackPane>
+                </AnchorPane>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                    <HBox alignment="BASELINE_RIGHT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <ToolBar nodeOrientation="LEFT_TO_RIGHT" styleClass="TransparentToolbar">
+                        <Button fx:id="ledgerOut" mnemonicParsing="false" onAction="#onOutLedger" styleClass="ContentButton" text="%key.OutLedgerTitle" />
+                        <Button mnemonicParsing="false" onAction="#onCancel" styleClass="ContentButton" text="%key.Cancel" />
+                        </ToolBar>
+                    </HBox>
+                </AnchorPane>
+            </GridPane>
+        </SplitPane>
+        <Pane fx:id="Progress" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+            <ProgressIndicator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" />
+        </Pane>
+    </StackPane>
+    <padding>
+        <Insets bottom="-6.0" left="4.0" right="4.0" top="12.0" />
+    </padding>
+</AnchorPane>

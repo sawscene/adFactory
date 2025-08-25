@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.chart.*?>
+<?import jp.adtekfuji.javafxcommon.controls.*?>
+<?import org.gillius.jfxutils.chart.*?>
+
+<AnchorPane id="AnchorPane" fx:id="MainScenePane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.chartplugin.controller.TimeLineCompoController">
+    <children>
+        <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <SplitPane fx:id="timeLinePane" orientation="HORIZONTAL" dividerPositions="0.2" StackPane.alignment="TOP_LEFT">
+                    <items>
+                        <!-- 左ペイン -->
+                        <GridPane vgap="8.0" styleClass="ContentPane" SplitPane.resizableWithParent="false">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                                <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                                <RowConstraints vgrow="SOMETIMES" minHeight="-Infinity" />
+                            </rowConstraints>
+                            <children>
+                                <!-- 対象日 -->
+                                <fx:include fx:id="datePane" source="DatePane.fxml" />
+                                <!--  -->
+                                <GridPane hgap="8.0" vgap="8.0" alignment="CENTER_LEFT" GridPane.rowIndex="1" >
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                                    </rowConstraints>
+                                    <children>
+                                        <!-- 対象時間 -->
+                                        <Label text="%key.TargetTime" />
+                                        <TimeHMTextField fx:id="fromTimeField" prefWidth="80.0" GridPane.columnIndex="1" />
+                                        <Label text="%key.FromSymbol" GridPane.columnIndex="2" />
+                                        <TimeHMTextField fx:id="toTimeField" prefWidth="80.0" GridPane.columnIndex="3" />
+                                        <!-- 更新間隔(分) -->
+                                        <Label text="%key.updateIntervalMinutes" GridPane.rowIndex="1" />
+                                        <TextField fx:id="intervalField" prefWidth="80.0" GridPane.rowIndex="1" GridPane.columnIndex="3" />
+                                        <!-- 余白 -->
+                                        <Pane prefHeight="24.0" GridPane.rowIndex="2" />
+                                        <!-- 対象工程順 -->
+                                        <Label text="%key.TargetWorkflow" GridPane.rowIndex="3" />
+                                        <TextField fx:id="workflowField" editable="false" focusTraversable="false" style="-fx-background-color: lightgray;" GridPane.rowIndex="3" GridPane.columnIndex="1" GridPane.columnSpan="4" />
+                                        <TreeView fx:id="workflowView" prefHeight="260.0" GridPane.rowIndex="4" GridPane.columnSpan="5" />
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="0.0" left="8.0" right="8.0" top="8.0" />
+                                    </padding>
+                                </GridPane>
+                                <!-- 対象工程 -->
+                                <GridPane hgap="8.0" vgap="8.0" alignment="CENTER_LEFT" GridPane.rowIndex="2">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                                        <RowConstraints vgrow="SOMETIMES" minHeight="-Infinity" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label text="%key.TargetWork" />
+                                        <TableView fx:id="workView" minHeight="80.0" minWidth="120.0" prefHeight="80.0" prefWidth="120.0" GridPane.rowIndex="1">
+                                            <columns>
+                                                <TableColumn fx:id="selectedColumn" prefWidth="30.0" resizable="false" style="-fx-alignment: CENTER;" />
+                                                <TableColumn fx:id="indexColumn" prefWidth="30.0" style="-fx-alignment: CENTER;" text="%key.Number" />
+                                                <TableColumn fx:id="workNameColumn" prefWidth="400.0" style="-fx-alignment: CENTER-LEFT;" styleClass="rightAlignedTableColumn" text="%key.ProcessName" />
+                                            </columns>
+                                        </TableView>
+                                        <VBox spacing="8.0" GridPane.rowIndex="1" GridPane.columnIndex="1">
+                                            <children>
+                                                <Button alignment="CENTER" mnemonicParsing="false" minWidth="80.0" onAction="#onUp" text="%key.MoveUp" />
+                                                <Button alignment="CENTER" mnemonicParsing="false" minWidth="80.0" onAction="#onDown" text="%key.MoveDown" />
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="0.0" left="8.0" right="8.0" top="0.0" />
+                                    </padding>
+                                </GridPane>
+                            </children>
+                            <padding>
+                                <Insets bottom="8.0" left="0.0" right="0.0" top="8.0" />
+                            </padding>
+                        </GridPane>
+                        <!-- 右ペイン -->
+                        <GridPane minHeight="0.0" styleClass="ContentPane">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                                <RowConstraints vgrow="SOMETIMES" minHeight="0.0" />
+                            </rowConstraints>
+                            <children>
+                                <!-- 右上部ペイン -->
+                                <GridPane hgap="8.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints vgrow="SOMETIMES" minHeight="-Infinity" />
+                                    </rowConstraints>
+                                    <children>
+                                        <HBox spacing="8.0" alignment="BOTTOM_LEFT" styleClass="ContentPane">
+                                            <children>
+                                                <!-- 更新ボタン -->
+                                                <Button fx:id="updateButton" mnemonicParsing="false" minWidth="80.0" onAction="#onUpdate" text="%key.Update" />
+                                                <!-- CSV出力ボタン -->
+                                                <Button fx:id="exportButton" mnemonicParsing="false" minWidth="80.0" onAction="#onExport" text="%key.OutputAnalysisReport" />
+                                                <!-- 画像ファイル出力ボタン -->
+                                                <Button fx:id="outputImageFileButton" mnemonicParsing="false" minWidth="80.0" onAction="#onOutputImageFile" text="%key.OutputImageFile" />
+                                                <!-- フルスクリーン表示ボタン -->
+                                                <Button fx:id="fullScreenButton" mnemonicParsing="false" minWidth="80.0" onAction="#onFullScreen" text="%key.FullScreen" />
+                                            </children>
+                                        </HBox>
+                                        <HBox spacing="8.0" alignment="BOTTOM_LEFT" styleClass="ContentPane" GridPane.columnIndex="1">
+                                            <children>
+                                                <!-- 自動更新 -->
+                                                <ToggleButton fx:id="autoUpdateButton" text="%key.AutoUpdate" />
+                                                <!-- 計画 -->
+                                                <ToggleButton fx:id="taktButton" selected="false" text="%key.VisiblePlan" />
+                                                <!-- 実績 -->
+                                                <ToggleButton fx:id="seriesButton" selected="true" text="%key.ChartSeries"  />
+                                                <!-- カンバン名 -->
+                                                <ToggleButton fx:id="legendButton" selected="true" text="%key.Legend" />
+                                            </children>
+                                        </HBox>
+                                        <!-- 概要リスト -->
+                                        <PropertySaveTableView fx:id="summaryView" minWidth="300.0" prefHeight="140.0" GridPane.columnIndex="2">
+                                            <columns>
+                                                <TableColumn fx:id="summaryNameColumn" prefWidth="160.0" style="-fx-alignment: CENTER-LEFT;" styleClass="rightAlignedTableColumn" text="%key.PropertyName" />
+                                                <TableColumn fx:id="summaryValueColumn" prefWidth="120.0" style="-fx-alignment: CENTER-RIGHT;" styleClass="rightAlignedTableColumn" text="%key.PropertyContent" />
+                                            </columns>
+                                        </PropertySaveTableView>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="0.0" left="8.0" right="8.0" top="8.0" />
+                                    </padding>
+                                </GridPane>
+                                <!-- 右下部ペイン -->
+                                <AnchorPane minHeight="0.0" minWidth="0.0" GridPane.rowIndex="1">
+                                    <children>
+                                        <!-- タイムラインチャート -->
+                                        <StackPane fx:id="chartPane" alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <children>
+                                                <LineChart fx:id="chart" alternativeColumnFillVisible="false" alternativeRowFillVisible="false" animated="true" horizontalGridLinesVisible="true" legendSide="RIGHT">
+                                                    <xAxis>
+                                                        <NumberAxis animated="false" autoRanging="false" forceZeroInRange="false" label="%key.Process" minorTickCount="0" minorTickVisible="false" side="TOP" tickUnit="1.0" fx:id="xAxis" />
+                                                    </xAxis>
+                                                    <yAxis>
+                                                        <StableTicksAxis fx:id="yAxis" animated="false" label="%key.Time" side="LEFT" />
+                                                    </yAxis>
+                                                </LineChart>
+                                                <Rectangle fx:id="selectRect" fill="DODGERBLUE" height="0.0" mouseTransparent="true" opacity="0.3" stroke="#002966" strokeType="INSIDE" strokeWidth="3.0" width="0.0" x="0.0" y="0.0" StackPane.alignment="TOP_LEFT" />
+                                            </children>
+                                        </StackPane>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="8.0" left="8.0" right="8.0" top="0.0" />
+                                    </padding>
+                                </AnchorPane>
+                            </children>
+                        </GridPane>
+                    </items>
+                </SplitPane>
+                <!-- 処理中表示 -->
+                <Pane fx:id="progressPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" StackPane.alignment="CENTER">
+                    <children>
+                        <ProgressIndicator />
+                    </children>
+                </Pane>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

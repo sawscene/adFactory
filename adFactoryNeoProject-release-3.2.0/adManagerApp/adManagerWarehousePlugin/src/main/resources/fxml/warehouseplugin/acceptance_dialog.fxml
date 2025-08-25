@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import jp.adtekfuji.javafxcommon.controls.*?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="520.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.warehouseplugin.dialog.AcceptanceDialog">
+    <children>
+        <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="20.0">
+            <children>
+                <GridPane hgap="10.0" vgap="5.0" >
+                    <columnConstraints>
+                        <ColumnConstraints halignment="LEFT" prefWidth="200.0" />
+                        <ColumnConstraints hgrow="ALWAYS" />
+                        <ColumnConstraints halignment="LEFT" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints valignment="TOP" />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints vgrow="ALWAYS" />
+                        <RowConstraints />
+                        <RowConstraints />
+                    </rowConstraints>
+                    <children>
+                        <Label alignment="CENTER_LEFT" styleClass="ContentTitleLabel" text="%key.SupplyNo" />
+                        <TextField fx:id="supplyNo" onKeyPressed="#onSupplyNo" styleClass="ContentTextBox" prefWidth="270.0" GridPane.columnIndex="1" />
+
+                        <!-- <Label alignment="CENTER_LEFT" styleClass="ContentTitleLabel" text="%key.FigureNumber" GridPane.rowIndex="1" />
+                        <TextField fx:id="figureNo" onKeyPressed="#onFigureNo" styleClass="ContentTextBox" prefWidth="270.0" GridPane.rowIndex="1" GridPane.columnIndex="1" /> -->
+                        
+                        <Label alignment="CENTER_LEFT" styleClass="ContentTitleLabel" text="%key.ProductNo" GridPane.rowIndex="1" />
+                        <Label fx:id="productNo" styleClass="ContentTextBox" style="-fx-border-color: #d3d3d3;-fx-padding: 4;" prefWidth="270.0" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                        
+                        <Label alignment="CENTER_LEFT" styleClass="ContentTitleLabel" text="%key.ProductName" GridPane.rowIndex="2" />
+                        <Label fx:id="productName" styleClass="ContentTextBox" style="-fx-border-color: #d3d3d3;-fx-padding: 4;" prefWidth="270.0" wrapText="true" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                        
+                        <Label alignment="CENTER_LEFT" styleClass="ContentTitleLabel" text="%key.LocationNo" prefHeight="30.0" GridPane.rowIndex="3" />
+                        <Label fx:id="locationNo" alignment="TOP_LEFT" style="-fx-border-color: #d3d3d3;-fx-padding: 4;" styleClass="ContentTextBox" prefWidth="270.0" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+                        
+                        <Label alignment="CENTER_LEFT" styleClass="ContentTitleLabel" text="%key.LotNumber" GridPane.rowIndex="4" />
+                        <VBox GridPane.rowIndex="4" GridPane.columnIndex="1" >
+                            <TextField fx:id="lotNoTextField" onKeyPressed="#onLotNo" styleClass="ContentTextBox" prefWidth="270.0" managed="false" />
+                            <Label fx:id="lotNo" styleClass="ContentTextBox" style="-fx-border-color: #d3d3d3;-fx-padding: 4;" prefWidth="270.0" />
+                        </VBox>
+                        
+                        <Label alignment="CENTER_LEFT" styleClass="ContentTitleLabel" text="%releasedOrder" GridPane.rowIndex="6" />
+                        <Label fx:id="arrivalNum" prefWidth="270.0" styleClass="ContentTextBox" style="-fx-border-color: #d3d3d3;-fx-padding: 4;"  GridPane.rowIndex="6" GridPane.columnIndex="1" />
+                        <Label fx:id="unitLabel1" prefWidth="270.0" styleClass="ContentTextBox" GridPane.rowIndex="6" GridPane.columnIndex="2" />
+
+                        <Label alignment="CENTER_LEFT" styleClass="ContentTitleLabel" text="%key.Warehouses" GridPane.rowIndex="7" />
+                        <RestrictedTextField fx:id="stockNum" onKeyPressed="#onStockNum" prefWidth="270.0" styleClass="ContentTextBox" GridPane.rowIndex="7" GridPane.columnIndex="1" />
+                        <Label fx:id="unitLabel2" prefWidth="270.0" styleClass="ContentTextBox" GridPane.rowIndex="7" GridPane.columnIndex="2" />
+                        
+                        <Label alignment="CENTER_LEFT" styleClass="ContentTitleLabel" text="%key.AreaName" GridPane.rowIndex="8" />
+                        <ComboBox fx:id="areaName" onAction="#updateLocationNo"  styleClass="ContentComboBox" prefWidth="270.0" GridPane.rowIndex="8" GridPane.columnIndex="1" />
+                        
+                        <CheckBox fx:id="printLabelFlg" styleClass="ContentCheckBox" mnemonicParsing="false" text="%key.PrintLabel" prefHeight="30.0" GridPane.rowIndex="10" GridPane.columnIndex="1" />
+                        
+                        <HBox spacing="10.0" alignment="BOTTOM_RIGHT" GridPane.rowIndex="11" GridPane.columnIndex="1">
+                            <Button fx:id="registButton" onAction="#onRegistButton" onKeyPressed="#onRegistButtonEnter" disable="true" styleClass="ContentButton" text="%key.Regist" />
+                            <Button onAction="#onCancelButton" styleClass="ContentButton" text="%key.Cancel"  />
+                        </HBox>
+                    </children>
+                </GridPane>
+                
+                <Pane fx:id="progressPane" visible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" StackPane.alignment="CENTER">
+                    <children>
+                        <ProgressIndicator layoutX="0.0" layoutY="0.0" prefHeight="100.0" prefWidth="100.0" />
+                    </children>
+                </Pane>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

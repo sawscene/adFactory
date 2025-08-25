@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<warehouseCommonSettingInfo>
+    <format>CSV</format>
+    <doublequotation>true</doublequotation>
+    <filename>支給伝票.csv</filename>
+    <encode>S-JIS</encode>
+    <startline>2</startline>
+    <!-- 倉庫オーダー番号 -->
+    <parameter>
+        <key>supplyNo</key>
+        <column>13</column>
+    </parameter>
+    <!-- 製造オーダー番号 -->
+    <parameter>
+        <key>orderNo</key>
+        <column>17</column>
+    </parameter>
+    <!-- 品目 -->
+    <parameter>
+        <key>prodNo</key>
+        <column>6</column>
+    </parameter>
+    <!-- 品名 -->
+    <parameter>
+        <key>prodName</key>
+        <column>7</column>
+    </parameter>
+    <!-- 材質 -->
+    <parameter>
+        <key>material</key>
+        <column>8</column>
+    </parameter>
+    <!-- メーカー -->
+    <parameter>
+        <key>vendor</key>
+        <column>9</column>
+    </parameter>
+    <!-- 規格・型式 -->
+    <parameter>
+        <key>spec</key>
+        <column>10</column>
+    </parameter>
+    <!-- 今回支給品 -->
+    <parameter>
+        <key>arrNum</key>
+        <column>23</column>
+    </parameter>
+    <!-- 発行日 -->
+    <parameter>
+        <key>arrPlan</key>
+        <column>1</column>
+    </parameter>
+</warehouseCommonSettingInfo>

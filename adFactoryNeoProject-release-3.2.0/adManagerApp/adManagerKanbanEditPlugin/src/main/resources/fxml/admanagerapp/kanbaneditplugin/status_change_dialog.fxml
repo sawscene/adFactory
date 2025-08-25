@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import jp.adtekfuji.javafxcommon.controls.*?>
+
+<AnchorPane prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.kanbaneditplugin.component.StatusChangeFxController">
+    <children>
+        <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <GridPane hgap="16.0" vgap="24.0">
+                    <columnConstraints>
+                        <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                    </rowConstraints>
+                    <children>
+                        <!-- ステータスコンボボックス -->
+                        <HBox alignment="CENTER_LEFT" spacing="8.0">
+                            <children>
+                                <Label text="%key.KanbanStatus" />
+                                <ComboBox fx:id="kanbanStatusCombo" prefWidth="100.0" visible="false" />
+                            </children>
+                        </HBox>                        
+                        <CheckBox fx:id="forcedCheck" text="%key.ChangeStatusForced" GridPane.rowIndex="1" />
+                    </children>
+                    <padding>
+                        <Insets bottom="32.0" left="16.0" right="32.0" top="8.0" />
+                    </padding>
+                </GridPane>
+                <HBox alignment="CENTER_RIGHT" spacing="8.0">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#onChange" styleClass="ContentButton" text="%key.Change" />
+                        <Button defaultButton="true" mnemonicParsing="false" onAction="#onCancel" styleClass="ContentButton" text="%key.Cancel" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+    <padding>
+        <Insets bottom="-6.0" left="12.0" right="12.0" top="12.0" />
+    </padding>
+</AnchorPane>

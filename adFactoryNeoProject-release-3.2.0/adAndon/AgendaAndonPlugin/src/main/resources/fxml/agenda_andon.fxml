@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="MainScenePane" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.andon.agenda.AgendaMainController">
+    <children>
+        <!-- チャートペイン  -->
+        <AnchorPane fx:id="MainSceneContentPane" style="-fx-background-color: black;" styleClass="ContentSplitPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0" />
+
+        <!-- 操作ペイン -->
+        <AnchorPane fx:id="AppBarPane" layoutX="165.0" prefHeight="80.0" style="-fx-background-color: black;" styleClass="MenuPane" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+
+    </children>
+</AnchorPane>

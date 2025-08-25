@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.systemsettingplugin.component.FunctionNaviCompoFxController">
+    <children>
+        <VBox layoutX="6.0" spacing="8.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Button fx:id="editBreakTimeButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onEditBreakTime" styleClass="ContentButton" text="%key.EditBreakTime" />
+                <Button fx:id="editDelayReasonButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onEditDelayReason" styleClass="ContentButton" text="%key.EditDelayReason" />
+                <Button fx:id="editInterruptReasonButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onEditInterruptReason" styleClass="ContentButton" text="%key.EditInterruptReason" />
+                <Button fx:id="editStatusButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onEditStatus" styleClass="ContentButton" text="%key.EditStatus" />
+                <Button fx:id="editRoleButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onEditRole" styleClass="ContentButton" text="%key.EditRole" />
+                <!-- 未使用のため削除
+                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#OnEditAutority" styleClass="ContentButton" text="%key.EditAuthority" visible="false" />
+                -->
+                <Button fx:id="editIndirectWorkButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onEditIndirectWork" styleClass="ContentButton" text="%key.EditIndirectWork" />
+                <Button fx:id="editCallReasonButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onEditCallReason" styleClass="ContentButton" text="%key.EditCallReason" />
+                <Button fx:id="editDefectReasonButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onEditDefectReason" styleClass="ContentButton" text="%key.EditDefectReason" />
+                <Button fx:id="editLabelButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onEditLabel" styleClass="ContentButton" text="%key.EditLabel" />      
+                <Button fx:id="editApprovalRouteButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onEditApprovalRoute" styleClass="ContentButton" text="%key.EditApprovalRoute" />
+            </children>
+            <padding>
+                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+            </padding>
+        </VBox>
+    </children>
+</AnchorPane>

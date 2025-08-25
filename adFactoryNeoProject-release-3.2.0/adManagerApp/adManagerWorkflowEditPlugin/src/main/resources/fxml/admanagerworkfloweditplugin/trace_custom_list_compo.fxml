@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.workfloweditplugin.component.TraceCustomListCompoController">
+    <children>
+        <GridPane hgap="8.0" vgap="8.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" >
+            <columnConstraints>
+                <ColumnConstraints prefWidth="120.0" />
+                <ColumnConstraints prefWidth="170.0" />
+                <ColumnConstraints hgrow="ALWAYS" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+            </rowConstraints>
+            <children>
+                <Label styleClass="ContentTitleLabel" text="%key.PropertyName" GridPane.columnIndex="0" />
+                <Label styleClass="ContentTitleLabel" text="%key.PropertyContent" GridPane.columnIndex="1" />
+                <TextField fx:id="nameField" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <TextField fx:id="valueField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Button minWidth="80.0" maxWidth="80.0" mnemonicParsing="false" onAction="#onAdd" styleClass="SimpleButton" text="%key.Add" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                <ListView fx:id="listView" minHeight="180" maxHeight="360.0" GridPane.columnSpan="3" GridPane.rowIndex="2" />
+            </children>
+        </GridPane>
+    </children>
+    <padding>
+        <Insets bottom="0.0" left="8.0" right="8.0" top="20.0" />
+    </padding>
+</AnchorPane>

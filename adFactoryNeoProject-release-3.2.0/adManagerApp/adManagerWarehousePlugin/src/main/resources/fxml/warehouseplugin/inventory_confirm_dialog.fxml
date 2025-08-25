@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import jp.adtekfuji.javafxcommon.controls.*?>
+
+<AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.warehouseplugin.dialog.InventoryConfirmDialog">
+    <children>
+        <GridPane vgap="8.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" >
+            <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+                <RowConstraints vgrow="ALWAYS" />
+                <RowConstraints vgrow="SOMETIMES" maxHeight="-Infinity" minHeight="-Infinity" />
+            </rowConstraints>
+            <children>
+                <Label fx:id="infoLabel" styleClass="text-small">
+                    <padding>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="0.0" />
+                    </padding>
+                </Label>
+                <PropertySaveTableView fx:id="tableView" prefHeight="200.0" GridPane.rowIndex="1">
+                    <columns>
+                        <!-- 発注番号 -->
+                        <TableColumn fx:id="supplyNoColumn" prefWidth="140.0" text="%key.SupplyNo" />
+                        <!-- 品目 -->
+                        <TableColumn fx:id="productNoColumn" prefWidth="140.0" text="%key.ProductNo"/>
+                        <!-- 品名 -->
+                        <TableColumn fx:id="productNameColumn" prefWidth="140.0" text="%key.ProductName"/>
+                        <!-- 納入予定数 -->
+                        <TableColumn fx:id="arrivalNumColumn" prefWidth="70.0" text="%key.ArrivalNum" />
+                        <!-- 在庫数 -->
+                        <TableColumn fx:id="inStockNumColumn" prefWidth="60.0" text="%key.StockQuantity" />
+                        <!-- 在庫過不足 -->
+                        <TableColumn fx:id="inventoryDiffColumn" prefWidth="70.0" text="%key.InventoryDiff" />
+                        <!-- 棚卸在庫数 -->
+                        <TableColumn fx:id="inventoryNumColumn" prefWidth="70.0" text="%key.InventoryStockQuantity" />
+                        <!-- 棚番号 -->
+                        <TableColumn fx:id="locationNoColumn" prefWidth="60.0" text="%key.LocationNo" />
+                        <!-- 棚番訂正 -->
+                        <TableColumn fx:id="inventoryLocationNoColumn" prefWidth="60.0" text="%key.Inventory.Location" />
+                        <!-- 棚卸実施日 -->
+                        <TableColumn fx:id="inventoryDateColumn" prefWidth="100.0" text="%key.InventoryDate" />
+                    </columns>
+                </PropertySaveTableView>
+                <HBox spacing="8.0" alignment="CENTER_RIGHT" GridPane.rowIndex="2" >
+                    <children>
+                        <Button fx:id="okButton" mnemonicParsing="false" onAction="#onOkButton" styleClass="NarrowWidthButton" text="%key.complete" />
+                        <Button mnemonicParsing="false" onAction="#onCancelButton" styleClass="NarrowWidthButton" text="%key.Cancel" />
+                    </children>
+                </HBox>
+            </children>
+            <padding>
+                <Insets bottom="-16.0" left="8.0" right="8.0" top="0.0" />
+            </padding>
+        </GridPane>
+    </children>
+</AnchorPane>

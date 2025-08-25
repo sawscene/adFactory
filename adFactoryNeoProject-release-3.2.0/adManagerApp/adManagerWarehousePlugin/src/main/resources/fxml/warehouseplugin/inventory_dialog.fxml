@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.warehouseplugin.dialog.InventoryDialog">
+    <children>
+        <VBox spacing="8.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label fx:id="infoLabel" styleClass="ContentTitleLabel" />
+                <HBox spacing="8.0" alignment="CENTER_LEFT" >
+                    <children>
+                        <Label text="%key.Area" styleClass="ContentTitleLabel" />
+                        <ComboBox fx:id="areaNameCombo" styleClass="ContentComboBox" prefWidth="270.0"  />
+                    </children>
+                    <padding>
+                        <Insets bottom="16.0" left="16.0" right="32.0" top="16.0" />
+                    </padding>
+                </HBox>
+                <HBox spacing="8.0" alignment="CENTER_RIGHT" >
+                    <children>
+                        <Button fx:id="okButton" mnemonicParsing="false" onAction="#onOkButton" styleClass="NarrowWidthButton" />
+                        <Button mnemonicParsing="false" onAction="#onCloseButton" styleClass="NarrowWidthButton" text="%key.Close" />
+                    </children>
+                    <padding>
+                        <Insets top="24.0" />
+                    </padding>
+                </HBox>
+            </children>
+            <padding>
+                <Insets bottom="0.0" left="16.0" right="16.0" top="16.0" />
+            </padding>
+        </VBox>
+    </children>
+</AnchorPane>

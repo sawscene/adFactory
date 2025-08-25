@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane style="-fx-background-color: Transparent;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jp.adtekfuji.adandonmonthlyplandeviatednumplugin.MonitorMonthlyPlanDeviatedNumCompoFxController">
+    <children>
+        <HBox fx:id="contentPane" styleClass="contentPane" alignment="CENTER_LEFT" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+            <children>
+                <Label fx:id="deviatedLabel" alignment="CENTER_LEFT" text="%key.MonitorMonthlyProgress" />
+                <Label fx:id="deviatedNumLabel" alignment="CENTER" text="--" />
+                <Label fx:id="deviatedUnitLabel" alignment="CENTER_RIGHT" />
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="pane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="jp.adtekfuji.testldap.FXMLController">
+    <children>
+        <Label layoutX="40.0" layoutY="30.0" text="アドレス" />
+        <Label layoutX="40.0" layoutY="60.0" text="ドメイン名" />
+        <Label layoutX="40.0" layoutY="90.0" text="ユーザーID" />
+        <Label layoutX="40.0" layoutY="120.0" text="パスワード" />
+        <TextField fx:id="urlField" layoutX="130.0" layoutY="30.0" text="ldap://localhost:636/" />
+        <TextField fx:id="domainField" layoutX="130.0" layoutY="60.0" text="adtek-fuji.co.jp" />
+        <TextField fx:id="userIdField" layoutX="130.0" layoutY="90.0" />
+        <TextField fx:id="passwordField" layoutX="130.0" layoutY="120.0" />
+        <Button layoutX="200.0" layoutY="162.0" onAction="#onLogin" text="ログイン" />
+        <Button layoutX="260.0" layoutY="162.0" mnemonicParsing="false" onAction="#onClose" text="閉じる" />
+    </children>
+</AnchorPane>

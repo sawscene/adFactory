@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<adaccessoryplugins>
+    <date>2017-04-06 08:15:00</date>
+    <plugins>
+        <name>Simple</name>
+        <name>Measure</name>
+        <name>Flowmeter</name>
+        <name>Manometer</name>
+        <name>Smart Sensor</name>
+        <name>Nozzle Head Servo Counter</name>
+        <name>HeadUnit</name>
+        <name>ForceGauge</name>
+    </plugins>
+</adaccessoryplugins>

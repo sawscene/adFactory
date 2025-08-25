@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import jp.adtekfuji.javafxcommon.controls.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adtekfuji.admanagerapp.kanbaneditplugin.component.lite.KanbanCreateLite">
+    <children>
+        <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <GridPane>
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="100.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="ALWAYS" styleClass=".ContentScrollPane" vbarPolicy="ALWAYS">
+                            <content>
+                                <VBox spacing="8.0">
+                                    <children>
+                                        <GridPane hgap="8.0" vgap="8.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints prefWidth="150.0" />
+                                                <ColumnConstraints prefWidth="500.0" />
+                                                <ColumnConstraints />
+                                                <ColumnConstraints />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints />
+                                                <RowConstraints />
+                                                <RowConstraints />
+                                                <RowConstraints />
+                                            </rowConstraints>
+                                            <children>
+                                                <!-- 工程順 -->
+                                                <HBox alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                                    <children>
+                                                        <Label styleClass="ContentTitleLabel" text="%key.OrderProcessesName" />
+                                                        <Label styleClass="ContentTitleLabel" text="%key.RequiredMark" />
+                                                    </children>
+                                                </HBox>
+                                                <TextField fx:id="workflowTextField" disable="true" styleClass="ContentTextBox" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                                <Button fx:id="selectWorkflowButton" mnemonicParsing="false" onAction="#onSelectWorkflow" styleClass="ContentTextBox" text="%key.Choice" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                                <!-- モデル名 -->
+                                                <Label styleClass="ContentTitleLabel" text="%key.ModelName" GridPane.rowIndex="1" />
+                                                <RestrictedTextField fx:id="modelNameTextField" maxLength="256" styleClass="ContentTextBox" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <!-- カンバン名 -->
+                                                <HBox alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                                    <children>
+                                                        <Label styleClass="ContentTitleLabel" text="%key.KanbanName" />
+                                                        <!-- <Label styleClass="ContentTitleLabel" text="%key.RequiredMark" /> -->
+                                                    </children>
+                                                </HBox>
+                                                <RestrictedTextField fx:id="kanbanNameTextField" maxLength="256" styleClass="ContentTextBox" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <!-- 納期 -->
+                                                <Label styleClass="ContentTitleLabel" text="%key.DeliveryTime" GridPane.rowIndex="3" />
+                                                <DatePicker fx:id="deliveryDatePicker" styleClass="ContentTitleLabel" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                            </children>
+                                        </GridPane>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                    </padding>
+                                </VBox>
+                            </content>
+                            <GridPane.margin>
+                                <Insets bottom="8.0" />
+                            </GridPane.margin>
+                        </ScrollPane>
+                        <!-- ツールバー -->
+                        <AnchorPane GridPane.rowIndex="1">
+                            <children>
+                                <HBox alignment="BASELINE_RIGHT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <ToolBar nodeOrientation="LEFT_TO_RIGHT" styleClass="TransparentToolbar">
+                                            <items>
+                                                <Button fx:id="createButton" mnemonicParsing="false" onAction="#onCreate" styleClass="NarrowWidthButton" text="%key.Regist" />
+                                                <Button mnemonicParsing="false" onAction="#onClose" styleClass="NarrowWidthButton" text="%key.Cancel" />
+                                            </items>
+                                        </ToolBar>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </GridPane>
+                <Pane fx:id="progressPane" maxHeight="-Infinity" maxWidth="-Infinity" StackPane.alignment="CENTER">
+                    <children>
+                        <ProgressIndicator fx:id="progressIndicator" prefHeight="80.0" prefWidth="80.0" />
+                    </children>
+                </Pane>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

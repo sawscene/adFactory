@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<andonMonitorLineProductSetting>
+    <monitorType>LINE_PRODUCT</monitorType>
+    <breaktimes/>
+    <cautionBackColor>0xffa500ff</cautionBackColor>
+    <cautionFontColor>0x000000ff</cautionFontColor>
+    <cautionRetentionParcent>5</cautionRetentionParcent>
+    <dailyPlanNum>100</dailyPlanNum>
+    <delayReasons/>
+    <endWorkTime>17:00:00.000+09:00</endWorkTime>
+    <interruptReasons/>
+    <lineId>80</lineId>
+    <montlyPlanNum>2000</montlyPlanNum>
+    <resetTime>00:00:00.000+09:00</resetTime>
+    <startWorkTime>09:00:00.000+09:00</startWorkTime>
+    <title>Test</title>
+    <warningBackColor>0xff0000ff</warningBackColor>
+    <warningFontColor>0x000000ff</warningFontColor>
+    <warningRetentionParcent>10</warningRetentionParcent>
+    <weekdays>
+        <weekday>SATURDAY</weekday>
+        <weekday>SUNDAY</weekday>
+    </weekdays>
+    <workEquipments/>
+    <countdownMelodiesInfo/>
+    <autoCountdown>false</autoCountdown>
+    <followStart>false</followStart>
+    <useDailyPlanNum>false</useDailyPlanNum>
+    <productionType>0</productionType>
+    <monitorId>0</monitorId>
+    <targetMonitor>1</targetMonitor>
+</andonMonitorLineProductSetting>

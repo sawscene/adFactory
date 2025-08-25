@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import jp.adtekfuji.addatabaseapp.javafx.*?>
+
+<AnchorPane fx:id="anchorPane" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jp.adtekfuji.addatabaseapp.component.DatabaseRegularBackupFxController">
+    <children>
+        <StackPane minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <GridPane fx:id="operationPane" minHeight="-Infinity" minWidth="-Infinity" vgap="10.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <!-- 有効チェックボックス -->
+                        <CheckBox fx:id="enabledCheck" mnemonicParsing="false" text="%key.Schedule.Enabled" />
+<!--                        &lt;!&ndash; バックアップ自動実行チェックボックス &ndash;&gt;-->
+<!--                        <CheckBox fx:id="autoBackupCheck" mnemonicParsing="false" text="%key.Schedule.AutoBackup" GridPane.rowIndex="1" />-->
+                        <!-- トリガ設定群 -->
+                        <VBox fx:id="triggerSettings" spacing="10.0" GridPane.rowIndex="2">
+                            <children>
+                                <HBox alignment="CENTER_LEFT">
+                                    <children>
+                                        <!-- スケジュール種別設定 -->
+                                        <ComboBox fx:id="scheduleTypeCombo" prefWidth="100.0" visibleRowCount="3" />
+                                        <!-- 開始時刻設定 -->
+                                        <Label text="%key.Schedule.StartTime">
+                                            <padding>
+                                                <Insets left="20.0" right="4.0" />
+                                            </padding>
+                                        </Label>
+                                        <TimeTextField fx:id="startTimeText" alignment="CENTER" maxWidth="60.0" promptText="00:00" />
+                                    </children>
+                                </HBox>
+                                <!-- 実行日設定ペイン -->
+                                <AnchorPane fx:id="dateSelectPane" prefHeight="100.0" prefWidth="480.0" style="-fx-border-color: darkgray; -fx-border-insets: 0 0 0 0; -fx-border-width: 1;" />
+                            </children>
+                            <GridPane.margin>
+                                <Insets />
+                            </GridPane.margin>
+                        </VBox>
+                        <HBox alignment="BOTTOM_RIGHT" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="30.0" GridPane.rowIndex="3">
+                            <children>
+                                <!-- OKボタン -->
+                                <Button fx:id="okButton" minWidth="100.0" mnemonicParsing="false" onAction="#onOKButton" prefHeight="35.0" text="%key.OK">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                </Button>
+                                <!-- キャンセルボタン -->
+                                <Button fx:id="cancelButton" minWidth="100.0" mnemonicParsing="false" onAction="#onCancelButton" prefHeight="35.0" styleClass="SimpleButton" text="%key.Cancel">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                </Button>
+                            </children>
+                            <padding>
+                                <Insets left="4.0" right="4.0" />
+                            </padding>
+                        </HBox>
+                    </children>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </padding>
+                </GridPane>
+                <Pane fx:id="progressPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+                    <children>
+                        <ProgressIndicator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" />
+                    </children>
+                </Pane>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

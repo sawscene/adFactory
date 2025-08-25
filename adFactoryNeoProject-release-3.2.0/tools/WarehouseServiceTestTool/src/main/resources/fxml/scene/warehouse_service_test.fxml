@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="300" prefWidth="400" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml" fx:controller="jp.adtekfuji.warehouseservicetesttool.scene.WarehouseServiceTestFXController">
+    <children>
+        <StackPane minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <GridPane minHeight="-Infinity" minWidth="-Infinity" vgap="5.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <StackPane minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <GridPane fx:id="operationPane" minHeight="-Infinity" minWidth="-Infinity" hgap="10.0" vgap="10.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label text="倉庫サービス IPアドレス" />
+                                        <TextField fx:id="remoteAddressText" text="127.0.0.1" GridPane.columnIndex="1" />
+
+                                        <Label text="IPアドレス" GridPane.rowIndex="1" />
+                                        <TextField fx:id="ipAddressText" text="127.0.0.1" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+                                        <Label text="ハンディ端末 台数" GridPane.rowIndex="2" />
+                                        <TextField fx:id="handyCountText" text="10" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+
+                                        <Label text="作業フォルダ" GridPane.rowIndex="3" />
+                                        <TextField fx:id="testDirText" text="C:/adFactory/temp/warehouseServiceTest" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+
+                                        <Label text="※.作業フォルダに、保管箱QRコードを記述した「control.csv」を配置する。" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+
+                                        <Button fx:id="stktakeButton" text="棚卸テスト" onAction="#stktakeButtonAction" GridPane.rowIndex="5" />
+                                        <Label fx:id="label" minWidth="100" GridPane.rowIndex="6" />
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                    </padding>
+                                </GridPane>
+                                <Pane fx:id="progressPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+                                    <children>
+                                        <ProgressIndicator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" />
+                                    </children>
+                                </Pane>
+                            </children>
+                        </StackPane>
+                        <ListView fx:id="resultList" editable="false" focusTraversable="false" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" GridPane.rowIndex="2">
+                            <padding>
+                                <Insets left="4.0" right="4.0" />
+                            </padding>
+                        </ListView>
+                    </children>
+                </GridPane>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

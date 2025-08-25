@@ -1,0 +1,442 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+    Created on : 2015/02/11, 14:39:32
+    Author     : e-mori
+*/
+
+/*
+    FontDefaultCSS
+    Create
+*/
+.LoginButton, .LoginButton > .text {
+
+}
+
+.LoginButton:hover {
+
+}
+
+.LoginButton:pressed {
+
+}
+
+.LoginTextBox {
+
+}
+
+.LoginTextLabel {
+
+}
+
+/*
+    AppBarCSS
+    Create
+*/
+.AppBarButton {
+
+}
+
+.AppBarButton:hover {
+
+}
+
+.AppBarButton:pressed {
+
+}
+
+.AppBarTitleLabel{
+
+}
+
+.AppBarTitleLabel > .text{
+
+}
+
+/*
+    MenuBarCSS
+    Create
+*/
+.MenuButton, .MenuButton > .text {
+
+}
+
+.MenuButton:hover {
+
+}
+
+.MenuButton:pressed{
+
+}
+
+.MenuScrollPane > .scroll-bar > .thumb,
+.MenuScrollPane > .scroll-bar > .increment-button,
+.MenuScrollPane > .scroll-bar > .decrement-button {
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+/*
+    SideNaviCSS
+    Create
+*/
+.SideNaviButton , .SideNaviButton > .text {
+
+}
+
+.SideNaviButton:hover{
+
+}
+
+.SideNaviButton:pressed{
+
+}
+
+.SideNaviButton:selected{
+
+}
+
+/*
+    MenuBarCSS
+    Create
+*/
+.ContentTitleLabel{
+
+}
+
+.ContentTitleLabel > .text{
+
+}
+
+.ResizeColumn {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-border-color: darkgray;
+    -fx-border-width: 0 3 0 0;
+    -fx-border-style: solid; 
+    -fx-margin-bottom: 1;
+}
+
+.ContentPane {
+
+}
+
+.ContentButton{
+    -fx-pref-height:48px;
+    -fx-pref-width:96px;
+    -fx-padding: 0 8 0 8;
+    -fx-wrap-text: true;
+}
+
+.ContentButton > .text{
+}
+
+.ContentButton:hover{
+
+}
+
+.ContentButton:pressed{
+
+}
+
+.ContentTextBox {
+    -fx-background-radius: 0, 0;
+}
+
+.ContentTextBox:focused {
+    -fx-background-color: #bababa, #fca311;
+    -fx-text-fill: black;
+}
+
+.ContentList{
+
+}
+
+.ContentSplitPane {
+
+}
+
+.ContentSplitPane > .split-pane-divider {
+
+}
+
+.StartEndWorkCell {
+    -fx-pref-height: 72px;
+    -fx-pref-width: 72px;
+}
+
+
+.cellBorder {
+    -fx-border-width: 1;
+    -fx-border-style: solid;
+}
+
+.ContentMenuButton {
+    -fx-pref-height: 48px;
+    -fx-pref-width: 140px;
+    -fx-padding: 0 8 0 8;
+    -fx-wrap-text: true;
+}
+
+.ContentVBox {
+    -fx-padding: 5;
+    -fx-spacing: 5;
+}
+
+.ContentHBox {
+    -fx-padding: 5;
+    -fx-spacing: 5;
+}
+
+.DeleteButton {
+    -fx-pref-height: 10px;
+    -fx-pref-width: 10px;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0;
+}
+
+.dialog-box {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian , rgba(0,0,0,0.75) , 7.5,0,0,0);
+}
+
+/*
+    CellToleranceのスタイル
+*/
+.popup-box:focused {
+    -fx-accent: transparent;
+    -fx-selection-bar: transparent;
+}
+
+.popup-box:focused .label {
+    -fx-text-fill: -fx-text-base-color;
+}
+
+.table-row-cell:empty {
+    -fx-background-color: white;
+}
+
+.table-row-cell:empty .table-cell {
+    -fx-border-width: 0px;
+}
+
+/*
+    編集不可なTextAreaのスタイル
+*/
+.non-editable-text-area .content{
+    -fx-background-color: transparent;
+}
+
+.tab-pane
+{
+    -fx-skin: "jp.adtekfuji.javafxcommon.skin.TabPaneSkin";
+    /* -fx-tab-min-width: 4.583em;  55 */
+    /* -fx-tab-max-width: 4.583em; 55 */
+    -fx-tab-min-height: 2.4em; /* 24 */
+    -fx-tab-max-height: 2.4em; /* 24 */
+}
+
+.ContentAutoResizeTextArea{
+    -fx-min-height: 30;
+    -fx-pref-width: 180;
+}
+
+.ContentAutoResizeTextArea .scroll-pane{
+    -fx-hbar-policy: never;
+    -fx-vbar-policy: never;
+}
+
+/* TableColumのヘッダーラベルを左寄せ */
+.column-header.rightAlignedTableColumn > .label {
+    -fx-alignment: center-left;
+}
+
+/* ====== LINE CHART =========================================================== */
+.chart-line-symbol {
+    -fx-background-color: #f9d900, white;
+    -fx-background-insets: 0, 2;
+    -fx-background-radius: 6px;
+    -fx-padding: 6px;
+}
+
+.chart-line-symbol.triangle {
+    -fx-background-color: #f9d900, white;
+    -fx-background-insets: 0, 2;
+    -fx-background-radius: 0px;
+    -fx-padding: 7px;
+    -fx-shape: "M 0,1 L 1,1 .5,0 Z";
+}
+
+.chart-line-symbol.square {
+    -fx-background-color: #f9d900, white;
+    -fx-background-insets: 0, 2;
+    -fx-background-radius: 0px;
+    -fx-padding: 6px;
+}
+
+.chart-series-line {
+    -fx-stroke: #f9d900;
+    -fx-stroke-width: 4px;
+    -fx-effect: dropshadow( two-pass-box , rgba(0,0,0,0.3) , 8, 0.0 , 0 , 3 );
+}
+
+.default-color0.chart-line-symbol { -fx-background-color: #d2691e, white; }
+.default-color1.chart-line-symbol { -fx-background-color: #228b22, white; }
+.default-color2.chart-line-symbol { -fx-background-color: #00ced1, white; }
+.default-color3.chart-line-symbol { -fx-background-color: #0181e2, white; }
+.default-color4.chart-line-symbol { -fx-background-color: #2f357f, white; }
+.default-color5.chart-line-symbol { -fx-background-color: #860061, white; }
+.default-color6.chart-line-symbol { -fx-background-color: #c62b00, white; }
+.default-color7.chart-line-symbol { -fx-background-color: #ff5700, white; }
+.default-color0.chart-series-line { -fx-stroke: #d2691e; }
+.default-color1.chart-series-line { -fx-stroke: #228b22; }
+.default-color2.chart-series-line { -fx-stroke: #00ced1; }
+.default-color3.chart-series-line { -fx-stroke: #0181e2; }
+.default-color4.chart-series-line { -fx-stroke: #2f357f; }
+.default-color5.chart-series-line { -fx-stroke: #860061; }
+.default-color6.chart-series-line { -fx-stroke: #c62b00; }
+.default-color7.chart-series-line { -fx-stroke: #ff5700; }
+.default-color0.tooltip { -fx-background-color: #d2691e; }
+.default-color1.tooltip { -fx-background-color: #228b22; }
+.default-color2.tooltip { -fx-background-color: #00ced1; }
+.default-color3.tooltip { -fx-background-color: #0181e2; }
+.default-color4.tooltip { -fx-background-color: #2f357f; }
+.default-color5.tooltip { -fx-background-color: #860061; }
+.default-color6.tooltip { -fx-background-color: #c62b00; }
+.default-color7.tooltip { -fx-background-color: #ff5700; }
+
+.chart-line-symbol.onHover {
+    -fx-background-color: orange;
+}
+
+.ContentScrollPane > .scroll-bar:horizontal {
+    -fx-background-insets: 1;
+    -fx-pref-height: 14px;
+}
+
+.ContentScrollPane > .scroll-bar:vertical {
+    -fx-background-insets: 1;
+    -fx-pref-width: 14px;
+}
+
+.ContentToggleButton{
+    -fx-pref-height:48px;
+    -fx-pref-width:96px;
+    -fx-padding: 0 8 0 8;
+    -fx-wrap-text: true;
+}
+
+.ContentToggleButton > .text{
+}
+
+.ContentToggleButton:hover{
+
+}
+
+.ContentToggleButton:pressed{
+
+}
+
+.NarrowWidthButton {
+    -fx-pref-height: 48px;
+    -fx-pref-width: 80px;
+    -fx-padding: 0 8 0 8;
+    -fx-wrap-text: true;
+}
+
+.NarrowWidthButton > .text {
+}
+
+.NarrowWidthButton:hover {
+}
+
+.NarrowWidthButton:pressed {
+}
+
+.SpecialButton {
+    -fx-pref-height: 48px;
+    -fx-pref-width: 100px;
+    -fx-padding: 0 8 0 8;
+    -fx-wrap-text: true;
+}
+
+.DividerSplitPane {
+}
+
+.DividerSplitPane > .split-pane-divider {
+}
+
+.ContentCellText{
+    -fx-pref-height: 30;
+    -fx-pref-width: 250;
+}
+
+.ContentCellText .scroll-pane{
+    -fx-hbar-policy: never;
+    -fx-vbar-policy: never;
+}
+
+.FrameHBox {
+    -fx-border-radius: 2.0;
+    -fx-border-width: 1.0;
+}
+
+.resettable-text-field:focused {
+    -fx-background-color: null;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 1;
+}
+
+.resettable-text-field {
+    -fx-border-color: null;
+    -fx-border-radius: 0;
+    -fx-select-on-focus:false;
+}
+
+.text-input {
+    -fx-background-radius: 0, 0;
+}
+
+.text-input:focused {
+    -fx-background-color: #bababa, #fca311;
+    -fx-text-fill: black;
+}
+
+/* Tab Navigation Buttons */
+.tab-navigation-buttons {
+    -fx-background-color: #dbdbdb;
+}
+
+.tab-navigation-buttons .container {
+    -fx-background-color: transparent;
+}
+
+.tab-left-button, .tab-right-button {
+    -fx-background-color: #dbdbdb;
+    -fx-pref-width: 10px;
+    /* Height is controlled by Java code to match TabHeaderArea height */
+    /*-fx-pref-height: 30px;*/
+    /*-fx-padding: 2 3 2 3;*/
+    -fx-cursor: hand;
+    -fx-border-color: #b4b4b4;
+    -fx-border-width: 0 0 1 0;
+}
+
+.tab-left-button:hover, .tab-right-button:hover {
+    -fx-background-color: #d0d0d0;
+}
+
+.tab-left-button:pressed, .tab-right-button:pressed {
+    -fx-background-color: #a0a0a0;
+}
+
+.tab-navigation-buttons .arrow {
+    -fx-text-fill: #606060;
+    -fx-font-size: 12px;
+    -fx-font-weight: normal;
+    -fx-alignment: center;
+    -fx-padding: 0.25em 0.1em 0.25em 0.1em; /* 3 3.75 3 3.75 */
+}
