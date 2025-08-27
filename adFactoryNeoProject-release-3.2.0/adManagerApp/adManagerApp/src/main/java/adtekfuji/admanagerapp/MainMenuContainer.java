@@ -8,8 +8,10 @@ package adtekfuji.admanagerapp;
 import adtekfuji.clientservice.SystemResourceFacade;
 import adtekfuji.locale.LocaleUtils;
 import adtekfuji.plugin.PluginLoader;
+import adtekfuji.property.AdProperty;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
@@ -121,114 +123,293 @@ public class MainMenuContainer {
     public void makeMenuButton(final Pane manupane, List<SystemOptionEntity> optionLicenses) {
         try {
             logger.info("makeMenuButton start.");
+            
+            String menuType = AdProperty.getProperties().getProperty("menuType", "default");
 
-            Properties properties = new Properties();
-
-            for (SystemOptionEntity optionLicence : optionLicenses) {
-                logger.info("License: " + optionLicence.getOptionName() + " = " + optionLicence.getEnable());
-                properties.setProperty(optionLicence.getOptionName(), optionLicence.getEnable().toString());
+            switch (menuType) {
+                case "tree":
+                    makeTreeMenuButton(manupane, optionLicenses);
+                    break;
+                case "default":
+                default:
+                    makeDefaultMenuButton(manupane, optionLicenses);
+                    break;
             }
-
-            Optional<SystemOptionEntity> kanbanEditor = optionLicenses.stream().filter((o) -> LicenseOptionType.KanbanEditor.getName().equals(o.getOptionName())).findFirst();
-            Optional<SystemOptionEntity> workflowEditor = optionLicenses.stream().filter((o) -> LicenseOptionType.WorkflowEditor.getName().equals(o.getOptionName())).findFirst();
-            Optional<SystemOptionEntity> liteOption = optionLicenses.stream().filter((o) -> LicenseOptionType.LiteOption.getName().equals(o.getOptionName())).findFirst();
-            Optional<SystemOptionEntity> reporterOption = optionLicenses.stream().filter((o) -> LicenseOptionType.ReporterOption.getName().equals(o.getOptionName())).findFirst();
-
-            final boolean isKanbanEditor = kanbanEditor.isPresent() ? kanbanEditor.get().getEnable() : false;
-            final boolean isWorkflowEditor = workflowEditor.isPresent() ? workflowEditor.get().getEnable() : false;
-            final boolean isLiteOption = liteOption.isPresent() ? liteOption.get().getEnable() : false;
-            final boolean isReporterOption = reporterOption.isPresent() ? reporterOption.get().getEnable() : false;
-
-            // 作業日報
-            final String dailyReportDisplayName = LocaleUtils.getString("key.WorkReportTitle");
-            // 進捗モニタ
-            final String progressMonitorDisplayName = LocaleUtils.getString("key.AndonSetting");
-            // 作業分析メニューの表示名
-            final String workAnalysisDisplayName = LocaleUtils.getString("key.WorkAnalysis");
-            // 生産管理
-            final String manufacturingManagementDisplayName = LocaleUtils.getString("key.ProductionNavi.Title");
-
-            manupane.getChildren().clear();
-            plugins.stream().map((plugin) -> {
-                // 機能権限を確認する
-                LoginUserInfoEntity loginUser = LoginUserInfoEntity.getInstance();
-                boolean isAllow = true;
-
-                List<RoleAuthorityType> types = plugin.getRoleAuthorityType();
-                if (Objects.nonNull(types)) {
-                    isAllow = false;
-                    for (RoleAuthorityType auth : types) {
-                        RoleAuthorityTypeEnum.add(auth);
-                        if (loginUser.checkRoleAuthority(auth)) {
-                            isAllow = true;
-                        }
-                    }
-                }
-
-                // オプションライセンスを確認する
-                LicenseOptionType pluginLicenseType = getOptionalType(plugin);
-                if (!LicenseOptionType.NotRequireLicense.equals(pluginLicenseType)) {
-                    boolean isLicensed = false;
-                    switch (pluginLicenseType) {
-                        case KanbanEditor:
-                            isLicensed = (isKanbanEditor || isLiteOption);
-                            break;
-                        case WorkflowEditor:
-                            isLicensed = (isWorkflowEditor || isLiteOption);
-                            break;
-                        default:
-                            if (workAnalysisDisplayName.equals(plugin.getDisplayName()) && isLiteOption && !isKanbanEditor) {
-                                // Lite単体構成の場合、作業分析メニューは非表示
-                                isLicensed = false;
-                            } else {
-                                String optionName = pluginLicenseType.getName();
-                                Optional<SystemOptionEntity> find = optionLicenses.stream().filter((o) -> optionName.equals(o.getOptionName())).findFirst();
-                                if (find.isPresent()) {
-                                    isLicensed = find.get().getEnable();
-                                }
-                            }
-                            break;
-                    }
-
-                    if (isAllow && !isLicensed) {
-                        isAllow = false;
-                    }
-                }
-
-                // レポータのライセンスのみの場合
-                if (isReporterOption && !isKanbanEditor
-                        && (workAnalysisDisplayName.equals(plugin.getDisplayName()) // 作業分析
-                        || dailyReportDisplayName.equals(plugin.getDisplayName()) // 作業日報
-                        || progressMonitorDisplayName.equals(plugin.getDisplayName()) // 進捗モニタ設定
-                        || manufacturingManagementDisplayName.equals(plugin.getDisplayName()) // 生産管理
-                )) {
-                    isAllow = false;
-                }
-
-                if (isAllow) {
-                    // プラグインの使用を許可
-                    plugin.setProperties(properties);
-
-                    Button button = new Button(plugin.getDisplayName());
-                    button.getStyleClass().add("MenuButton");
-                    button.setOnAction((ActionEvent event) -> {
-                        plugin.onSelectMenuAction();
-                    });
-
-                    return button;
-                } else {
-                    logger.warn("plugin:{} is not allow.", plugin.getClass().getName());
-                }
-                return null;
-            }).forEach((button) -> {
-                if (Objects.nonNull(button)) {
-                    manupane.getChildren().add(button);
-                }
-            });
         }
+
+        //     Properties properties = new Properties();
+
+        //     for (SystemOptionEntity optionLicence : optionLicenses) {
+        //         logger.info("License: " + optionLicence.getOptionName() + " = " + optionLicence.getEnable());
+        //         properties.setProperty(optionLicence.getOptionName(), optionLicence.getEnable().toString());
+        //     }
+
+        //     Optional<SystemOptionEntity> kanbanEditor = optionLicenses.stream().filter((o) -> LicenseOptionType.KanbanEditor.getName().equals(o.getOptionName())).findFirst();
+        //     Optional<SystemOptionEntity> workflowEditor = optionLicenses.stream().filter((o) -> LicenseOptionType.WorkflowEditor.getName().equals(o.getOptionName())).findFirst();
+        //     Optional<SystemOptionEntity> liteOption = optionLicenses.stream().filter((o) -> LicenseOptionType.LiteOption.getName().equals(o.getOptionName())).findFirst();
+        //     Optional<SystemOptionEntity> reporterOption = optionLicenses.stream().filter((o) -> LicenseOptionType.ReporterOption.getName().equals(o.getOptionName())).findFirst();
+
+        //     final boolean isKanbanEditor = kanbanEditor.isPresent() ? kanbanEditor.get().getEnable() : false;
+        //     final boolean isWorkflowEditor = workflowEditor.isPresent() ? workflowEditor.get().getEnable() : false;
+        //     final boolean isLiteOption = liteOption.isPresent() ? liteOption.get().getEnable() : false;
+        //     final boolean isReporterOption = reporterOption.isPresent() ? reporterOption.get().getEnable() : false;
+
+        //     // 作業日報
+        //     final String dailyReportDisplayName = LocaleUtils.getString("key.WorkReportTitle");
+        //     // 進捗モニタ
+        //     final String progressMonitorDisplayName = LocaleUtils.getString("key.AndonSetting");
+        //     // 作業分析メニューの表示名
+        //     final String workAnalysisDisplayName = LocaleUtils.getString("key.WorkAnalysis");
+        //     // 生産管理
+        //     final String manufacturingManagementDisplayName = LocaleUtils.getString("key.ProductionNavi.Title");
+
+        //     manupane.getChildren().clear();
+        //     plugins.stream().map((plugin) -> {
+        //         // 機能権限を確認する
+        //         LoginUserInfoEntity loginUser = LoginUserInfoEntity.getInstance();
+        //         boolean isAllow = true;
+
+        //         List<RoleAuthorityType> types = plugin.getRoleAuthorityType();
+        //         if (Objects.nonNull(types)) {
+        //             isAllow = false;
+        //             for (RoleAuthorityType auth : types) {
+        //                 RoleAuthorityTypeEnum.add(auth);
+        //                 if (loginUser.checkRoleAuthority(auth)) {
+        //                     isAllow = true;
+        //                 }
+        //             }
+        //         }
+
+        //         // オプションライセンスを確認する
+        //         LicenseOptionType pluginLicenseType = getOptionalType(plugin);
+        //         if (!LicenseOptionType.NotRequireLicense.equals(pluginLicenseType)) {
+        //             boolean isLicensed = false;
+        //             switch (pluginLicenseType) {
+        //                 case KanbanEditor:
+        //                     isLicensed = (isKanbanEditor || isLiteOption);
+        //                     break;
+        //                 case WorkflowEditor:
+        //                     isLicensed = (isWorkflowEditor || isLiteOption);
+        //                     break;
+        //                 default:
+        //                     if (workAnalysisDisplayName.equals(plugin.getDisplayName()) && isLiteOption && !isKanbanEditor) {
+        //                         // Lite単体構成の場合、作業分析メニューは非表示
+        //                         isLicensed = false;
+        //                     } else {
+        //                         String optionName = pluginLicenseType.getName();
+        //                         Optional<SystemOptionEntity> find = optionLicenses.stream().filter((o) -> optionName.equals(o.getOptionName())).findFirst();
+        //                         if (find.isPresent()) {
+        //                             isLicensed = find.get().getEnable();
+        //                         }
+        //                     }
+        //                     break;
+        //             }
+
+        //             if (isAllow && !isLicensed) {
+        //                 isAllow = false;
+        //             }
+        //         }
+
+        //         // レポータのライセンスのみの場合
+        //         if (isReporterOption && !isKanbanEditor
+        //                 && (workAnalysisDisplayName.equals(plugin.getDisplayName()) // 作業分析
+        //                 || dailyReportDisplayName.equals(plugin.getDisplayName()) // 作業日報
+        //                 || progressMonitorDisplayName.equals(plugin.getDisplayName()) // 進捗モニタ設定
+        //                 || manufacturingManagementDisplayName.equals(plugin.getDisplayName()) // 生産管理
+        //         )) {
+        //             isAllow = false;
+        //         }
+
+        //         if (isAllow) {
+        //             // プラグインの使用を許可
+        //             plugin.setProperties(properties);
+
+        //             Button button = new Button(plugin.getDisplayName());
+        //             button.getStyleClass().add("MenuButton");
+        //             button.setOnAction((ActionEvent event) -> {
+        //                 plugin.onSelectMenuAction();
+        //             });
+
+        //             return button;
+        //         } else {
+        //             logger.warn("plugin:{} is not allow.", plugin.getClass().getName());
+        //         }
+        //         return null;
+        //     }).forEach((button) -> {
+        //         if (Objects.nonNull(button)) {
+        //             manupane.getChildren().add(button);
+        //         }
+        //     });
+        // }
         finally {
             logger.info("makeMenuButton end.");
         }
+    }
+
+    private void makeDefaultMenuButton(final Pane manupane, List<SystemOptionEntity> optionLicenses) {
+        
+        Properties properties = new Properties();
+
+        for (SystemOptionEntity optionLicence : optionLicenses) {
+            logger.info("License: " + optionLicence.getOptionName() + " = " + optionLicence.getEnable());
+            properties.setProperty(optionLicence.getOptionName(), optionLicence.getEnable().toString());
+        }
+
+        Optional<SystemOptionEntity> kanbanEditor = optionLicenses.stream().filter((o) -> LicenseOptionType.KanbanEditor.getName().equals(o.getOptionName())).findFirst();
+        Optional<SystemOptionEntity> workflowEditor = optionLicenses.stream().filter((o) -> LicenseOptionType.WorkflowEditor.getName().equals(o.getOptionName())).findFirst();
+        Optional<SystemOptionEntity> liteOption = optionLicenses.stream().filter((o) -> LicenseOptionType.LiteOption.getName().equals(o.getOptionName())).findFirst();
+        Optional<SystemOptionEntity> reporterOption = optionLicenses.stream().filter((o) -> LicenseOptionType.ReporterOption.getName().equals(o.getOptionName())).findFirst();
+
+        final boolean isKanbanEditor = kanbanEditor.isPresent() ? kanbanEditor.get().getEnable() : false;
+        final boolean isWorkflowEditor = workflowEditor.isPresent() ? workflowEditor.get().getEnable() : false;
+        final boolean isLiteOption = liteOption.isPresent() ? liteOption.get().getEnable() : false;
+        final boolean isReporterOption = reporterOption.isPresent() ? reporterOption.get().getEnable() : false;
+
+        // 作業日報
+        final String dailyReportDisplayName = LocaleUtils.getString("key.WorkReportTitle");
+        // 進捗モニタ
+        final String progressMonitorDisplayName = LocaleUtils.getString("key.AndonSetting");
+        // 作業分析メニューの表示名
+        final String workAnalysisDisplayName = LocaleUtils.getString("key.WorkAnalysis");
+        // 生産管理
+        final String manufacturingManagementDisplayName = LocaleUtils.getString("key.ProductionNavi.Title");
+
+        manupane.getChildren().clear();
+        plugins.stream().map((plugin) -> {
+            // 機能権限を確認する
+            LoginUserInfoEntity loginUser = LoginUserInfoEntity.getInstance();
+            boolean isAllow = true;
+
+            List<RoleAuthorityType> types = plugin.getRoleAuthorityType();
+            if (Objects.nonNull(types)) {
+                isAllow = false;
+                for (RoleAuthorityType auth : types) {
+                    RoleAuthorityTypeEnum.add(auth);
+                    if (loginUser.checkRoleAuthority(auth)) {
+                        isAllow = true;
+                    }
+                }
+            }
+
+            // オプションライセンスを確認する
+            LicenseOptionType pluginLicenseType = getOptionalType(plugin);
+            if (!LicenseOptionType.NotRequireLicense.equals(pluginLicenseType)) {
+                boolean isLicensed = false;
+                switch (pluginLicenseType) {
+                    case KanbanEditor:
+                        isLicensed = (isKanbanEditor || isLiteOption);
+                        break;
+                    case WorkflowEditor:
+                        isLicensed = (isWorkflowEditor || isLiteOption);
+                        break;
+                    default:
+                        if (workAnalysisDisplayName.equals(plugin.getDisplayName()) && isLiteOption && !isKanbanEditor) {
+                            // Lite単体構成の場合、作業分析メニューは非表示
+                            isLicensed = false;
+                        } else {
+                            String optionName = pluginLicenseType.getName();
+                            Optional<SystemOptionEntity> find = optionLicenses.stream().filter((o) -> optionName.equals(o.getOptionName())).findFirst();
+                            if (find.isPresent()) {
+                                isLicensed = find.get().getEnable();
+                            }
+                        }
+                        break;
+                }
+
+                if (isAllow && !isLicensed) {
+                    isAllow = false;
+                }
+            }
+
+            // レポータのライセンスのみの場合
+            if (isReporterOption && !isKanbanEditor
+                    && (workAnalysisDisplayName.equals(plugin.getDisplayName()) // 作業分析
+                    || dailyReportDisplayName.equals(plugin.getDisplayName()) // 作業日報
+                    || progressMonitorDisplayName.equals(plugin.getDisplayName()) // 進捗モニタ設定
+                    || manufacturingManagementDisplayName.equals(plugin.getDisplayName()) // 生産管理
+            )) {
+                isAllow = false;
+            }
+
+            if (isAllow) {
+                // プラグインの使用を許可
+                plugin.setProperties(properties);
+
+                Button button = new Button(plugin.getDisplayName());
+                button.getStyleClass().add("MenuButton");
+                button.setOnAction((ActionEvent event) -> {
+                    plugin.onSelectMenuAction();
+                });
+
+                return button;
+            } else {
+                logger.warn("plugin:{} is not allow.", plugin.getClass().getName());
+            }
+            return null;
+        }).forEach((button) -> {
+            if (Objects.nonNull(button)) {
+                manupane.getChildren().add(button);
+            }
+        });
+    }
+
+    private void makeTreeMenuButton(final Pane manupane, List<SystemOptionEntity> optionLicenses) {
+        // TODO: implement tree menu layout; currently fall back to flat menu
+        System.out.println("CreateTree Menu button");
+        Properties properties = new Properties();
+
+        for (SystemOptionEntity optionLicence : optionLicenses) {
+            logger.info("License: " + optionLicence.getOptionName() + " = " + optionLicence.getEnable());
+            properties.setProperty(optionLicence.getOptionName(), optionLicence.getEnable().toString());
+        }
+
+        Optional<SystemOptionEntity> kanbanEditor = optionLicenses.stream().filter((o) -> LicenseOptionType.KanbanEditor.getName().equals(o.getOptionName())).findFirst();
+        Optional<SystemOptionEntity> workflowEditor = optionLicenses.stream().filter((o) -> LicenseOptionType.WorkflowEditor.getName().equals(o.getOptionName())).findFirst();
+        Optional<SystemOptionEntity> liteOption = optionLicenses.stream().filter((o) -> LicenseOptionType.LiteOption.getName().equals(o.getOptionName())).findFirst();
+        Optional<SystemOptionEntity> reporterOption = optionLicenses.stream().filter((o) -> LicenseOptionType.ReporterOption.getName().equals(o.getOptionName())).findFirst();
+
+        final boolean isKanbanEditor = kanbanEditor.isPresent() ? kanbanEditor.get().getEnable() : false;
+        final boolean isWorkflowEditor = workflowEditor.isPresent() ? workflowEditor.get().getEnable() : false;
+        final boolean isLiteOption = liteOption.isPresent() ? liteOption.get().getEnable() : false;
+        final boolean isReporterOption = reporterOption.isPresent() ? reporterOption.get().getEnable() : false;
+
+        // 作業日報
+        final String dailyReportDisplayName = LocaleUtils.getString("key.WorkReportTitle");
+        // 進捗モニタ
+        final String progressMonitorDisplayName = LocaleUtils.getString("key.AndonSetting");
+        // 作業分析メニューの表示名
+        final String workAnalysisDisplayName = LocaleUtils.getString("key.WorkAnalysis");
+        // 生産管理
+        final String manufacturingManagementDisplayName = LocaleUtils.getString("key.ProductionNavi.Title");
+        // 運用
+        final String operationDisplayName = LocaleUtils.getString("key.MainMenuTitle.Operation");
+        // Lite
+        final String liteDisplayName = LocaleUtils.getString("key.MainMenuTitle.Lite");
+        // Reporter
+        final String reportDisplayName = LocaleUtils.getString("key.MainMenuTitle.Reporter");
+        // 実績
+        final String resultDisplayName = LocaleUtils.getString("key.MainMenuTitle.ActualOutput");
+        // 倉庫
+        final String wareHouseDisplayName = LocaleUtils.getString("key.MainMenuTitle.WareHouse");
+        // 設定
+        final String settingsDisplayName = LocaleUtils.getString("key.MainMenuTitle.Settings");
+        
+        final String[] displayNames = {
+                                        operationDisplayName,
+                                        liteDisplayName,
+                                        reportDisplayName,
+                                        resultDisplayName,
+                                        wareHouseDisplayName,
+                                        settingsDisplayName
+                                    };
+        
+        Arrays.stream(displayNames)
+                .map(mainCategory -> {
+                    Button button = new Button(mainCategory);
+                    button.getStyleClass().add("MenuButton");
+                    return button;
+                })
+                .forEach(button -> manupane.getChildren().add(button));
     }
 
     private class PluginComparator implements Comparator<AdManagerAppMainMenuInterface> {
