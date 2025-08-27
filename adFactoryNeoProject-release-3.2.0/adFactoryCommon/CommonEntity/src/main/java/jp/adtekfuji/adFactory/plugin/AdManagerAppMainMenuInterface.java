@@ -5,6 +5,7 @@
  */
 package jp.adtekfuji.adFactory.plugin;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
 import jp.adtekfuji.adFactory.enumerate.LicenseOptionType;
@@ -129,4 +130,13 @@ public interface AdManagerAppMainMenuInterface {
      * @param properties
      */
     public void setProperties(Properties properties);
+    
+    /**
+     * サブメニューの表示名称一覧を取得.
+     *
+     * @return サブメニュー表示名称リスト
+     */
+    public default List<String> getSubMenuDisplayName() {
+        return Collections.emptyList();
+    };
 }
