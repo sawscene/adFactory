@@ -52,6 +52,24 @@ public interface AdManagerAppMainMenuInterface {
             return order;
         }
     }
+    
+//        /**
+//     * メニューの構成種別.
+//     */
+//    enum MenuType {
+//
+//        DEFAULT,
+//        TREE
+//    }
+//    
+//        /**
+//     * メニュー種別の取得.
+//     *
+//     * @return メニュー種別
+//     */
+//    public default MenuType getMenuType() {
+//        return MenuType.TREE;
+//    }
 
     /**
      * プラグイン毎の初期処理呼出し
@@ -139,4 +157,12 @@ public interface AdManagerAppMainMenuInterface {
     public default List<String> getSubMenuDisplayName() {
         return Collections.emptyList();
     };
+    
+        /**
+     * サブメニュー選択時の処理.
+     *
+     * @param displayName サブメニュー表示名
+     */
+    public default void onSelectSubMenuAction(String displayName) {
+    }
 }
