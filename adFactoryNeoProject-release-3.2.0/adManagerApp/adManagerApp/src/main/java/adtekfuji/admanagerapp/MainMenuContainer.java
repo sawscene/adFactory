@@ -14,11 +14,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Properties;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
+import javafx.scene.control.TreeItem;
+import javafx.scene.control.TreeView;
 import javafx.scene.layout.Pane;
 import jp.adtekfuji.adFactory.entity.login.LoginUserInfoEntity;
 import jp.adtekfuji.adFactory.entity.system.SystemOptionEntity;
@@ -71,8 +74,6 @@ public class MainMenuContainer {
             logger.info("plugin:{}", plugins);
 
             for (AdManagerAppMainMenuInterface plugin : plugins) {
-                List<String> items = plugin.getSubMenuDisplayName();
-                items.forEach(System.out::println); 
                 plugin.pluginInitialize();
 
                 // プラグインのライセンスが不要または有効な場合、プラグインのサービスを開始する。
@@ -231,14 +232,32 @@ public class MainMenuContainer {
             if (isAllow) {
                 // プラグインの使用を許可
                 plugin.setProperties(properties);
+                
+                boolean defaultValue = false;
+                if(!defaultValue) {
+                    //TODO
+                    System.out.println("Testing");
+//                    TreeItem<String> root = new TreeItem<>("Root");
+//                    
+//                    Map<AdManagerAppMainMenuInterface.MainMenuCategory, List<String>> items = plugin.getSubMenuDisplayNames();
+//                    for(Map.Entry<AdManagerAppMainMenuInterface.MainMenuCategory, List<String>> entry : items.entrySet()) {
+//                        for(String mainMenu : entry.getKey()) {
+//                            
+//                        }
+//                    }
+                } else {
+                    Button button = new Button(plugin.getDisplayName());
+                    
+                    button.getStyleClass().add("MenuButton");
+                    button.setOnAction((ActionEvent event) -> {
+                        plugin.onSelectMenuAction();
+                    });
 
-                Button button = new Button(plugin.getDisplayName());
-                button.getStyleClass().add("MenuButton");
-                button.setOnAction((ActionEvent event) -> {
-                    plugin.onSelectMenuAction();
-                });
-
-                return button;
+                    return button;
+                }
+                
+                
+                
             } else {
                 logger.warn("plugin:{} is not allow.", plugin.getClass().getName());
             }
@@ -309,6 +328,23 @@ public class MainMenuContainer {
                 }).forEach(button -> 
                         manupane.getChildren().add(button)
         );
+        
+        for(AdManagerAppMainMenuInterface plugin : plugins) {
+//            List<String> subMenuItem = plugin.getSubMenuDisplayName();
+//            System.out.println(subMenuItem);
+//            TreeItem<String> rootItem = new TreeItem<>(plugin.getDisplayName());
+//                        for (String name : plugin.getSubMenuDisplayName()) {
+//                            rootItem.getChildren().add(new TreeItem<>(name));
+//                        }
+//                        rootItem.setExpanded(true);
+//                        TreeView<String> treeView = new TreeView<>(rootItem);
+//                        treeView.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
+//                            if (Objects.nonNull(newVal) && newVal.getParent() != null) {
+//                                plugin.onSelectSubMenuAction(newVal.getValue());
+//                            }
+//                        });
+//                        manupane.getChildren().add(treeView);
+        }
         
     }
 
