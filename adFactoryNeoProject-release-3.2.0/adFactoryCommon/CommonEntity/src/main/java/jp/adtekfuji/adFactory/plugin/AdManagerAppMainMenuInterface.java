@@ -7,6 +7,7 @@ package jp.adtekfuji.adFactory.plugin;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 import jp.adtekfuji.adFactory.enumerate.LicenseOptionType;
 import jp.adtekfuji.adFactory.enumerate.RoleAuthorityType;
@@ -53,24 +54,16 @@ public interface AdManagerAppMainMenuInterface {
         }
     }
     
-//        /**
-//     * メニューの構成種別.
-//     */
-//    enum MenuType {
-//
-//        DEFAULT,
-//        TREE
-//    }
-//    
-//        /**
-//     * メニュー種別の取得.
-//     *
-//     * @return メニュー種別
-//     */
-//    public default MenuType getMenuType() {
-//        return MenuType.TREE;
-//    }
-
+    enum MainMenuCategory  {
+        OPERATION,   // 運用
+        LITE,        // Lite
+        REPORTER,    // Reporter
+        RESULT,      // 実績
+        WAREHOUSE,   // 倉庫
+        SETTINGS,     // 設定
+        UNUSED_MENU_CATEGORY
+    }
+    
     /**
      * プラグイン毎の初期処理呼出し
      */
@@ -150,13 +143,23 @@ public interface AdManagerAppMainMenuInterface {
     public void setProperties(Properties properties);
     
     /**
+    * メインメニューのカテゴリを取得します.
+    *
+    * @return メインメニューのカテゴリ
+    */
+//    public default MainMenuCategory getMainMenuCategory() {
+//        return MainMenuCategory.OPERATION;
+//    }
+
+    
+    /**
      * サブメニューの表示名称一覧を取得.
      *
      * @return サブメニュー表示名称リスト
      */
-    public default List<String> getSubMenuDisplayName() {
-        return Collections.emptyList();
-    };
+    public default Map<MainMenuCategory, List<String>> getSubMenuDisplayNames() {
+        return Collections.emptyMap();
+    }
     
         /**
      * サブメニュー選択時の処理.
