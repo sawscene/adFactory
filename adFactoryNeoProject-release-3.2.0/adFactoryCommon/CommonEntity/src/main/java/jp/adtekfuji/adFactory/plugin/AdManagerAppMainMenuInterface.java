@@ -141,31 +141,4 @@ public interface AdManagerAppMainMenuInterface {
      * @param properties
      */
     public void setProperties(Properties properties);
-    
-    /**
-    * メインメニューのカテゴリを取得します.
-    *
-    * @return メインメニューのカテゴリ
-    */
-//    public default MainMenuCategory getMainMenuCategory() {
-//        return MainMenuCategory.OPERATION;
-//    }
-
-    
-    /**
-     * サブメニューの表示名称一覧を取得.
-     *
-     * @return サブメニュー表示名称リスト
-     */
-    public default Map<MainMenuCategory, List<String>> getSubMenuDisplayNames() {
-        return Collections.emptyMap();
-    }
-    
-        /**
-     * サブメニュー選択時の処理.
-     *
-     * @param displayName サブメニュー表示名
-     */
-    public default void onSelectSubMenuAction(String displayName) {
-    }
 }
