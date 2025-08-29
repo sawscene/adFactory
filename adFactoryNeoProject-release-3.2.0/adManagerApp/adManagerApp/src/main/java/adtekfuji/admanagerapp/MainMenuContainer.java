@@ -232,20 +232,6 @@ public class MainMenuContainer {
             if (isAllow) {
                 // プラグインの使用を許可
                 plugin.setProperties(properties);
-                
-                boolean defaultValue = false;
-                if(!defaultValue) {
-                    //TODO
-                    System.out.println("Testing");
-//                    TreeItem<String> root = new TreeItem<>("Root");
-//                    
-//                    Map<AdManagerAppMainMenuInterface.MainMenuCategory, List<String>> items = plugin.getSubMenuDisplayNames();
-//                    for(Map.Entry<AdManagerAppMainMenuInterface.MainMenuCategory, List<String>> entry : items.entrySet()) {
-//                        for(String mainMenu : entry.getKey()) {
-//                            
-//                        }
-//                    }
-                } else {
                     Button button = new Button(plugin.getDisplayName());
                     
                     button.getStyleClass().add("MenuButton");
@@ -254,10 +240,6 @@ public class MainMenuContainer {
                     });
 
                     return button;
-                }
-                
-                
-                
             } else {
                 logger.warn("plugin:{} is not allow.", plugin.getClass().getName());
             }
@@ -297,27 +279,6 @@ public class MainMenuContainer {
         final String workAnalysisDisplayName = LocaleUtils.getString("key.WorkAnalysis");
         // 生産管理
         final String manufacturingManagementDisplayName = LocaleUtils.getString("key.ProductionNavi.Title");
-        // 運用
-        final String operationDisplayName = LocaleUtils.getString("key.MainMenuTitle.Operation");
-        // Lite
-        final String liteDisplayName = LocaleUtils.getString("key.MainMenuTitle.Lite");
-        // Reporter
-        final String reportDisplayName = LocaleUtils.getString("key.MainMenuTitle.Reporter");
-        // 実績
-        final String resultDisplayName = LocaleUtils.getString("key.MainMenuTitle.ActualOutput");
-        // 倉庫
-        final String wareHouseDisplayName = LocaleUtils.getString("key.MainMenuTitle.WareHouse");
-        // 設定
-        final String settingsDisplayName = LocaleUtils.getString("key.MainMenuTitle.Settings");
-        
-        final String[] displayNames = {
-                                        operationDisplayName,
-                                        liteDisplayName,
-                                        reportDisplayName,
-                                        resultDisplayName,
-                                        wareHouseDisplayName,
-                                        settingsDisplayName
-                                    };
 
         manupane.getChildren().clear();
         Arrays.stream(displayNames)
@@ -330,20 +291,77 @@ public class MainMenuContainer {
         );
         
         for(AdManagerAppMainMenuInterface plugin : plugins) {
-//            List<String> subMenuItem = plugin.getSubMenuDisplayName();
-//            System.out.println(subMenuItem);
-//            TreeItem<String> rootItem = new TreeItem<>(plugin.getDisplayName());
-//                        for (String name : plugin.getSubMenuDisplayName()) {
-//                            rootItem.getChildren().add(new TreeItem<>(name));
-//                        }
-//                        rootItem.setExpanded(true);
-//                        TreeView<String> treeView = new TreeView<>(rootItem);
-//                        treeView.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
-//                            if (Objects.nonNull(newVal) && newVal.getParent() != null) {
-//                                plugin.onSelectSubMenuAction(newVal.getValue());
-//                            }
-//                        });
-//                        manupane.getChildren().add(treeView);
+           // 機能権限を確認する
+            LoginUserInfoEntity loginUser = LoginUserInfoEntity.getInstance();
+            boolean isAllow = true;
+
+            List<RoleAuthorityType> types = plugin.getRoleAuthorityType();
+            if (Objects.nonNull(types)) {
+                isAllow = false;
+                for (RoleAuthorityType auth : types) {
+                    RoleAuthorityTypeEnum.add(auth);
+                    if (loginUser.checkRoleAuthority(auth)) {
+                        isAllow = true;
+                    }
+                }
+            }
+
+            // オプションライセンスを確認する
+            LicenseOptionType pluginLicenseType = getOptionalType(plugin);
+            if (!LicenseOptionType.NotRequireLicense.equals(pluginLicenseType)) {
+                boolean isLicensed = false;
+                switch (pluginLicenseType) {
+                    case KanbanEditor:
+                        isLicensed = (isKanbanEditor || isLiteOption);
+                        break;
+                    case WorkflowEditor:
+                        isLicensed = (isWorkflowEditor || isLiteOption);
+                        break;
+                    default:
+                        if (workAnalysisDisplayName.equals(plugin.getDisplayName()) && isLiteOption && !isKanbanEditor) {
+                            // Lite単体構成の場合、作業分析メニューは非表示
+                            isLicensed = false;
+                        } else {
+                            String optionName = pluginLicenseType.getName();
+                            Optional<SystemOptionEntity> find = optionLicenses.stream().filter((o) -> optionName.equals(o.getOptionName())).findFirst();
+                            if (find.isPresent()) {
+                                isLicensed = find.get().getEnable();
+                            }
+                        }
+                        break;
+                }
+
+                if (isAllow && !isLicensed) {
+                    isAllow = false;
+                }
+            }
+
+            // レポータのライセンスのみの場合
+            if (isReporterOption && !isKanbanEditor
+                    && (workAnalysisDisplayName.equals(plugin.getDisplayName()) // 作業分析
+                    || dailyReportDisplayName.equals(plugin.getDisplayName()) // 作業日報
+                    || progressMonitorDisplayName.equals(plugin.getDisplayName()) // 進捗モニタ設定
+                    || manufacturingManagementDisplayName.equals(plugin.getDisplayName()) // 生産管理
+                    )) {
+                isAllow = false;
+            }
+
+            if (isAllow) {
+                // プラグインの使用を許可
+                plugin.setProperties(properties);
+
+                //TODO
+                
+
+            } else {
+                logger.warn("plugin:{} is not allow.", plugin.getClass().getName());
+            }
+            return null;
+        }).forEach((button) -> {
+            if (Objects.nonNull(button)) {
+                manupane.getChildren().add(button);
+            }
+        });
         }
         
     }
