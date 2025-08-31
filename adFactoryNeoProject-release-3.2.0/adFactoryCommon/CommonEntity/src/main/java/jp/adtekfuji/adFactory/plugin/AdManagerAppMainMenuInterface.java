@@ -8,6 +8,7 @@ package jp.adtekfuji.adFactory.plugin;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Properties;
 import jp.adtekfuji.adFactory.enumerate.LicenseOptionType;
 import jp.adtekfuji.adFactory.enumerate.RoleAuthorityType;
@@ -141,4 +142,63 @@ public interface AdManagerAppMainMenuInterface {
      * @param properties
      */
     public void setProperties(Properties properties);
+    
+    /**
+    * メインメニューのカテゴリを取得します.
+    *
+    * @return メインメニューのカテゴリ
+    */
+
+
+    /**
+    * サブメニュー選択時の処理.
+    *
+    * @param displayName サブメニュー表示名
+    */
+    public default void onSelectSubMenuAction(String displayName) {
+    }
+    
+    
+    /**
+     * サブメニューの子メニュー選択時の処理.
+     *
+     * <p>子メニュー名が {@code null} の場合は親サブメニューの選択とみなします。</p>
+     *
+     * @param displayName 親サブメニュー表示名
+     * @param childDisplayName 子メニュー表示名。存在しない場合は {@code null}
+     */
+    public default void onSelectSubMenuAction(String displayName, String childDisplayName) {
+        if (Objects.isNull(childDisplayName)) {
+            onSelectSubMenuAction(displayName);
+        } else {
+            onSelectSubMenuAction(childDisplayName);
+        }
+    }
+    
+    static class MenuNode {
+        private final String displayName;
+        private final List<MenuNode> children;
+
+        public MenuNode(String displayName, List<MenuNode> children) {
+            this.displayName = displayName;
+            this.children = (children != null) ? Collections.unmodifiableList(children) : Collections.emptyList();
+        }
+
+        public String getDisplayName() {
+            return displayName;
+        }
+
+        public List<MenuNode> getChildren() {
+            return children;
+        }
+
+        // Optional: Add a method to check if it's a leaf node
+        public boolean isLeaf() {
+            return children.isEmpty();
+        }
+    }
+    
+    default Map<MainMenuCategory, List<MenuNode>> getMultilevelMenuNodes() {
+        return Collections.emptyMap();
+    }
 }
