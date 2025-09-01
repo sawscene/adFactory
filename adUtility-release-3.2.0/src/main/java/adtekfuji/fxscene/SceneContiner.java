@@ -73,6 +73,8 @@ public class SceneContiner {
 
     // 現在表示されているコンポーネント
     private final Map<Pane, ComponentHandler> currentComponents = new HashMap<>();
+    
+    private Object sceneController;
 
     /**
      * 表示待ちコンポーネント
@@ -176,7 +178,8 @@ public class SceneContiner {
         }
 
         this.currentComponents.clear();
-        this.replaceSceneContent(scene, argument);
+//        this.replaceSceneContent(scene, argument);
+        this.replaceSceneContent(id, scene, argument);
 
         return true;
     }
@@ -877,7 +880,7 @@ public class SceneContiner {
         pane.setDisable(flg);
     }
 
-    private void replaceSceneContent(SceneDefinition sceneDef, Object argument) {
+     private void replaceSceneContent(String id, SceneDefinition sceneDef, Object argument) {
         try {
             Scene scene = stage.getScene();
             ResourceBundle rb = LocaleUtils.load("locale");
@@ -888,8 +891,13 @@ public class SceneContiner {
 
             componentArea.clear();
             Object obj = loader.getController();
+            this.sceneController = obj;
             if (obj instanceof ArgumentDelivery argumentDelivery) {
                 argumentDelivery.setArgument(argument);
+            }
+            
+            if (Objects.nonNull(id)) {
+                this.components.put(id, obj);
             }
 
             Field[] fs2 = obj.getClass().getDeclaredFields();
@@ -943,6 +951,37 @@ public class SceneContiner {
         } catch (IllegalArgumentException | IllegalAccessException ex) {
             logger.fatal(ex, ex);
         }
+    }
+     
+         /**
+     * 現在表示されているシーンのコントローラーを取得する。
+     *
+     * @return シーンのコントローラー
+     */
+    public Object getSceneController() {
+        return this.sceneController;
+    }
+    
+        /**
+     * コンポーネントの表示切り替え.
+     *
+     * @param area 描画領域識別文字
+     * @param flg　表示/非表示
+     */
+    public void clearArea(String area) {
+        logger.info("clearArea:{}", area);
+        if (!componentArea.containsKey(area)) {
+            logger.fatal(new IllegalArgumentException(area + " is notthing"));
+            return;
+        }
+        Pane pane = (Pane) componentArea.get(area);
+        if (currentComponents.containsKey(pane)) {
+            ComponentHandler handler = currentComponents.remove(pane);
+            if (handler != null) {
+                handler.destoryComponent();
+            }
+        }
+        pane.getChildren().clear();
     }
 
     /**
