@@ -28,9 +28,12 @@ import javafx.scene.layout.Pane;
 import jp.adtekfuji.adFactory.entity.login.LoginUserInfoEntity;
 import jp.adtekfuji.adFactory.entity.system.SystemOptionEntity;
 import jp.adtekfuji.adFactory.enumerate.LicenseOptionType;
+import jp.adtekfuji.adFactory.enumerate.MenuTypeEnum;
 import jp.adtekfuji.adFactory.enumerate.RoleAuthorityType;
 import jp.adtekfuji.adFactory.enumerate.RoleAuthorityTypeEnum;
 import jp.adtekfuji.adFactory.plugin.AdManagerAppMainMenuInterface;
+import jp.adtekfuji.adFactory.plugin.AdManagerAppMainMenuInterface.MainMenuCategory;
+import jp.adtekfuji.adFactory.plugin.AdManagerAppMainMenuInterface.MenuNode;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -45,7 +48,7 @@ public class MainMenuContainer {
     private final List<AdManagerAppMainMenuInterface> plugins = new ArrayList<>();
 
     private final SystemResourceFacade systemResourceFacade = new SystemResourceFacade();
-
+    
     /**
      * プラグインからオプション種別を取得します。
      * {@link AdManagerAppMainMenuInterface#getOptionType()} を使用してオプション種別を取得し、
@@ -129,13 +132,14 @@ public class MainMenuContainer {
         try {
             logger.info("makeMenuButton start.");
             
-            String menuType = AdProperty.getProperties().getProperty("menuType", "default");
+            MenuTypeEnum menuType = MenuTypeEnum.from(AdProperty.getProperties()
+                           .getProperty("menuType", MenuTypeEnum.DEFAULT.getValue()));
 
             switch (menuType) {
-                case "tree":
+                case TREE:
                     makeTreeMenuButton(manupane, optionLicenses);
                     break;
-                case "default":
+                case DEFAULT:
                 default:
                     makeDefaultMenuButton(manupane, optionLicenses);
                     break;
@@ -238,7 +242,7 @@ public class MainMenuContainer {
                     Button button = new Button(plugin.getDisplayName());
                     button.getStyleClass().add("MenuButton");
                     button.setOnAction((ActionEvent event) -> {
-                        plugin.onSelectMenuAction();
+                        plugin.onSelectMenuAction(null);
                     });
 
                     return button;
@@ -253,7 +257,7 @@ public class MainMenuContainer {
         });
     }
     
-    private String getCategoryDisplayName(AdManagerAppMainMenuInterface.MainMenuCategory category) {
+    private String getCategoryDisplayName(MainMenuCategory category) {
         switch (category) {
             case OPERATION:
                 return LocaleUtils.getString("key.MainMenuTitle.Operation");
@@ -275,6 +279,8 @@ public class MainMenuContainer {
     private void makeTreeMenuButton(final Pane manupane, List<SystemOptionEntity> optionLicenses) {
         logger.info("makeTreeMenuButton start.");
         Properties properties = new Properties();
+        
+        Map<MainMenuCategory, List<MenuNode>> treeStructureNode = new HashMap<>();
 
         for (SystemOptionEntity optionLicence : optionLicenses) {
             logger.info("License: " + optionLicence.getOptionName() + " = " + optionLicence.getEnable());
@@ -301,11 +307,6 @@ public class MainMenuContainer {
         final String manufacturingManagementDisplayName = LocaleUtils.getString("key.ProductionNavi.Title");
         
         manupane.getChildren().clear();
-        
-        TreeItem<String> rootItem = new TreeItem<>("ROOT");
-        rootItem.setExpanded(true);
-        Map<AdManagerAppMainMenuInterface.MainMenuCategory, TreeItem<String>> categoryItems = new EnumMap<>(AdManagerAppMainMenuInterface.MainMenuCategory.class);
-        Map<TreeItem<String>, AdManagerAppMainMenuInterface> itemPluginMap = new HashMap<>();
         
         // Process each plugin
         for (AdManagerAppMainMenuInterface plugin : plugins) {
@@ -370,71 +371,38 @@ public class MainMenuContainer {
             }
 
             plugin.setProperties(properties);
-
-            // Retrieve multilevel nodes from this plugin
-            Map<AdManagerAppMainMenuInterface.MainMenuCategory, List<AdManagerAppMainMenuInterface.MenuNode>> pluginNodes = plugin.getMultilevelMenuNodes();
-            if (Objects.isNull(pluginNodes) || pluginNodes.isEmpty()) {
+            
+            treeStructureNode = plugin.getSubMenuDisplayNames();
+            if(Objects.isNull(treeStructureNode) || treeStructureNode.isEmpty()) {
                 continue;
             }
-
-            // Build tree items for each category in this plugin
-            for (Map.Entry<AdManagerAppMainMenuInterface.MainMenuCategory, List<AdManagerAppMainMenuInterface.MenuNode>> entry : pluginNodes.entrySet()) {
-                AdManagerAppMainMenuInterface.MainMenuCategory category = entry.getKey();
-                if (category == AdManagerAppMainMenuInterface.MainMenuCategory.UNUSED_MENU_CATEGORY) {
-                    continue; // Skip unused category
-                }
-                TreeItem<String> categoryItem = categoryItems.computeIfAbsent(category, k -> new TreeItem<>(getCategoryDisplayName(k)));
-                
-                // Add each root MenuNode as a subtree under the category
-                for (AdManagerAppMainMenuInterface.MenuNode rootNode : entry.getValue()) {
-                    TreeItem<String> rootItemNode = buildTreeItem(rootNode, plugin, itemPluginMap);
-                    categoryItem.getChildren().add(rootItemNode);
+            
+            for (Map.Entry<MainMenuCategory, List<MenuNode>> entry : treeStructureNode.entrySet()) {
+                System.out.println( entry.getKey());
+                for (MenuNode node : entry.getValue()) {
+                    printNode(node, "  ");  // helper method to print hierarchy
                 }
             }
-        }
-        
-        // Add categories to root in fixed order (only if they have children)
-        List<AdManagerAppMainMenuInterface.MainMenuCategory> orderedCategories = Arrays.asList(
-            AdManagerAppMainMenuInterface.MainMenuCategory.OPERATION,
-            AdManagerAppMainMenuInterface.MainMenuCategory.LITE,
-            AdManagerAppMainMenuInterface.MainMenuCategory.REPORTER,
-            AdManagerAppMainMenuInterface.MainMenuCategory.RESULT,
-            AdManagerAppMainMenuInterface.MainMenuCategory.WAREHOUSE,
-            AdManagerAppMainMenuInterface.MainMenuCategory.SETTINGS
-        );
-        for (AdManagerAppMainMenuInterface.MainMenuCategory cat : orderedCategories) {
-            TreeItem<String> catItem = categoryItems.get(cat);
-            if (catItem != null && !catItem.getChildren().isEmpty()) {
-                rootItem.getChildren().add(catItem);
-                catItem.setExpanded(true); // Expand categories by default
-            }
-        }
-        
-        // Create the TreeView and add selection listener
-        TreeView<String> treeView = new TreeView<>(rootItem);
-        treeView.setShowRoot(false); // Hide the "ROOT" item for cleaner UI
-        treeView.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
-            if (Objects.nonNull(newVal) && newVal.isLeaf()) { // Only act on leaf nodes
-                AdManagerAppMainMenuInterface selectedPlugin = itemPluginMap.get(newVal);
-                if (selectedPlugin != null) {
-                    TreeItem<String> parent = newVal.getParent();
-                    if (parent.getParent() == rootItem) {
-                        // Leaf directly under category (1 level deep)
-                        selectedPlugin.onSelectSubMenuAction(newVal.getValue());
-                    } else {
-                        // Leaf under a submenu (2+ levels deep)
-                        selectedPlugin.onSelectSubMenuAction(parent.getValue(), newVal.getValue());
-                    }
-                }
-            }
-        });
-        manupane.getChildren().add(treeView);
+            
+            // Recursive helper method to print MenuNode and children
+            
+            
+//            for (Map.Entry<AdManagerAppMainMenuInterface.MainMenuCategory, List<AdManagerAppMainMenuInterface.MenuNode>> entry : treeStructureNode.entrySet()) {
+//                AdManagerAppMainMenuInterface.MainMenuCategory category = entry.getKey();
+//                System.out.println(category);
+//                if (category == AdManagerAppMainMenuInterface.MainMenuCategory.UNUSED_MENU_CATEGORY) {
+//                    continue; // Skip unused category
+//                }
+//                
+//                for (AdManagerAppMainMenuInterface.MenuNode rootNode : entry.getValue()) {
+//                     System.out.println("RootNode" + rootNode);
+           }
         
         logger.info("makeTreeMenuButton end.");
     }
     
     // Helper method to recursively build TreeItems from MenuNodes
-    private TreeItem<String> buildTreeItem(AdManagerAppMainMenuInterface.MenuNode node, AdManagerAppMainMenuInterface plugin, 
+    private TreeItem<String> buildTreeItem(MenuNode node, AdManagerAppMainMenuInterface plugin, 
                                           Map<TreeItem<String>, AdManagerAppMainMenuInterface> itemPluginMap) {
         TreeItem<String> item = new TreeItem<>(node.getDisplayName());
         if (node.getChildren().isEmpty()) {
@@ -475,6 +443,13 @@ public class MainMenuContainer {
                 return -1;
             }
             return 0;
+        }
+    }
+
+    private void printNode(MenuNode node, String indent) {
+        System.out.println(indent + "- " + node.getDisplayName());
+        for (MenuNode child : node.getChildren()) {
+            printNode(child, indent + "  ");
         }
     }
 
