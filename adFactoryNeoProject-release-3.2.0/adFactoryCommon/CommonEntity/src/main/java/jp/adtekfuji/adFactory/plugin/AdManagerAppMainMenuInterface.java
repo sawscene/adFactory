@@ -3,202 +3,161 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package jp.adtekfuji.adFactory.plugin;
+package adtekfuji.admanagerapp.workfloweditplugin;
 
-import java.util.Collections;
+import adtekfuji.clientservice.ClientServiceProperty;
+import adtekfuji.fxscene.SceneContiner;
+import adtekfuji.locale.LocaleUtils;
+import adtekfuji.property.AdProperty;
+import java.util.Arrays;
+import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
+import java.util.ResourceBundle;
 import jp.adtekfuji.adFactory.enumerate.LicenseOptionType;
+import jp.adtekfuji.adFactory.enumerate.MenuTypeEnum;
 import jp.adtekfuji.adFactory.enumerate.RoleAuthorityType;
+import jp.adtekfuji.adFactory.enumerate.RoleAuthorityTypeEnum;
+import jp.adtekfuji.adFactory.plugin.AdManagerAppMainMenuInterface;
+import jp.adtekfuji.javafxcommon.WorkflowEditPermanenceData;
 
 /**
- * adManagerAppのプラグインインターフェース定義.
  *
  * @author ke.yokoi
  */
-public interface AdManagerAppMainMenuInterface {
+public class AdManagerAppWorkFlowEditPluginMenu implements AdManagerAppMainMenuInterface {
 
-    /**
-     * 表示カテゴリー定義.
-     */
-    enum DisplayCategoryType {
-
-        MANAGEMENT_FUNCTION, //編集系機能
-        REFERENCE_FUNCTION, //参照系機能
-        OTHER_FUNCTION
-    }
-
-    /**
-     * 表示カテゴリー順序.
-     */
-    enum DisplayCategoryOrder {
-
-        HIGHEST_PRIORITY(90),
-        HIGH_PRIORITY(80),
-        MIDDLE_PRIORITY(50),
-        LOW_PRIORITY(20),
-        LOWEST_PRIORITY(10);
-
-        private final Integer order;
-
-        private DisplayCategoryOrder(Integer order) {
-            if (order < 10 || order > 90) {
-                throw new IllegalArgumentException("Out of order");
-            }
-            this.order = order;
-        }
-
-        public Integer getOrder() {
-            return order;
-        }
-    }
+    private final Properties properties = AdProperty.getProperties();
     
-    enum MainMenuCategory  {
-        OPERATION,   // 運用
-        LITE,        // Lite
-        REPORTER,    // Reporter
-        RESULT,      // 実績
-        WAREHOUSE,   // 倉庫
-        SETTINGS,     // 設定
-        UNUSED_MENU_CATEGORY
-    }
-    
-    /**
-     * プラグイン毎の初期処理呼出し
-     */
-    public default void pluginInitialize() {
+    final String menuType = AdProperty.getProperties().getProperty("menuType");
+
+    @Override
+    public String getDisplayName() {
+        ResourceBundle rb = LocaleUtils.getBundle("locale.locale");
+        return LocaleUtils.getString("key.EditWorkflowTitle");
     }
 
-    /**
-     * プラグイン毎の後処理呼出し
-     */
-    public default void pluginDestructor() {
+    @Override
+    public DisplayCategoryType getDisplayCategory() {
+        return DisplayCategoryType.MANAGEMENT_FUNCTION;
     }
 
-    /**
-     * プラグイン毎のサービス開始
-     */
-    public default void pluginServiceStart() {
-    }
-
-    /**
-     * プラグイン毎のサービス終了
-     */
-    public default void pluginServiceStop() {
-    }
-
-    /**
-     * メインメニューに表示する文字列の取得.
-     *
-     * @return メニュー文字列
-     */
-    public String getDisplayName();
-
-    /**
-     * 表示カテゴリー取得.
-     *
-     * @return 表示カテゴリー
-     */
-    public DisplayCategoryType getDisplayCategory();
-
-    /**
-     * 表示順序番号取得.
-     *
-     * まずは enum.DisplayCategoryType が優先となります。 enum.DisplayCategoryType の中で優先度を調整したいときにこの値を使います。 基本は
-     * enum.DisplayCategoryOrder の数値となります。微調整は +/- で調整してください。 HIGH_PRIORITY-5 とすると HIGH_PRIORITY
-     * より少し低い優先度となります。
-     *
-     * @return 表示順序番号
-     */
-    public default Integer getDisplayOrder() {
+    @Override
+    public Integer getDisplayOrder() {
         return DisplayCategoryOrder.MIDDLE_PRIORITY.getOrder();
     }
+    
+    @Override
+    public void onSelectMenuAction(String subMenuDisplayName) {
+        // 機能一覧から開いたときツリーを初期化する
+        WorkflowEditPermanenceData.getInstance().getWorkHierarchyRootItem().getChildren().clear();
+        WorkflowEditPermanenceData.getInstance().getWorkflowHierarchyRootItem().getChildren().clear();
+        WorkflowEditPermanenceData.getInstance().setSelectedWorkHierarchy(null);
+        WorkflowEditPermanenceData.getInstance().setSelectedWorkflowHierarchy(null);
 
-    /**
-     * メニュー選択時の処理.
-     *
-     */
-    public void onSelectMenuAction();
+        SceneContiner sc = SceneContiner.getInstance();
+        if (!sc.trans("WorkflowEditScene")) {
+            return;
+        }
+        sc.visibleArea("MenuPane", false);
+        sc.visibleArea("MenuPaneUnderlay", false);
+        sc.setComponent("AppBarPane", "AppBarCompo");
 
-    /**
-     * オプション種別の取得.
-     *
-     * @return LicenseOptionType
-     */
-    public LicenseOptionType getOptionType();
+        final boolean isWorkflowEditor = ClientServiceProperty.isLicensed(LicenseOptionType.WorkflowEditor.getName());
+        final boolean isLiteOption = ClientServiceProperty.isLicensed(LicenseOptionType.LiteOption.getName());
+        
+        Map<String, String> componentMap = new HashMap<>();
+        componentMap.put(LocaleUtils.getString("key.SubMenuTitle.Process"), "WorkEditCompo");
+        componentMap.put(LocaleUtils.getString("key.SubMenuTitle.OrderProcesses"), "WorkflowEditCompo");
+        componentMap.put(LocaleUtils.getString("key.SubMenuTitle.LiteOrderProcess"), "WorkflowEditLite");
+        
+        String component = componentMap.get(subMenuDisplayName);
+        if (MenuTypeEnum.TREE.getValue().equals(menuType) || (Objects.nonNull(component))) {
+                sc.setComponent("ContentNaviPane", component);
+        } else {
+            if (isWorkflowEditor) {
+                sc.setComponent("SideNaviPane", "WorkflowNaviCompo");
+            } else if (isLiteOption && !isWorkflowEditor) {
+                sc.setComponent("ContentNaviPane", "WorkflowEditLite");
+            }
+        }
+    }
 
-    /**
-     * 役割権限種別の取得.
-     *
-     * @return RoleAuthorityTypeEnum collection
-     */
-    public List<RoleAuthorityType> getRoleAuthorityType();
+    @Override
+    public LicenseOptionType getOptionType() {
+        return LicenseOptionType.WorkflowEditor;
+    }
+
+    @Override
+    public List<RoleAuthorityType> getRoleAuthorityType() {
+        return Arrays.asList((RoleAuthorityType) RoleAuthorityTypeEnum.REFERENCE_WORKFLOW, (RoleAuthorityType) RoleAuthorityTypeEnum.EDITED_WORKFLOW);
+    }
 
     /**
      * プロパティを設定する
      *
      * @param properties
      */
-    public void setProperties(Properties properties);
-    
-    /**
-    * メインメニューのカテゴリを取得します.
-    *
-    * @return メインメニューのカテゴリ
-    */
-
-
-    /**
-    * サブメニュー選択時の処理.
-    *
-    * @param displayName サブメニュー表示名
-    */
-    public default void onSelectSubMenuAction(String displayName) {
-    }
-    
-    
-    /**
-     * サブメニューの子メニュー選択時の処理.
-     *
-     * <p>子メニュー名が {@code null} の場合は親サブメニューの選択とみなします。</p>
-     *
-     * @param displayName 親サブメニュー表示名
-     * @param childDisplayName 子メニュー表示名。存在しない場合は {@code null}
-     */
-    public default void onSelectSubMenuAction(String displayName, String childDisplayName) {
-        if (Objects.isNull(childDisplayName)) {
-            onSelectSubMenuAction(displayName);
-        } else {
-            onSelectSubMenuAction(childDisplayName);
+    @Override
+    public void setProperties(Properties properties) {
+        if (Objects.nonNull(properties))  {
+            for (Enumeration<?> e = properties.propertyNames(); e.hasMoreElements(); ) {
+                String propertyName = (String) e.nextElement();
+                String propertyValue = properties.getProperty(propertyName);
+                this.properties.setProperty(propertyName, propertyValue);
+            }
         }
     }
     
-    static class MenuNode {
-        private final String displayName;
-        private final List<MenuNode> children;
-
-        public MenuNode(String displayName, List<MenuNode> children) {
-            this.displayName = displayName;
-            this.children = (children != null) ? Collections.unmodifiableList(children) : Collections.emptyList();
+    @Override
+    public Map<MainMenuCategory, List<MenuNode>> getSubMenuDisplayNames() {
+        Map<MainMenuCategory, List<MenuNode>> mapSubMenu = new HashMap<>();
+        
+        
+        final boolean isWorkflowEditor = ClientServiceProperty.isLicensed(LicenseOptionType.WorkflowEditor.getName());
+        final boolean isLiteOption = ClientServiceProperty.isLicensed(LicenseOptionType.LiteOption.getName());
+        
+        if(isWorkflowEditor) {
+            List<MenuNode> workFlowSubMenu = List.of(
+                new MenuNode(LocaleUtils.getString("key.SubMenuTitle.Process"), null),
+                new MenuNode(LocaleUtils.getString("key.SubMenuTitle.OrderProcesses"), null)
+            );
+            mapSubMenu.put(MainMenuCategory.OPERATION, workFlowSubMenu); 
+            mapSubMenu.put(MainMenuCategory.REPORTER, workFlowSubMenu); 
         }
-
-        public String getDisplayName() {
-            return displayName;
+        
+        if(!isLiteOption) {
+            mapSubMenu.put(MainMenuCategory.LITE, 
+                    List.of(new MenuNode(LocaleUtils.getString("key.SubMenuTitle.LiteOrderProcess"), null)
+                ));
         }
-
-        public List<MenuNode> getChildren() {
-            return children;
-        }
-
-        // Optional: Add a method to check if it's a leaf node
-        public boolean isLeaf() {
-            return children.isEmpty();
-        }
+        
+        return mapSubMenu;
     }
     
-    default Map<MainMenuCategory, List<MenuNode>> getMultilevelMenuNodes() {
-        return Collections.emptyMap();
+    @Override
+    public void onSelectSubMenuAction(String subMenuDisplayName) {
+        SceneContiner sc = SceneContiner.getInstance();
+        if (!sc.trans("WorkflowEditScene")) {
+            return;
+        }
+        sc.visibleArea("MenuPane", false);
+        sc.visibleArea("MenuPaneUnderlay", false);
+        sc.setComponent("AppBarPane", "AppBarCompo");
+        sc.setComponent("SideNaviPane", "WorkflowNaviCompo");
+        
+        Map<String, String> componentMap = new HashMap<>();
+        componentMap.put(LocaleUtils.getString("key.SubMenuTitle.Process"), "WorkEditCompo");
+        componentMap.put(LocaleUtils.getString("key.SubMenuTitle.OrderProcesses"), "WorkflowEditCompo");
+        componentMap.put(LocaleUtils.getString("key.SubMenuTitle.LiteOrderProcess"), "WorkflowEditLite");
+        
+        String component = componentMap.get(subMenuDisplayName);
+        if (Objects.nonNull(component)) {
+            sc.setComponent("ContentNaviPane", component);
+             
+        }
     }
 }
