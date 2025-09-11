@@ -123,16 +123,35 @@
                         <GridPane hgap="20.0" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" vgap="4.0" GridPane.rowIndex="3">
                             <columnConstraints>
                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
                             </columnConstraints>
                             <rowConstraints>
                                 <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
                                 <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
                             </rowConstraints>
                             <children>
-                                <Label styleClass="text-normal" text="%key.BackupDestination" />
-                                <TextField fx:id="backupDirField" editable="false" styleClass="text-normal" GridPane.rowIndex="1" />
-                                <Button fx:id="backupDirButton" minWidth="80.0" mnemonicParsing="false" onAction="#onBackupDirButton" prefHeight="35.0" styleClass="SimpleButton" text="%key.Change" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <Label styleClass="text-normal" text="%key.BackupDestination" GridPane.columnSpan="3" />
+                                <HBox alignment="CENTER_LEFT" spacing="10.0" GridPane.rowIndex="1" GridPane.columnSpan="3">
+                                    <children>
+                                        <RadioButton fx:id="localRadio" mnemonicParsing="false" text="%key.BackupDestination.Local">
+                                            <toggleGroup>
+                                                <ToggleGroup fx:id="backupDestGroup" />
+                                            </toggleGroup>
+                                        </RadioButton>
+                                        <RadioButton fx:id="networkRadio" mnemonicParsing="false" text="%key.BackupDesitination.Network" toggleGroup="$backupDestGroup" />
+                                    </children>
+                                </HBox>
+                                <Label text="%key.Folder" GridPane.rowIndex="2" />
+                                <TextField fx:id="backupDirField" editable="false" styleClass="text-normal" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                <Button fx:id="backupDirButton" minWidth="80.0" mnemonicParsing="false" onAction="#onBackupDirButton" prefHeight="35.0" styleClass="SimpleButton" text="%key.Change" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                <Label fx:id="backupUserLabel" text="%key.User" visible="false" managed="false" GridPane.rowIndex="3" />
+                                <TextField fx:id="backupUserField" styleClass="text-normal" visible="false" managed="false" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.columnSpan="2" />
+                                <Label fx:id="backupPasswordLabel" text="%key.Password" visible="false" managed="false" GridPane.rowIndex="4" />
+                                <PasswordField fx:id="backupPasswordField" styleClass="text-normal" visible="false" managed="false" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.columnSpan="2" />
                             </children>
                             <padding>
                                 <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />

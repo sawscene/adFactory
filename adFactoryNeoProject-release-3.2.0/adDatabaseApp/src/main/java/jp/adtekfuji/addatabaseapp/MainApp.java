@@ -1,7 +1,9 @@
 package jp.adtekfuji.addatabaseapp;
 
 import adtekfuji.utility.IniFile;
+import adtekfuji.utility.NetworkFileUtil;
 import adtekfuji.utility.PathUtils;
+import io.vavr.control.Either;
 import java.io.File;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
@@ -84,11 +86,34 @@ public class MainApp extends Application {
             if (argsList.contains("-backup")) {
                 try {
                     logger.info("Execute backup...");
+                    File targetDir;
+                    String backupDir = AdDatabaseConfig.getBackupDir();
+
+                    if ("NETWORK".equalsIgnoreCase(AdDatabaseConfig.getBackupDestType())) {
+                        Either<String, File> connect = NetworkFileUtil.connect(backupDir,
+                                AdDatabaseConfig.getBackupNetworkUser(), AdDatabaseConfig.getBackupNetworkPassword());
+                        if (connect.isRight()) {
+                            targetDir = connect.get();
+                            // ローカルに残っているバックアップを転送
+                            AdDatabaseUtils.transferLocalBackupFiles(targetDir);
+                        } else {
+                            File localDir = AdDatabaseUtils.getLocalBackupDir();
+                            logger.warn("Network backup unavailable: {}. Use local staging folder {}",
+                                    connect.getLeft(), localDir.getPath());
+                            targetDir = localDir;
+                        }
+                    } else {
+                        targetDir = new File(backupDir);
+                    }
 
                     // バックアップファイル生成
                     String nowDt = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
-                    String backupDir = AdDatabaseConfig.getBackupDir();
-                    File file = new File(backupDir, String.format("%s_%s.backup", PGContents.ADFACTORY_DB, nowDt));
+                    if (!targetDir.exists()) {
+                        targetDir.mkdirs();
+                    }
+                    File file = new File(targetDir, String.format("%s_%s.backup", PGContents.ADFACTORY_DB, nowDt));
+//                    String backupDir = AdDatabaseConfig.getBackupDir();
+//                    File file = new File(backupDir, String.format("%s_%s.backup", PGContents.ADFACTORY_DB, nowDt));
                     
                     String filePath = file.getPath();
                     if (!updateManager.backupData(filePath)) {
@@ -98,7 +123,8 @@ public class MainApp extends Application {
                     }
 
                     // バックアップファイルの上限数を超えている場合、古いファイルを削除する。
-                    AdDatabaseUtils.deleteOldBackupFiles(backupDir);
+//                    AdDatabaseUtils.deleteOldBackupFiles(backupDir);
+                    AdDatabaseUtils.deleteOldBackupFiles(targetDir.getPath());
 
                 } catch (Exception ex) {
                     logger.fatal(ex, ex);

@@ -5,6 +5,8 @@
  */
 package jp.adtekfuji.addatabaseapp.component;
 
+import adtekfuji.utility.NetworkFileUtil;
+import io.vavr.control.Either;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -27,7 +29,11 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputDialog;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.DirectoryChooser;
@@ -61,6 +67,20 @@ public class DatabaseMaintenanceFxController implements Initializable {
     private ListView databaseInfoList;
     @FXML
     private TextField backupDirField;
+    @FXML
+    private RadioButton localRadio;
+    @FXML
+    private RadioButton networkRadio;
+    @FXML
+    private ToggleGroup backupDestGroup;
+    @FXML
+    private TextField backupUserField;
+    @FXML
+    private PasswordField backupPasswordField;
+    @FXML
+    private Label backupUserLabel;
+    @FXML
+    private Label backupPasswordLabel;
     @FXML
     private Label lastMainteDateLabel;
     @FXML
@@ -103,8 +123,39 @@ public class DatabaseMaintenanceFxController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         blockUI(false);
 
-        this.backupDirField.setText(AdDatabaseConfig.getBackupDir());// 既定のバックアップ先
+        this.backupUserField.setText(AdDatabaseConfig.getBackupNetworkUser());
+        this.backupPasswordField.setText(AdDatabaseConfig.getBackupNetworkPassword());
 
+        String destType = AdDatabaseConfig.getBackupDestType();
+        if ("NETWORK".equalsIgnoreCase(destType)) {
+            this.networkRadio.setSelected(true);
+            this.backupDirField.setText(AdDatabaseConfig.getBackupNetworkDir());
+        } else {
+            this.localRadio.setSelected(true);
+            this.backupDirField.setText(AdDatabaseConfig.getBackupLocalDir());
+        }
+
+        this.backupUserField.managedProperty().bind(this.backupUserField.visibleProperty());
+        this.backupPasswordField.managedProperty().bind(this.backupPasswordField.visibleProperty());
+        this.backupUserLabel.managedProperty().bind(this.backupUserLabel.visibleProperty());
+        this.backupPasswordLabel.managedProperty().bind(this.backupPasswordLabel.visibleProperty());
+
+        this.backupUserField.textProperty().addListener((o, ov, nv) -> AdDatabaseConfig.setBackupNetworkUser(nv));
+        this.backupPasswordField.textProperty().addListener((o, ov, nv) -> AdDatabaseConfig.setBackupNetworkPassword(nv));
+
+        this.backupDestGroup.selectedToggleProperty().addListener((obs, oldT, newT) -> {
+            if (this.localRadio.isSelected()) {
+                AdDatabaseConfig.setBackupDestType("LOCAL");
+                this.backupDirField.setText(AdDatabaseConfig.getBackupLocalDir());
+            } else {
+                AdDatabaseConfig.setBackupDestType("NETWORK");
+                this.backupDirField.setText(AdDatabaseConfig.getBackupNetworkDir());
+            }
+            toggleNetworkFields();
+        });
+
+        toggleNetworkFields();
+        
         this.loadScheduleSetting();
         if (!this.lastMaintenanceDate.isEmpty()) {
             this.lastMainteDateLabel.setText(this.lastMaintenanceDate);
@@ -120,6 +171,14 @@ public class DatabaseMaintenanceFxController implements Initializable {
         }
 
         this.dispDatabaseInfo();
+    }
+    
+    private void toggleNetworkFields() {
+        boolean network = this.networkRadio.isSelected();
+        this.backupUserLabel.setVisible(network);
+        this.backupUserField.setVisible(network);
+        this.backupPasswordLabel.setVisible(network);
+        this.backupPasswordField.setVisible(network);
     }
 
     /**
@@ -163,15 +222,44 @@ public class DatabaseMaintenanceFxController implements Initializable {
         blockUI(true);
         try {
             // フォルダ選択ダイアログ
-            DirectoryChooser dc = new DirectoryChooser();
-            File fol = new File(this.backupDirField.getText());
-            if (fol.exists() && fol.isDirectory()) {
-                dc.setInitialDirectory(fol);
+//            DirectoryChooser dc = new DirectoryChooser();
+//            File fol = new File(this.backupDirField.getText());
+//            if (fol.exists() && fol.isDirectory()) {
+//                dc.setInitialDirectory(fol);
+//            }
+            String selectedPath = null;
+            if (this.localRadio.isSelected()) {
+                // フォルダ選択ダイアログ
+                DirectoryChooser dc = new DirectoryChooser();
+                File fol = new File(this.backupDirField.getText());
+                if (fol.exists() && fol.isDirectory()) {
+                    dc.setInitialDirectory(fol);
+                }
+                File selectedFile = dc.showDialog(this.getWindow());
+                if (selectedFile != null) {
+                    selectedPath = selectedFile.getPath();
+                }
+            } else {
+                TextInputDialog dlg = new TextInputDialog(this.backupDirField.getText());
+                dlg.setTitle(LocaleUtils.getString("key.NetworkPath"));
+                dlg.setHeaderText(null);
+                dlg.setContentText(LocaleUtils.getString("key.NetworkPath"));
+                selectedPath = dlg.showAndWait().orElse(null);
             }
-            File selectedFile = dc.showDialog(this.getWindow());
-            if (selectedFile != null) {
-                this.backupDirField.setText(selectedFile.getPath());
-                AdDatabaseConfig.setDBackupDir(selectedFile.getPath());
+//            File selectedFile = dc.showDialog(this.getWindow());
+//            if (selectedFile != null) {
+//                this.backupDirField.setText(selectedFile.getPath());
+//                AdDatabaseConfig.setDBackupDir(selectedFile.getPath());
+//            }
+            if (selectedPath != null) {
+                this.backupDirField.setText(selectedPath);
+                if (this.localRadio.isSelected()) {
+                    AdDatabaseConfig.setBackupLocalDir(selectedPath);
+                    AdDatabaseConfig.setBackupDestType("LOCAL");
+                } else {
+                    AdDatabaseConfig.setBackupNetworkDir(selectedPath);
+                    AdDatabaseConfig.setBackupDestType("NETWORK");
+                }
             }
         } catch (Exception ex) {
             logger.fatal(ex, ex);
@@ -179,6 +267,29 @@ public class DatabaseMaintenanceFxController implements Initializable {
             this.dispDatabaseInfo();
             blockUI(false);
         }
+    }
+
+    /**
+     * バックアップ先がネットワークフォルダの場合は接続を確認し、接続できたパスを返却する。
+     * 接続に失敗した場合はメッセージを表示してUIを解除する。
+     *
+     * @param dir チェックするディレクトリ
+     * @param title エラーダイアログのタイトル
+     * @return 接続後のディレクトリ。エラー時はnull
+     */
+    private String prepareBackupDir(String dir, String title) {
+        if ("NETWORK".equals(AdDatabaseConfig.getBackupDestType())) {
+            Either<String, File> result = NetworkFileUtil.connect(dir,
+                    AdDatabaseConfig.getBackupNetworkUser(),
+                    AdDatabaseConfig.getBackupNetworkPassword());
+            if (result.isLeft()) {
+                showAlert(title, result.getLeft(), Alert.AlertType.ERROR);
+                blockUI(false);
+                return null;
+            }
+            dir = result.get().getPath();
+        }
+        return dir;
     }
 
     /**
@@ -193,6 +304,11 @@ public class DatabaseMaintenanceFxController implements Initializable {
             // 既定のバックアップ先
             String dir = this.backupDirField.getText();
             if (Objects.isNull(dir) || dir.isEmpty()) {
+                return;
+            }
+
+            dir = prepareBackupDir(this.backupDirField.getText(), LocaleUtils.getString("key.Backup"));
+            if (dir == null) {
                 return;
             }
 
@@ -231,7 +347,7 @@ public class DatabaseMaintenanceFxController implements Initializable {
         blockUI(true);
         try {
             // 既定のバックアップ先
-            String dir = this.backupDirField.getText();
+            String dir = prepareBackupDir(this.backupDirField.getText(), LocaleUtils.getString("key.Backup"));
             if (Objects.isNull(dir) || dir.isEmpty()) {
                 return;
             }
@@ -271,7 +387,7 @@ public class DatabaseMaintenanceFxController implements Initializable {
         blockUI(true);
         try {
             // 既定のバックアップ先
-            String dir = this.backupDirField.getText();
+            String dir = prepareBackupDir(this.backupDirField.getText(), LocaleUtils.getString("key.Backup"));
             if (Objects.isNull(dir) || dir.isEmpty()) {
                 return;
             }
