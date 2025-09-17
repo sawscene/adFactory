@@ -6,17 +6,13 @@
 package adtekfuji.admanagerapp.kanbaneditplugin;
 
 import adtekfuji.admanagerapp.kanbaneditplugin.common.KanbanEditConfig;
-import adtekfuji.admanagerapp.kanbaneditplugin.scene.SceneFxController;
 import adtekfuji.clientservice.ClientServiceProperty;
 import adtekfuji.fxscene.SceneContiner;
 import adtekfuji.locale.LocaleUtils;
 import adtekfuji.property.AdProperty;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Enumeration;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
 import jp.adtekfuji.adFactory.enumerate.LicenseOptionType;
@@ -46,32 +42,7 @@ public class AdManagerAppKanbanPluginMenu implements AdManagerAppMainMenuInterfa
     public Integer getDisplayOrder() {
         return DisplayCategoryOrder.MIDDLE_PRIORITY.getOrder() + 1;
     }
-    
-    
-//    @Override
-//    public MainMenuCategory getMainMenuCategory() {
-//        return MainMenuCategory.OPERATION;
-//    }
-    
-    @Override
-    public Map<MainMenuCategory, List<String>> getSubMenuDisplayNames() { 
-        Map<MainMenuCategory, List<String>> map = new HashMap<>();
-        
-        boolean isKanbanEditor = ClientServiceProperty.isLicensed(LicenseOptionType.KanbanEditor.getName());
-        boolean isLiteOption = ClientServiceProperty.isLicensed(LicenseOptionType.LiteOption.getName());   
-        
-        if (isKanbanEditor) {
-            map.put(MainMenuCategory.OPERATION, Arrays.asList(LocaleUtils.getString("key.SubMenuTitle.Kanban")));
-        }
-        if (KanbanEditConfig.isUseKanbanImport()) {
-            map.put(MainMenuCategory.UNUSED_MENU_CATEGORY, Arrays.asList(LocaleUtils.getString("key.SubMenuTitle.Kanban")));
-        }
-        if (isLiteOption) {
-            map.put(MainMenuCategory.LITE, Arrays.asList(LocaleUtils.getString("key.SubMenuTitle.LiteKanbanTitle")));
-        }
-        return map;
-    }
-    
+
     @Override
     public void onSelectMenuAction() {
         SceneContiner sc = SceneContiner.getInstance();
@@ -96,29 +67,6 @@ public class AdManagerAppKanbanPluginMenu implements AdManagerAppMainMenuInterfa
             } else if (isLiteOption) {
                 sc.setComponent("ContentNaviPane", "LiteKanbanListCompo");// Liteカンバン編集画面
             }
-        }
-    }
-
-    @Override
-    public void onSelectSubMenuAction(String displayName) {
-        SceneContiner sc = SceneContiner.getInstance();
-        if (!sc.trans("KanbanEditScene")) {
-            return;
-        }
-        sc.visibleArea("MenuPane", false);
-        sc.visibleArea("MenuPaneUnderlay", false);
-        sc.setComponent("AppBarPane", "AppBarCompo");
-
-        String editName = LocaleUtils.getString("key.SubMenuTitle.Kanban");
-        String importName = LocaleUtils.getString("key.SubMenuTitle.KanbanImport");
-        String liteName = LocaleUtils.getString("key.SubMenuTitle.LiteKanbanTitle");
-
-        if (editName.equals(displayName)) {
-            sc.setComponent("ContentNaviPane", "KanbanListCompo");
-        } else if (importName.equals(displayName)) {
-            sc.setComponent("ContentNaviPane", "KanbanImportCompo");
-        } else if (liteName.equals(displayName)) {
-            sc.setComponent("ContentNaviPane", "LiteKanbanListCompo");
         }
     }
 
