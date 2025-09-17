@@ -5,17 +5,13 @@
  */
 package adtekfuji.admanagerapp.chartplugin;
 
-import adtekfuji.admanagerapp.chartplugin.controller.MainSceneController;
 import adtekfuji.fxscene.SceneContiner;
 import adtekfuji.locale.LocaleUtils;
 import adtekfuji.property.AdProperty;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Enumeration;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
 import java.util.ResourceBundle;
@@ -32,8 +28,7 @@ import jp.adtekfuji.adFactory.plugin.AdManagerAppMainMenuInterface;
 public class AdManagerChartPluginMenu implements AdManagerAppMainMenuInterface {
 
     private final Properties properties = AdProperty.getProperties();
-    
-    
+
     @Override
     public String getDisplayName() {
         ResourceBundle rb = LocaleUtils.getBundle("locale.locale");
@@ -49,47 +44,6 @@ public class AdManagerChartPluginMenu implements AdManagerAppMainMenuInterface {
     @Override
     public Integer getDisplayOrder() {
         return DisplayCategoryOrder.MIDDLE_PRIORITY.getOrder();
-    }
-    
-    
-    @Override
-    public Map<MainMenuCategory, List<MenuNode>> getMultilevelMenuNodes() {
-        Map<MainMenuCategory, List<MenuNode>> nodeMap = new HashMap<>();
-        List<MenuNode> resultNodes = new ArrayList<>();
-        
-        List<MenuNode> analysisChildren = new ArrayList<>();
-        analysisChildren.add(new MenuNode(LocaleUtils.getString("key.SubMenuTitle.TimeLine"), null)); // Timeline
-        analysisChildren.add(new MenuNode(LocaleUtils.getString("key.SubMenuTitle.KanbanTotalWorkTime"), null)); // Total Work Time
-        analysisChildren.add(new MenuNode(LocaleUtils.getString("key.SubMenuTitle.ProcessAverageWorkTime"), null)); // Average Work Time: Process
-        analysisChildren.add(new MenuNode(LocaleUtils.getString("key.SubMenuTitle.WorkerAverageWorkTime"), null)); // Average Work Time: Worker
-        resultNodes.add(new MenuNode(LocaleUtils.getString("key.SubMenuTitle.AnalysisTitle"), analysisChildren)); // Analysis with children
-        nodeMap.put(MainMenuCategory.RESULT, resultNodes);
-
-        return nodeMap;
-    }
-    
-    @Override
-    public void onSelectSubMenuAction(String subMenuDisplayName) {
-        SceneContiner sc = SceneContiner.getInstance();
-        sc.trans("ChartMainScene");
-        sc.visibleArea("MenuPane", false);
-        sc.visibleArea("MenuPaneUnderlay", false);
-        
-        final String timeLine = LocaleUtils.getString("key.SubMenuTitle.TimeLine");
-        final String totalWorkTime = LocaleUtils.getString("key.SubMenuTitle.KanbanTotalWorkTime");
-        final String averageWorkTimeProcess = LocaleUtils.getString("key.SubMenuTitle.ProcessAverageWorkTime");
-        final String averageWorkTimeWorker = LocaleUtils.getString("key.SubMenuTitle.WorkerAverageWorkTime");
-        
-        
-        if (timeLine.equals(subMenuDisplayName)) {
-            //TODO  
-        } else if (totalWorkTime.equals(subMenuDisplayName)) {
-            //TODO
-        } else if (averageWorkTimeProcess.equals(subMenuDisplayName)) {
-           //TODO
-        } else if (averageWorkTimeWorker.equals(subMenuDisplayName)) {
-            //TODO
-        }
     }
 
     @Override
@@ -124,5 +78,5 @@ public class AdManagerChartPluginMenu implements AdManagerAppMainMenuInterface {
                 this.properties.setProperty(propertyName, propertyValue);
             }
         }
-    }    
+    }
 }
