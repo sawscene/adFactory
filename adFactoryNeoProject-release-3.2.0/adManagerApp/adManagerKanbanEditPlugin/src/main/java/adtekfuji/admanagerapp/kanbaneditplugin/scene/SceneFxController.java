@@ -39,17 +39,9 @@ public class SceneFxController implements Initializable {
     @FXML
     @ComponentArea
     private AnchorPane MenuPaneUnderlay;
-    @FXML
-    @ComponentArea
-    private SplitPane MainSceneSplitPane;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         sc.setComponent(MenuPane, "MainMenuCompo");
     }
-
-    public void hideSideNaviPane() {
-         MainSceneSplitPane.getItems().remove(SideNaviPane);
-    }
-
 }
