@@ -5,6 +5,7 @@
  */
 package adtekfuji.admanagerapp.kanbaneditplugin.scene;
 
+import adtekfuji.fxscene.ArgumentDelivery;
 import adtekfuji.fxscene.ComponentArea;
 import adtekfuji.fxscene.FxScene;
 import adtekfuji.fxscene.SceneContiner;
@@ -12,6 +13,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.SplitPane;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -20,9 +22,11 @@ import javafx.scene.layout.AnchorPane;
  * @author e.mori
  */
 @FxScene(id = "KanbanEditScene", fxmlPath = "/fxml/scene/kanban_edit_scene.fxml")
-public class SceneFxController implements Initializable {
+public class SceneFxController implements Initializable, ArgumentDelivery  {
 
     private final SceneContiner sc = SceneContiner.getInstance();
+    
+    SceneFxController sceneFxController;
 
     @FXML
     @ComponentArea
@@ -39,9 +43,21 @@ public class SceneFxController implements Initializable {
     @FXML
     @ComponentArea
     private AnchorPane MenuPaneUnderlay;
+    @FXML
+    @ComponentArea
+    private SplitPane MainSceneSplitPane;
+    
+    @Override
+    public void setArgument(Object argument) {
+        
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         sc.setComponent(MenuPane, "MainMenuCompo");
     }
+    
+    public void hideSideNaviPane() {
+         MainSceneSplitPane.getItems().remove(SideNaviPane);
+    } 
 }
